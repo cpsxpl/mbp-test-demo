@@ -18,7 +18,7 @@ import java.util.List;
  * 数据权限的自动配置类
  */
 @AutoConfiguration
-public class DataPermissionAutoConfiguration {
+public class MbpDataPermissionAutoConfiguration {
 
     @Bean
     public DataPermissionRuleFactory dataPermissionRuleFactory(List<DataPermissionRule> dataPermissionRuleList) {
