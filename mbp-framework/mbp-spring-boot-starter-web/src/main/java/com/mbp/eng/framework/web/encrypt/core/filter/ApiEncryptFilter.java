@@ -30,13 +30,13 @@ import java.io.IOException;
 import static com.mbp.eng.framework.common.exception.util.ServiceExceptionUtil.invalidParamException;
 
 /**
- * API 加密过滤器，处理 {@link ApiEncrypt} 注解。
+ * API 加密过滤器,处理 {@link ApiEncrypt} 注解。
  * <p>
  * 1. 解密请求参数
  * 2. 加密响应结果
  * <p>
  * 疑问：为什么不使用 SpringMVC 的 RequestBodyAdvice 或 ResponseBodyAdvice 机制呢？
- * 回答：考虑到项目中会记录访问日志、异常日志，以及 HTTP API 签名等场景，最好是全局级、且提前做解析！！！
+ * 回答：考虑到项目中会记录访问日志、异常日志,以及 HTTP API 签名等场景,最好是全局级、且提前做解析！！！
  */
 @Slf4j
 public class ApiEncryptFilter extends ApiRequestFilter {
@@ -72,7 +72,7 @@ public class ApiEncryptFilter extends ApiRequestFilter {
             this.responseSymmetricEncryptor = null;
             this.responseAsymmetricEncryptor = SecureUtil.rsa(null, apiEncryptProperties.getResponseKey());
         } else {
-            // 补充说明：如果要支持 SM2、SM4 等算法，可在此处增加对应实例的创建，并添加相应的 Maven 依赖即可。
+            // 补充说明：如果要支持 SM2、SM4 等算法,可在此处增加对应实例的创建,并添加相应的 Maven 依赖即可。
             throw new IllegalArgumentException("不支持的加密算法：" + apiEncryptProperties.getAlgorithm());
         }
     }
@@ -99,7 +99,7 @@ public class ApiEncryptFilter extends ApiRequestFilter {
                     request = new ApiDecryptRequestWrapper(request,
                             requestSymmetricDecryptor, requestAsymmetricDecryptor);
                 } else if (requestEnable) {
-                    throw invalidParamException("请求未包含加密标头，请检查是否正确配置了加密标头");
+                    throw invalidParamException("请求未包含加密标头,请检查是否正确配置了加密标头");
                 }
             } catch (Exception ex) {
                 CommonResult<?> result = globalExceptionHandler.allExceptionHandler(request, ex);
@@ -110,7 +110,7 @@ public class ApiEncryptFilter extends ApiRequestFilter {
 
         // 2. 执行过滤器链
         if (responseEnable) {
-            // 特殊：仅包装，最后执行。目的：Response 内容可以被重复读取！！！
+            // 特殊：仅包装,最后执行。目的：Response 内容可以被重复读取！！！
             response = new ApiEncryptResponseWrapper(response);
         }
         chain.doFilter(request, response);

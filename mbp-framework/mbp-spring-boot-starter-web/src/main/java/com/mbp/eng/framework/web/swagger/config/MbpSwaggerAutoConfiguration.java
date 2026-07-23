@@ -34,17 +34,17 @@ import java.util.Optional;
 import static com.mbp.eng.framework.web.core.util.WebFrameworkUtils.HEADER_TENANT_ID;
 
 /**
- * Swagger 自动配置类，基于 OpenAPI + Springdoc 实现。
+ * Swagger 自动配置类,基于 OpenAPI + Springdoc 实现。
  * <p>
  * 友情提示：
  * 1. Springdoc 文档地址：<a href="https://github.com/springdoc/springdoc-openapi">仓库</a>
- * 2. Swagger 规范，于 2015 更名为 OpenAPI 规范，本质是一个东西
+ * 2. Swagger 规范,于 2015 更名为 OpenAPI 规范,本质是一个东西
  */
 @AutoConfiguration(before = Knife4jAutoConfiguration.class)
 @ConditionalOnClass({OpenAPI.class})
 @EnableConfigurationProperties(SwaggerProperties.class)
 @ConditionalOnProperty(prefix = "springdoc.api-docs", name = "enabled", havingValue = "true", matchIfMissing = true)
-// 设置为 false 时，禁用
+// 设置为 false 时,禁用
 @Import(Knife4jOpenApiCustomizer.class)
 public class MbpSwaggerAutoConfiguration {
 
@@ -76,7 +76,7 @@ public class MbpSwaggerAutoConfiguration {
     }
 
     /**
-     * 安全模式，这里配置通过请求头 Authorization 传递 token 参数
+     * 安全模式,这里配置通过请求头 Authorization 传递 token 参数
      */
     private Map<String, SecurityScheme> buildSecuritySchemes() {
         Map<String, SecurityScheme> securitySchemes = new HashMap<>();
@@ -92,7 +92,7 @@ public class MbpSwaggerAutoConfiguration {
      * 自定义 OpenAPI 处理器
      */
     @Bean
-    @Primary // 目的：以我们创建的 OpenAPIService Bean 为主，避免一键改包后，启动报错！
+    @Primary // 目的：以我们创建的 OpenAPIService Bean 为主,避免一键改包后,启动报错！
     public OpenAPIService openApiBuilder(Optional<OpenAPI> openAPI,
                                          SecurityService securityParser,
                                          SpringDocConfigProperties springDocConfigProperties,
@@ -155,13 +155,13 @@ public class MbpSwaggerAutoConfiguration {
     }
 
     /**
-     * 核心：自定义OperationId生成规则，组合「类名前缀 + 方法名」
+     * 核心：自定义OperationId生成规则,组合「类名前缀 + 方法名」
      */
     private static OperationCustomizer buildOperationIdCustomizer() {
         return (operation, handlerMethod) -> {
             // 1. 获取控制器类名（如 UserController）
             String className = handlerMethod.getBeanType().getSimpleName();
-            // 2. 提取类名前缀（去除 Controller 后缀，如 UserController -> User）
+            // 2. 提取类名前缀（去除 Controller 后缀,如 UserController -> User）
             String classPrefix = className.replaceAll("Controller$", "");
             // 3. 获取方法名（如 list）
             String methodName = handlerMethod.getMethod().getName();

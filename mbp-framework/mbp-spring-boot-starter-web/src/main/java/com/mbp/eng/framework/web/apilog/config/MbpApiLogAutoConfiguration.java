@@ -20,7 +20,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MbpApiLogAutoConfiguration implements WebMvcConfigurer {
 
     /**
-     * 创建 ApiAccessLogFilter Bean，记录 API 请求日志
+     * 创建 ApiAccessLogFilter Bean,记录 API 请求日志
      */
     @Bean
     @ConditionalOnProperty(prefix = "mbp.access-log", value = "enable", matchIfMissing = true) // 允许使用 mbp.access-log.enable=false 禁用访问日志

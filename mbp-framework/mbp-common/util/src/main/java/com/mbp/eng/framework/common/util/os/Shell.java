@@ -42,7 +42,7 @@ public class Shell {
     public static String enterCharacter = BACKSLASH_R;
     public static final int SSH_PORT = 22;
 
-    //正则匹配，用于处理服务器返回的结果
+    //正则匹配,用于处理服务器返回的结果
     public static String[] linuxPromptRegEx = new String[]{"~]#", "~#", "#",
             ":~#", "/$", ">"};
 
@@ -86,7 +86,7 @@ public class Shell {
         return buffer.toString();
     }
 
-    //获得Expect4j对象，该对用可以往SSH发送命令请求
+    //获得Expect4j对象,该对用可以往SSH发送命令请求
     private Expect4j getExpect() {
         try {
             logger.debug(String.format("Start logging to %s@%s:%s", user, ip, port));
@@ -115,11 +115,11 @@ public class Shell {
     /**
      * 执行配置命令
      *
-     * @param commands 要执行的命令，为字符数组
+     * @param commands 要执行的命令,为字符数组
      * @return 执行是否成功
      */
     public boolean executeCommands(String[] commands) {
-        //如果expect返回为0，说明登入没有成功
+        //如果expect返回为0,说明登入没有成功
         if (expect == null) {
             return false;
         }

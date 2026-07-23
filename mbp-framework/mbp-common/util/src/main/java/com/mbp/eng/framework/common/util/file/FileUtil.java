@@ -60,7 +60,7 @@ public class FileUtil {
     }
 
     /**
-     * 替换文件路径的分隔符，以适应不同的操作系统，window："\"，Linux：“/”
+     * 替换文件路径的分隔符,以适应不同的操作系统,window："\",Linux：“/”
      *
      * @param dir
      * @return
@@ -70,10 +70,10 @@ public class FileUtil {
     }
 
     /**
-     * 替换文件路径的分隔符，以适应不同的操作系统，window："\"，Linux：“/”
+     * 替换文件路径的分隔符,以适应不同的操作系统,window："\",Linux：“/”
      *
      * @param dir
-     * @param isFillSep 如果路径的末尾没有路径分隔符，是否补充路径分隔符，比如：补充前为：d:\dir，补充后为d:\dir\
+     * @param isFillSep 如果路径的末尾没有路径分隔符,是否补充路径分隔符,比如：补充前为：d:\dir,补充后为d:\dir\
      * @return
      */
     public static String handleDir(String dir, boolean isFillSep) {
@@ -99,12 +99,12 @@ public class FileUtil {
     /**
      * 加载properties文件
      *
-     * @param path 类路径，比如：xx/xx/xx.properties，或者文件路径，比如：d:/file/xx.properties
+     * @param path 类路径,比如：xx/xx/xx.properties,或者文件路径,比如：d:/file/xx.properties
      * @return
      */
     public static Properties loadProperties(String path) {
         if (path == null || path.lastIndexOf(".properties") != (path.length() - 11)) {
-            throw new IllegalArgumentException("请传入正确的properties文件路径!，path=" + path);
+            throw new IllegalArgumentException("请传入正确的properties文件路径!,path=" + path);
         }
 
         Properties properties = new Properties();

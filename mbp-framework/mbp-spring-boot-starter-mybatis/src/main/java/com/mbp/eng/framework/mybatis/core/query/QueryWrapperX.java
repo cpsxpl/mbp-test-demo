@@ -10,9 +10,9 @@ import org.springframework.util.StringUtils;
 import java.util.Collection;
 
 /**
- * 拓展 MyBatis Plus QueryWrapper 类，主要增加如下功能：
+ * 拓展 MyBatis Plus QueryWrapper 类,主要增加如下功能：
  * <p>
- * 1. 拼接条件的方法，增加 xxxIfPresent 方法，用于判断值不存在的时候，不要拼接到条件中。
+ * 1. 拼接条件的方法,增加 xxxIfPresent 方法,用于判断值不存在的时候,不要拼接到条件中。
  *
  * @param <T> 数据类型
  */
@@ -114,7 +114,7 @@ public class QueryWrapperX<T> extends QueryWrapper<T> {
         return this;
     }
 
-    // ========== 重写父类方法，方便链式调用 ==========
+    // ========== 重写父类方法,方便链式调用 ==========
 
     @Override
     public QueryWrapperX<T> eq(boolean condition, String column, Object val) {
@@ -162,7 +162,7 @@ public class QueryWrapperX<T> extends QueryWrapper<T> {
                 break;
             case SQL_SERVER:
             case SQL_SERVER2005:
-                super.select("TOP " + n + " *"); // 由于 SQL Server 是通过 SELECT TOP 1 实现限制一条，所以只好使用 * 查询剩余字段
+                super.select("TOP " + n + " *"); // 由于 SQL Server 是通过 SELECT TOP 1 实现限制一条,所以只好使用 * 查询剩余字段
                 break;
             default: // MySQL、PostgreSQL、DM 达梦、KingbaseES 大金都是采用 LIMIT 实现
                 super.last("LIMIT " + n);

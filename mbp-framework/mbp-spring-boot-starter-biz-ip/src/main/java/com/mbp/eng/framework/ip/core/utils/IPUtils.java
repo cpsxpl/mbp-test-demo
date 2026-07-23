@@ -17,7 +17,7 @@ import org.lionsoul.ip2region.xdb.Searcher;
 public class IPUtils {
 
     /**
-     * IP 查询器，启动加载到内存中
+     * IP 查询器,启动加载到内存中
      */
     private static Searcher SEARCHER;
 
@@ -33,7 +33,7 @@ public class IPUtils {
             long now = System.currentTimeMillis();
             byte[] bytes = ResourceUtil.readBytes("ip2region.xdb");
             SEARCHER = Searcher.newWithBuffer(bytes);
-            log.info("启动加载 IPUtils 成功，耗时 ({}) 毫秒", System.currentTimeMillis() - now);
+            log.info("启动加载 IPUtils 成功,耗时 ({}) 毫秒", System.currentTimeMillis() - now);
         } catch (Exception e) {
             throw new RuntimeException("IPUtils 初始化失败", e);
         }
@@ -42,7 +42,7 @@ public class IPUtils {
     /**
      * 查询 IP 对应的地区编号
      *
-     * @param ip IP 地址，格式为 127.0.0.1
+     * @param ip IP 地址,格式为 127.0.0.1
      * @return 地区id
      */
     @SneakyThrows
@@ -53,7 +53,7 @@ public class IPUtils {
     /**
      * 查询 IP 对应的地区编号
      *
-     * @param ip IP 地址的时间戳，格式参考{@link Searcher#checkIP(String)} 的返回
+     * @param ip IP 地址的时间戳,格式参考{@link Searcher#checkIP(String)} 的返回
      * @return 地区编号
      */
     @SneakyThrows
@@ -64,7 +64,7 @@ public class IPUtils {
     /**
      * 查询 IP 对应的地区
      *
-     * @param ip IP 地址，格式为 127.0.0.1
+     * @param ip IP 地址,格式为 127.0.0.1
      * @return 地区
      */
     public static Area getArea(String ip) {
@@ -74,7 +74,7 @@ public class IPUtils {
     /**
      * 查询 IP 对应的地区
      *
-     * @param ip IP 地址的时间戳，格式参考{@link Searcher#checkIP(String)} 的返回
+     * @param ip IP 地址的时间戳,格式参考{@link Searcher#checkIP(String)} 的返回
      * @return 地区
      */
     public static Area getArea(long ip) {

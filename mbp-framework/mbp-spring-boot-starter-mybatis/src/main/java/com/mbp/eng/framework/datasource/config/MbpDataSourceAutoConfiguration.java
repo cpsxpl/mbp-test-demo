@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class MbpDataSourceAutoConfiguration {
 
     /**
-     * 创建 DruidAdRemoveFilter 过滤器，过滤 common.js 的广告
+     * 创建 DruidAdRemoveFilter 过滤器,过滤 common.js 的广告
      */
     @Bean
     @ConditionalOnProperty(name = "spring.datasource.druid.stat-view-servlet.enabled", havingValue = "true")

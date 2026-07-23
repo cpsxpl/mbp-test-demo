@@ -25,9 +25,9 @@ public class ServletUtils {
      * 返回 JSON 字符串
      *
      * @param response 响应
-     * @param object   对象，会序列化成 JSON 字符串
+     * @param object   对象,会序列化成 JSON 字符串
      */
-    @SuppressWarnings("deprecation") // 必须使用 APPLICATION_JSON_UTF8_VALUE，否则会乱码
+    @SuppressWarnings("deprecation") // 必须使用 APPLICATION_JSON_UTF8_VALUE,否则会乱码
     public static void writeJSON(HttpServletResponse response, Object object) {
         String content = JsonUtils.toJsonString(object);
         ServletUtil.write(response, content, MediaType.APPLICATION_JSON_UTF8_VALUE);
@@ -91,7 +91,7 @@ public class ServletUtils {
     }
 
     public static String getBody(HttpServletRequest request) {
-        // 只有在 json 请求在读取，因为只有 CacheRequestBodyFilter 才会进行缓存，支持重复读取
+        // 只有在 json 请求在读取,因为只有 CacheRequestBodyFilter 才会进行缓存,支持重复读取
         if (isJsonRequest(request)) {
             return ServletUtil.getBody(request);
         }
@@ -99,7 +99,7 @@ public class ServletUtils {
     }
 
     public static byte[] getBodyBytes(HttpServletRequest request) {
-        // 只有在 json 请求在读取，因为只有 CacheRequestBodyFilter 才会进行缓存，支持重复读取
+        // 只有在 json 请求在读取,因为只有 CacheRequestBodyFilter 才会进行缓存,支持重复读取
         if (isJsonRequest(request)) {
             return ServletUtil.getBodyBytes(request);
         }

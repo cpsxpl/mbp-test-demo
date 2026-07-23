@@ -25,7 +25,7 @@ public class DataPermissionUtils {
     }
 
     /**
-     * 忽略数据权限，执行对应的逻辑
+     * 忽略数据权限,执行对应的逻辑
      *
      * @param runnable 逻辑
      */
@@ -40,7 +40,7 @@ public class DataPermissionUtils {
     }
 
     /**
-     * 忽略数据权限，执行对应的逻辑
+     * 忽略数据权限,执行对应的逻辑
      *
      * @param callable 逻辑
      * @return 执行结果

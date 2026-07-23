@@ -46,7 +46,7 @@ public class CommondHelper {
                 //使用多个命令用分号隔开
                 //ssh.execCommand("pwd;cd /tmp;mkdir hb;ls;ps -ef|grep weblogic");
                 session.execCommand(command);
-                //只允许使用一行命令，即ssh对象只能使用一次execCommand这个方法，多次使用则会出现异常
+                //只允许使用一行命令,即ssh对象只能使用一次execCommand这个方法,多次使用则会出现异常
                 //ssh.execCommand("mkdir hb");
                 //将屏幕上的文字全部打印出来
                 InputStream inputStream = new StreamGobbler(session.getStdout());

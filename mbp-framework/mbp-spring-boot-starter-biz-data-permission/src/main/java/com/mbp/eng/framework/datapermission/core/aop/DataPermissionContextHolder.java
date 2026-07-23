@@ -13,7 +13,7 @@ import java.util.List;
 public class DataPermissionContextHolder {
 
     /**
-     * 使用 List 的原因，可能存在方法的嵌套调用
+     * 使用 List 的原因,可能存在方法的嵌套调用
      */
     private static final ThreadLocal<LinkedList<DataPermission>> DATA_PERMISSIONS =
             TransmittableThreadLocal.withInitial(LinkedList::new);
@@ -43,7 +43,7 @@ public class DataPermissionContextHolder {
      */
     public static DataPermission remove() {
         DataPermission dataPermission = DATA_PERMISSIONS.get().removeLast();
-        // 无元素时，清空 ThreadLocal
+        // 无元素时,清空 ThreadLocal
         if (DATA_PERMISSIONS.get().isEmpty()) {
             DATA_PERMISSIONS.remove();
         }

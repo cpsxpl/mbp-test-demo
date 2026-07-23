@@ -26,7 +26,7 @@ public class ApiDecryptRequestWrapper extends HttpServletRequestWrapper {
                                     SymmetricDecryptor symmetricDecryptor,
                                     AsymmetricDecryptor asymmetricDecryptor) throws IOException {
         super(request);
-        // 读取 body，允许 HEX、BASE64 传输
+        // 读取 body,允许 HEX、BASE64 传输
         String requestBody = StrUtil.utf8Str(
                 IoUtil.readBytes(request.getInputStream(), false));
 

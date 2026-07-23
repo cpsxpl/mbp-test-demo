@@ -17,7 +17,7 @@ public class BannerApplicationRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         ThreadUtil.execute(() -> {
-            ThreadUtil.sleep(1, TimeUnit.SECONDS); // 延迟 1 秒，保证输出到结尾
+            ThreadUtil.sleep(1, TimeUnit.SECONDS); // 延迟 1 秒,保证输出到结尾
         });
     }
 

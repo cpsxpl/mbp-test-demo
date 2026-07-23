@@ -66,17 +66,17 @@ public class ApiAccessLogFilter extends ApiRequestFilter {
             throws ServletException, IOException {
         // 获得开始时间
         LocalDateTime beginTime = LocalDateTime.now();
-        // 提前获得参数，避免 XssFilter 过滤处理
+        // 提前获得参数,避免 XssFilter 过滤处理
         Map<String, String> queryString = ServletUtils.getParamMap(request);
         String requestBody = ServletUtils.getBody(request);
 
         try {
             // 继续过滤器
             filterChain.doFilter(request, response);
-            // 正常执行，记录日志
+            // 正常执行,记录日志
             createApiAccessLog(request, beginTime, queryString, requestBody, null);
         } catch (Exception ex) {
-            // 异常执行，记录日志
+            // 异常执行,记录日志
             createApiAccessLog(request, beginTime, queryString, requestBody, ex);
             throw ex;
         }
@@ -127,14 +127,14 @@ public class ApiAccessLogFilter extends ApiRequestFilter {
                 .setUserAgent(ServletUtils.getUserAgent(request)).setUserIp(ServletUtils.getClientIP(request));
         String[] sanitizeKeys = accessLogAnnotation != null ? accessLogAnnotation.sanitizeKeys() : null;
         Boolean requestEnable = accessLogAnnotation != null ? accessLogAnnotation.requestEnable() : Boolean.TRUE;
-        if (!BooleanUtil.isFalse(requestEnable)) { // 默认记录，所以判断 !false
+        if (!BooleanUtil.isFalse(requestEnable)) { // 默认记录,所以判断 !false
             Map<String, Object> requestParams = MapUtil.<String, Object>builder()
                     .put("query", sanitizeMap(queryString, sanitizeKeys))
                     .put("body", sanitizeJson(requestBody, sanitizeKeys)).build();
             accessLog.setRequestParams(toJsonString(requestParams));
         }
         Boolean responseEnable = accessLogAnnotation != null ? accessLogAnnotation.responseEnable() : Boolean.FALSE;
-        if (BooleanUtil.isTrue(responseEnable)) { // 默认不记录，默认强制要求 true
+        if (BooleanUtil.isTrue(responseEnable)) { // 默认不记录,默认强制要求 true
             accessLog.setResponseBody(sanitizeJson(result, sanitizeKeys));
         }
         // 持续时间
@@ -180,7 +180,7 @@ public class ApiAccessLogFilter extends ApiRequestFilter {
         }
     }
 
-    // ========== 请求和响应的脱敏逻辑，移除类似 password、token 等敏感字段 ==========
+    // ========== 请求和响应的脱敏逻辑,移除类似 password、token 等敏感字段 ==========
 
     private static String sanitizeMap(Map<String, ?> map, String[] sanitizeKeys) {
         if (CollUtil.isEmpty(map)) {
@@ -202,7 +202,7 @@ public class ApiAccessLogFilter extends ApiRequestFilter {
             sanitizeJson(rootNode, sanitizeKeys);
             return toJsonString(rootNode);
         } catch (Exception e) {
-            // 脱敏失败的情况下，直接忽略异常，避免影响用户请求
+            // 脱敏失败的情况下,直接忽略异常,避免影响用户请求
             log.error("[sanitizeJson][脱敏({}) 发生异常]", jsonString, e);
             return jsonString;
         }
@@ -215,28 +215,28 @@ public class ApiAccessLogFilter extends ApiRequestFilter {
         String jsonString = toJsonString(commonResult);
         try {
             JsonNode rootNode = JsonUtils.parseTree(jsonString);
-            sanitizeJson(rootNode.get("data"), sanitizeKeys); // 只处理 data 字段，不处理 code、msg 字段，避免错误被脱敏掉
+            sanitizeJson(rootNode.get("data"), sanitizeKeys); // 只处理 data 字段,不处理 code、msg 字段,避免错误被脱敏掉
             return toJsonString(rootNode);
         } catch (Exception e) {
-            // 脱敏失败的情况下，直接忽略异常，避免影响用户请求
+            // 脱敏失败的情况下,直接忽略异常,避免影响用户请求
             log.error("[sanitizeJson][脱敏({}) 发生异常]", jsonString, e);
             return jsonString;
         }
     }
 
     private static void sanitizeJson(JsonNode node, String[] sanitizeKeys) {
-        // 情况一：数组，遍历处理
+        // 情况一：数组,遍历处理
         if (node.isArray()) {
             for (JsonNode childNode : node) {
                 sanitizeJson(childNode, sanitizeKeys);
             }
             return;
         }
-        // 情况二：非 Object，只是某个值，直接返回
+        // 情况二：非 Object,只是某个值,直接返回
         if (!node.isObject()) {
             return;
         }
-        //  情况三：Object，遍历处理
+        //  情况三：Object,遍历处理
         Iterator<Map.Entry<String, JsonNode>> iterator = node.fields();
         while (iterator.hasNext()) {
             Map.Entry<String, JsonNode> entry = iterator.next();

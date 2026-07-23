@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 多sheet写出时，单sheet内容配置
+ * 多sheet写出时,单sheet内容配置
  */
 public class ExportView implements Serializable {
     private static final long serialVersionUID = -8156773468877218009L;

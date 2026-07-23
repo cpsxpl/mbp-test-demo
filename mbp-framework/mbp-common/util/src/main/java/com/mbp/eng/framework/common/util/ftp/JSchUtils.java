@@ -114,7 +114,7 @@ public class JSchUtils {
      * @throws SftpException
      */
     public static void download(String src, String dst) throws JSchException, SftpException {
-        // src linux服务器文件地址，dst 本地存放地址
+        // src linux服务器文件地址,dst 本地存放地址
         ChannelSftp channelSftp = (ChannelSftp) session.openChannel("sftp");
         channelSftp.connect();
         channelSftp.get(src, dst);

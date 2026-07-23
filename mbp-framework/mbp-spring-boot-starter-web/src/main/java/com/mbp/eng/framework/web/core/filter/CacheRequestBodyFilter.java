@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Request Body 缓存 Filter，实现它的可重复读取
+ * Request Body 缓存 Filter,实现它的可重复读取
  */
 public class CacheRequestBodyFilter extends OncePerRequestFilter {
 
     /**
      * 需要排除的 URI
      *
-     * 1. 排除 Spring Boot Admin 相关请求，避免客户端连接中断导致的异常。
+     * 1. 排除 Spring Boot Admin 相关请求,避免客户端连接中断导致的异常。
      */
     private static final String[] IGNORE_URIS = {"/admin/", "/actuator/"};
 

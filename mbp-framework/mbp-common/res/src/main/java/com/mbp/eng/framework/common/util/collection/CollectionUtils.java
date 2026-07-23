@@ -219,7 +219,7 @@ public class CollectionUtils {
                 .collect(Collectors.groupingBy(keyFunc, Collectors.mapping(valueFunc, Collectors.toList())));
     }
 
-    // 暂时没想好名字，先以 2 结尾噶
+    // 暂时没想好名字,先以 2 结尾噶
     public static <T, K, V> Map<K, Set<V>> convertMultiMap2(Collection<T> from, Function<T, K> keyFunc, Function<T, V> valueFunc) {
         if (CollUtil.isEmpty(from)) {
             return new HashMap<>();
@@ -237,31 +237,31 @@ public class CollectionUtils {
     }
 
     /**
-     * 对比老、新两个列表，找出新增、修改、删除的数据
+     * 对比老、新两个列表,找出新增、修改、删除的数据
      *
      * @param oldList  老列表
      * @param newList  新列表
-     * @param sameFunc 对比函数，返回 true 表示相同，返回 false 表示不同
-     *                 注意，same 是通过每个元素的“标识”，判断它们是不是同一个数据
+     * @param sameFunc 对比函数,返回 true 表示相同,返回 false 表示不同
+     *                 注意,same 是通过每个元素的“标识”,判断它们是不是同一个数据
      * @return [新增列表、修改列表、删除列表]
      */
     public static <T> List<List<T>> diffList(Collection<T> oldList, Collection<T> newList,
                                              BiFunction<T, T, Boolean> sameFunc) {
-        List<T> createList = new LinkedList<>(newList); // 默认都认为是新增的，后续会进行移除
+        List<T> createList = new LinkedList<>(newList); // 默认都认为是新增的,后续会进行移除
         List<T> updateList = new ArrayList<>();
         List<T> deleteList = new ArrayList<>();
 
-        // 通过以 oldList 为主遍历，找出 updateList 和 deleteList
+        // 通过以 oldList 为主遍历,找出 updateList 和 deleteList
         for (T oldObj : oldList) {
             // 1. 寻找是否有匹配的
             T foundObj = null;
             for (Iterator<T> iterator = createList.iterator(); iterator.hasNext(); ) {
                 T newObj = iterator.next();
-                // 1.1 不匹配，则直接跳过
+                // 1.1 不匹配,则直接跳过
                 if (!sameFunc.apply(oldObj, newObj)) {
                     continue;
                 }
-                // 1.2 匹配，则移除，并结束寻找
+                // 1.2 匹配,则移除,并结束寻找
                 iterator.remove();
                 foundObj = newObj;
                 break;
@@ -299,7 +299,7 @@ public class CollectionUtils {
         if (CollUtil.isEmpty(from)) {
             return null;
         }
-        assert !from.isEmpty(); // 断言，避免告警
+        assert !from.isEmpty(); // 断言,避免告警
         T t = from.stream().max(Comparator.comparing(valueFunc)).get();
         return valueFunc.apply(t);
     }
@@ -308,7 +308,7 @@ public class CollectionUtils {
         if (CollUtil.isEmpty(from)) {
             return null;
         }
-        assert from.size() > 0; // 断言，避免告警
+        assert from.size() > 0; // 断言,避免告警
         T t = from.stream().min(Comparator.comparing(valueFunc)).get();
         return valueFunc.apply(t);
     }
@@ -317,7 +317,7 @@ public class CollectionUtils {
         if (CollUtil.isEmpty(from)) {
             return null;
         }
-        assert from.size() > 0; // 断言，避免告警
+        assert from.size() > 0; // 断言,避免告警
         return from.stream().min(Comparator.comparing(valueFunc)).get();
     }
 
@@ -331,7 +331,7 @@ public class CollectionUtils {
         if (CollUtil.isEmpty(from)) {
             return defaultValue;
         }
-        assert !from.isEmpty(); // 断言，避免告警
+        assert !from.isEmpty(); // 断言,避免告警
         return from.stream().map(valueFunc).filter(Objects::nonNull).reduce(accumulator).orElse(defaultValue);
     }
 
@@ -387,7 +387,7 @@ public class CollectionUtils {
     }
 
     /**
-     * 把单元素 head 与集合 tail 合并成新 List（head 在前，tail 顺序保留）
+     * 把单元素 head 与集合 tail 合并成新 List（head 在前,tail 顺序保留）
      */
     public static <T> List<T> of(T head, Collection<T> tail) {
         List<T> list = new ArrayList<>();

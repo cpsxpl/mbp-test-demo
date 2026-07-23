@@ -26,9 +26,9 @@ import java.util.Set;
 /**
  * Excel 多值数据字典转换器
  *
- * 数据库存储值使用半角逗号分隔，例如 {@code 1,2}
- * Excel 展示使用顿号分隔，例如 {@code 男、女}
- * 使用时，需要在字段上同时配置
+ * 数据库存储值使用半角逗号分隔,例如 {@code 1,2}
+ * Excel 展示使用顿号分隔,例如 {@code 男、女}
+ * 使用时,需要在字段上同时配置
  * {@code @ExcelProperty(converter = MultiDictConvert.class)} 和 {@link DictFormat}
  **/
 @Slf4j
@@ -36,22 +36,22 @@ public class MultiDictConvert implements Converter<Object> {
 
     private static final String EXCEL_SEPARATOR = "、";
     private static final String DB_SEPARATOR = ",";
-    private static final String EXCEL_SEPARATOR_REGEX = "[、,，]";
+    private static final String EXCEL_SEPARATOR_REGEX = "[、,,]";
 
     @Override
     public Class<?> supportJavaTypeKey() {
-        throw new UnsupportedOperationException("暂不支持，也不需要");
+        throw new UnsupportedOperationException("暂不支持,也不需要");
     }
 
     @Override
     public CellDataTypeEnum supportExcelTypeKey() {
-        throw new UnsupportedOperationException("暂不支持，也不需要");
+        throw new UnsupportedOperationException("暂不支持,也不需要");
     }
 
     @Override
     public Object convertToJavaData(ReadCellData readCellData, ExcelContentProperty contentProperty,
                                     GlobalConfiguration globalConfiguration) {
-        // 空时，返回空值
+        // 空时,返回空值
         Field field = contentProperty.getField();
         String labels = readCellData.getStringValue();
         if (StrUtil.isBlank(labels)) {
@@ -81,7 +81,7 @@ public class MultiDictConvert implements Converter<Object> {
     @Override
     public WriteCellData<String> convertToExcelData(Object object, ExcelContentProperty contentProperty,
                                                     GlobalConfiguration globalConfiguration) {
-        // 空时，返回空
+        // 空时,返回空
         if (object == null) {
             return new WriteCellData<>("");
         }

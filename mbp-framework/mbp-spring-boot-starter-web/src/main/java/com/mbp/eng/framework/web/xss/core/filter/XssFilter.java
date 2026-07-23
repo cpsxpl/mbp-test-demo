@@ -37,12 +37,12 @@ public class XssFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        // 如果关闭，则不过滤
+        // 如果关闭,则不过滤
         if (!properties.isEnable()) {
             return true;
         }
 
-        // 如果匹配到无需过滤，则不过滤
+        // 如果匹配到无需过滤,则不过滤
         String uri = request.getRequestURI();
         return properties.getExcludeUrls().stream().anyMatch(excludeUrl -> pathMatcher.match(excludeUrl, uri));
     }

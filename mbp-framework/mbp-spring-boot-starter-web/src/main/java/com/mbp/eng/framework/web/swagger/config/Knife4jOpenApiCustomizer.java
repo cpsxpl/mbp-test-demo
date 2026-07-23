@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 /**
  * 增强扩展属性支持
  *
- * 参考 <a href="https://github.com/xiaoymin/knife4j/issues/913">Spring Boot 3.4 以上版本 /v3/api-docs 解决接口报错，依赖修复</a>
+ * 参考 <a href="https://github.com/xiaoymin/knife4j/issues/913">Spring Boot 3.4 以上版本 /v3/api-docs 解决接口报错,依赖修复</a>
  *
  * @since 4.1.0
  */

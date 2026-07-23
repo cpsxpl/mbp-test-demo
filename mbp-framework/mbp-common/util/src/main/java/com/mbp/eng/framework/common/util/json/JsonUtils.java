@@ -51,7 +51,7 @@ public class JsonUtils {
     /**
      * 初始化 objectMapper 属性
      * <p>
-     * 通过这样的方式，使用 Spring 创建的 ObjectMapper Bean
+     * 通过这样的方式,使用 Spring 创建的 ObjectMapper Bean
      *
      * @param objectMapper ObjectMapper 对象
      */
@@ -126,8 +126,8 @@ public class JsonUtils {
 
     /**
      * 将字符串解析成指定类型的对象
-     * 使用 {@link #parseObject(String, Class)} 时，在@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS) 的场景下，
-     * 如果 text 没有 class 属性，则会报错。此时，使用这个方法，可以解决。
+     * 使用 {@link #parseObject(String, Class)} 时,在@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS) 的场景下,
+     * 如果 text 没有 class 属性,则会报错。此时,使用这个方法,可以解决。
      *
      * @param text 字符串
      * @param clazz 类型
@@ -162,7 +162,7 @@ public class JsonUtils {
     }
 
     /**
-     * 解析 JSON 字符串成指定类型的对象，如果解析失败，则返回 null
+     * 解析 JSON 字符串成指定类型的对象,如果解析失败,则返回 null
      *
      * @param text 字符串
      * @param typeReference 类型引用
@@ -177,7 +177,7 @@ public class JsonUtils {
     }
 
     /**
-     * 解析 JSON 字符串成 Map，空字符串或解析失败返回 null
+     * 解析 JSON 字符串成 Map,空字符串或解析失败返回 null
      *
      * @param text JSON 字符串
      * @return Map 对象
@@ -194,7 +194,7 @@ public class JsonUtils {
     }
 
     /**
-     * 解析 JSON 字符串成指定类型的对象，如果解析失败，则返回 null
+     * 解析 JSON 字符串成指定类型的对象,如果解析失败,则返回 null
      *
      * @param text 字符串
      * @param clazz 类型

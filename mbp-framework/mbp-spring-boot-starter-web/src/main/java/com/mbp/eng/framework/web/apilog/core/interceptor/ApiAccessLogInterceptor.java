@@ -22,7 +22,7 @@ import java.util.stream.IntStream;
 /**
  * API 访问日志 Interceptor
  *
- * 目的：在非 prod 环境时，打印 request 和 response 两条日志到日志文件（控制台）中。
+ * 目的：在非 prod 环境时,打印 request 和 response 两条日志到日志文件（控制台）中。
  */
 @Slf4j
 public class ApiAccessLogInterceptor implements HandlerInterceptor {
@@ -33,7 +33,7 @@ public class ApiAccessLogInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        // 记录 HandlerMethod，提供给 ApiAccessLogFilter 使用
+        // 记录 HandlerMethod,提供给 ApiAccessLogFilter 使用
         HandlerMethod handlerMethod = handler instanceof HandlerMethod ? (HandlerMethod) handler : null;
         if (handlerMethod != null) {
             request.setAttribute(ATTRIBUTE_HANDLER_METHOD, handlerMethod);
@@ -85,7 +85,7 @@ public class ApiAccessLogInterceptor implements HandlerInterceptor {
                     ResourceUtil.getResource(null, clazz).getPath().replace("/target/classes/", "/src/main/java/")
                             + clazz.getSimpleName() + ".java");
             Optional<Integer> lineNumber = IntStream.range(0, clazzContents.size())
-                    .filter(i -> clazzContents.get(i).contains(" " + method.getName() + "(")) // 简单匹配，不考虑方法重名
+                    .filter(i -> clazzContents.get(i).contains(" " + method.getName() + "(")) // 简单匹配,不考虑方法重名
                     .mapToObj(i -> i + 1) // 行号从 1 开始
                     .findFirst();
             if (!lineNumber.isPresent()) {
@@ -94,7 +94,7 @@ public class ApiAccessLogInterceptor implements HandlerInterceptor {
             // 打印结果
             System.out.printf("\tController 方法路径：%s(%s.java:%d)\n", clazz.getName(), clazz.getSimpleName(), lineNumber.get());
         } catch (Exception ignore) {
-            // 忽略异常。原因：仅仅打印，非重要逻辑
+            // 忽略异常。原因：仅仅打印,非重要逻辑
         }
     }
 

@@ -44,7 +44,7 @@ public class SelectSheetWriteHandler implements SheetWriteHandler {
      */
     public static final int FIRST_ROW = 1;
     /**
-     * 下拉列需要创建下拉框的行数，默认两千行如需更多请自行调整
+     * 下拉列需要创建下拉框的行数,默认两千行如需更多请自行调整
      */
     public static final int LAST_ROW = 2000;
 
@@ -84,7 +84,7 @@ public class SelectSheetWriteHandler implements SheetWriteHandler {
 
     /**
      * 判断字段是否是静态的、最终的、 transient 的
-     * 原因：FastExcel 默认是忽略 static final 或 transient 的字段，所以需要判断
+     * 原因：FastExcel 默认是忽略 static final 或 transient 的字段,所以需要判断
      *
      * @param field 字段
      * @return 是否是静态的、最终的、transient 的
@@ -96,7 +96,7 @@ public class SelectSheetWriteHandler implements SheetWriteHandler {
 
 
     /**
-     * 获得下拉数据，并添加到 {@link #selectMap} 中
+     * 获得下拉数据,并添加到 {@link #selectMap} 中
      *
      * @param colIndex 列索引
      * @param field    字段
@@ -106,7 +106,7 @@ public class SelectSheetWriteHandler implements SheetWriteHandler {
         String dictType = columnSelect.dictType();
         String functionName = columnSelect.functionName();
         Assert.isTrue(ObjectUtil.isNotEmpty(dictType) || ObjectUtil.isNotEmpty(functionName),
-                "Field({}) 的 @ExcelColumnSelect 注解，dictType 和 functionName 不能同时为空", field.getName());
+                "Field({}) 的 @ExcelColumnSelect 注解,dictType 和 functionName 不能同时为空", field.getName());
 
         // 情况一：使用 dictType 获得下拉数据
         if (StrUtil.isNotEmpty(dictType)) { // 情况一： 字典数据 （默认）
@@ -137,7 +137,7 @@ public class SelectSheetWriteHandler implements SheetWriteHandler {
         Sheet dictSheet = workbook.createSheet(DICT_SHEET_NAME);
         for (KeyValue<Integer, List<String>> keyValue : keyValues) {
             int rowLength = keyValue.getValue().size();
-            // 2.1 设置字典 sheet 页的值，每一列一个字典项
+            // 2.1 设置字典 sheet 页的值,每一列一个字典项
             for (int i = 0; i < rowLength; i++) {
                 Row row = dictSheet.getRow(i);
                 if (row == null) {

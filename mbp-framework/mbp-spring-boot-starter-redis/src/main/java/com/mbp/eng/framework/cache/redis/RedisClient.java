@@ -232,7 +232,7 @@ public class RedisClient {
      * 支持过期
      *
      * @param key
-     * @param secend 过期时间，置0为即时失效
+     * @param secend 过期时间,置0为即时失效
      * @return
      */
     public Long expire(String key, Integer secend) {

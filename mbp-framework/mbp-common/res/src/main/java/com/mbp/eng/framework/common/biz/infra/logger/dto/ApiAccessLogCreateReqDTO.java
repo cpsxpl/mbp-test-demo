@@ -69,7 +69,7 @@ public class ApiAccessLogCreateReqDTO {
     /**
      * 操作分类
      *
-     * 枚举，参见 OperateTypeEnum 类
+     * 枚举,参见 OperateTypeEnum 类
      */
     private Integer operateType;
 
@@ -84,7 +84,7 @@ public class ApiAccessLogCreateReqDTO {
     @NotNull(message = "结束请求时间不能为空")
     private LocalDateTime endTime;
     /**
-     * 执行时长，单位：毫秒
+     * 执行时长,单位：毫秒
      */
     @NotNull(message = "执行时长不能为空")
     private Integer duration;

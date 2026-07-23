@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * 从海量数据中查找出前k个最大值，精确时间复杂度为：K + (n - K) * lgk,空间复杂度为 O（k）,目前为所有算法中最优算法
+ * 从海量数据中查找出前k个最大值,精确时间复杂度为：K + (n - K) * lgk,空间复杂度为 O（k）,目前为所有算法中最优算法
  */
 public class FindMinNumIncluedTopN {
     /**
@@ -49,7 +49,7 @@ public class FindMinNumIncluedTopN {
             System.out.print(i + " ");
         }
         System.out.println();
-        // 遍历文件中剩余的n（文件数据容量，假设为无限大）-k条数据，如果读到的数据比heap[0]大，就替换之，同时更新堆
+        // 遍历文件中剩余的n（文件数据容量,假设为无限大）-k条数据,如果读到的数据比heap[0]大,就替换之,同时更新堆
         while (str != null) {
             str = bufferedReader.readLine();
             if (str != null && !"".equals(str.trim())) {

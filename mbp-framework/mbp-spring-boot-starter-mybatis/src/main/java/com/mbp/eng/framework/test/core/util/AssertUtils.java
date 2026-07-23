@@ -15,14 +15,14 @@ import java.util.Objects;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * 单元测试，assert 断言工具类
+ * 单元测试,assert 断言工具类
  */
 public class AssertUtils {
 
     /**
      * 比对两个对象的属性是否一致
      * <p>
-     * 注意，如果 expected 存在的属性，actual 不存在的时候，会进行忽略
+     * 注意,如果 expected 存在的属性,actual 不存在的时候,会进行忽略
      *
      * @param expected     期望对象
      * @param actual       实际对象
@@ -35,7 +35,7 @@ public class AssertUtils {
             if (expectedField.isSynthetic()) {
                 return;
             }
-            // 如果是忽略的属性，则不进行比对
+            // 如果是忽略的属性,则不进行比对
             if (ArrayUtil.contains(ignoreFields, expectedField.getName())) {
                 return;
             }
@@ -56,7 +56,7 @@ public class AssertUtils {
     /**
      * 比对两个对象的属性是否一致
      * <p>
-     * 注意，如果 expected 存在的属性，actual 不存在的时候，会进行忽略
+     * 注意,如果 expected 存在的属性,actual 不存在的时候,会进行忽略
      *
      * @param expected     期望对象
      * @param actual       实际对象
@@ -66,7 +66,7 @@ public class AssertUtils {
     public static boolean isPojoEquals(Object expected, Object actual, String... ignoreFields) {
         Field[] expectedFields = ReflectUtil.getFields(expected.getClass());
         return Arrays.stream(expectedFields).allMatch(expectedField -> {
-            // 如果是忽略的属性，则不进行比对
+            // 如果是忽略的属性,则不进行比对
             if (ArrayUtil.contains(ignoreFields, expectedField.getName())) {
                 return true;
             }
@@ -81,7 +81,7 @@ public class AssertUtils {
     }
 
     /**
-     * 执行方法，校验抛出的 Service 是否符合条件
+     * 执行方法,校验抛出的 Service 是否符合条件
      *
      * @param executable    业务异常
      * @param errorCode     错误码对象

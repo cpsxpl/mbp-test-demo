@@ -6,7 +6,7 @@ import io.opentelemetry.api.trace.SpanContext;
 /**
  * 链路追踪工具类
  *
- * 考虑到每个 starter 都需要用到该工具类，所以放到 common 模块下的 util 包下
+ * 考虑到每个 starter 都需要用到该工具类,所以放到 common 模块下的 util 包下
  */
 public class TracerUtils {
 
@@ -17,7 +17,7 @@ public class TracerUtils {
     }
 
     /**
-     * 获得链路追踪编号，直接返回 OpenTelemetry 的 TraceId。
+     * 获得链路追踪编号,直接返回 OpenTelemetry 的 TraceId。
      * 如果不存在的话为空字符串！！！
      *
      * @return 链路追踪编号

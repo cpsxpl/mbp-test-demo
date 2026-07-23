@@ -74,7 +74,7 @@ public class MyBatisUtils {
                 query.orderBy(true, isAscOrder(sortingField.getOrder()), columnName);
             }
         } else if (wrapper instanceof LambdaQueryWrapper) {
-            // LambdaQueryWrapper 不直接支持字符串字段排序，使用 last 方法拼接 ORDER BY
+            // LambdaQueryWrapper 不直接支持字符串字段排序,使用 last 方法拼接 ORDER BY
             LambdaQueryWrapper<T> lambdaQuery = (LambdaQueryWrapper<T>) wrapper;
             StringBuilder orderBy = new StringBuilder();
             for (SortingField sortingField : sortingFields) {
@@ -115,7 +115,7 @@ public class MyBatisUtils {
 
     /**
      * 将拦截器添加到链中
-     * 由于 MybatisPlusInterceptor 不支持添加拦截器，所以只能全量设置
+     * 由于 MybatisPlusInterceptor 不支持添加拦截器,所以只能全量设置
      *
      * @param interceptor 链
      * @param inner       拦截器
@@ -169,7 +169,7 @@ public class MyBatisUtils {
     }
 
     /**
-     * 跨数据库的 find_in_set 实现，适用于同一个 apply 语句中有多个参数的场景
+     * 跨数据库的 find_in_set 实现,适用于同一个 apply 语句中有多个参数的场景
      *
      * @param columnName 字段名称
      * @param paramIndex apply 参数序号

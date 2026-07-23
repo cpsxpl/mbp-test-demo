@@ -29,9 +29,9 @@ import java.util.concurrent.TimeUnit;
  * MyBaits 配置类
  */
 @AutoConfiguration(before = MybatisPlusAutoConfiguration.class)
-// 目的：先于 MyBatis Plus 自动配置，避免 @MapperScan 可能扫描不到 Mapper 打印 warn 日志
+// 目的：先于 MyBatis Plus 自动配置,避免 @MapperScan 可能扫描不到 Mapper 打印 warn 日志
 @MapperScan(value = "${mbp.info.base-package}", annotationClass = Mapper.class,
-        lazyInitialization = "${mybatis.lazy-initialization:false}") // Mapper 懒加载，目前仅用于单元测试
+        lazyInitialization = "${mybatis.lazy-initialization:false}") // Mapper 懒加载,目前仅用于单元测试
 public class MbpMybatisAutoConfiguration {
     static {
         // 动态 SQL 智能优化支持本地缓存加速解析,更完善的租户复杂 XML 动态 SQL 支持,静态注入缓存

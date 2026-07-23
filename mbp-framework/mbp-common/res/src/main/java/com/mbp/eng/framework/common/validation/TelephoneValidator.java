@@ -14,7 +14,7 @@ public class TelephoneValidator implements ConstraintValidator<Telephone, String
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        // 如果手机号为空，默认不校验，即校验通过
+        // 如果手机号为空,默认不校验,即校验通过
         if (CharSequenceUtil.isEmpty(value)) {
             return true;
         }

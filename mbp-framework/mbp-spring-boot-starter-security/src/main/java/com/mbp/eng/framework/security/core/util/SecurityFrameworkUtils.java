@@ -30,7 +30,7 @@ public class SecurityFrameworkUtils {
     }
 
     /**
-     * 从请求中，获得认证 Token
+     * 从请求中,获得认证 Token
      *
      * @param request       请求
      * @param headerName    认证 Token 对应的 Header 名字
@@ -80,7 +80,7 @@ public class SecurityFrameworkUtils {
     }
 
     /**
-     * 获得当前用户的编号，从上下文中
+     * 获得当前用户的编号,从上下文中
      *
      * @return 用户编号
      */
@@ -91,7 +91,7 @@ public class SecurityFrameworkUtils {
     }
 
     /**
-     * 获得当前用户的昵称，从上下文中
+     * 获得当前用户的昵称,从上下文中
      *
      * @return 昵称
      */
@@ -102,7 +102,7 @@ public class SecurityFrameworkUtils {
     }
 
     /**
-     * 获得当前用户的部门编号，从上下文中
+     * 获得当前用户的部门编号,从上下文中
      *
      * @return 部门编号
      */
@@ -119,12 +119,12 @@ public class SecurityFrameworkUtils {
      * @param request   请求
      */
     public static void setLoginUser(LoginUser loginUser, HttpServletRequest request) {
-        // 创建 Authentication，并设置到上下文
+        // 创建 Authentication,并设置到上下文
         Authentication authentication = buildAuthentication(loginUser, request);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        // 额外设置到 request 中，用于 ApiAccessLogFilter 可以获取到用户编号；
-        // 原因是，Spring Security 的 Filter 在 ApiAccessLogFilter 后面，在它记录访问日志时，线上上下文已经没有用户编号等信息
+        // 额外设置到 request 中,用于 ApiAccessLogFilter 可以获取到用户编号；
+        // 原因是,Spring Security 的 Filter 在 ApiAccessLogFilter 后面,在它记录访问日志时,线上上下文已经没有用户编号等信息
         if (request != null) {
             WebFrameworkUtils.setLoginUserId(request, loginUser.getId());
             WebFrameworkUtils.setLoginUserType(request, loginUser.getUserType());
@@ -140,7 +140,7 @@ public class SecurityFrameworkUtils {
     }
 
     /**
-     * 是否条件跳过权限校验，包括数据权限、功能权限
+     * 是否条件跳过权限校验,包括数据权限、功能权限
      *
      * @return 是否跳过
      */
@@ -152,7 +152,7 @@ public class SecurityFrameworkUtils {
         if (loginUser.getVisitTenantId() == null) {
             return false;
         }
-        // 重点：跨租户访问时，无法进行权限校验
+        // 重点：跨租户访问时,无法进行权限校验
         return ObjUtil.notEqual(loginUser.getVisitTenantId(), loginUser.getTenantId());
     }
 

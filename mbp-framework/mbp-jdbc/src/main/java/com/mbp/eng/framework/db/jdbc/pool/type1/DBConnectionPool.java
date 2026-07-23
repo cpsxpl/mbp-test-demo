@@ -94,7 +94,7 @@ public class DBConnectionPool {
             connection = newConnection();
         }
         if (this.maxConn == 0 || this.maxConn < this.inUsed) {
-            //达到最大连接数，暂时不能获得连接了。
+            //达到最大连接数,暂时不能获得连接了。
             connection = null;
         }
         if (connection != null) {

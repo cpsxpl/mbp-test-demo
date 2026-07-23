@@ -13,10 +13,10 @@ import java.util.function.Consumer;
 public class ObjectUtils {
 
     /**
-     * 复制对象，并忽略 Id 编号
+     * 复制对象,并忽略 Id 编号
      *
      * @param object   被复制对象
-     * @param consumer 消费者，可以二次编辑被复制对象
+     * @param consumer 消费者,可以二次编辑被复制对象
      * @return 复制后的对象
      */
     public static <T> T cloneIgnoreId(T object, Consumer<T> consumer) {

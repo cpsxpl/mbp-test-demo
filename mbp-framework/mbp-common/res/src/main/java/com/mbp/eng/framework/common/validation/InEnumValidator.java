@@ -24,7 +24,7 @@ public class InEnumValidator implements ConstraintValidator<InEnum, Object> {
 
     @Override
     public boolean isValid(Object value, ConstraintValidatorContext context) {
-        // 为空时，默认不校验，即认为通过
+        // 为空时,默认不校验,即认为通过
         if (value == null) {
             return true;
         }
@@ -32,7 +32,7 @@ public class InEnumValidator implements ConstraintValidator<InEnum, Object> {
         if (values.contains(value)) {
             return true;
         }
-        // 校验不通过，自定义提示语句
+        // 校验不通过,自定义提示语句
         context.disableDefaultConstraintViolation(); // 禁用默认的 message 的值
         context.buildConstraintViolationWithTemplate(context.getDefaultConstraintMessageTemplate()
                 .replaceAll("\\{value}", values.toString())).addConstraintViolation(); // 重新添加错误提示语句

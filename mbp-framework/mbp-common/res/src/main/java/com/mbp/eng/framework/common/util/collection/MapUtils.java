@@ -20,7 +20,7 @@ import java.util.function.Consumer;
 public class MapUtils {
 
     /**
-     * 从哈希表表中，获得 keys 对应的所有 value 数组
+     * 从哈希表表中,获得 keys 对应的所有 value 数组
      *
      * @param multimap 哈希表
      * @param keys     keys
@@ -39,9 +39,9 @@ public class MapUtils {
     }
 
     /**
-     * 从哈希表查找到 key 对应的 value，然后进一步处理
+     * 从哈希表查找到 key 对应的 value,然后进一步处理
      * key 为 null 时, 不处理
-     * 注意，如果查找到的 value 为 null 时，不进行处理
+     * 注意,如果查找到的 value 为 null 时,不进行处理
      *
      * @param map      哈希表
      * @param key      key
@@ -69,7 +69,7 @@ public class MapUtils {
      *
      * @param map Map 数据源
      * @param key 键名
-     * @return BigDecimal 值，解析失败或值为 null 时返回 null
+     * @return BigDecimal 值,解析失败或值为 null 时返回 null
      */
     public static BigDecimal getBigDecimal(Map<String, ?> map, String key) {
         return getBigDecimal(map, key, null);
@@ -81,7 +81,7 @@ public class MapUtils {
      * @param map          Map 数据源
      * @param key          键名
      * @param defaultValue 默认值
-     * @return BigDecimal 值，解析失败或值为 null 时返回默认值
+     * @return BigDecimal 值,解析失败或值为 null 时返回默认值
      */
     public static BigDecimal getBigDecimal(Map<String, ?> map, String key, BigDecimal defaultValue) {
         if (map == null) {

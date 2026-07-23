@@ -100,7 +100,7 @@ public class DateUtils {
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, second);
-        calendar.set(Calendar.MILLISECOND, 0); // 一般情况下，都是 0 毫秒
+        calendar.set(Calendar.MILLISECOND, 0); // 一般情况下,都是 0 毫秒
         return calendar.getTime();
     }
 

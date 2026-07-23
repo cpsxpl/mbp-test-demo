@@ -825,7 +825,7 @@ public class DateUtil {
      * 判断给定日期是不是润年
      *
      * @param date 给定日期
-     * @return boolean 如果给定的年份为闰年，则返回 true；否则返回 false。
+     * @return boolean 如果给定的年份为闰年,则返回 true；否则返回 false。
      */
     public static boolean isLeapYear(Date date) {
         int year = getYearOfDate(date);
@@ -834,17 +834,17 @@ public class DateUtil {
     }
 
     /**
-     * 在给定的日期基础上添加年，月，日、时，分，秒 例如要再2006－10－21（uitl日期）添加3个月，并且格式化为yyyy-MM-dd格式，
+     * 在给定的日期基础上添加年,月,日、时,分,秒 例如要再2006－10－21（uitl日期）添加3个月,并且格式化为yyyy-MM-dd格式,
      * 这里调用的方式为 addDate(2006－10－21,3,Calendar.MONTH,"yyyy-MM-dd")
      *
      * @param startDate 给定的日期
      * @param count     时间的数量
      * @param field     添加的域
-     * @param format    时间转化格式，例如：yyyy-MM-dd hh:mm:ss 或者yyyy-mm-dd等
+     * @param format    时间转化格式,例如：yyyy-MM-dd hh:mm:ss 或者yyyy-mm-dd等
      * @return 添加后格式化的时间
      */
     public static String addDate(Date startDate, int count, int field, String format) throws ParseException {
-        // 年，月，日、时，分，秒
+        // 年,月,日、时,分,秒
         int lyear = getYearOfDate(startDate);
         int lmonth = getMonthOfDate(startDate) - 1;
         int lday = getDayOfDate(startDate);
@@ -1528,7 +1528,7 @@ public class DateUtil {
     }
 
     /**
-     * 比较两个日期相差的天数，用第二个日期减第一个日期，获得差距天数
+     * 比较两个日期相差的天数,用第二个日期减第一个日期,获得差距天数
      *
      * @param date1
      * @param date2
@@ -1553,7 +1553,7 @@ public class DateUtil {
     }
 
     /**
-     * 比较日期大小，第一个日期小返回-1，一样大返回0，第二个日期小返回1
+     * 比较日期大小,第一个日期小返回-1,一样大返回0,第二个日期小返回1
      *
      * @param date1
      * @param date2
@@ -1574,7 +1574,7 @@ public class DateUtil {
     }
 
     /**
-     * 方法名: 功能描述: 两个参数格式必须为20050827，而且不能为空。
+     * 方法名: 功能描述: 两个参数格式必须为20050827,而且不能为空。
      *
      * @param preDate
      * @param date
@@ -1601,7 +1601,7 @@ public class DateUtil {
     }
 
     /**
-     * 方法名: 功能描述: 两个参数格式必须为20050827，而且不能为空。
+     * 方法名: 功能描述: 两个参数格式必须为20050827,而且不能为空。
      * 参数说明： 第一个参数小于第二个参数返回true 返回值:
      * 函数返回值的说明
      */
@@ -1626,7 +1626,7 @@ public class DateUtil {
     }
 
     /**
-     * 方法名: 功能描述: 两个参数格式必须为20050827，而且不能为空。
+     * 方法名: 功能描述: 两个参数格式必须为20050827,而且不能为空。
      * 参数说明： 第一个参数大于第二个参数返回true 返回值:
      * 函数返回值的说明 其他: // 其它说明
      */
@@ -1651,7 +1651,7 @@ public class DateUtil {
     }
 
     /**
-     * 设置返回字符串的长度，如果传入的字符串长度不够，就在左边补0
+     * 设置返回字符串的长度,如果传入的字符串长度不够,就在左边补0
      *
      * @param dateStr
      * @param length
@@ -1690,7 +1690,7 @@ public class DateUtil {
         try {
             // 将给定的字符串中的日期提取出来
             d = simpleDateFormat1.parse(date);
-        } catch (Exception e) { // 如果提供的字符串格式有错误，则进行异常处理
+        } catch (Exception e) { // 如果提供的字符串格式有错误,则进行异常处理
             // 打印异常信息
             e.printStackTrace();
         }
@@ -1798,7 +1798,7 @@ public class DateUtil {
      * 年度 Year            empty, 1970-2099
      *
      * @param time
-     * @param month, day of month, 'L' 表示月末，为防止转义，要前后加单引号
+     * @param month, day of month, 'L' 表示月末,为防止转义,要前后加单引号
      * @param week
      * @param day,   true/false, 代表是否每天都运行
      * @param hour
@@ -1813,7 +1813,7 @@ public class DateUtil {
             long millis1 = dateTime.getMillis();
             long millis2 = now.getMillis();
             if (millis1 <= millis2) {
-                throw new RuntimeException("您设置的调度时间已过期，请重新设置！");
+                throw new RuntimeException("您设置的调度时间已过期,请重新设置！");
             }
             String dateFormat = "s m H d M ? y";
             cronExpression = DateUtil.formatDateByPattern(dateTime.toDate(), dateFormat);
@@ -1943,7 +1943,7 @@ public class DateUtil {
         String lformate2 = "yyyy-MM-dd";
         String date5 = getDateOfMonthEnd(lstrDate2, lformate2);
         System.out.println("java.util.Date-=========" + date5);
-        //获取指定日期的年份，月份，日份，小时，分，秒，毫秒
+        //获取指定日期的年份,月份,日份,小时,分,秒,毫秒
         // yyyy年MM月dd日 hh:mm:ss EE
         String lstrDate3 = "2004-02-11 08:25:15";
         String lformat3 = "yyyy-MM-dd hh:mm:ss";
@@ -1967,7 +1967,7 @@ public class DateUtil {
         boolean isBofore = isStartDateBeforeEndDate(lstartDate, lendDate);
         System.out.println("isBofore==" + isBofore);
         /**
-         *在当前的时间基础上添加月、天、或者其他 例如添加3个月，并且格式化为yyyy-MM-dd格式，
+         *在当前的时间基础上添加月、天、或者其他 例如添加3个月,并且格式化为yyyy-MM-dd格式,
          *这里调用的方式为addMonth(3,Calendar.MONTH,"yyyy-MM-dd")
          **/
         Date lstartDate2 = toUtilDateFromStrDateByFormat("2006-02-27 07:59:59", "yyyy-MM-dd hh:mm:ss");

@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * 当 IdType 为 {@link IdType#NONE} 时，根据 PRIMARY 数据源所使用的数据库，自动设置
+ * 当 IdType 为 {@link IdType#NONE} 时,根据 PRIMARY 数据源所使用的数据库,自动设置
  */
 @Slf4j
 public class IdTypeEnvironmentPostProcessor implements EnvironmentPostProcessor {
@@ -32,7 +32,7 @@ public class IdTypeEnvironmentPostProcessor implements EnvironmentPostProcessor 
 
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
-        // 如果获取不到 DbType，则不进行处理
+        // 如果获取不到 DbType,则不进行处理
         DbType dbType = getDbType(environment);
         if (dbType == null) {
             return;
@@ -42,17 +42,17 @@ public class IdTypeEnvironmentPostProcessor implements EnvironmentPostProcessor 
         // TODO 暂时没有找到特别合适的地方,先放在这里
         setJobStoreDriverIfPresent(environment, dbType);
 
-        // 如果非 NONE，则不进行处理
+        // 如果非 NONE,则不进行处理
         IdType idType = getIdType(environment);
         if (idType != IdType.NONE) {
             return;
         }
-        // 情况一，用户输入 ID，适合 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库
+        // 情况一,用户输入 ID,适合 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库
         if (INPUT_ID_TYPES.contains(dbType)) {
             setIdType(environment, IdType.INPUT);
             return;
         }
-        // 情况二，自增 ID，适合 MySQL、DM 达梦等直接自增的数据库
+        // 情况二,自增 ID,适合 MySQL、DM 达梦等直接自增的数据库
         setIdType(environment, IdType.AUTO);
     }
 
@@ -78,7 +78,7 @@ public class IdTypeEnvironmentPostProcessor implements EnvironmentPostProcessor 
         if (StrUtil.isNotEmpty(driverClass)) {
             return;
         }
-        // 根据 dbType 类型，获取对应的 driverClass
+        // 根据 dbType 类型,获取对应的 driverClass
         switch (dbType) {
             case POSTGRE_SQL:
                 driverClass = "org.quartz.impl.jdbcjobstore.PostgreSQLDelegate";

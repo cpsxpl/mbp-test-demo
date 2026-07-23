@@ -24,10 +24,10 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * 在 MyBatis Plus 的 BaseMapper 的基础上拓展，提供更多的能力
+ * 在 MyBatis Plus 的 BaseMapper 的基础上拓展,提供更多的能力
  * <p>
- * 1. {@link BaseMapper} 为 MyBatis Plus 的基础接口，提供基础的 CRUD 能力
- * 2. {@link MPJBaseMapper} 为 MyBatis Plus Join 的基础接口，提供连表 Join 能力
+ * 1. {@link BaseMapper} 为 MyBatis Plus 的基础接口,提供基础的 CRUD 能力
+ * 2. {@link MPJBaseMapper} 为 MyBatis Plus Join 的基础接口,提供连表 Join 能力
  */
 public interface BaseMapperX<T> extends MPJBaseMapper<T> {
 
@@ -40,7 +40,7 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     }
 
     default PageResult<T> selectPage(PageParam pageParam, Collection<SortingField> sortingFields, @Param("ew") Wrapper<T> queryWrapper) {
-        // 特殊:不分页，直接查询全部
+        // 特殊:不分页,直接查询全部
         if (PageParam.PAGE_SIZE_NONE.equals(pageParam.getPageSize())) {
             MyBatisUtils.addOrder(queryWrapper, sortingFields);
             List<T> list = selectList(queryWrapper);
@@ -55,7 +55,7 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     }
 
     default <D> PageResult<D> selectJoinPage(PageParam pageParam, Class<D> clazz, MPJLambdaWrapper<T> lambdaWrapper) {
-        // 特殊:不分页，直接查询全部
+        // 特殊:不分页,直接查询全部
         if (PageParam.PAGE_SIZE_NONE.equals(pageParam.getPageSize())) {
             List<D> list = selectJoinList(clazz, lambdaWrapper);
             return new PageResult<>(list, (long) list.size());
@@ -71,14 +71,14 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     /**
      * 执行分页查询并返回结果。
      *
-     * @param pageParam     分页参数，包含页码、每页条数和排序字段信息。如果 pageSize 为 {@link PageParam#PAGE_SIZE_NONE}，则不分页，直接查询所有数据。
+     * @param pageParam     分页参数,包含页码、每页条数和排序字段信息。如果 pageSize 为 {@link PageParam#PAGE_SIZE_NONE},则不分页,直接查询所有数据。
      * @param clazz         结果集的类类型
      * @param lambdaWrapper MyBatis Plus Join 查询条件包装器
      * @param <D>           结果集的泛型类型
-     * @return 返回分页查询的结果，包括总记录数和当前页的数据列表
+     * @return 返回分页查询的结果,包括总记录数和当前页的数据列表
      */
     default <D> PageResult<D> selectJoinPage(SortablePageParam pageParam, Class<D> clazz, MPJLambdaWrapper<T> lambdaWrapper) {
-        // 特殊:不分页，直接查询全部
+        // 特殊:不分页,直接查询全部
         if (PageParam.PAGE_SIZE_NONE.equals(pageParam.getPageSize())) {
             List<D> list = selectJoinList(clazz, lambdaWrapper);
             return new PageResult<>(list, (long) list.size());
@@ -120,9 +120,9 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     }
 
     /**
-     * 获得满足条件的一条记录，并使用 FOR UPDATE 锁定。
+     * 获得满足条件的一条记录,并使用 FOR UPDATE 锁定。
      * <p>
-     * 注意:需要在事务中调用，否则锁会立即释放。
+     * 注意:需要在事务中调用,否则锁会立即释放。
      *
      * @param queryWrapper 查询条件
      * @return 实体
@@ -147,14 +147,14 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     /**
      * 获取满足条件的第 1 条记录
      * <p>
-     * 目的:解决并发场景下，插入多条记录后，使用 selectOne 会报错的问题
+     * 目的:解决并发场景下,插入多条记录后,使用 selectOne 会报错的问题
      *
      * @param sFunction 字段名
      * @param object 字段值
      * @return 实体
      */
     default T selectFirstOne(SFunction<T, ?> sFunction, Object object) {
-        // 如果明确使用 MySQL 等场景，可以考虑使用 LIMIT 1 进行优化
+        // 如果明确使用 MySQL 等场景,可以考虑使用 LIMIT 1 进行优化
         List<T> list = selectList(new LambdaQueryWrapper<T>().eq(sFunction, object));
         return CollUtil.getFirst(list);
     }
@@ -173,7 +173,7 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     /**
      * 获取满足条件的最新一条记录
      * <p>
-     * 目的:解决并发场景下，插入多条记录后，使用 selectOne 会报错的问题
+     * 目的:解决并发场景下,插入多条记录后,使用 selectOne 会报错的问题
      *
      * @param lambdaQueryWrapper 查询条件
      * @return 最新一条；不存在返回 null
@@ -225,12 +225,12 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     }
 
     /**
-     * 批量插入，适合大量数据插入
+     * 批量插入,适合大量数据插入
      *
      * @param collection 实体们
      */
     default Boolean insertBatch(Collection<T> collection) {
-        // 特殊:SQL Server 批量插入后，获取 id 会报错，因此通过循环处理
+        // 特殊:SQL Server 批量插入后,获取 id 会报错,因此通过循环处理
         DbType dbType = JdbcUtils.getDbType();
         if (JdbcUtils.isSQLServer(dbType)) {
             collection.forEach(this::insert);
@@ -240,13 +240,13 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     }
 
     /**
-     * 批量插入，适合大量数据插入
+     * 批量插入,适合大量数据插入
      *
      * @param collection 实体们
      * @param size     插入数量 Db.saveBatch 默认为 1000
      */
     default Boolean insertBatch(Collection<T> collection, int size) {
-        // 特殊:SQL Server 批量插入后，获取 id 会报错，因此通过循环处理
+        // 特殊:SQL Server 批量插入后,获取 id 会报错,因此通过循环处理
         DbType dbType = JdbcUtils.getDbType();
         if (JdbcUtils.isSQLServer(dbType)) {
             collection.forEach(this::insert);

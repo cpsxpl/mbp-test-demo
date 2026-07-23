@@ -40,8 +40,8 @@ public class WebFrameworkUtils {
     }
 
     /**
-     * 获得租户编号，从 header 中
-     * 考虑到其它 framework 组件也会使用到租户编号，所以不得不放在 WebFrameworkUtils 统一提供
+     * 获得租户编号,从 header 中
+     * 考虑到其它 framework 组件也会使用到租户编号,所以不得不放在 WebFrameworkUtils 统一提供
      *
      * @param request 请求
      * @return 租户编号
@@ -52,8 +52,8 @@ public class WebFrameworkUtils {
     }
 
     /**
-     * 获得访问的租户编号，从 header 中
-     * 考虑到其它 framework 组件也会使用到租户编号，所以不得不放在 WebFrameworkUtils 统一提供
+     * 获得访问的租户编号,从 header 中
+     * 考虑到其它 framework 组件也会使用到租户编号,所以不得不放在 WebFrameworkUtils 统一提供
      *
      * @param request 请求
      * @return 租户编号
@@ -78,7 +78,7 @@ public class WebFrameworkUtils {
     }
 
     /**
-     * 获得当前用户的编号，从请求中
+     * 获得当前用户的编号,从请求中
      * 注意：该方法仅限于 framework 框架使用！！！
      *
      * @param request 请求
@@ -102,12 +102,12 @@ public class WebFrameworkUtils {
         if (request == null) {
             return null;
         }
-        // 1. 优先，从 Attribute 中获取
+        // 1. 优先,从 Attribute 中获取
         Integer userType = (Integer) request.getAttribute(REQUEST_ATTRIBUTE_LOGIN_USER_TYPE);
         if (userType != null) {
             return userType;
         }
-        // 2. 其次，基于 URL 前缀的约定
+        // 2. 其次,基于 URL 前缀的约定
         if (request.getServletPath().startsWith(webProperties.getAdminApi().getPrefix())) {
             return UserTypeEnum.ADMIN.getValue();
         }

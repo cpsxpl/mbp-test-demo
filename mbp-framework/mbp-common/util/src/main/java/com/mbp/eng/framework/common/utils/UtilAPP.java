@@ -51,7 +51,7 @@ public class UtilAPP {
     /*
      * 2008/07/15   Chen Pei
      * 自动保留小数位数
-     * 参数1：被操作数字，参数2：保留位数，参数3：是否四舍五入
+     * 参数1：被操作数字,参数2：保留位数,参数3：是否四舍五入
      */
     public static double getNumberRound(double number, int decimal, boolean is4s5r) throws Exception {
         double result;

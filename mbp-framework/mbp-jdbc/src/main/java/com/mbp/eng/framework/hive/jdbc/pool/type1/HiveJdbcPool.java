@@ -18,7 +18,7 @@ public class HiveJdbcPool implements DataSource {
 
     /**
      * @Field: Connections
-     * 使用Vector来存放数据库链接，
+     * 使用Vector来存放数据库链接,
      * Vector具备线程安全性
      */
     private static final Vector vector = new Vector();
@@ -39,7 +39,7 @@ public class HiveJdbcPool implements DataSource {
             for (int i = 0; i < jdbcPoolInitSize; i++) {
                 Connection connection = DriverManager.getConnection(dbURL, HiveJdbcPer.dbUsername, HiveJdbcPer.dbPassword);
                 logger.debug("获取到了链接：{}", connection);
-                //将获取到的数据库连接加入到Connections集合中，Connections此时就是一个存放了数据库连接的连接池
+                //将获取到的数据库连接加入到Connections集合中,Connections此时就是一个存放了数据库连接的连接池
                 vector.addElement(connection);
             }
         } catch (SQLException e) {
@@ -64,14 +64,14 @@ public class HiveJdbcPool implements DataSource {
                     if (!method.getName().equals("close")) {
                         return method.invoke(connection, args);
                     } else {
-                        //如果调用的是Connection对象的close方法，就把conn还给数据库连接池
+                        //如果调用的是Connection对象的close方法,就把conn还给数据库连接池
                         vector.addElement(connection);
                         logger.debug(connection + "被还给Connections数据库连接池了！！");
                         logger.debug("Connections数据库连接池大小为" + vector.size());
                         return null;
                     }
                 });
-            } else throw new RuntimeException("对不起，数据库连接失败！");
+            } else throw new RuntimeException("对不起,数据库连接失败！");
         }
     }
 

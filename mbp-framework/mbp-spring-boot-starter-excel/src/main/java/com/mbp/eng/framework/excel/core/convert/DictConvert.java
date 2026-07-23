@@ -19,12 +19,12 @@ public class DictConvert implements Converter<Object> {
 
     @Override
     public Class<?> supportJavaTypeKey() {
-        throw new UnsupportedOperationException("暂不支持，也不需要");
+        throw new UnsupportedOperationException("暂不支持,也不需要");
     }
 
     @Override
     public CellDataTypeEnum supportExcelTypeKey() {
-        throw new UnsupportedOperationException("暂不支持，也不需要");
+        throw new UnsupportedOperationException("暂不支持,也不需要");
     }
 
     @Override
@@ -46,7 +46,7 @@ public class DictConvert implements Converter<Object> {
     @Override
     public WriteCellData<String> convertToExcelData(Object object, ExcelContentProperty contentProperty,
                                                     GlobalConfiguration globalConfiguration) {
-        // 空时，返回空
+        // 空时,返回空
         if (object == null) {
             return new WriteCellData<>("");
         }

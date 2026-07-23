@@ -38,8 +38,8 @@ public class HiveJdbcUtil {
     }
 
     /**
-     * 释放资源，
-     * 释放的资源包括Connection数据库连接对象，负责执行SQL命令的Statement对象，存储查询结果的ResultSet对象
+     * 释放资源,
+     * 释放的资源包括Connection数据库连接对象,负责执行SQL命令的Statement对象,存储查询结果的ResultSet对象
      *
      * @param connection
      * @param statement

@@ -48,7 +48,7 @@ public class MD5OutputStream extends FileOutputStream {
             messagedigest = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException nsaex) {
             throw new RuntimeException(MD5InputStream.class.getName()
-                    + "init failed，MessageDigest not support MD5InputStream");
+                    + "init failed,MessageDigest not support MD5InputStream");
         }
     }
 

@@ -72,7 +72,7 @@ public abstract class SchedulerPlanImpl implements SchedulerPlan {
 
     /**
      * 更新定时任务
-     * 只能修改运行的时间，参数、同异步等无法修改
+     * 只能修改运行的时间,参数、同异步等无法修改
      *
      * @param planId
      * @param jobId

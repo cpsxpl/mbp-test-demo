@@ -81,7 +81,7 @@ public class MetaData implements Serializable, ResultSetMetaData {
             //如果调用方法 ResultSet.getObject 从列中获取值,则返回构造其实例的 Java 类的完全限定名称
             this.columnClassNames.addElement(resultSetMetaData.getColumnClassName(i + 1).toLowerCase());
 
-            //指示指定列的最大标准宽度，以字符为单位
+            //指示指定列的最大标准宽度,以字符为单位
             this.columnDisplaySizes.addElement(new Integer(resultSetMetaData.getColumnDisplaySize(i + 1)));
             this.columnMaxSizes.addElement(new Integer(resultSetMetaData.getColumnDisplaySize(i + 1)));
 

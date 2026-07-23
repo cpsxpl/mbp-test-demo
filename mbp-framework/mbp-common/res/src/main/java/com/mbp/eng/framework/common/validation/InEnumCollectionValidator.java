@@ -33,7 +33,7 @@ public class InEnumCollectionValidator implements ConstraintValidator<InEnum, Co
         if (CollUtil.containsAll(values, list)) {
             return true;
         }
-        // 校验不通过，自定义提示语句
+        // 校验不通过,自定义提示语句
         context.disableDefaultConstraintViolation(); // 禁用默认的 message 的值
         context.buildConstraintViolationWithTemplate(context.getDefaultConstraintMessageTemplate()
                 .replaceAll("\\{value}", CollUtil.join(list, ","))).addConstraintViolation(); // 重新添加错误提示语句

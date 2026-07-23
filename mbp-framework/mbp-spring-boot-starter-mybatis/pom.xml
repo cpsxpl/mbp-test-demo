@@ -197,19 +197,19 @@
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
 
-        <!-- 单元测试，我们采用 H2 作为数据库 -->
+        <!-- 单元测试,我们采用 H2 作为数据库 -->
        <!-- <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>-->
 
-        <!-- 单元测试，我们采用内嵌的 Redis 数据库 -->
+        <!-- 单元测试,我们采用内嵌的 Redis 数据库 -->
         <!--<dependency>
             <groupId>com.github.fppt</groupId>
             <artifactId>jedis-mock</artifactId>
         </dependency>-->
 
-        <!-- 单元测试，随机生成 POJO 类 -->
+        <!-- 单元测试,随机生成 POJO 类 -->
         <dependency>
             <groupId>uk.co.jemos.podam</groupId>
             <artifactId>podam</artifactId>

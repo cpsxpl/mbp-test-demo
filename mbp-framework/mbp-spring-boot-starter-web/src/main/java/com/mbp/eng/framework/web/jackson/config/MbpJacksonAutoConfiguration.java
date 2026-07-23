@@ -26,7 +26,7 @@ import java.time.LocalTime;
 public class MbpJacksonAutoConfiguration {
 
     /**
-     * 从 Builder 源头定制（关键：使用 *ByType，避免 handledType 要求）
+     * 从 Builder 源头定制（关键：使用 *ByType,避免 handledType 要求）
      */
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer ldtEpochMillisCustomizer() {
@@ -50,7 +50,7 @@ public class MbpJacksonAutoConfiguration {
     @Bean
     public Module timestampSupportModuleBean() {
         SimpleModule m = new SimpleModule("TimestampSupportModule");
-        // Long -> Number，避免前端精度丢失
+        // Long -> Number,避免前端精度丢失
         m.addSerializer(Long.class, NumberSerializer.INSTANCE);
         m.addSerializer(Long.TYPE, NumberSerializer.INSTANCE);
         // LocalDate / LocalTime
@@ -65,7 +65,7 @@ public class MbpJacksonAutoConfiguration {
     }
 
     /**
-     * 初始化全局 JsonUtils，直接使用主 ObjectMapper
+     * 初始化全局 JsonUtils,直接使用主 ObjectMapper
      */
     @Bean
     @SuppressWarnings("InstantiationOfUtilityClass")

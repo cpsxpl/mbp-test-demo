@@ -28,7 +28,7 @@ public class TenantContextHolder {
     }
 
     /**
-     * 获得租户编号。如果不存在，则抛出 NullPointerException 异常
+     * 获得租户编号。如果不存在,则抛出 NullPointerException 异常
      *
      * @return 租户编号
      */

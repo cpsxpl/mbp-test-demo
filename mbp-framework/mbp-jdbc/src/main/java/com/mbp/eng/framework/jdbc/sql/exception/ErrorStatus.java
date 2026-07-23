@@ -13,8 +13,8 @@ public class ErrorStatus {
     }
 
     /**
-     * 常用异常，0~100
-     * 权限相关，101~200
+     * 常用异常,0~100
+     * 权限相关,101~200
      * 201~300: 预留该段错误码是为了给前端的提示信息统一从后端返回的error message中获取
      */
     public static final Integer SUCCESS = 0;
@@ -35,7 +35,7 @@ public class ErrorStatus {
     public static final Integer DEMOR_ROLE_NOT_SUPPORT = 100201;
 
     /**
-     * dataService 操作异常，100~200
+     * dataService 操作异常,100~200
      * 200~300: pipeline-service相关异常错误码定义
      */
     public static final Integer TRANS_DATA_ERROR = 102101;

@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * Excel 自适应列宽处理器
  * <p>
- * 相比 {@link LongestMatchColumnWidthStyleStrategy} 来说，额外处理了 DATE 类型！
+ * 相比 {@link LongestMatchColumnWidthStyleStrategy} 来说,额外处理了 DATE 类型！
  * <p>
  * 添加自适应列宽处理器,并替换默认列宽策略
  */

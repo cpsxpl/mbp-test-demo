@@ -50,7 +50,7 @@ public class PageUtils {
 
     /**
      * 构建默认的排序字段
-     * 如果排序字段为空，则设置排序字段；否则忽略
+     * 如果排序字段为空,则设置排序字段；否则忽略
      *
      * @param sortablePageParam 排序分页查询参数
      * @param func              排序字段的 Lambda 表达式

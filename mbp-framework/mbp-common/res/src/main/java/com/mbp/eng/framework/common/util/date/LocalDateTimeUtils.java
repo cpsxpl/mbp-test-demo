@@ -20,12 +20,12 @@ import java.util.TimeZone;
 import static cn.hutool.core.date.DatePattern.*;
 
 /**
- * 时间工具类，用于 {@link LocalDateTime}
+ * 时间工具类,用于 {@link LocalDateTime}
  */
 public class LocalDateTimeUtils {
 
     /**
-     * 空的 LocalDateTime 对象，主要用于 DB 唯一索引的默认值
+     * 空的 LocalDateTime 对象,主要用于 DB 唯一索引的默认值
      */
     public static LocalDateTime EMPTY = buildTime(1970, 1, 1);
 
@@ -39,7 +39,7 @@ public class LocalDateTimeUtils {
     /**
      * 解析时间
      *
-     * 相比 {@link LocalDateTimeUtil#parse(CharSequence)} 方法来说，会尽量去解析，直到成功
+     * 相比 {@link LocalDateTimeUtil#parse(CharSequence)} 方法来说,会尽量去解析,直到成功
      *
      * @param time 时间
      * @return 时间字符串
@@ -107,7 +107,7 @@ public class LocalDateTimeUtils {
     }
 
     /**
-     * 判指定断时间，是否在该时间范围内
+     * 判指定断时间,是否在该时间范围内
      *
      * @param startTime 开始时间
      * @param endTime 结束时间
@@ -122,7 +122,7 @@ public class LocalDateTimeUtils {
     }
 
     /**
-     * 判指定断时间，是否在该时间范围内
+     * 判指定断时间,是否在该时间范围内
      *
      * @param startTime 开始时间
      * @param endTime 结束时间
@@ -215,7 +215,7 @@ public class LocalDateTimeUtils {
     }
 
     /**
-     * 获取指定日期到现在过了几天，如果指定日期在当前日期之后，获取结果为负
+     * 获取指定日期到现在过了几天,如果指定日期在当前日期之后,获取结果为负
      *
      * @param dateTime 日期
      * @return 相差天数
@@ -261,7 +261,7 @@ public class LocalDateTimeUtils {
     }
 
     /**
-     * 获取最近 N 天的 0 点时刻序列（升序，含今天）
+     * 获取最近 N 天的 0 点时刻序列（升序,含今天）
      * <p>
      * 例：getLatestDays(3) 返回 [前天 00:00, 昨天 00:00, 今天 00:00]
      *
@@ -287,7 +287,7 @@ public class LocalDateTimeUtils {
         startTime = LocalDateTimeUtil.beginOfDay(startTime);
         endTime = LocalDateTimeUtil.endOfDay(endTime);
 
-        // 2. 循环，生成时间范围
+        // 2. 循环,生成时间范围
         List<LocalDateTime[]> timeRanges = new ArrayList<>();
         switch (intervalEnum) {
             case HOUR:
@@ -335,7 +335,7 @@ public class LocalDateTimeUtils {
             default:
                 throw new IllegalArgumentException("Invalid interval: " + interval);
         }
-        // 3. 兜底，最后一个时间，需要保持在 endTime 之前
+        // 3. 兜底,最后一个时间,需要保持在 endTime 之前
         LocalDateTime[] lastTimeRange = CollUtil.getLast(timeRanges);
         if (lastTimeRange != null) {
             lastTimeRange[1] = endTime;
@@ -348,7 +348,7 @@ public class LocalDateTimeUtils {
      *
      * @param startDate 开始日期
      * @param days 天数
-     * @return 日期列表，包含开始日期
+     * @return 日期列表,包含开始日期
      */
     public static List<LocalDate> getDateList(LocalDate startDate, int days) {
         List<LocalDate> dateList = new ArrayList<>(days);
@@ -371,7 +371,7 @@ public class LocalDateTimeUtils {
         DateIntervalEnum intervalEnum = DateIntervalEnum.valueOf(interval);
         Assert.notNull(intervalEnum, "interval({}} 找不到对应的枚举", interval);
 
-        // 2. 循环，生成时间范围
+        // 2. 循环,生成时间范围
         switch (intervalEnum) {
             case HOUR:
                 return LocalDateTimeUtil.format(startTime, DatePattern.NORM_DATETIME_MINUTE_PATTERN);
@@ -415,7 +415,7 @@ public class LocalDateTimeUtils {
     /**
      * 将给定的 {@link LocalDateTime} 转换为自 Unix 纪元时间（1970-01-01T00:00:00Z）以来的秒数。
      *
-     * @param sourceDateTime 需要转换的本地日期时间，不能为空
+     * @param sourceDateTime 需要转换的本地日期时间,不能为空
      * @return 自 1970-01-01T00:00:00Z 起的秒数（epoch second）
      * @throws NullPointerException 如果 {@code sourceDateTime} 为 {@code null}
      * @throws DateTimeException 如果转换过程中发生时间超出范围或其他时间处理异常
@@ -427,7 +427,7 @@ public class LocalDateTimeUtils {
     /**
      * 将给定的 {@link LocalDateTime} 按指定时区转换为自 Unix 纪元时间（1970-01-01T00:00:00Z）以来的秒数。
      *
-     * @param sourceDateTime 需要转换的本地日期时间，不能为空
+     * @param sourceDateTime 需要转换的本地日期时间,不能为空
      * @param zoneId 时区编号
      * @return 自 1970-01-01T00:00:00Z 起的秒数（epoch second）
      */

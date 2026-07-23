@@ -609,7 +609,7 @@ public class PoolStatementSQLManager {
     /*******************************************************华丽的分割线_start*******************************************************/
 
     /**
-     * 获取结果集，并将结果放在List中
+     * 获取结果集,并将结果放在List中
      *
      * @param sql
      * @return
@@ -626,7 +626,7 @@ public class PoolStatementSQLManager {
     }
 
     /**
-     * 获取结果集，并将结果放在List中
+     * 获取结果集,并将结果放在List中
      *
      * @param sql
      * @param dbName
@@ -1451,7 +1451,7 @@ public class PoolStatementSQLManager {
         int result = 0;
         //移到最后一行
         if (resultSet.last()) {
-            //得到当前行号，也就是记录数
+            //得到当前行号,也就是记录数
             result = resultSet.getRow();
             //光标回滚
             resultSet.beforeFirst();

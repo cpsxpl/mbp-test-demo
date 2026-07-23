@@ -32,7 +32,7 @@ public class MbpDataPermissionAutoConfiguration {
         DataPermissionRuleHandler handler = new DataPermissionRuleHandler(ruleFactory);
         DataPermissionInterceptor inner = new DataPermissionInterceptor(handler);
         // 添加到 interceptor 中
-        // 需要加在首个，主要是为了在分页插件前面。这个是 MyBatis Plus 的规定
+        // 需要加在首个,主要是为了在分页插件前面。这个是 MyBatis Plus 的规定
         MyBatisUtils.addInterceptor(mybatisPlusInterceptor, inner, 0);
         return handler;
     }

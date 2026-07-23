@@ -52,7 +52,7 @@ public class CheckObjectUtils {
     public static boolean objCheckIsNull(Object object) {
         Class clazz = (Class) object.getClass(); // 得到类对象
         Field[] fields = clazz.getDeclaredFields(); // 得到所有属性
-        boolean flag = true; //定义返回结果，默认为true
+        boolean flag = true; //定义返回结果,默认为true
         for (Field field : fields) {
             field.setAccessible(true);
             Object fieldValue = null;

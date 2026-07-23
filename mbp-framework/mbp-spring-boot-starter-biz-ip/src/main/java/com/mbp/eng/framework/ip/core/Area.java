@@ -11,7 +11,7 @@ import lombok.ToString;
 import java.util.List;
 
 /**
- * 区域节点，包括国家、省份、城市、地区等信息
+ * 区域节点,包括国家、省份、城市、地区等信息
  * <p>
  * 数据可见 resources/area.csv 文件
  */
@@ -22,7 +22,7 @@ import java.util.List;
 public class Area {
 
     /**
-     * 编号 - 全球，即根目录
+     * 编号 - 全球,即根目录
      */
     public static final Integer ID_GLOBAL = 0;
     /**

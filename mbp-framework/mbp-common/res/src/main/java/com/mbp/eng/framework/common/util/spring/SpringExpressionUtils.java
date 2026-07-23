@@ -39,7 +39,7 @@ public class SpringExpressionUtils {
     }
 
     /**
-     * 从切面中，单个解析 EL 表达式的结果
+     * 从切面中,单个解析 EL 表达式的结果
      *
      * @param joinPoint        切面点
      * @param expressionString EL 表达式数组
@@ -51,19 +51,19 @@ public class SpringExpressionUtils {
     }
 
     /**
-     * 从切面中，批量解析 EL 表达式的结果
+     * 从切面中,批量解析 EL 表达式的结果
      *
      * @param joinPoint         切面点
      * @param expressionStrings EL 表达式数组
-     * @return 结果，key 为表达式，value 为对应值
+     * @return 结果,key 为表达式,value 为对应值
      */
     public static Map<String, Object> parseExpressions(JoinPoint joinPoint, List<String> expressionStrings) {
-        // 如果为空，则不进行解析
+        // 如果为空,则不进行解析
         if (CollUtil.isEmpty(expressionStrings)) {
             return MapUtil.newHashMap();
         }
 
-        // 第一步，构建解析的上下文 EvaluationContext
+        // 第一步,构建解析的上下文 EvaluationContext
         // 通过 joinPoint 获取被注解方法
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Method method = methodSignature.getMethod();
@@ -79,7 +79,7 @@ public class SpringExpressionUtils {
             }
         }
 
-        // 第二步，逐个参数解析
+        // 第二步,逐个参数解析
         Map<String, Object> result = MapUtil.newHashMap(expressionStrings.size(), true);
         expressionStrings.forEach(key -> {
             Object value = EXPRESSION_PARSER.parseExpression(key).getValue(context);
@@ -89,7 +89,7 @@ public class SpringExpressionUtils {
     }
 
     /**
-     * 从 Bean 工厂，解析 EL 表达式的结果
+     * 从 Bean 工厂,解析 EL 表达式的结果
      *
      * @param expressionString EL 表达式
      * @return 执行界面
@@ -99,7 +99,7 @@ public class SpringExpressionUtils {
     }
 
     /**
-     * 从 Bean 工厂，解析 EL 表达式的结果
+     * 从 Bean 工厂,解析 EL 表达式的结果
      *
      * @param expressionString EL 表达式
      * @param variables        变量

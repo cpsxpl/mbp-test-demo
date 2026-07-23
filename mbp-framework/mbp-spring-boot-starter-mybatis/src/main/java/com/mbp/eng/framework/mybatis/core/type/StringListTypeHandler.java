@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * List<String> 的类型转换器实现类，对应数据库的 varchar 类型
+ * List<String> 的类型转换器实现类,对应数据库的 varchar 类型
  */
 @MappedJdbcTypes(JdbcType.VARCHAR)
 @MappedTypes(List.class)

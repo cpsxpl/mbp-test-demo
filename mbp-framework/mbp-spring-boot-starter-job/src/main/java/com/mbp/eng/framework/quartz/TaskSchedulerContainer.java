@@ -277,7 +277,7 @@ public final class TaskSchedulerContainer {
             //按新的cronExpression表达式重新构建trigger
             cronTrigger = cronTrigger.getTriggerBuilder().withIdentity(triggerKey).withSchedule(scheduleBuilder).build();
             Trigger.TriggerState triggerState = scheduler.getTriggerState(cronTrigger.getKey());
-            // 忽略状态为PAUSED的任务，解决集群环境中在其他机器设置定时任务为PAUSED状态后，集群环境启动另一台主机时定时任务全被唤醒的bug
+            // 忽略状态为PAUSED的任务,解决集群环境中在其他机器设置定时任务为PAUSED状态后,集群环境启动另一台主机时定时任务全被唤醒的bug
             if (!triggerState.name().equalsIgnoreCase("PAUSED")) {
                 //按新的trigger重新设置job执行
                 scheduler.rescheduleJob(triggerKey, cronTrigger);
@@ -320,7 +320,7 @@ public final class TaskSchedulerContainer {
     }
 
     /**
-     * 构建trigger，TRIGGER_NAME：jobId， TRIGGER_GROUP：planId
+     * 构建trigger,TRIGGER_NAME：jobId, TRIGGER_GROUP：planId
      *
      * @param planId
      * @param jobId

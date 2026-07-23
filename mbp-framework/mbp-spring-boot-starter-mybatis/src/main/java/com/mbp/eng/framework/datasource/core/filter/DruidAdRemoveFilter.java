@@ -23,7 +23,7 @@ public class DruidAdRemoveFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
         chain.doFilter(request, response);
-        // 重置缓冲区，响应头不会被重置
+        // 重置缓冲区,响应头不会被重置
         response.resetBuffer();
         // 获取 common.js
         String text = Utils.readFromResource(COMMON_JS_ILE_PATH);

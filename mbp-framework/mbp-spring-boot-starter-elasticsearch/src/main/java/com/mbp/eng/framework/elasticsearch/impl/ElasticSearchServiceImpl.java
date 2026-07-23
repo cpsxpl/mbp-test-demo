@@ -47,7 +47,7 @@ public class ElasticSearchServiceImpl implements ElasticSearchService {
     }
 
     /**
-     * 设置代理，用于本地测试
+     * 设置代理,用于本地测试
      */
     private void setSocksProxy() {
         System.setProperty("socksProxyVersion", "5");
@@ -55,7 +55,7 @@ public class ElasticSearchServiceImpl implements ElasticSearchService {
         System.setProperty("socksProxyPort", "80");
     }
     /**
-     * 清除代理，用于本地测试
+     * 清除代理,用于本地测试
      */
     private void clearSocksProxy() {
         System.clearProperty("socksProxyVersion");

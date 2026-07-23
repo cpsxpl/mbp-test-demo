@@ -29,7 +29,7 @@ import static com.mbp.eng.framework.common.util.collection.CollectionUtils.findF
 public class AreaUtils {
 
     /**
-     * Area 内存缓存，提升访问速度
+     * Area 内存缓存,提升访问速度
      */
     private static Map<Integer, Area> areas;
 
@@ -61,7 +61,7 @@ public class AreaUtils {
                 area.setParent(parent);
                 parent.getChildren().add(area);
             }
-            log.info("启动加载 AreaUtils 成功，耗时 ({}) 毫秒", System.currentTimeMillis() - now);
+            log.info("启动加载 AreaUtils 成功,耗时 ({}) 毫秒", System.currentTimeMillis() - now);
         } catch (Exception e) {
             throw new RuntimeException("AreaUtils 初始化失败", e);
         }
@@ -80,7 +80,7 @@ public class AreaUtils {
     /**
      * 获得指定区域对应的编号
      *
-     * @param pathStr 区域路径，例如说：河南省/石家庄市/新华区
+     * @param pathStr 区域路径,例如说：河南省/石家庄市/新华区
      * @return 区域
      */
     public static Area parseArea(String pathStr) {
@@ -109,11 +109,11 @@ public class AreaUtils {
     }
 
     /**
-     * 构建一棵树的所有节点的全路径名称，并将其存储为 "祖先/父级/子级" 的形式
+     * 构建一棵树的所有节点的全路径名称,并将其存储为 "祖先/父级/子级" 的形式
      *
      * @param node  父节点
      * @param path  全路径名称
-     * @param paths 全路径名称列表，省份/城市/地区
+     * @param paths 全路径名称列表,省份/城市/地区
      */
     private static void getAreaNodePathList(Area node, String path, List<String> paths) {
         if (node == null) {
@@ -146,7 +146,7 @@ public class AreaUtils {
      * 2. id = “上海市”时：上海 上海市
      * 3. id = “上海”时：上海
      * 4. id = “美国”时：美国
-     * 当区域在中国时，默认不显示中国
+     * 当区域在中国时,默认不显示中国
      *
      * @param id        区域编号
      * @param separator 分隔符
@@ -187,7 +187,7 @@ public class AreaUtils {
     }
 
     /**
-     * 根据区域编号、上级区域类型，获取上级区域编号
+     * 根据区域编号、上级区域类型,获取上级区域编号
      *
      * @param id   区域编号
      * @param type 区域类型
@@ -199,11 +199,11 @@ public class AreaUtils {
             if (area == null) {
                 return null;
             }
-            // 情况一：匹配到，返回它
+            // 情况一：匹配到,返回它
             if (type.getType().equals(area.getType())) {
                 return area.getId();
             }
-            // 情况二：找到根节点，返回空
+            // 情况二：找到根节点,返回空
             if (area.getParent() == null || area.getParent().getId() == null) {
                 return null;
             }

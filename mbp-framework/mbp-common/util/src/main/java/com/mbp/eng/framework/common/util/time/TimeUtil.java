@@ -41,7 +41,7 @@ public class TimeUtil {
     }
 
     /**
-     * 判断当前时间是否在[startTime, endTime]区间，注意时间格式要一致
+     * 判断当前时间是否在[startTime, endTime]区间,注意时间格式要一致
      *
      * @param nowTime   当前时间
      * @param startTime 开始时间

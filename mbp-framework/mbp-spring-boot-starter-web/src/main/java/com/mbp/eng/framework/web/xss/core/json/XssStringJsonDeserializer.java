@@ -16,7 +16,7 @@ import java.io.IOException;
 
 /**
  * XSS 过滤 jackson 反序列化器。
- * 在反序列化的过程中，会对字符串进行 XSS 过滤。
+ * 在反序列化的过程中,会对字符串进行 XSS 过滤。
  */
 @Slf4j
 @AllArgsConstructor

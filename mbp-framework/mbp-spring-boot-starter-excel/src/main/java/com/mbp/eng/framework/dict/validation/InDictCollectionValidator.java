@@ -19,7 +19,7 @@ public class InDictCollectionValidator implements ConstraintValidator<InDict, Co
 
     @Override
     public boolean isValid(Collection<?> list, ConstraintValidatorContext context) {
-        // 为空时，默认不校验，即认为通过
+        // 为空时,默认不校验,即认为通过
         if (CollUtil.isEmpty(list)) {
             return true;
         }
@@ -31,7 +31,7 @@ public class InDictCollectionValidator implements ConstraintValidator<InDict, Co
             return true;
         }
 
-        // 校验不通过，自定义提示语句
+        // 校验不通过,自定义提示语句
         context.disableDefaultConstraintViolation(); // 禁用默认的 message 的值
         context.buildConstraintViolationWithTemplate(
                 context.getDefaultConstraintMessageTemplate().replaceAll("\\{value}", dbValues.toString())

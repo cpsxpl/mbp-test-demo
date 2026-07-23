@@ -59,7 +59,7 @@ public class PlanTaskImpl extends SchedulerPlanImpl {
         if (CollectionUtils.isEmpty(triggers)) {
             return JsonUtil.toJSON(objectNode);
         }
-        //这里一个任务可以有多个触发器， 但是我们一个任务对应一个触发器，所以只取第一个即可，清晰明了
+        //这里一个任务可以有多个触发器, 但是我们一个任务对应一个触发器,所以只取第一个即可,清晰明了
         Trigger trigger = triggers.iterator().next();
         objectNode.put("jobTrigger", trigger.getKey().getName());
 
@@ -143,7 +143,7 @@ public class PlanTaskImpl extends SchedulerPlanImpl {
 
     /**
      * 更新定时任务
-     * 只能修改运行的时间，参数、同异步等无法修改
+     * 只能修改运行的时间,参数、同异步等无法修改
      *
      * @param planId
      * @param jobId

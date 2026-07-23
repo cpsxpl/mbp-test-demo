@@ -28,12 +28,12 @@ public class LocalCache implements InitializingBean {
     @Autowired
     RedisClient redisClient;
 
-    // 本地对Redis的缓存，缓存expire(默认60)秒,因此会有expire秒的误差
+    // 本地对Redis的缓存,缓存expire(默认60)秒,因此会有expire秒的误差
     private LoadingCache<String, String> loadingCache = null;
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        loadingCache = CacheBuilder.newBuilder().refreshAfterWrite(refresh, TimeUnit.SECONDS)// 给定时间内没有被读/写访问，则回收。
+        loadingCache = CacheBuilder.newBuilder().refreshAfterWrite(refresh, TimeUnit.SECONDS)// 给定时间内没有被读/写访问,则回收。
                 .expireAfterAccess(expire, TimeUnit.SECONDS)// 缓存过期时间和redis缓存时长一样
                 .maximumSize(1000)// 设置缓存个数
                 .build(new CacheLoader<String, String>() {

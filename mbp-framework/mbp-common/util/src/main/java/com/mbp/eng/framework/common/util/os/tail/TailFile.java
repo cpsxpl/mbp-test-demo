@@ -59,7 +59,7 @@ public class TailFile {
                 Map m = tail((Long) header[0], lastNum, file, charset);
                 map.put(POINT, m.get(POINT));
                 map.put(ARR, ArrayUtils.addAll((Object[]) m.get(ARR), linkedListQueue.toArray()));
-            } else if (linkedListQueue.size() > 0) { // 获取的行数不够，并且没有到达TOP
+            } else if (linkedListQueue.size() > 0) { // 获取的行数不够,并且没有到达TOP
                 map.put(POINT, linkedListQueue.peek()[0]);
                 map.put(ARR, linkedListQueue.toArray());
             }

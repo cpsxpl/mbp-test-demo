@@ -95,7 +95,7 @@ public class JsonUtil {
     }
 
     /**
-     * 把一个对象转换成json字符串，默认采用精简模式
+     * 把一个对象转换成json字符串,默认采用精简模式
      *
      * @param object
      * @return

@@ -66,7 +66,7 @@ public class MbpWebAutoConfiguration {
             }
 
             /**
-             * 设置 API 前缀，仅仅匹配 controller 包下的
+             * 设置 API 前缀,仅仅匹配 controller 包下的
              */
             private void putPathPrefix(Map<String, Predicate<Class<?>>> pathPrefixes, WebProperties.Api api, AntPathMatcher matcher) {
                 if (api == null || StrUtil.isEmpty(api.getPrefix())) {
@@ -94,14 +94,14 @@ public class MbpWebAutoConfiguration {
     @Bean
     @SuppressWarnings("InstantiationOfUtilityClass")
     public WebFrameworkUtils webFrameworkUtils(WebProperties webProperties) {
-        // 由于 WebFrameworkUtils 需要使用到 webProperties 属性，所以注册为一个 Bean
+        // 由于 WebFrameworkUtils 需要使用到 webProperties 属性,所以注册为一个 Bean
         return new WebFrameworkUtils(webProperties);
     }
 
     // ========== Filter 相关 ==========
 
     /**
-     * 创建 CorsFilter Bean，解决跨域问题
+     * 创建 CorsFilter Bean,解决跨域问题
      */
     @Bean
     @Order(value = WebFilterOrderEnum.CORS_FILTER) // 特殊：修复因执行顺序影响到跨域配置不生效问题
@@ -119,7 +119,7 @@ public class MbpWebAutoConfiguration {
     }
 
     /**
-     * 创建 RequestBodyCacheFilter Bean，可重复读取请求内容
+     * 创建 RequestBodyCacheFilter Bean,可重复读取请求内容
      */
     @Bean
     public FilterRegistrationBean<CacheRequestBodyFilter> requestBodyCacheFilter() {
@@ -127,7 +127,7 @@ public class MbpWebAutoConfiguration {
     }
 
     /**
-     * 创建 DemoFilter Bean，演示模式
+     * 创建 DemoFilter Bean,演示模式
      */
     @Bean
     @ConditionalOnProperty(value = "mbp.demo", havingValue = "true")

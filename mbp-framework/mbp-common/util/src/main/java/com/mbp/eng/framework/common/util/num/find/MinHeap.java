@@ -27,7 +27,7 @@ public class MinHeap {
      */
     public void HeapSort() {
         for (int i = 0; i < heap.length; i++) {
-            // 执行n次，将每个当前最大的值放到堆末尾
+            // 执行n次,将每个当前最大的值放到堆末尾
             swap(heap, 0, heapsize - 1);
             heapsize--;
             Minify(0);
@@ -59,7 +59,7 @@ public class MinHeap {
     }
 
     private void swap(int[] heap, int i, int min) {
-        // 交换i与largest对应的元素位置，在largest位置递归调用maxify
+        // 交换i与largest对应的元素位置,在largest位置递归调用maxify
         int tmp = heap[i];
         heap[i] = heap[min];
         heap[min] = tmp;
