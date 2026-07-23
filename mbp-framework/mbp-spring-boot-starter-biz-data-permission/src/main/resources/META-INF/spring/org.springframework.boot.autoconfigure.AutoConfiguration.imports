@@ -1,0 +1,2 @@
+com.mbp.eng.framework.datapermission.config.MbpDataPermissionAutoConfiguration
+com.mbp.eng.framework.datapermission.config.MbpDeptDataPermissionAutoConfiguration

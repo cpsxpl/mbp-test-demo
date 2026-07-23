@@ -1,0 +1,7 @@
+com.mbp.eng.framework.web.apilog.config.MbpApiLogAutoConfiguration
+com.mbp.eng.framework.web.jackson.config.MbpJacksonAutoConfiguration
+com.mbp.eng.framework.web.swagger.config.MbpSwaggerAutoConfiguration
+com.mbp.eng.framework.web.config.MbpWebAutoConfiguration
+com.mbp.eng.framework.web.xss.config.MbpXssAutoConfiguration
+com.mbp.eng.framework.web.banner.config.MbpBannerAutoConfiguration
+com.mbp.eng.framework.web.encrypt.config.MbpApiEncryptAutoConfiguration

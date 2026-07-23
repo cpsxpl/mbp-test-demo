@@ -1,0 +1,3 @@
+com.mbp.eng.framework.datasource.config.MbpDataSourceAutoConfiguration
+com.mbp.eng.framework.mybatis.config.MbpMybatisAutoConfiguration
+com.mbp.eng.framework.translate.config.MbpTranslateAutoConfiguration

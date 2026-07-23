@@ -1,0 +1,2037 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.mbp.eng.test</groupId>
+    <artifactId>mbp-dependencies</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>基础 bom 文件,管理整个项目的依赖版本</description>
+    <url>https://github.com/xxxxxx</url>
+
+    <properties>
+        <revision>1.0.0-SNAPSHOT</revision>
+        <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
+        <!--统一依赖管理_start-->
+        <netty.version>4.1.79.Final</netty.version>
+        <!--<netty.version>4.2.15.Final</netty.version>-->
+        <spring.framework.version>5.3.22</spring.framework.version>
+        <spring.security.version>5.8.16</spring.security.version>
+        <spring.boot.version>2.7.3</spring.boot.version>
+        <!--统一依赖管理_end-->
+        <!--spring相关_start -->
+        <springdoc.version>1.8.0</springdoc.version>
+        <swagger.version>2.9.2</swagger.version>
+        <!--spring相关_end -->
+        <bizlog-sdk.version>3.0.6</bizlog-sdk.version>
+        <!-- org.apache.*_start -->
+        <tika.version>1.18</tika.version>
+        <!-- org.apache.*_end -->
+        <!-- commons-*_start -->
+        <commons-dbcp.version>1.4</commons-dbcp.version>
+        <commons.version>1.9.3</commons.version>
+        <!-- commons-*_end -->
+        <typesafe.config.version>1.2.1</typesafe.config.version>
+        <fastexcel.version>1.3.0</fastexcel.version>
+        <!-- JSON_start -->
+        <codehaus.jackson.version>1.9.2</codehaus.jackson.version>
+        <org.json.version>20130603</org.json.version>
+        <fastjson.version>1.2.79</fastjson.version>
+        <!-- JSON_end -->
+        <guava.version>20.0</guava.version>
+        <jdom.version>1.1.3</jdom.version>
+        <joda-time.version>2.9.2</joda-time.version>
+        <univocity-parsers.vresion>2.8.1</univocity-parsers.vresion>
+        <bitmap.vresion>0.9.10</bitmap.vresion>
+        <ssh.vresion>build210</ssh.vresion>
+        <jsch.vresion>0.1.55</jsch.vresion>
+        <jolt.version>0.1.1</jolt.version>
+        <knife4j.version>4.5.0</knife4j.version>
+        <ip2region.version>2.7.0</ip2region.version>
+        <jsoup.version>1.22.2</jsoup.version>
+        <!-- DB 相关_start -->
+        <!--<mysql.version>5.1.32</mysql.version>-->
+        <!--<mysql.version>8.0.11</mysql.version>-->
+        <mysql.version>8.0.21</mysql.version>
+        <mybatis.version>3.5.19</mybatis.version>
+        <mybatis.spring.version>2.1.2</mybatis.spring.version>
+        <druid.version>1.2.28</druid.version>
+        <mybatis-plus-o.version>2.1.2</mybatis-plus-o.version>
+        <mybatis-plus.version>3.5.16</mybatis-plus.version>
+        <mybatis-plus-join.version>1.5.7</mybatis-plus-join.version>
+        <dynamic-datasource.version>4.5.0</dynamic-datasource.version>
+        <dm8.jdbc.version>8.1.3.140</dm8.jdbc.version>
+        <kingbase.jdbc.version>9.0.1.jre7</kingbase.jdbc.version>
+        <opengauss.jdbc.version>7.0.0-RC3-og</opengauss.jdbc.version>
+        <taos.version>3.8.4</taos.version>
+        <easy-trans.version>3.1.5</easy-trans.version>
+        <!-- DB 相关_end -->
+        <mapstruct.version>1.6.3</mapstruct.version>
+        <hutool-5.version>5.8.46</hutool-5.version>
+        <tk.mybatis.version>3.4.6</tk.mybatis.version>
+        <!-- easy poi_start -->
+        <easypoi.version>3.2.0</easypoi.version>
+        <!-- easy poi_end -->
+        <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
+        <!-- 消息队列 -->
+        <rocketmq-spring.version>2.3.6</rocketmq-spring.version>
+        <!-- 服务保障相关 -->
+        <lock4j.version>2.2.7</lock4j.version>
+        <!-- 监控相关 -->
+        <opentelemetry.version>1.39.0</opentelemetry.version>
+        <skywalking.version>9.6.0</skywalking.version>
+        <spring-boot-admin.version>2.7.15</spring-boot-admin.version>
+        <!-- Test 测试相关 -->
+        <mockito-inline.version>4.11.0</mockito-inline.version>
+        <podam.version>7.2.11.RELEASE</podam.version> <!-- Spring Boot 2.X 最多使用 7.2.11 版本 -->
+        <jedis-mock.version>1.1.15</jedis-mock.version>
+        <!-- 插件相关_start -->
+        <zookeeper.version>3.9.5</zookeeper.version>
+        <hadoop.version>3.3.1</hadoop.version>
+        <hive.version>2.3.0</hive.version>
+        <!--<hive.version>3.1.3</hive.version>-->
+        <hbase.version>2.4.2</hbase.version>
+        <flink.version>1.13.6</flink.version>
+        <flink.jdbc.version>1.10.3</flink.jdbc.version>
+        <flink.connector.kafka.version>1.11.3</flink.connector.kafka.version>
+        <flink.connector.mysql.cdc.version>1.4.0</flink.connector.mysql.cdc.version>
+        <flink.connector.filesystem.version>1.11.6</flink.connector.filesystem.version>
+        <scala.binary.version>2.12</scala.binary.version>
+        <clickHouse.jdbc.version>0.3.1</clickHouse.jdbc.version>
+        <spark.version>3.1.2</spark.version>
+        <spark.scala.version>2.12</spark.scala.version>
+        <janino.version>3.0.8</janino.version>
+        <kryo.version>5.0.0-RC4</kryo.version>
+        <linkis.version>1.0.2</linkis.version>
+        <!--<parquet-avro.version>1.12.2</parquet-avro.version>-->
+        <!-- 插件相关_end -->
+        <findbugs.version>3.0.1</findbugs.version>
+        <junit.version>4.12</junit.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--统一依赖管理_start-->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-bom</artifactId>
+                <version>${netty.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId> <!-- JDK8 版本独有：保证 Spring Framework 尽量高 -->
+                <version>${spring.framework.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-bom</artifactId> <!-- JDK8 版本独有：保证 Spring Security 尽量高 -->
+                <version>${spring.security.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--统一依赖管理_end-->
+
+            <!-- spring_start -->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-beans</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context-support</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-aop</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-tx</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-orm</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-jdbc</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-web</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-webmvc</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-oxm</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- spring_end -->
+
+            <!-- 排除掉springboot依赖使用项目的 -->
+            <dependency>
+                <groupId>io.github.mouzt</groupId>
+                <artifactId>bizlog-sdk</artifactId>
+                <version>${bizlog-sdk.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- org.apache.*_start -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.1</version>
+            </dependency>
+
+            <!-- 文件类型的识别 -->
+            <dependency>
+                <groupId>org.apache.tika</groupId>
+                <artifactId>tika-core</artifactId>
+                <version>${tika.version}</version>
+            </dependency>
+
+            <!--用做自动生成代码-->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>2.3</version>
+            </dependency>
+            <!-- org.apache.*_end -->
+
+            <!-- commons-*_start -->
+            <dependency>
+                <groupId>commons-dbcp</groupId>
+                <artifactId>commons-dbcp</artifactId>
+                <version>${commons-dbcp.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.6</version>
+            </dependency>
+            <!-- commons-*_end -->
+
+            <dependency>
+                <groupId>com.typesafe</groupId>
+                <artifactId>config</artifactId>
+                <version>${typesafe.config.version}</version>
+            </dependency>
+
+            <!--模块-工具类相关_start-->
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>res</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>error</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>util</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-jdbc</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-management</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-spring-boot-starter-job</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-spring-boot-starter-excel</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-spring-boot-starter-elasticsearch</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-spring-boot-starter-redis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-spring-boot-starter-mybatis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-spring-boot-starter-security</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-spring-boot-starter-web</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-spring-boot-starter-biz-tenant</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-spring-boot-starter-biz-data-permission</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-spring-boot-starter-biz-ip</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!--模块-工具类相关_end-->
+
+            <!--模块_插件类相关_start-->
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-plugin-kafka</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-plugin-flink</artifactId>
+                <version>${revision}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.commons</groupId>
+                        <artifactId>commons-io</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--模块-插件类相关_end-->
+
+            <dependency>
+                <groupId>cn.idev.excel</groupId>
+                <artifactId>fastexcel</artifactId>
+                <version>${fastexcel.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>poi-ooxml</artifactId>
+                        <groupId>org.apache.poi</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>poi</artifactId>
+                        <groupId>org.apache.poi</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- JSON_start -->
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>${codehaus.jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codeartisans</groupId>
+                <artifactId>org.json</artifactId>
+                <version>${org.json.version}</version>
+            </dependency>
+
+            <!--<dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>-->
+            <!-- JSON_end -->
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jdom</groupId>
+                <artifactId>jdom</artifactId>
+                <version>${jdom.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.univocity</groupId>
+                <artifactId>univocity-parsers</artifactId>
+                <version>${univocity-parsers.vresion}</version>
+            </dependency>
+
+            <!--bitmap依赖-->
+            <dependency>
+                <groupId>org.roaringbitmap</groupId>
+                <artifactId>RoaringBitmap</artifactId>
+                <version>${bitmap.vresion}</version>
+            </dependency>
+
+            <!-- ssh remote connection-->
+            <dependency>
+                <groupId>ch.ethz.ganymed</groupId>
+                <artifactId>ganymed-ssh2</artifactId>
+                <version>${ssh.vresion}</version>
+            </dependency>
+
+            <!--ftp-->
+            <dependency>
+                <groupId>com.jcraft</groupId>
+                <artifactId>jsch</artifactId>
+                <version>${jsch.vresion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.cverges</groupId>
+                <artifactId>expect4j</artifactId>
+                <version>1.9</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!--bazaarvoice-->
+            <dependency>
+                <groupId>com.bazaarvoice.jolt</groupId>
+                <artifactId>jolt-core</artifactId>
+                <version>${jolt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.bazaarvoice.jolt</groupId>
+                <artifactId>json-utils</artifactId>
+                <version>${jolt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.lionsoul</groupId>
+                <artifactId>ip2region</artifactId>
+                <version>${ip2region.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>${jsoup.version}</version>
+            </dependency>
+
+            <!-- DB 相关_start -->
+            <!--MySQL_start-->
+            <!--<dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.protobuf</groupId>
+                        <artifactId>protobuf-java</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>-->
+            <!--MySQL_end-->
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!-- mybatis_start -->
+            <!-- 注意：必须声明,避免 flowable 和 mybatis-plus 引入的 mybatis 版本不一致！！！ -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.spring.version}</version>
+            </dependency>
+            <!-- mybatis_end -->
+
+            <!--<dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis-plus-o.version}</version>
+            </dependency>-->
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>jsqlparser</artifactId>
+                        <groupId>com.github.jsqlparser</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-jsqlparser-4.9</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- 代码生成器，使用它解析表结构 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- 多数据源 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic-datasource.version}</version>
+            </dependency>
+
+            <!-- MyBatis 联表查询 -->
+            <dependency>
+                <groupId>com.github.yulichang</groupId>
+                <artifactId>mybatis-plus-join-boot-starter</artifactId>
+                <version>${mybatis-plus-join.version}</version>
+            </dependency>
+
+            <!-- ojdbc-bom_start -->
+            <!-- ojdbc-bom_end -->
+
+            <!-- 2.7.3_start -->
+            <!-- 2.7.3_end -->
+
+            <!-- 其它驱动_start -->
+            <dependency>
+                <groupId>com.dameng</groupId>
+                <artifactId>DmJdbcDriver18</artifactId>
+                <version>${dm8.jdbc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.com.kingbase</groupId>
+                <artifactId>kingbase8</artifactId>
+                <version>${kingbase.jdbc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.opengauss</groupId>
+                <artifactId>opengauss-jdbc</artifactId>
+                <version>${opengauss.jdbc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taosdata.jdbc</groupId>
+                <artifactId>taos-jdbcdriver</artifactId>
+                <version>${taos.version}</version>
+            </dependency>
+            <!-- 其它驱动_end -->
+
+            <!-- 用于简化数据翻译和转换操作 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>easy-trans-spring-boot-starter</artifactId>
+                <version>${easy-trans.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework.cloud</groupId>
+                        <artifactId>spring-cloud-commons</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!--为 MyBatis Plus 提供适配器-->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>easy-trans-mybatis-plus-extend</artifactId>
+                <version>${easy-trans.version}</version>
+            </dependency>
+
+            <!--控制字段或方法的自动翻译行为-->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>easy-trans-anno</artifactId>
+                <version>${easy-trans.version}</version>
+            </dependency>
+            <!-- DB 相关_end -->
+
+            <!-- use mapstruct-jdk8 for Java 8 or higher -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-5.version}</version>
+            </dependency>
+
+            <!-- 通用Mapper_start -->
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper</artifactId>
+                <version>${tk.mybatis.version}</version>
+            </dependency>
+
+            <!-- 版本号需根据 Spring Boot 版本调整 -->
+            <!--<dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>2.1.5</version>
+            </dependency>-->
+            <!-- 通用Mapper_end -->
+
+            <!-- easy poi_start -->
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-base</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-web</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-annotation</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
+            <!-- easy poi_end -->
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId> <!-- 解决 ThreadLocal 父子线程的传值问题 -->
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+
+            <!-- 消息队列相关 -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq-spring.version}</version>
+            </dependency>
+
+            <!-- 服务保障相关 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>lock4j-redisson-spring-boot-starter</artifactId>
+                <version>${lock4j.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>redisson-spring-boot-starter</artifactId>
+                        <groupId>org.redisson</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- 监控相关 -->
+            <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-api</artifactId>
+                <version>${opentelemetry.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-sdk</artifactId>
+                <version>${opentelemetry.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-exporter-otlp</artifactId>
+                <version>${opentelemetry.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.skywalking</groupId>
+                <artifactId>apm-toolkit-logback-1.x</artifactId>
+                <version>${skywalking.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId> <!-- 实现 Spring Boot Admin Server 服务端 -->
+                <version>${spring-boot-admin.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>de.codecentric</groupId>
+                        <artifactId>spring-boot-admin-server-cloud</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId> <!-- 实现 Spring Boot Admin Server 服务端 -->
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+
+            <!-- Test 测试相关_start -->
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-inline</artifactId>
+                <version>${mockito-inline.version}</version> <!-- 支持 Mockito 的 final 类与 static 方法的 mock -->
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>asm</artifactId>
+                        <groupId>org.ow2.asm</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.mockito</groupId>
+                        <artifactId>mockito-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.fppt</groupId> <!-- 单元测试，我们采用内嵌的 Redis 数据库 -->
+                <artifactId>jedis-mock</artifactId>
+                <version>${jedis-mock.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>uk.co.jemos.podam</groupId> <!-- 单元测试，随机生成 POJO 类 -->
+                <artifactId>podam</artifactId>
+                <version>${podam.version}</version>
+            </dependency>
+            <!-- Test 测试相关_end -->
+
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+            </dependency>
+
+            <!-- hadoop_start -->
+            <!--<dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-common</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>-->
+
+            <!--<dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-hdfs</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>-->
+
+            <!--<dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-mapreduce-client-core</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>-->
+
+            <!--<dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-yarn-client</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>-->
+
+            <!--<dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-yarn-api</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>-->
+
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-client</artifactId>
+                <version>${hadoop.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>slf4j-log4j12</artifactId>
+                        <groupId>org.slf4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>log4j</artifactId>
+                        <groupId>log4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>servlet-api</artifactId>
+                        <groupId>javax.servlet</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>avro</artifactId>
+                        <groupId>org.apache.avro</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>nimbus-jose-jwt</artifactId>
+                        <groupId>com.nimbusds</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-io</artifactId>
+                        <groupId>commons-io</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-logging</artifactId>
+                        <groupId>commons-logging</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-math3</artifactId>
+                        <groupId>org.apache.commons</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-net</artifactId>
+                        <groupId>commons-net</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-compress</artifactId>
+                        <groupId>org.apache.commons</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>curator-framework</artifactId>
+                        <groupId>org.apache.curator</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-cli</artifactId>
+                        <groupId>commons-cli</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jsr305</artifactId>
+                        <groupId>com.google.code.findbugs</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>stax2-api</artifactId>
+                        <groupId>org.codehaus.woodstox</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-auth</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>htrace-core4</artifactId>
+                        <groupId>org.apache.htrace</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-hdfs</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.parquet</groupId>
+                <artifactId>parquet-hadoop</artifactId>
+                <version>1.10.0</version>
+            </dependency>
+            <!-- hadoop_end -->
+
+            <!--hive.start-->
+            <dependency>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-exec</artifactId>
+                <version>${hive.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>pentaho-aggdesigner-algorithm</artifactId>
+                        <groupId>org.pentaho</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>log4j-1.2-api</artifactId>
+                        <groupId>org.apache.logging.log4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>protobuf-java</artifactId>
+                        <groupId>com.google.protobuf</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jersey-client</artifactId>
+                        <groupId>com.sun.jersey</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jersey-core</artifactId>
+                        <groupId>com.sun.jersey</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jersey-server</artifactId>
+                        <groupId>com.sun.jersey</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-io</artifactId>
+                        <groupId>commons-io</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-logging</artifactId>
+                        <groupId>commons-logging</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>netty</artifactId>
+                        <groupId>io.netty</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>log4j</artifactId>
+                        <groupId>log4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>antlr-runtime</artifactId>
+                        <groupId>org.antlr</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>curator-client</artifactId>
+                        <groupId>org.apache.curator</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-annotations</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-yarn-api</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-yarn-common</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jackson-core-asl</artifactId>
+                        <groupId>org.codehaus.jackson</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jackson-jaxrs</artifactId>
+                        <groupId>org.codehaus.jackson</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jackson-xc</artifactId>
+                        <groupId>org.codehaus.jackson</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!--<dependency>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-metastore</artifactId>
+                <version>${hive.version}</version>
+            </dependency>-->
+
+            <!--<dependency>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-cli</artifactId>
+                <version>${hive.version}</version>
+            </dependency>-->
+
+            <!--<dependency>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-common</artifactId>
+                <version>${hive.version}</version>
+            </dependency>-->
+
+            <dependency>
+                <groupId>org.apache.hive.hcatalog</groupId>
+                <artifactId>hive-hcatalog-core</artifactId>
+                <version>${hive.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.commons</groupId>
+                        <artifactId>commons-io</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jsr305</artifactId>
+                        <groupId>com.google.code.findbugs</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-cli</artifactId>
+                        <groupId>commons-cli</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-io</artifactId>
+                        <groupId>commons-io</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-logging</artifactId>
+                        <groupId>commons-logging</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-annotations</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-common</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-mapreduce-client-core</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>htrace-core4</artifactId>
+                        <groupId>org.apache.htrace</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>libthrift</artifactId>
+                        <groupId>org.apache.thrift</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>audience-annotations</artifactId>
+                        <groupId>org.apache.yetus</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-jdbc</artifactId>
+                <version>${hive.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.code.gson</groupId>
+                        <artifactId>gson</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>avro</artifactId>
+                        <groupId>org.apache.avro</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jsr305</artifactId>
+                        <groupId>com.google.code.findbugs</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jersey-client</artifactId>
+                        <groupId>com.sun.jersey</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jersey-server</artifactId>
+                        <groupId>com.sun.jersey</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-cli</artifactId>
+                        <groupId>commons-cli</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-httpclient</artifactId>
+                        <groupId>commons-httpclient</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-io</artifactId>
+                        <groupId>commons-io</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-logging</artifactId>
+                        <groupId>commons-logging</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>netty</artifactId>
+                        <groupId>io.netty</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>servlet-api</artifactId>
+                        <groupId>javax.servlet</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-compress</artifactId>
+                        <groupId>org.apache.commons</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-math3</artifactId>
+                        <groupId>org.apache.commons</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>curator-recipes</artifactId>
+                        <groupId>org.apache.curator</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-yarn-api</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-yarn-common</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>curator-client</artifactId>
+                        <groupId>org.apache.curator</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hbase-hadoop-compat</artifactId>
+                        <groupId>org.apache.hbase</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>audience-annotations</artifactId>
+                        <groupId>org.apache.yetus</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jackson-core-asl</artifactId>
+                        <groupId>org.codehaus.jackson</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jamon-runtime</artifactId>
+                        <groupId>org.jamon</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>javassist</artifactId>
+                        <groupId>org.javassist</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--hive.end-->
+
+            <dependency>
+                <groupId>com.thoughtworks.paranamer</groupId>
+                <artifactId>paranamer</artifactId>
+                <version>2.8</version>
+            </dependency>
+
+            <!--hbase.start-->
+            <!--<dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase</artifactId>
+                <version>${hbase.version}</version>
+                <type>pom</type>
+            </dependency>-->
+
+            <dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase-server</artifactId>
+                <version>${hbase.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>javax.el</artifactId>
+                        <groupId>org.glassfish</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>slf4j-log4j12</artifactId>
+                        <groupId>org.slf4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>log4j</artifactId>
+                        <groupId>log4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>javax.servlet-api</artifactId>
+                        <groupId>javax.servlet</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>error_prone_annotations</artifactId>
+                        <groupId>com.google.errorprone</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-io</artifactId>
+                        <groupId>commons-io</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-logging</artifactId>
+                        <groupId>commons-logging</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>curator-client</artifactId>
+                        <groupId>org.apache.curator</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-annotations</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-common</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-mapreduce-client-core</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>htrace-core4</artifactId>
+                        <groupId>org.apache.htrace</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>zookeeper</artifactId>
+                        <groupId>org.apache.zookeeper</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase-client</artifactId>
+                <version>${hbase.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>hadoop-common</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jcodings</artifactId>
+                        <groupId>org.jruby.jcodings</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase-common</artifactId>
+                <version>${hbase.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>hadoop-common</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase-mapreduce</artifactId>
+                <version>${hbase.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>hadoop-common</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-mapreduce-client-core</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase-hadoop2-compat</artifactId>
+                <version>${hbase.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>hadoop-common</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-mapreduce-client-core</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--hbase.end-->
+
+            <!--flink.start-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-streaming-java_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>commons-io</artifactId>
+                        <groupId>commons-io</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-compress</artifactId>
+                        <groupId>org.apache.commons</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>lz4-java</artifactId>
+                        <groupId>org.lz4</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>snappy-java</artifactId>
+                        <groupId>org.xerial.snappy</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-runtime-web_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-clients_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-table-api-java-bridge_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-jdbc_${scala.binary.version}</artifactId>
+                <version>${flink.jdbc.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>force-shading</artifactId>
+                        <groupId>org.apache.flink</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-statebackend-rocksdb_2.12</artifactId>
+                <version>${flink.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Flink old planner -->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-table-planner_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!-- 新的 Blink planner -->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-table-planner-blink_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>scala-library</artifactId>
+                        <groupId>org.scala-lang</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.ververica</groupId>
+                <artifactId>flink-connector-mysql-cdc</artifactId>
+                <version>${flink.connector.mysql.cdc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-jdbc_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-hive_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-kafka-0.10_${scala.binary.version}</artifactId>
+                <version>${flink.connector.kafka.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>force-shading</artifactId>
+                        <groupId>org.apache.flink</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>lz4-java</artifactId>
+                        <groupId>org.lz4</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>snappy-java</artifactId>
+                        <groupId>org.xerial.snappy</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-sql-connector-hive-3.1.2_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-filesystem_${scala.binary.version}</artifactId>
+                <version>${flink.connector.filesystem.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>force-shading</artifactId>
+                        <groupId>org.apache.flink</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-wikiedits_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-hadoop-compatibility_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!--<dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-java</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-core</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-kafka_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-table-common</artifactId>
+                <version>${flink.version}</version>
+            </dependency>-->
+
+            <!--以parquet格式批量写OBS必须导入该包-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-parquet_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>parquet-column</artifactId>
+                        <groupId>org.apache.parquet</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jackson-core-asl</artifactId>
+                        <groupId>org.codehaus.jackson</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!--<dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-avro</artifactId>
+                <version>${flink.version}</version>
+            </dependency>-->
+            <!--flink.end-->
+
+            <!-- 使用的avro-tools版本要avro版本一致 -->
+            <!--<dependency>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro</artifactId>
+                <version>1.11.0</version>
+            </dependency>-->
+
+            <dependency>
+                <groupId>org.apache.parquet</groupId>
+                <artifactId>parquet-avro</artifactId>
+                <version>1.12.2</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>commons-compress</artifactId>
+                        <groupId>org.apache.commons</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!--flink.clickhouse.start-->
+            <dependency>
+                <groupId>ru.yandex.clickhouse</groupId>
+                <artifactId>clickhouse-jdbc</artifactId>
+                <version>${clickHouse.jdbc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ru.ivi.opensource</groupId>
+                <artifactId>flink-clickhouse-sink</artifactId>
+                <version>1.2.0</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.flink</groupId>
+                        <artifactId>flink-streaming-java_2.11</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--flink.clickhouse.end-->
+
+            <!-- spark_start -->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-core_${spark.scala.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.spark</groupId>
+                        <artifactId>spark-launcher_${spark.scala.version}</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-httpclient</artifactId>
+                        <groupId>commons-httpclient</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.roaringbitmap</groupId>
+                        <artifactId>RoaringBitmap</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>minlog</artifactId>
+                        <groupId>com.esotericsoftware</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-text</artifactId>
+                        <groupId>org.apache.commons</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>curator-client</artifactId>
+                        <groupId>org.apache.curator</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>curator-recipes</artifactId>
+                        <groupId>org.apache.curator</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-yarn-api</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-yarn-client</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-yarn-common</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jackson-core-asl</artifactId>
+                        <groupId>org.codehaus.jackson</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>objenesis</artifactId>
+                        <groupId>org.objenesis</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>snappy-java</artifactId>
+                        <groupId>org.xerial.snappy</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-common</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-sql_${spark.scala.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.spark</groupId>
+                        <artifactId>spark-core_${spark.scala.version}</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>slf4j-api</artifactId>
+                        <groupId>org.slf4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jsr305</artifactId>
+                        <groupId>com.google.code.findbugs</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>parquet-column</artifactId>
+                        <groupId>org.apache.parquet</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jackson-core-asl</artifactId>
+                        <groupId>org.codehaus.jackson</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>scala-library</artifactId>
+                        <groupId>org.scala-lang</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>snappy-java</artifactId>
+                        <groupId>org.xerial.snappy</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-hive_${spark.scala.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.spark</groupId>
+                        <artifactId>spark-sql_${spark.scala.version}</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.spark</groupId>
+                        <artifactId>spark-core_${spark.scala.version}</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-io</artifactId>
+                        <groupId>commons-io</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-logging</artifactId>
+                        <groupId>commons-logging</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>antlr-runtime</artifactId>
+                        <groupId>org.antlr</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-compress</artifactId>
+                        <groupId>org.apache.commons</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-common</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>libthrift</artifactId>
+                        <groupId>org.apache.thrift</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-yarn
+            解决ClassNotFoundException: org.apache.spark.deploy.yarn.YarnSparkHadoopUtil问题-->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-yarn_${spark.scala.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
+                <exclusions>
+                    <!--<exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>-->
+                    <exclusion>
+                        <groupId>org.apache.spark</groupId>
+                        <artifactId>spark-core_${spark.scala.version}</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.hadoop</groupId>
+                        <artifactId>hadoop-client</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>nimbus-jose-jwt</artifactId>
+                        <groupId>com.nimbusds</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-io</artifactId>
+                        <groupId>commons-io</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-net</artifactId>
+                        <groupId>commons-net</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-compress</artifactId>
+                        <groupId>org.apache.commons</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>curator-client</artifactId>
+                        <groupId>org.apache.curator</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>curator-framework</artifactId>
+                        <groupId>org.apache.curator</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>curator-recipes</artifactId>
+                        <groupId>org.apache.curator</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-annotations</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-common</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-hdfs-client</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-auth</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!--<dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-streaming-kafka-0-10_${spark.scala.version}</artifactId>
+                <version>${spark.version}</version>
+            </dependency>-->
+
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-launcher_${spark.scala.version}</artifactId>
+                <version>${spark.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.scalatest</groupId>
+                        <artifactId>scalatest_${spark.scala.version}</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-mesos_${spark.scala.version}</artifactId>
+                <version>${spark.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.spark</groupId>
+                        <artifactId>spark-core_${spark.scala.version}</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-graphx_${spark.scala.version}</artifactId>
+                <version>${spark.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.spark</groupId>
+                        <artifactId>spark-core_${spark.scala.version}</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>scala-library</artifactId>
+                        <groupId>org.scala-lang</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>scala-reflect</artifactId>
+                        <groupId>org.scala-lang</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- fix java.lang.NoClassDefFoundError: org/codehaus/janino/InternalCompilerException -->
+            <dependency>
+                <groupId>org.codehaus.janino</groupId>
+                <artifactId>janino</artifactId>
+                <version>${janino.version}</version>
+            </dependency>
+
+            <!--spark-core使用lz4和Kafka中冲突,spark需单独引入-->
+            <!-- fix java.lang.NoSuchMethodError: net.jpountz.lz4.LZ4BlockInputStream.<init>(Ljava/io/InputStream;Lnet/jpountz/lz4/LZ4FastDecompressor;Ljava/util/zip/Checksum;Z)V -->
+            <dependency>
+                <groupId>net.jpountz.lz4</groupId>
+                <artifactId>lz4</artifactId>
+                <version>1.3.0</version>
+            </dependency>
+
+            <!-- fix java.lang.NoClassDefFoundError: com/esotericsoftware/kryo/serializers/ClosureSerializer$Closure -->
+            <dependency>
+                <groupId>com.esotericsoftware</groupId>
+                <artifactId>kryo</artifactId>
+                <version>${kryo.version}</version>
+            </dependency>
+            <!-- spark_end -->
+
+            <!--linkis.start-->
+            <dependency>
+                <groupId>com.webank.wedatasphere.linkis</groupId>
+                <artifactId>linkis-module</artifactId>
+                <version>${linkis.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-tomcat</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hibernate-validator</artifactId>
+                        <groupId>org.hibernate.validator</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.webank.wedatasphere.linkis</groupId>
+                <artifactId>linkis-hadoop-common</artifactId>
+                <version>${linkis.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.httpcomponents</groupId>
+                        <artifactId>httpclient</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.httpcomponents</groupId>
+                        <artifactId>httpcore</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>slf4j-api</artifactId>
+                        <groupId>org.slf4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-collections</artifactId>
+                        <groupId>commons-collections</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-io</artifactId>
+                        <groupId>commons-io</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-compress</artifactId>
+                        <groupId>org.apache.commons</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-math3</artifactId>
+                        <groupId>org.apache.commons</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-annotations</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                </exclusions>
+
+            </dependency>
+
+            <!--<dependency>
+                <groupId>com.webank.wedatasphere.linkis</groupId>
+                <artifactId>linkis-mybatis</artifactId>
+                <version>${linkis.version}</version>
+            </dependency>-->
+
+            <!-- 用于任务提交 -->
+            <dependency>
+                <groupId>com.webank.wedatasphere.linkis</groupId>
+                <artifactId>linkis-computation-client</artifactId>
+                <version>${linkis.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>slf4j-api</artifactId>
+                        <groupId>org.slf4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>commons-io</artifactId>
+                        <groupId>commons-io</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>javassist</artifactId>
+                        <groupId>org.javassist</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>scala-library</artifactId>
+                        <groupId>org.scala-lang</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>scala-reflect</artifactId>
+                        <groupId>org.scala-lang</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>scala-xml_2.11</artifactId>
+                        <groupId>org.scala-lang.modules</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--linkis.end-->
+
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>findbugs</artifactId>
+                <version>${findbugs.version}</version>
+            </dependency>
+
+            <!-- junit -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <!-- 统一 revision 版本 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${flatten-maven-plugin.version}</version>
+                <configuration>
+                    <flattenMode>bom</flattenMode>
+                    <updatePomFile>true</updatePomFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

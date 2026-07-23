@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.mbp.eng.test</groupId>
+        <artifactId>mbp-framework</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <packaging>jar</packaging>
+    <artifactId>mbp-spring-boot-starter-biz-data-permission</artifactId>
+
+    <name>${project.artifactId}</name>
+    <description>数据权限</description>
+    <url>https://github.com/xxxxxx</url>
+
+    <properties>
+        <!--#####################华丽的分割线_start#####################-->
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- Maven 相关 -->
+        <maven.clean.plugin.version>3.0.0</maven.clean.plugin.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
+        <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
+        <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
+        <maven.resources.plugin.version>3.0.2</maven.resources.plugin.version>
+        <maven.source.plugin.version>3.2.1</maven.source.plugin.version>
+        <maven.surefire.plugin.version>2.20.1</maven.surefire.plugin.version>
+        <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
+        <maven.javadoc.plugin.version>2.9.1</maven.javadoc.plugin.version>
+        <maven.gpg.plugin.version>3.0.1</maven.gpg.plugin.version>
+        <maven.checkstyle.plugin.version>3.0.0</maven.checkstyle.plugin.version>
+        <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
+        <maven.encoding>UTF-8</maven.encoding>
+        <maven.charset>UTF-8</maven.charset>
+        <maven.docencoding>UTF-8</maven.docencoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--#####################华丽的分割线_end#######################-->
+    </properties>
+
+    <dependencies>
+        <!--模块-工具类相关_start-->
+        <dependency>
+            <groupId>com.mbp.eng.test</groupId>
+            <artifactId>res</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mbp.eng.test</groupId>
+            <artifactId>mbp-spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mbp.eng.test</groupId>
+            <artifactId>mbp-spring-boot-starter-mybatis</artifactId>
+        </dependency>
+        <!--模块-工具类相关_end-->
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+        </dependency>
+    </dependencies>
+</project>
