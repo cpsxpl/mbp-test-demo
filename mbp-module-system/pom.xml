@@ -69,7 +69,12 @@
 
         <dependency>
             <groupId>com.mbp.eng.test</groupId>
-            <artifactId>mbp-spring-boot-starter-security</artifactId>
+            <artifactId>mbp-spring-boot-starter-excel</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mbp.eng.test</groupId>
+            <artifactId>mbp-spring-boot-starter-job</artifactId>
         </dependency>
 
         <dependency>
@@ -79,7 +84,7 @@
 
         <dependency>
             <groupId>com.mbp.eng.test</groupId>
-            <artifactId>mbp-spring-boot-starter-excel</artifactId>
+            <artifactId>mbp-spring-boot-starter-security</artifactId>
         </dependency>
         <!--模块-工具类相关_end-->
 
