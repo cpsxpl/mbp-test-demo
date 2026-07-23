@@ -87,7 +87,5 @@
             <artifactId>mbp-spring-boot-starter-security</artifactId>
         </dependency>
         <!--模块-工具类相关_end-->
-
-
     </dependencies>
 </project>
