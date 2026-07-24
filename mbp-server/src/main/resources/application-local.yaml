@@ -46,13 +46,16 @@ spring:
         pool-prepared-statements: true # 是否开启 PreparedStatement 缓存
         max-pool-prepared-statement-per-connection-size: 20 # 每个连接缓存的 PreparedStatement 数量
       primary: master
+      strict: false #严格匹配数据源，默认为false，true未匹配到指定数据库时抛异常，false使用默认数据源
       datasource:
         master:
+          #driver-class-name: com.mysql.cj.jdbc.Driver
           url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true # MySQL Connector/J 8.X 连接的示例
           username: root
           password: root123ABC
         slave: # 模拟从库,可根据自己需要修改
           lazy: true # 开启懒加载,保证启动速度
+          #driver-class-name: com.mysql.cj.jdbc.Driver
           url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true&nullCatalogMeansCurrent=true
           username: root
           password: root123ABC
@@ -151,8 +154,8 @@ logging:
     name: ${user.home}/logs/${spring.application.name}.log # 日志文件名,全路径
   level:
     # 配置自己写的 MyBatis Mapper 打印日志
-    com.mbp.eng.module.system.dal.mysql: debug
-    com.mbp.eng.module.system.dal.mysql.sms.SmsChannelMapper: INFO # 配置 SmsChannelMapper 的日志级别为 info
+    com.mbp.eng.module.system.domain: debug
+    org.springframework.jdbc.datasource: DEBUG # 数据源相关日志级别
     org.springframework.context.support.PostProcessorRegistrationDelegate: ERROR
 
 debug: false
