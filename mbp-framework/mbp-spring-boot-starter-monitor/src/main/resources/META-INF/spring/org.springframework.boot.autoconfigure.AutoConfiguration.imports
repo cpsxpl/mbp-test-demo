@@ -1,0 +1,2 @@
+com.mbp.eng.framework.tracer.config.MbpTracerAutoConfiguration
+com.mbp.eng.framework.tracer.config.MbpMetricsAutoConfiguration

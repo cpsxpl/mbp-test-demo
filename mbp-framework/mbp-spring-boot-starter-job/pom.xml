@@ -57,11 +57,16 @@
         <!--模块_插件类相关_start-->
         <!--模块-插件类相关_end-->
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+        </dependency>
+
         <!-- Job 定时任务相关 -->
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-quartz</artifactId>
-        </dependency>-->
+        </dependency>
 
         <!-- spring_start -->
         <!--<dependency>

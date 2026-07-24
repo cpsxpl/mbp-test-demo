@@ -39,6 +39,7 @@
         <module>mbp-spring-boot-starter-biz-tenant</module>
         <module>mbp-spring-boot-starter-biz-data-permission</module>
         <module>mbp-spring-boot-starter-biz-ip</module>
+        <module>mbp-spring-boot-starter-monitor</module>
     </modules>
 
     <properties>
