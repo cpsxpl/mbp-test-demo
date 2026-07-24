@@ -14,7 +14,6 @@
     <modules>
         <module>mbp-dependencies</module>
         <module>mbp-framework</module>
-        <module>mbp-module-system</module>
         <module>mbp-server</module>
     </modules>
 
