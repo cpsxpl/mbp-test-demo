@@ -2,18 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mbp.eng.test</groupId>
         <artifactId>mbp-framework</artifactId>
         <version>${revision}</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
+
     <artifactId>mbp-spring-boot-starter-monitor</artifactId>
     <packaging>jar</packaging>
-
     <name>${project.artifactId}</name>
     <description>服务监控,提供链路追踪、日志服务、指标收集等等功能</description>
-    <url>https://github.com/YunaiV/ruoyi-vue-pro</url>
+    <url>https://github.com</url>
 
     <dependencies>
         <dependency>
@@ -27,7 +27,7 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-        <!-- Web 相关 -->
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>

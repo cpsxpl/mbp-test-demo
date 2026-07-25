@@ -17,7 +17,7 @@
         从而实现提供 RESTful API 给 mbp-ui-admin、mbp-ui-user 等前端项目。
         本质上来说,它就是个空壳（容器）！
     </description>
-    <url>https://github.com/xxxxxx</url>
+    <url>https://github.com</url>
 
     <dependencies>
         <!-- spring boot 配置所需依赖 -->
@@ -31,6 +31,16 @@
         <dependency>
             <groupId>com.mbp.eng.test</groupId>
             <artifactId>mbp-spring-boot-starter-protection</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
         </dependency>
     </dependencies>
 

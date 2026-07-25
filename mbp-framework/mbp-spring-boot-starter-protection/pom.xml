@@ -2,21 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mbp.eng.test</groupId>
         <artifactId>mbp-framework</artifactId>
         <version>${revision}</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>mbp-spring-boot-starter-protection</artifactId>
-    <packaging>jar</packaging>
 
+    <packaging>jar</packaging>
+    <artifactId>mbp-spring-boot-starter-protection</artifactId>
     <name>${project.artifactId}</name>
     <description>服务保证,提供分布式锁、幂等、限流、熔断、API 签名等等功能</description>
-    <url>https://github.com/YunaiV/ruoyi-vue-pro</url>
+    <url>https://github.com</url>
 
     <dependencies>
-        <!-- Web 相关 -->
+
         <dependency>
             <groupId>com.mbp.eng.test</groupId>
             <artifactId>mbp-spring-boot-starter-web</artifactId>
