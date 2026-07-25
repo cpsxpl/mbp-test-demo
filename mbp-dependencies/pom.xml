@@ -16,9 +16,7 @@
         <revision>1.0.0-SNAPSHOT</revision>
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
         <!--统一依赖管理_start-->
-        <!--<netty.version>4.1.79.Final</netty.version>-->
         <netty.version>4.2.15.Final</netty.version>
-        <!--<spring.framework.version>5.3.22</spring.framework.version>-->
         <spring.framework.version>5.3.39</spring.framework.version>
         <spring.security.version>5.8.16</spring.security.version>
         <spring.boot.version>2.7.3</spring.boot.version>
@@ -28,11 +26,9 @@
         <springdoc.version>1.8.0</springdoc.version>
         <knife4j.version>4.5.0</knife4j.version>
         <swagger.version>2.9.2</swagger.version>
-        <!--<servlet.versoin>2.5</servlet.versoin>-->
         <!--spring相关_end -->
         <!-- DB 相关_start -->
         <!--<mysql.version>5.1.32</mysql.version>-->
-        <!--<mysql.version>8.0.11</mysql.version>-->
         <mysql.version>8.0.21</mysql.version>
         <mybatis.version>3.5.19</mybatis.version>
         <mybatis.spring.version>2.1.2</mybatis.spring.version>
