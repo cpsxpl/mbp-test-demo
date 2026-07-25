@@ -197,6 +197,12 @@
 
             <dependency>
                 <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-spring-boot-starter-elasticsearch</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
                 <artifactId>mbp-spring-boot-starter-job</artifactId>
                 <version>${revision}</version>
             </dependency>
