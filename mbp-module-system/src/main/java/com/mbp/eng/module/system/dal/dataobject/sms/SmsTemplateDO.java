@@ -2,7 +2,6 @@ package com.mbp.eng.module.system.dal.dataobject.sms;
 
 import com.mbp.eng.framework.tenant.core.aop.TenantIgnore;
 import com.mbp.eng.module.system.enums.sms.SmsTemplateTypeEnum;
-import com.mbp.eng.framework.common.enums.CommonStatusEnum;
 import com.mbp.eng.framework.mybatis.core.dataobject.BaseDO;
 import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableField;

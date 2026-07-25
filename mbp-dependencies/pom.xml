@@ -156,6 +156,17 @@
             <!--模块相关_start-->
             <dependency>
                 <groupId>com.mbp.eng.test</groupId>
+                <artifactId>error</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>util</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
                 <artifactId>res</artifactId>
                 <version>${revision}</version>
             </dependency>

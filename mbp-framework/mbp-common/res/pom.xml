@@ -40,6 +40,13 @@
     </properties>
 
     <dependencies>
+        <!--模块-工具类相关_start-->
+        <dependency>
+            <groupId>com.mbp.eng.test</groupId>
+            <artifactId>util</artifactId>
+        </dependency>
+        <!--模块-工具类相关_end-->
+
         <!-- Spring 核心 -->
         <dependency>
             <groupId>org.springframework</groupId>

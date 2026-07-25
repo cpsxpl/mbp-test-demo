@@ -1,6 +1,5 @@
 package com.mbp.eng.module.system.dal.dataobject.oauth2;
 
-import com.mbp.eng.framework.common.enums.UserTypeEnum;
 import com.mbp.eng.framework.tenant.core.db.TenantBaseDO;
 import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableField;

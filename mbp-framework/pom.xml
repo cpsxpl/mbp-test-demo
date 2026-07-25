@@ -25,6 +25,8 @@
 
     <modules>
         <module>mbp-common</module>
+        <module>mbp-jdbc</module>
+        <module>mbp-management</module>
         <module>mbp-spring-boot-starter-mybatis</module>
         <module>mbp-spring-boot-starter-redis</module>
         <module>mbp-spring-boot-starter-web</module>

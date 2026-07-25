@@ -1,6 +1,5 @@
 package com.mbp.eng.module.system.dal.dataobject.social;
 
-import com.mbp.eng.framework.common.enums.UserTypeEnum;
 import com.mbp.eng.framework.mybatis.core.dataobject.BaseDO;
 import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableId;

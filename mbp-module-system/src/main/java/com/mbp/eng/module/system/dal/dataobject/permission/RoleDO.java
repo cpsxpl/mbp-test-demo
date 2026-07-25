@@ -1,6 +1,5 @@
 package com.mbp.eng.module.system.dal.dataobject.permission;
 
-import com.mbp.eng.framework.common.enums.CommonStatusEnum;
 import com.mbp.eng.framework.tenant.core.db.TenantBaseDO;
 import com.mbp.eng.module.system.enums.permission.DataScopeEnum;
 import com.mbp.eng.module.system.enums.permission.RoleTypeEnum;

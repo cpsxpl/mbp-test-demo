@@ -1,6 +1,5 @@
 package com.mbp.eng.module.system.dal.dataobject.mail;
 
-import com.mbp.eng.framework.common.enums.UserTypeEnum;
 import com.mbp.eng.framework.mybatis.core.dataobject.BaseDO;
 import com.mbp.eng.framework.mybatis.core.type.StringListTypeHandler;
 import com.mbp.eng.framework.tenant.core.aop.TenantIgnore;

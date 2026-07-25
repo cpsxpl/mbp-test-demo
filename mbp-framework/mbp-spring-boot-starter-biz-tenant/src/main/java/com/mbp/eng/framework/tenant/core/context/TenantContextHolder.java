@@ -1,7 +1,7 @@
 package com.mbp.eng.framework.tenant.core.context;
 
-import com.mbp.eng.framework.common.enums.DocumentEnum;
 import com.alibaba.ttl.TransmittableThreadLocal;
+import com.mbp.eng.framework.common.enums.DocumentEnum;
 
 /**
  * 多租户上下文 Holder

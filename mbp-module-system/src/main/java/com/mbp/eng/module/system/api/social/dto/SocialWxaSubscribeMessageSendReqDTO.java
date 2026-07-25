@@ -1,6 +1,5 @@
 package com.mbp.eng.module.system.api.social.dto;
 
-import com.mbp.eng.framework.common.enums.UserTypeEnum;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;

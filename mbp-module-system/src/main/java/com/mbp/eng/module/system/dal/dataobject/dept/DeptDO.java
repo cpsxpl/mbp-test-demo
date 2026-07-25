@@ -1,6 +1,5 @@
 package com.mbp.eng.module.system.dal.dataobject.dept;
 
-import com.mbp.eng.framework.common.enums.CommonStatusEnum;
 import com.mbp.eng.framework.tenant.core.db.TenantBaseDO;
 import com.mbp.eng.module.system.dal.dataobject.user.AdminUserDO;
 import com.baomidou.mybatisplus.annotation.KeySequence;

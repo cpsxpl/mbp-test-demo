@@ -1,7 +1,6 @@
 package com.mbp.eng.framework.security.core;
 
 import cn.hutool.core.map.MapUtil;
-import com.mbp.eng.framework.common.enums.UserTypeEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 

@@ -1,6 +1,5 @@
 package com.mbp.eng.module.system.dal.dataobject.sms;
 
-import com.mbp.eng.framework.common.enums.CommonStatusEnum;
 import com.mbp.eng.framework.mybatis.core.dataobject.BaseDO;
 import com.mbp.eng.framework.tenant.core.aop.TenantIgnore;
 import com.mbp.eng.module.system.framework.sms.core.enums.SmsChannelEnum;

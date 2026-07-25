@@ -1,6 +1,5 @@
 package com.mbp.eng.module.infra.dal.dataobject.logger;
 
-import com.mbp.eng.framework.common.enums.UserTypeEnum;
 import com.mbp.eng.framework.mybatis.core.dataobject.BaseDO;
 import com.mbp.eng.module.infra.enums.logger.ApiErrorLogProcessStatusEnum;
 import com.baomidou.mybatisplus.annotation.KeySequence;

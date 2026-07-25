@@ -1,6 +1,5 @@
 package com.mbp.eng.module.system.dal.dataobject.logger;
 
-import com.mbp.eng.framework.common.enums.UserTypeEnum;
 import com.mbp.eng.framework.mybatis.core.dataobject.BaseDO;
 import com.mbp.eng.module.system.enums.logger.LoginLogTypeEnum;
 import com.mbp.eng.module.system.enums.logger.LoginResultEnum;
