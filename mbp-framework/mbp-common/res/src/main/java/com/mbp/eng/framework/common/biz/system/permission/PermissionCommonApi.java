@@ -1,5 +1,7 @@
 package com.mbp.eng.framework.common.biz.system.permission;
 
+import com.mbp.eng.framework.common.biz.system.permission.dto.DeptDataPermissionRespDTO;
+
 /**
  * 权限 API 接口
  */

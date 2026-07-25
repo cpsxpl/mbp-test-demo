@@ -1,10 +1,10 @@
 package com.mbp.eng.framework.mybatis.config;
 
 import cn.hutool.core.util.StrUtil;
-import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.mbp.eng.framework.common.util.collection.SetUtils;
 import com.mbp.eng.framework.mybatis.core.util.JdbcUtils;
+import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.annotation.IdType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
@@ -113,4 +113,5 @@ public class IdTypeEnvironmentPostProcessor implements EnvironmentPostProcessor 
         }
         return JdbcUtils.getDbType(url);
     }
+
 }

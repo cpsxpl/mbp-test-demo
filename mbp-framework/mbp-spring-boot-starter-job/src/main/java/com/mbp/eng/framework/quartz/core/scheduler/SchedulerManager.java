@@ -7,9 +7,8 @@ import org.quartz.*;
 import static com.mbp.eng.framework.common.exception.enums.GlobalErrorCodeConstants.NOT_IMPLEMENTED;
 import static com.mbp.eng.framework.common.exception.util.ServiceExceptionUtil.exception0;
 
-
 /**
- * {@link Scheduler} 的管理器,负责创建任务
+ * {@link org.quartz.Scheduler} 的管理器,负责创建任务
  *
  * 考虑到实现的简洁性,我们使用 jobHandlerName 作为唯一标识,即：
  * 1. Job 的 {@link JobDetail#getKey()}
@@ -142,7 +141,7 @@ public class SchedulerManager {
     private void validateScheduler() {
         if (scheduler == null) {
             throw exception0(NOT_IMPLEMENTED.getCode(),
-                    "[定时任务 - 已禁用][参考 https://doc.iocoder.cn/job/ 开启]");
+                    "[定时任务 - 已禁用][参考 https://doc.google.cn/job/ 开启]");
         }
     }
 

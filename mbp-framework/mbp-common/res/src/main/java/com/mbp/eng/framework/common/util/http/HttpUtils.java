@@ -39,9 +39,9 @@ public class HttpUtils {
      * 解码 URL 参数（query parameter）
      * 注意：此方法会将 + 解码为空格,适用于 query parameter,不适用于 URL path
      *
+     * @see #decodeUrlPath(String)
      * @param value 参数
      * @return 解码后的参数
-     * @see #decodeUrlPath(String)
      */
     @SneakyThrows
     public static String decodeUtf8(String value) {
@@ -134,12 +134,12 @@ public class HttpUtils {
 
     /**
      * 拼接 URL
-     * <p>
+     *
      * copy from Spring Security OAuth2 的 AuthorizationEndpoint 类的 append 方法
      *
-     * @param base     基础 URL
-     * @param query    查询参数
-     * @param keys     query 的 key,对应的原本的 key 的映射。例如说 query 里有个 key 是 xx,实际它的 key 是 extra_xx,则通过 keys 里添加这个映射
+     * @param base 基础 URL
+     * @param query 查询参数
+     * @param keys query 的 key,对应的原本的 key 的映射。例如说 query 里有个 key 是 xx,实际它的 key 是 extra_xx,则通过 keys 里添加这个映射
      * @param fragment URL 的 fragment,即拼接到 # 中
      * @return 拼接后的 URL
      */
@@ -219,11 +219,11 @@ public class HttpUtils {
 
     /**
      * HTTP post 请求,基于 {@link cn.hutool.http.HttpUtil} 实现
-     * <p>
+     *
      * 为什么要封装该方法,因为 HttpUtil 默认封装的方法,没有允许传递 headers 参数
      *
-     * @param url         URL
-     * @param headers     请求头
+     * @param url URL
+     * @param headers 请求头
      * @param requestBody 请求体
      * @return 请求结果
      */
@@ -238,10 +238,10 @@ public class HttpUtils {
 
     /**
      * HTTP get 请求,基于 {@link cn.hutool.http.HttpUtil} 实现
-     * <p>
+     *
      * 为什么要封装该方法,因为 HttpUtil 默认封装的方法,没有允许传递 headers 参数
      *
-     * @param url     URL
+     * @param url URL
      * @param headers 请求头
      * @return 请求结果
      */

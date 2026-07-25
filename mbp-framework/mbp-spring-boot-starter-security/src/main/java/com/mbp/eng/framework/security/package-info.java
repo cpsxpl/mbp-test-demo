@@ -1,4 +1,5 @@
 /**
- * 基于 JSqlParser 解析 SQL,增加数据权限的 WHERE 条件
+ * 基于 Spring Security 框架
+ * 实现安全认证功能
  */
 package com.mbp.eng.framework.security;

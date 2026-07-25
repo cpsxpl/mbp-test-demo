@@ -1,0 +1,3 @@
+Application Version: ${mbp.info.version}
+Spring Boot Version: ${spring-boot.version}
+

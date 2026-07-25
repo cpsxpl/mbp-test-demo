@@ -1,0 +1,3 @@
+com.mbp.eng.framework.mq.redis.config.MbpRedisMQProducerAutoConfiguration
+com.mbp.eng.framework.mq.redis.config.MbpRedisMQConsumerAutoConfiguration
+com.mbp.eng.framework.mq.rabbitmq.config.MbpRabbitMQAutoConfiguration

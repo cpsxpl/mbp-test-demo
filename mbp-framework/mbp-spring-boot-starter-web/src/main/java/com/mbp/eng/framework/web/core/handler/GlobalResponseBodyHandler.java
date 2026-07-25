@@ -1,7 +1,6 @@
 package com.mbp.eng.framework.web.core.handler;
 
 import com.mbp.eng.framework.common.pojo.CommonResult;
-import com.mbp.eng.framework.web.apilog.core.filter.ApiAccessLogFilter;
 import com.mbp.eng.framework.web.core.util.WebFrameworkUtils;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -19,7 +18,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * 原因是,GlobalResponseBodyHandler 本质上是 AOP,它不应该改变 Controller 返回的数据结构
  *
  * 目前,GlobalResponseBodyHandler 的主要作用是,记录 Controller 的返回结果,
- * 方便 {@link ApiAccessLogFilter} 记录访问日志
+ * 方便 {@link com.mbp.eng.framework.apilog.core.filter.ApiAccessLogFilter} 记录访问日志
  */
 @ControllerAdvice
 public class GlobalResponseBodyHandler implements ResponseBodyAdvice {

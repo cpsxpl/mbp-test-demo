@@ -15,7 +15,7 @@ public class SpringUtils extends SpringUtil {
      * @return 是否生产环境
      */
     public static boolean isProd() {
-        String activeProfile = SpringUtil.getActiveProfile();
+        String activeProfile = getActiveProfile();
         return Objects.equals("prod", activeProfile);
     }
 

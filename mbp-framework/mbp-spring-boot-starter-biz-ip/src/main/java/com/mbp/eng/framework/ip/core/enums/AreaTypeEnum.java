@@ -1,5 +1,6 @@
 package com.mbp.eng.framework.ip.core.enums;
 
+import com.mbp.eng.framework.common.core.ArrayValuable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

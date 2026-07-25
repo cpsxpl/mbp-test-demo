@@ -13,7 +13,7 @@ import java.math.RoundingMode;
  * 金额转换器
  *
  * 金额单位：分
- **/
+ */
 public class MoneyConvert implements Converter<Integer> {
 
     @Override

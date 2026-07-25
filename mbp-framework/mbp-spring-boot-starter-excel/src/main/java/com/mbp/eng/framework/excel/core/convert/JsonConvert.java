@@ -1,15 +1,15 @@
 package com.mbp.eng.framework.excel.core.convert;
 
+import com.mbp.eng.framework.common.util.json.JsonUtils;
 import cn.idev.excel.converters.Converter;
 import cn.idev.excel.enums.CellDataTypeEnum;
 import cn.idev.excel.metadata.GlobalConfiguration;
 import cn.idev.excel.metadata.data.WriteCellData;
 import cn.idev.excel.metadata.property.ExcelContentProperty;
-import com.bazaarvoice.jolt.JsonUtils;
 
 /**
  * Excel Json 转换器
- **/
+ */
 public class JsonConvert implements Converter<Object> {
 
     @Override

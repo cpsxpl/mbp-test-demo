@@ -3,8 +3,8 @@ package com.mbp.eng.framework.common.util.collection;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ArrayUtil;
-import com.google.common.collect.ImmutableMap;
 import com.mbp.eng.framework.common.pojo.PageResult;
+import com.google.common.collect.ImmutableMap;
 
 import java.util.*;
 import java.util.function.*;
@@ -16,7 +16,7 @@ import static java.util.Arrays.asList;
 
 /**
  * Collection 工具类
- **/
+ */
 public class CollectionUtils {
 
     public static boolean containsAny(Object source, Object... targets) {

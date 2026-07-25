@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  * 数据权限规则接口
- * 通过实现接口,自定义数据规则
+ * 通过实现接口,自定义数据规则。例如说,
  */
 public interface DataPermissionRule {
 

@@ -1,6 +1,5 @@
 package com.mbp.eng.framework.translate.config;
 
-
 import com.mbp.eng.framework.translate.core.TranslateUtils;
 import org.dromara.trans.service.impl.TransService;
 import org.springframework.boot.autoconfigure.AutoConfiguration;

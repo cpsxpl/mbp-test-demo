@@ -2,9 +2,8 @@ package com.mbp.eng.framework.tracer.core.aop;
 
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.StrUtil;
-import com.mbp.eng.framework.common.util.spring.SpringExpressionUtils;
 import com.mbp.eng.framework.tracer.core.annotation.BizTrace;
-
+import com.mbp.eng.framework.common.util.spring.SpringExpressionUtils;
 import com.mbp.eng.framework.tracer.core.util.TracerFrameworkUtils;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.api.trace.Tracer;
@@ -57,7 +56,7 @@ public class BizTraceAspect {
         if (StrUtil.isNotEmpty(trace.operationName())) {
             return BIZ_OPERATION_NAME_PREFIX + trace.operationName();
         }
-        // 默认操作名，使用方法名
+        // 默认操作名,使用方法名
         return BIZ_OPERATION_NAME_PREFIX
                 + joinPoint.getSignature().getDeclaringType().getSimpleName()
                 + "/" + joinPoint.getSignature().getName();

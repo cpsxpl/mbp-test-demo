@@ -36,7 +36,7 @@ public class CacheUtils {
         return CacheBuilder.newBuilder()
                 .maximumSize(CACHE_MAX_SIZE)
                 // 只阻塞当前数据加载线程,其他线程返回旧值
-                //.refreshAfterWrite(duration)
+                .refreshAfterWrite(duration)
                 // 通过 asyncReloading 实现全异步加载,包括 refreshAfterWrite 被阻塞的加载线程
                 .build(CacheLoader.asyncReloading(loader, Executors.newCachedThreadPool())); // TODO 可能要思考下,未来要不要做成可配置
     }
@@ -52,7 +52,7 @@ public class CacheUtils {
         return CacheBuilder.newBuilder()
                 .maximumSize(CACHE_MAX_SIZE)
                 // 只阻塞当前数据加载线程,其他线程返回旧值
-                //.refreshAfterWrite(duration)
+                .refreshAfterWrite(duration)
                 .build(loader);
     }
 

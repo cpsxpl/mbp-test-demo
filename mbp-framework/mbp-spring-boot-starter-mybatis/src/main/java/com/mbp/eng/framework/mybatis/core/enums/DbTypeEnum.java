@@ -35,7 +35,7 @@ public enum DbTypeEnum {
 
     /**
      * PostgreSQL
-     * <p>
+     *
      * 华为 openGauss 使用 ProductName 与 PostgreSQL 相同
      */
     POSTGRE_SQL(DbType.POSTGRE_SQL, "PostgreSQL", "POSITION(',' || CAST(#{value} AS VARCHAR) || ',' IN ',' || #{column} || ',') > 0"),
@@ -62,7 +62,9 @@ public enum DbTypeEnum {
     /**
      * OceanBase
      */
-    OCEAN_BASE(DbType.OCEAN_BASE, "OceanBase", "FIND_IN_SET(#{value}, #{column}) <> 0");
+    OCEAN_BASE(DbType.OCEAN_BASE, "OceanBase", "FIND_IN_SET(#{value}, #{column}) <> 0")
+
+    ;
 
     public static final Map<String, DbTypeEnum> MAP_BY_NAME = Arrays.stream(values())
             .collect(Collectors.toMap(DbTypeEnum::getProductName, Function.identity()));

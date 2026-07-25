@@ -1,6 +1,5 @@
 package com.mbp.eng.framework.tracer.config;
 
-
 import com.mbp.eng.framework.common.enums.WebFilterOrderEnum;
 import com.mbp.eng.framework.tracer.core.aop.BizTraceAspect;
 import com.mbp.eng.framework.tracer.core.filter.TraceFilter;
@@ -43,7 +42,7 @@ public class MbpTracerAutoConfiguration {
     }
 
     /**
-     * 创建 TraceFilter 过滤器，响应 header 设置 traceId
+     * 创建 TraceFilter 过滤器,响应 header 设置 traceId
      */
     @Bean
     public FilterRegistrationBean<TraceFilter> traceFilter() {

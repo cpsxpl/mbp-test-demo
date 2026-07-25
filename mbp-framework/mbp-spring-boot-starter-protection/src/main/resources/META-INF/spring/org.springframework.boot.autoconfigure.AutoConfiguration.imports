@@ -1,0 +1,4 @@
+com.mbp.eng.framework.idempotent.config.MbpIdempotentConfiguration
+com.mbp.eng.framework.lock4j.config.MbpLock4jConfiguration
+com.mbp.eng.framework.ratelimiter.config.MbpRateLimiterConfiguration
+com.mbp.eng.framework.signature.config.MbpApiSignatureAutoConfiguration

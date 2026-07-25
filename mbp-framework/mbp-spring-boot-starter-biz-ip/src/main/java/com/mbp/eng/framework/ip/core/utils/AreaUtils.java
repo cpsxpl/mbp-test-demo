@@ -4,7 +4,7 @@ import cn.hutool.core.io.resource.ResourceUtil;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.text.csv.CsvRow;
 import cn.hutool.core.text.csv.CsvUtil;
-import com.mbp.eng.framework.common.util.obj.ObjectUtils;
+import com.mbp.eng.framework.common.util.object.ObjectUtils;
 import com.mbp.eng.framework.ip.core.Area;
 import com.mbp.eng.framework.ip.core.enums.AreaTypeEnum;
 import lombok.NonNull;
@@ -19,7 +19,6 @@ import java.util.function.Function;
 
 import static com.mbp.eng.framework.common.util.collection.CollectionUtils.convertList;
 import static com.mbp.eng.framework.common.util.collection.CollectionUtils.findFirst;
-
 
 /**
  * 区域工具类
@@ -140,7 +139,7 @@ public class AreaUtils {
 
     /**
      * 格式化区域
-     * <p>
+     *
      * 例如说：
      * 1. id = “静安区”时：上海 上海市 静安区
      * 2. id = “上海市”时：上海 上海市

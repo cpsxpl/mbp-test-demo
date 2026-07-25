@@ -1,19 +1,19 @@
 package com.mbp.eng.framework.excel.core.convert;
 
 import cn.hutool.core.convert.Convert;
+import com.mbp.eng.framework.dict.core.DictFrameworkUtils;
+import com.mbp.eng.framework.excel.core.annotations.DictFormat;
 import cn.idev.excel.converters.Converter;
 import cn.idev.excel.enums.CellDataTypeEnum;
 import cn.idev.excel.metadata.GlobalConfiguration;
 import cn.idev.excel.metadata.data.ReadCellData;
 import cn.idev.excel.metadata.data.WriteCellData;
 import cn.idev.excel.metadata.property.ExcelContentProperty;
-import com.mbp.eng.framework.dict.core.DictFrameworkUtils;
-import com.mbp.eng.framework.excel.core.annotations.DictFormat;
 import lombok.extern.slf4j.Slf4j;
 
 /**
  * Excel 数据字典转换器
- **/
+ */
 @Slf4j
 public class DictConvert implements Converter<Object> {
 
@@ -33,7 +33,7 @@ public class DictConvert implements Converter<Object> {
         // 使用字典解析
         String type = getType(contentProperty);
         String label = readCellData.getStringValue();
-        String value = null; //DictFrameworkUtils.parseDictDataValue(type, label);
+        String value = DictFrameworkUtils.parseDictDataValue(type, label);
         if (value == null) {
             log.error("[convertToJavaData][type({}) 解析不掉 label({})]", type, label);
             return null;

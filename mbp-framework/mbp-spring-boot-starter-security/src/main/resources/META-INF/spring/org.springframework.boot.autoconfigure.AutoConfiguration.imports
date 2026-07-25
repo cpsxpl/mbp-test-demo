@@ -1,0 +1,3 @@
+com.mbp.eng.framework.security.config.MbpSecurityAutoConfiguration
+com.mbp.eng.framework.security.config.MbpWebSecurityConfigurerAdapter
+com.mbp.eng.framework.operatelog.config.MbpOperateLogConfiguration

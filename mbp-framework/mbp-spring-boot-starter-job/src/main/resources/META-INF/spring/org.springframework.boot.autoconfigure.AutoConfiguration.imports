@@ -1,0 +1,2 @@
+com.mbp.eng.framework.quartz.config.MbpQuartzAutoConfiguration
+com.mbp.eng.framework.quartz.config.MbpAsyncAutoConfiguration

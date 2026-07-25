@@ -1,6 +1,5 @@
 package com.mbp.eng.framework.common.validation;
 
-
 import com.mbp.eng.framework.common.core.ArrayValuable;
 
 import javax.validation.Constraint;

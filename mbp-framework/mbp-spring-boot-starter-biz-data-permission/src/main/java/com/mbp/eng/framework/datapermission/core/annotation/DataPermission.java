@@ -1,6 +1,5 @@
 package com.mbp.eng.framework.datapermission.core.annotation;
 
-
 import com.mbp.eng.framework.datapermission.core.rule.DataPermissionRule;
 
 import java.lang.annotation.*;

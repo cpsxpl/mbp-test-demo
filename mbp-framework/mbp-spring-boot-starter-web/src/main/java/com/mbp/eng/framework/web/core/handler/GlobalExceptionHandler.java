@@ -5,8 +5,6 @@ import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.ObjUtil;
 import cn.hutool.core.util.StrUtil;
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-import com.google.common.util.concurrent.UncheckedExecutionException;
 import com.mbp.eng.framework.common.biz.infra.logger.ApiErrorLogCommonApi;
 import com.mbp.eng.framework.common.biz.infra.logger.dto.ApiErrorLogCreateReqDTO;
 import com.mbp.eng.framework.common.exception.ServiceException;
@@ -17,6 +15,8 @@ import com.mbp.eng.framework.common.util.json.JsonUtils;
 import com.mbp.eng.framework.common.util.monitor.TracerUtils;
 import com.mbp.eng.framework.common.util.servlet.ServletUtils;
 import com.mbp.eng.framework.web.core.util.WebFrameworkUtils;
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+import com.google.common.util.concurrent.UncheckedExecutionException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -44,13 +44,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static com.mbp.eng.framework.common.exception.enums.GlobalErrorCodeConstants.BAD_REQUEST;
-import static com.mbp.eng.framework.common.exception.enums.GlobalErrorCodeConstants.FORBIDDEN;
-import static com.mbp.eng.framework.common.exception.enums.GlobalErrorCodeConstants.INTERNAL_SERVER_ERROR;
-import static com.mbp.eng.framework.common.exception.enums.GlobalErrorCodeConstants.METHOD_NOT_ALLOWED;
-import static com.mbp.eng.framework.common.exception.enums.GlobalErrorCodeConstants.NOT_FOUND;
-import static com.mbp.eng.framework.common.exception.enums.GlobalErrorCodeConstants.NOT_IMPLEMENTED;
-
+import static com.mbp.eng.framework.common.exception.enums.GlobalErrorCodeConstants.*;
 
 /**
  * 全局异常处理器,将 Exception 翻译成 CommonResult + 对应的异常编号
@@ -75,7 +69,7 @@ public class GlobalExceptionHandler {
      * 因为 Filter 不走 SpringMVC 的流程,但是我们又需要兜底处理异常,所以这里提供一个全量的异常处理过程,保持逻辑统一。
      *
      * @param request 请求
-     * @param ex      异常
+     * @param ex 异常
      * @return 通用返回
      */
     public CommonResult<?> allExceptionHandler(HttpServletRequest request, Throwable ex) {
@@ -120,7 +114,7 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理 SpringMVC 请求参数缺失
-     * <p>
+     *
      * 例如说,接口上设置了 @RequestParam("xx") 参数,结果并未传递 xx 参数
      */
     @ExceptionHandler(value = MissingServletRequestParameterException.class)
@@ -131,7 +125,7 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理 SpringMVC 请求参数类型错误
-     * <p>
+     *
      * 例如说,接口上设置了 @RequestParam("xx") 参数为 Integer,结果传递 xx 参数类型为 String
      */
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
@@ -178,7 +172,7 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理 SpringMVC 请求参数类型错误
-     * <p>
+     *
      * 例如说,接口上设置了 @RequestBody 实体中 xx 属性类型为 Integer,结果传递 xx 参数类型为 String
      */
     @ExceptionHandler(HttpMessageNotReadableException.class)
@@ -225,7 +219,7 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理 SpringMVC 请求地址不存在
-     * <p>
+     *
      * 注意,它需要设置如下两个配置项：
      * 1. spring.mvc.throw-exception-if-no-handler-found 为 true
      * 2. spring.mvc.static-path-pattern 为 /statics/**
@@ -238,7 +232,7 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理 SpringMVC 请求方法不正确
-     * <p>
+     *
      * 例如说,A 接口的方法为 GET 方式,结果请求方法为 POST 方式,导致不匹配
      */
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
@@ -249,7 +243,7 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理 SpringMVC 请求的 Content-Type 不正确
-     * <p>
+     *
      * 例如说,A 接口的 Content-Type 为 application/json,结果请求的 Content-Type 为 application/octet-stream,导致不匹配
      */
     @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
@@ -260,7 +254,7 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理 Spring Security 权限不足的异常
-     * <p>
+     *
      * 来源是,使用 @PreAuthorize 注解,AOP 进行权限拦截
      */
     @ExceptionHandler(value = AccessDeniedException.class)
@@ -272,7 +266,7 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理 Guava UncheckedExecutionException
-     * <p>
+     *
      * 例如说,缓存加载报错,可见 <a href="https://t.zsxq.com/UszdH">https://t.zsxq.com/UszdH</a>
      */
     @ExceptionHandler(value = UncheckedExecutionException.class)
@@ -282,7 +276,7 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理业务异常 ServiceException
-     * <p>
+     *
      * 例如说,商品库存不足,用户手机号已存在。
      */
     @ExceptionHandler(value = ServiceException.class)
@@ -338,7 +332,7 @@ public class GlobalExceptionHandler {
             // 执行插入 errorLog
             apiErrorLogApi.createApiErrorLogAsync(errorLog);
         } catch (Throwable th) {
-            log.error("[createExceptionLog][url({}) log({}) 发生异常]", req.getRequestURI(), JsonUtils.toJsonString(errorLog), th);
+            log.error("[createExceptionLog][url({}) log({}) 发生异常]", req.getRequestURI(),  JsonUtils.toJsonString(errorLog), th);
         }
     }
 
@@ -374,7 +368,6 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理 Table 不存在的异常情况
-     *
      * @param ex 异常
      * @return 如果是 Table 不存在的异常,则返回对应的 CommonResult
      */
@@ -382,78 +375,6 @@ public class GlobalExceptionHandler {
         String message = ExceptionUtil.getRootCauseMessage(ex);
         if (!message.contains("doesn't exist")) {
             return null;
-        }
-        // 1. 数据报表
-        if (message.contains("report_")) {
-            log.error("[报表模块 mbp-module-report - 表结构未导入][参考 https://cloud.iocoder.cn/report/ 开启]");
-            return CommonResult.error(NOT_IMPLEMENTED.getCode(),
-                    "[报表模块 mbp-module-report - 表结构未导入][参考 https://cloud.iocoder.cn/report/ 开启]");
-        }
-        // 2. 工作流
-        if (message.contains("bpm_")) {
-            log.error("[工作流模块 mbp-module-bpm - 表结构未导入][参考 https://cloud.iocoder.cn/bpm/ 开启]");
-            return CommonResult.error(NOT_IMPLEMENTED.getCode(),
-                    "[工作流模块 mbp-module-bpm - 表结构未导入][参考 https://cloud.iocoder.cn/bpm/ 开启]");
-        }
-        // 3. 微信公众号
-        if (message.contains("mp_")) {
-            log.error("[微信公众号 mbp-module-mp - 表结构未导入][参考 https://cloud.iocoder.cn/mp/build/ 开启]");
-            return CommonResult.error(NOT_IMPLEMENTED.getCode(),
-                    "[微信公众号 mbp-module-mp - 表结构未导入][参考 https://cloud.iocoder.cn/mp/build/ 开启]");
-        }
-        // 4. 商城系统
-        if (StrUtil.containsAny(message, "product_", "promotion_", "trade_")) {
-            log.error("[商城系统 mbp-module-mall - 已禁用][参考 https://cloud.iocoder.cn/mall/build/ 开启]");
-            return CommonResult.error(NOT_IMPLEMENTED.getCode(),
-                    "[商城系统 mbp-module-mall - 已禁用][参考 https://cloud.iocoder.cn/mall/build/ 开启]");
-        }
-        // 5. ERP 系统
-        if (message.contains("erp_")) {
-            log.error("[ERP 系统 mbp-module-erp - 表结构未导入][参考 https://cloud.iocoder.cn/erp/build/ 开启]");
-            return CommonResult.error(NOT_IMPLEMENTED.getCode(),
-                    "[ERP 系统 mbp-module-erp - 表结构未导入][参考 https://cloud.iocoder.cn/erp/build/ 开启]");
-        }
-        // 6. WMS 仓库管理系统
-        if (message.contains("wms_")) {
-            log.error("[WMS 仓库管理系统 mbp-module-wms - 表结构未导入][参考 https://doc.iocoder.cn/wms/build/ 开启]");
-            return CommonResult.error(NOT_IMPLEMENTED.getCode(),
-                    "[WMS 仓库管理系统 mbp-module-wms - 表结构未导入][参考 https://doc.iocoder.cn/wms/build/ 开启]");
-        }
-        // 7. CRM 系统
-        if (message.contains("crm_")) {
-            log.error("[CRM 系统 mbp-module-crm - 表结构未导入][参考 https://cloud.iocoder.cn/crm/build/ 开启]");
-            return CommonResult.error(NOT_IMPLEMENTED.getCode(),
-                    "[CRM 系统 mbp-module-crm - 表结构未导入][参考 https://cloud.iocoder.cn/crm/build/ 开启]");
-        }
-        // 8. MES 系统
-        if (message.contains("mes_")) {
-            log.error("[MES 系统 mbp-module-mes - 表结构未导入][参考 https://doc.iocoder.cn/mes/build/ 开启]");
-            return CommonResult.error(NOT_IMPLEMENTED.getCode(),
-                    "[MES 系统 mbp-module-mes - 表结构未导入][参考 https://doc.iocoder.cn/mes/build/ 开启]");
-        }
-        // 9. IM 即时通讯
-        if (message.contains("im_")) {
-            log.error("[IM 即时通讯 mbp-module-im - 表结构未导入][参考 https://doc.iocoder.cn/im/build/ 开启]");
-            return CommonResult.error(NOT_IMPLEMENTED.getCode(),
-                    "[IM 即时通讯 mbp-module-im - 表结构未导入][参考 https://doc.iocoder.cn/im/build/ 开启]");
-        }
-        // 10. 支付平台
-        if (message.contains("pay_")) {
-            log.error("[支付模块 mbp-module-pay - 表结构未导入][参考 https://cloud.iocoder.cn/pay/build/ 开启]");
-            return CommonResult.error(NOT_IMPLEMENTED.getCode(),
-                    "[支付模块 mbp-module-pay - 表结构未导入][参考 https://cloud.iocoder.cn/pay/build/ 开启]");
-        }
-        // 11. AI 大模型
-        if (message.contains("ai_")) {
-            log.error("[AI 大模型 mbp-module-ai - 表结构未导入][参考 https://cloud.iocoder.cn/ai/build/ 开启]");
-            return CommonResult.error(NOT_IMPLEMENTED.getCode(),
-                    "[AI 大模型 mbp-module-ai - 表结构未导入][参考 https://cloud.iocoder.cn/ai/build/ 开启]");
-        }
-        // 12. IoT 物联网
-        if (message.contains("iot_")) {
-            log.error("[IoT 物联网 mbp-module-iot - 表结构未导入][参考 https://doc.iocoder.cn/iot/build/ 开启]");
-            return CommonResult.error(NOT_IMPLEMENTED.getCode(),
-                    "[IoT 物联网 mbp-module-iot - 表结构未导入][参考 https://doc.iocoder.cn/iot/build/ 开启]");
         }
         return null;
     }

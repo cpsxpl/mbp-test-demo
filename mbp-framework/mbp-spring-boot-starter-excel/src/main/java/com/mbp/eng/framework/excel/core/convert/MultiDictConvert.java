@@ -2,14 +2,14 @@ package com.mbp.eng.framework.excel.core.convert;
 
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.StrUtil;
+import com.mbp.eng.framework.dict.core.DictFrameworkUtils;
+import com.mbp.eng.framework.excel.core.annotations.DictFormat;
 import cn.idev.excel.converters.Converter;
 import cn.idev.excel.enums.CellDataTypeEnum;
 import cn.idev.excel.metadata.GlobalConfiguration;
 import cn.idev.excel.metadata.data.ReadCellData;
 import cn.idev.excel.metadata.data.WriteCellData;
 import cn.idev.excel.metadata.property.ExcelContentProperty;
-import com.mbp.eng.framework.dict.core.DictFrameworkUtils;
-import com.mbp.eng.framework.excel.core.annotations.DictFormat;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Array;
@@ -30,7 +30,7 @@ import java.util.Set;
  * Excel 展示使用顿号分隔,例如 {@code 男、女}
  * 使用时,需要在字段上同时配置
  * {@code @ExcelProperty(converter = MultiDictConvert.class)} 和 {@link DictFormat}
- **/
+ */
 @Slf4j
 public class MultiDictConvert implements Converter<Object> {
 

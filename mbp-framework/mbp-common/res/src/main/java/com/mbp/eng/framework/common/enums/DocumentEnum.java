@@ -10,8 +10,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum DocumentEnum {
 
-    REDIS_INSTALL("https://", "Redis 安装文档"),
-    TENANT("https://", "SaaS 多租户文档");
+    REDIS_INSTALL("https://google.com", "Redis 安装文档"),
+    TENANT("https://doc.google.cn", "SaaS 多租户文档");
 
     private final String url;
     private final String memo;

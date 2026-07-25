@@ -1,6 +1,6 @@
 package com.mbp.eng.framework.dict.config;
 
-import com.mbp.eng.framework.common.system.dict.DictDataCommonApi;
+import com.mbp.eng.framework.common.biz.system.dict.DictDataCommonApi;
 import com.mbp.eng.framework.dict.core.DictFrameworkUtils;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.Bean;

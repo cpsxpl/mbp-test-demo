@@ -1,10 +1,10 @@
 package com.mbp.eng.framework.mybatis.core.util;
 
-import com.baomidou.dynamic.datasource.DynamicRoutingDataSource;
-import com.baomidou.mybatisplus.annotation.DbType;
-import com.mbp.eng.framework.common.util.obj.ObjectUtils;
+import com.mbp.eng.framework.common.util.object.ObjectUtils;
 import com.mbp.eng.framework.common.util.spring.SpringUtils;
 import com.mbp.eng.framework.mybatis.core.enums.DbTypeEnum;
+import com.baomidou.dynamic.datasource.DynamicRoutingDataSource;
+import com.baomidou.mybatisplus.annotation.DbType;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 
 import javax.sql.DataSource;
@@ -26,7 +26,7 @@ public class JdbcUtils {
      * @return 是否正确
      */
     public static boolean isConnectionOK(String url, String username, String password) {
-        try (Connection connection = DriverManager.getConnection(url, username, password)) {
+        try (Connection ignored = DriverManager.getConnection(url, username, password)) {
             return true;
         } catch (Exception ex) {
             return false;

@@ -20,12 +20,12 @@ import java.util.List;
 public class MbpDeptDataPermissionAutoConfiguration {
 
     @Bean
-    public DeptDataPermissionRule deptDataPermissionRule(PermissionCommonApi permissionCommonApi,
-                                                         List<DeptDataPermissionRuleCustomizer> deptDataPermissionRuleCustomizerList) {
+    public DeptDataPermissionRule deptDataPermissionRule(PermissionCommonApi permissionApi,
+                                                         List<DeptDataPermissionRuleCustomizer> customizers) {
         // 创建 DeptDataPermissionRule 对象
-        DeptDataPermissionRule rule = new DeptDataPermissionRule(permissionCommonApi);
+        DeptDataPermissionRule rule = new DeptDataPermissionRule(permissionApi);
         // 补全表配置
-        deptDataPermissionRuleCustomizerList.forEach(customizer -> customizer.customize(rule));
+        customizers.forEach(customizer -> customizer.customize(rule));
         return rule;
     }
 

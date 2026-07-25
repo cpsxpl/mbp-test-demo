@@ -1,8 +1,8 @@
 package com.mbp.eng.framework.mybatis.core.handler;
 
-import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.mbp.eng.framework.mybatis.core.dataobject.BaseDO;
 import com.mbp.eng.framework.security.core.util.SecurityFrameworkUtils;
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 
 import java.time.LocalDateTime;

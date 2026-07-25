@@ -1,6 +1,5 @@
 package com.mbp.eng.framework.tracer.config;
 
-
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;

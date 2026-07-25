@@ -18,8 +18,8 @@
         <!--统一依赖管理_start-->
         <!--<netty.version>4.1.79.Final</netty.version>-->
         <netty.version>4.2.15.Final</netty.version>
-        <spring.framework.version>5.3.22</spring.framework.version>
-        <!--<spring.framework.version>5.3.39</spring.framework.version>-->
+        <!--<spring.framework.version>5.3.22</spring.framework.version>-->
+        <spring.framework.version>5.3.39</spring.framework.version>
         <spring.security.version>5.8.16</spring.security.version>
         <spring.boot.version>2.7.3</spring.boot.version>
         <!--<spring.boot.version>2.7.18</spring.boot.version>-->
@@ -215,6 +215,12 @@
             <dependency>
                 <groupId>com.mbp.eng.test</groupId>
                 <artifactId>mbp-spring-boot-starter-redis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-spring-boot-starter-websocket</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -923,16 +929,6 @@
                 <groupId>cn.idev.excel</groupId>
                 <artifactId>fastexcel</artifactId>
                 <version>${fastexcel.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>poi-ooxml</artifactId>
-                        <groupId>org.apache.poi</groupId>
-                    </exclusion>
-                    <exclusion>
-                        <artifactId>poi</artifactId>
-                        <groupId>org.apache.poi</groupId>
-                    </exclusion>
-                </exclusions>
             </dependency>
 
             <dependency>

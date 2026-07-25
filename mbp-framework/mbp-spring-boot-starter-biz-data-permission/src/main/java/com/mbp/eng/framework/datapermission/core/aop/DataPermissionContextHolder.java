@@ -1,8 +1,7 @@
 package com.mbp.eng.framework.datapermission.core.aop;
 
-
-import com.alibaba.ttl.TransmittableThreadLocal;
 import com.mbp.eng.framework.datapermission.core.annotation.DataPermission;
+import com.alibaba.ttl.TransmittableThreadLocal;
 
 import java.util.LinkedList;
 import java.util.List;

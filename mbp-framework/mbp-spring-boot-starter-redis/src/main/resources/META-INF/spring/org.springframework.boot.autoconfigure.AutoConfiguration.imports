@@ -1,0 +1,2 @@
+com.mbp.eng.framework.redis.config.MbpRedisAutoConfiguration
+com.mbp.eng.framework.redis.config.MbpCacheAutoConfiguration

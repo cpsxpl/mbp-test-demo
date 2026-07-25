@@ -4,7 +4,6 @@ import cn.hutool.core.util.NumberUtil;
 import com.mbp.eng.framework.common.enums.TerminalEnum;
 import com.mbp.eng.framework.common.enums.UserTypeEnum;
 import com.mbp.eng.framework.common.pojo.CommonResult;
-
 import com.mbp.eng.framework.web.config.WebProperties;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -33,10 +32,10 @@ public class WebFrameworkUtils {
      */
     public static final String HEADER_TERMINAL = "terminal";
 
-    private static WebProperties webProperties;
+    private static WebProperties properties;
 
     public WebFrameworkUtils(WebProperties webProperties) {
-        WebFrameworkUtils.webProperties = webProperties;
+        WebFrameworkUtils.properties = webProperties;
     }
 
     /**
@@ -108,10 +107,10 @@ public class WebFrameworkUtils {
             return userType;
         }
         // 2. 其次,基于 URL 前缀的约定
-        if (request.getServletPath().startsWith(webProperties.getAdminApi().getPrefix())) {
+        if (request.getServletPath().startsWith(properties.getAdminApi().getPrefix())) {
             return UserTypeEnum.ADMIN.getValue();
         }
-        if (request.getServletPath().startsWith(webProperties.getAppApi().getPrefix())) {
+        if (request.getServletPath().startsWith(properties.getAppApi().getPrefix())) {
             return UserTypeEnum.MEMBER.getValue();
         }
         return null;
