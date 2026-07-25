@@ -76,22 +76,23 @@
         <jedis-mock.version>1.1.15</jedis-mock.version>
         <!-- 三方云服务相关 -->
         <awssdk.version>2.46.17</awssdk.version>
-        <justauth.version>1.16.7</justauth.version>
         <justauth-starter.version>1.4.0</justauth-starter.version>
+        <justauth.version>1.16.7</justauth.version>
         <jimureport.version>2.3.4</jimureport.version>
         <jimubi.version>2.3.2</jimubi.version>
-        <weixin-java.version>4.8.4-20260623.211820</weixin-java.version>
         <bouncycastle.version>1.80</bouncycastle.version>
+        <weixin-java.version>4.8.4-20260623.211820</weixin-java.version>
         <alipay-sdk-java.version>4.40.865.ALL</alipay-sdk-java.version>
         <!-- 专属于 JDK8 安全漏洞升级 -->
-        <logback.version>1.2.13</logback.version> <!-- 无法使用 1.3.X 版本,启动会报错 -->
+        <!-- 无法使用 1.3.X 版本,启动会报错 -->
+        <logback.version>1.2.13</logback.version>
         <!-- 工具类相关_start -->
-        <flowable.version>6.8.0</flowable.version> <!-- 不要升级 6.8.1：退回有 bug https://github.com/flowable/flowable-engine/issues/3944 -->
+        <!-- 不要升级 6.8.1：退回有 bug https://github.com/flowable/flowable-engine/issues/3944 -->
+        <flowable.version>6.8.0</flowable.version>
         <anji-plus-captcha.version>1.4.0</anji-plus-captcha.version>
         <jsoup.version>1.22.2</jsoup.version>
         <sensitive-word.version>0.29.5</sensitive-word.version>
         <pinyin4j.version>2.5.1</pinyin4j.version>
-        <lombok.version>1.18.46</lombok.version>
         <mapstruct.version>1.6.3</mapstruct.version>
         <hutool-5.version>5.8.46</hutool-5.version>
         <fastexcel.version>1.3.0</fastexcel.version>
@@ -99,36 +100,40 @@
         <!-- JSON_start -->
         <codehaus.jackson.version>1.9.2</codehaus.jackson.version>
         <org.json.version>20130603</org.json.version>
-        <!--<fastjson.version>1.2.79</fastjson.version>-->
         <fastjson.version>1.2.83</fastjson.version>
         <fastjson2.version>2.0.62</fastjson2.version>
         <!-- JSON_end -->
-        <velocity.version>2.4</velocity.version> <!-- JDK8 不能从 2.4 升级到 2.4.1,会报包不存在！！！！ -->
+        <!-- JDK8 不能从 2.4 升级到 2.4.1,会报包不存在！！！！ -->
+        <velocity.version>2.4</velocity.version>
         <!--<guava.version>20.0</guava.version>-->
         <guava.version>33.6.0-jre</guava.version>
         <jdom.version>1.1.3</jdom.version>
         <joda-time.version>2.9.2</joda-time.version>
         <univocity-parsers.vresion>2.8.1</univocity-parsers.vresion>
-        <bitmap.vresion>0.9.10</bitmap.vresion>
         <ssh.vresion>build210</ssh.vresion>
         <jsch.vresion>0.1.55</jsch.vresion>
         <jolt.version>0.1.1</jolt.version>
         <ip2region.version>2.7.0</ip2region.version>
-        <jsoup.version>1.22.2</jsoup.version>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
-        <tika-core.version>2.9.3</tika-core.version> <!-- JDK8 不能从 2.9.3 升级到 3.X,会报 JDK8 不支持 -->
+        <!-- JDK8 不能从 2.9.3 升级到 3.X,会报 JDK8 不支持 -->
+        <tika-core.version>2.9.3</tika-core.version>
         <bizlog-sdk.version>3.0.6</bizlog-sdk.version>
         <mqtt.version>1.2.5</mqtt.version>
         <vertx.version>4.5.26</vertx.version>
         <okhttp.version>4.12.0</okhttp.version>
         <californium.version>3.14.0</californium.version>
         <j2mod.version>3.3.0</j2mod.version>
-        <httpclient5.version>5.5.1</httpclient5.version> <!-- WxJava 4.8.x 需要 HttpClient5 5.4+,Spring Boot 2.7 默认 5.1.4 不兼容；JDK8 兼容不能升级到 5.5.2+ -->
-        <httpcore5.version>5.3.6</httpcore5.version> <!-- 配套 httpclient5 5.5.1,Spring Boot 2.7 默认 5.1.5 不兼容 -->
+        <!-- WxJava 4.8.x 需要 HttpClient5 5.4+,Spring Boot 2.7 默认 5.1.4 不兼容；JDK8 兼容不能升级到 5.5.2+ -->
+        <httpclient5.version>5.5.1</httpclient5.version>
+        <!-- 配套 httpclient5 5.5.1,Spring Boot 2.7 默认 5.1.5 不兼容 -->
+        <httpcore5.version>5.3.6</httpcore5.version>
+        <expect4j.version>1.9</expect4j.version>
+        <lombok.version>1.18.46</lombok.version>
         <findbugs.version>3.0.1</findbugs.version>
         <junit.version>4.12</junit.version>
         <!-- 工具类相关_end -->
         <!-- 插件相关_start -->
+        <bitmap.vresion>0.9.10</bitmap.vresion>
         <zookeeper.version>3.9.5</zookeeper.version>
         <hadoop.version>3.3.1</hadoop.version>
         <hive.version>2.3.0</hive.version>
@@ -152,166 +157,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--统一依赖管理_start-->
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-bom</artifactId>
-                <version>${netty.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-framework-bom</artifactId> <!-- JDK8 版本独有：保证 Spring Framework 尽量高 -->
-                <version>${spring.framework.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-bom</artifactId> <!-- JDK8 版本独有：保证 Spring Security 尽量高 -->
-                <version>${spring.security.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring.boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!--统一依赖管理_end-->
-
-            <!-- spring_start -->
-            <dependency>
-                <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-ui</artifactId>
-                <version>${springdoc.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${swagger.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-core</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-beans</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-context</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-context-support</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-aop</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-tx</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-orm</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-jdbc</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-web</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-webmvc</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-oxm</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <!-- spring_end -->
-
-            <!-- 排除掉springboot依赖使用项目的 -->
-            <dependency>
-                <groupId>io.github.mouzt</groupId>
-                <artifactId>bizlog-sdk</artifactId>
-                <version>${bizlog-sdk.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <!-- org.apache.*_start -->
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-collections4</artifactId>
-                <version>4.1</version>
-            </dependency>
-
-            <!-- 文件类型的识别 -->
-            <dependency>
-                <groupId>org.apache.tika</groupId>
-                <artifactId>tika-core</artifactId>
-                <version>${tika.version}</version>
-            </dependency>
-
-            <!--用做自动生成代码-->
-            <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity-engine-core</artifactId>
-                <version>2.3</version>
-            </dependency>
-            <!-- org.apache.*_end -->
-
-            <!-- commons-*_start -->
-            <dependency>
-                <groupId>commons-dbcp</groupId>
-                <artifactId>commons-dbcp</artifactId>
-                <version>${commons-dbcp.version}</version>
-                <scope>compile</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-beanutils</groupId>
-                <artifactId>commons-beanutils</artifactId>
-                <version>${commons.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-lang</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>2.6</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-net</groupId>
-                <artifactId>commons-net</artifactId> <!-- 解决 ftp 连接 -->
-                <version>${commons-net.version}</version>
-            </dependency>
-            <!-- commons-*_end -->
-
-            <dependency>
-                <groupId>com.typesafe</groupId>
-                <artifactId>config</artifactId>
-                <version>${typesafe.config.version}</version>
-            </dependency>
-
-            <!--模块-工具类相关_start-->
+            <!--模块相关_start-->
             <dependency>
                 <groupId>com.mbp.eng.test</groupId>
                 <artifactId>res</artifactId>
@@ -413,132 +259,76 @@
                 <artifactId>mbp-spring-boot-starter-monitor</artifactId>
                 <version>${revision}</version>
             </dependency>
-            <!--模块-工具类相关_end-->
-
-            <!--模块_插件类相关_start-->
-            <dependency>
-                <groupId>com.mbp.eng.test</groupId>
-                <artifactId>mbp-plugin-kafka</artifactId>
-                <version>${revision}</version>
-            </dependency>
 
             <dependency>
                 <groupId>com.mbp.eng.test</groupId>
-                <artifactId>mbp-plugin-flink</artifactId>
+                <artifactId>mbp-spring-boot-starter-protection</artifactId>
                 <version>${revision}</version>
+            </dependency>
+            <!--模块相关_end-->
+
+            <!--统一依赖管理_start-->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-bom</artifactId>
+                <version>${netty.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId> <!-- JDK8 版本独有：保证 Spring Framework 尽量高 -->
+                <version>${spring.framework.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-bom</artifactId> <!-- JDK8 版本独有：保证 Spring Security 尽量高 -->
+                <version>${spring.security.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <!-- 用于生成自定义的 Spring @ConfigurationProperties 配置类的说明文件 -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.version}</version>
                 <exclusions>
                     <exclusion>
-                        <groupId>org.apache.commons</groupId>
-                        <artifactId>commons-io</artifactId>
+                        <artifactId>asm</artifactId>
+                        <groupId>org.ow2.asm</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.mockito</groupId>
+                        <artifactId>mockito-core</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>
-            <!--模块-插件类相关_end-->
+            <!--统一依赖管理_end-->
 
+            <!-- spring_start -->
             <dependency>
-                <groupId>cn.idev.excel</groupId>
-                <artifactId>fastexcel</artifactId>
-                <version>${fastexcel.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>poi-ooxml</artifactId>
-                        <groupId>org.apache.poi</groupId>
-                    </exclusion>
-                    <exclusion>
-                        <artifactId>poi</artifactId>
-                        <groupId>org.apache.poi</groupId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <!-- JSON_start -->
-            <dependency>
-                <groupId>org.codehaus.jackson</groupId>
-                <artifactId>jackson-mapper-asl</artifactId>
-                <version>${codehaus.jackson.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.codeartisans</groupId>
-                <artifactId>org.json</artifactId>
-                <version>${org.json.version}</version>
-            </dependency>
-
-            <!--<dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-            </dependency>-->
-            <!-- JSON_end -->
-
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jdom</groupId>
-                <artifactId>jdom</artifactId>
-                <version>${jdom.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>joda-time</groupId>
-                <artifactId>joda-time</artifactId>
-                <version>${joda-time.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.univocity</groupId>
-                <artifactId>univocity-parsers</artifactId>
-                <version>${univocity-parsers.vresion}</version>
-            </dependency>
-
-            <!--bitmap依赖-->
-            <dependency>
-                <groupId>org.roaringbitmap</groupId>
-                <artifactId>RoaringBitmap</artifactId>
-                <version>${bitmap.vresion}</version>
-            </dependency>
-
-            <!-- ssh remote connection-->
-            <dependency>
-                <groupId>ch.ethz.ganymed</groupId>
-                <artifactId>ganymed-ssh2</artifactId>
-                <version>${ssh.vresion}</version>
-            </dependency>
-
-            <!--ftp-->
-            <dependency>
-                <groupId>com.jcraft</groupId>
-                <artifactId>jsch</artifactId>
-                <version>${jsch.vresion}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.github.cverges</groupId>
-                <artifactId>expect4j</artifactId>
-                <version>1.9</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-api</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <!--bazaarvoice-->
-            <dependency>
-                <groupId>com.bazaarvoice.jolt</groupId>
-                <artifactId>jolt-core</artifactId>
-                <version>${jolt.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.bazaarvoice.jolt</groupId>
-                <artifactId>json-utils</artifactId>
-                <version>${jolt.version}</version>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springdoc.version}</version>
             </dependency>
 
             <dependency>
@@ -548,17 +338,57 @@
             </dependency>
 
             <dependency>
-                <groupId>org.lionsoul</groupId>
-                <artifactId>ip2region</artifactId>
-                <version>${ip2region.version}</version>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-beans</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context-support</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-aop</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-tx</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-orm</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-jdbc</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-web</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-webmvc</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-oxm</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
-
-            <dependency>
-                <groupId>org.jsoup</groupId>
-                <artifactId>jsoup</artifactId>
-                <version>${jsoup.version}</version>
-            </dependency>
-
+            <!-- spring_end -->
 
             <!-- DB 相关_start -->
             <dependency>
@@ -698,7 +528,7 @@
 
             <!-- 用于简化数据翻译和转换操作 -->
             <dependency>
-                <groupId>org.dromara</groupId>
+                <groupId>org.dromara</groupId> <!-- VO 数据翻译 -->
                 <artifactId>easy-trans-spring-boot-starter</artifactId>
                 <version>${easy-trans.version}</version>
                 <exclusions>
@@ -726,31 +556,6 @@
                 <artifactId>easy-trans-anno</artifactId>
                 <version>${easy-trans.version}</version>
             </dependency>
-            <!-- DB 相关_end -->
-
-            <!-- use mapstruct-jdk8 for Java 8 or higher -->
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct</artifactId>
-                <version>${mapstruct.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-jdk8</artifactId>
-                <version>${mapstruct.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-processor</artifactId>
-                <version>${mapstruct.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool-5.version}</version>
-            </dependency>
 
             <!-- 通用Mapper_start -->
             <dependency>
@@ -766,6 +571,7 @@
                 <version>2.1.5</version>
             </dependency>-->
             <!-- 通用Mapper_end -->
+            <!-- DB 相关_end -->
 
             <!-- easy poi_start -->
             <dependency>
@@ -787,11 +593,60 @@
             </dependency>
             <!-- easy poi_end -->
 
+            <!-- org.apache.*_start -->
             <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>transmittable-thread-local</artifactId> <!-- 解决 ThreadLocal 父子线程的传值问题 -->
-                <version>${transmittable-thread-local.version}</version>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.1</version>
             </dependency>
+
+            <!-- 文件类型的识别 -->
+            <dependency>
+                <groupId>org.apache.tika</groupId>
+                <artifactId>tika-core</artifactId>
+                <version>${tika.version}</version>
+            </dependency>
+
+            <!--用做自动生成代码-->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>2.3</version>
+            </dependency>
+            <!-- org.apache.*_end -->
+
+            <!-- commons-*_start -->
+            <dependency>
+                <groupId>commons-dbcp</groupId>
+                <artifactId>commons-dbcp</artifactId>
+                <version>${commons-dbcp.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-net</groupId>
+                <artifactId>commons-net</artifactId> <!-- 解决 ftp 连接 -->
+                <version>${commons-net.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.6</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version> <!-- 解决 CVE-2025-48924 漏洞 -->
+            </dependency>
+            <!-- commons-*_end -->
 
             <!-- 消息队列相关 -->
             <dependency>
@@ -856,6 +711,7 @@
                 <version>${spring-boot-admin.version}</version>
             </dependency>
 
+
             <!-- Test 测试相关_start -->
             <dependency>
                 <groupId>org.mockito</groupId>
@@ -864,19 +720,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring.boot.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>asm</artifactId>
-                        <groupId>org.ow2.asm</groupId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.mockito</groupId>
-                        <artifactId>mockito-core</artifactId>
-                    </exclusion>
-                </exclusions>
+                <groupId>uk.co.jemos.podam</groupId> <!-- 单元测试,随机生成 POJO 类 -->
+                <artifactId>podam</artifactId>
+                <version>${podam.version}</version>
             </dependency>
 
             <dependency>
@@ -884,23 +730,9 @@
                 <artifactId>jedis-mock</artifactId>
                 <version>${jedis-mock.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>uk.co.jemos.podam</groupId> <!-- 单元测试,随机生成 POJO 类 -->
-                <artifactId>podam</artifactId>
-                <version>${podam.version}</version>
-            </dependency>
             <!-- Test 测试相关_end -->
 
-
-
-            <dependency>
-                <groupId>com.github.mwiede</groupId>
-                <artifactId>jsch</artifactId> <!-- 解决 sftp 连接 -->
-                <version>${jsch.version}</version>
-            </dependency>
-
-            <!-- 三方云服务相关 -->
+            <!-- 三方云服务相关_start -->
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>s3</artifactId>
@@ -925,14 +757,48 @@
                 </exclusions>
             </dependency>
 
+            <!-- 积木报表-->
             <dependency>
-                <groupId>com.alipay.sdk</groupId>
-                <artifactId>alipay-sdk-java</artifactId>
-                <version>${alipay-sdk-java.version}</version>
+                <groupId>org.jeecgframework.jimureport</groupId>
+                <artifactId>jimureport-spring-boot-starter</artifactId>
+                <version>${jimureport.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jeecgframework.jimureport</groupId>
+                <artifactId>jimubi-spring-boot-starter</artifactId>
+                <version>${jimubi.version}</version>
                 <exclusions>
                     <exclusion>
-                        <groupId>org.bouncycastle</groupId>
-                        <artifactId>bcprov-jdk15on</artifactId>
+                        <groupId>com.github.jsqlparser</groupId>
+                        <artifactId>jsqlparser</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>cn.hutool</groupId>
+                        <artifactId>hutool-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- 积木报表-->
+            <dependency>
+                <groupId>org.jeecgframework.jimureport</groupId>
+                <artifactId>jimureport-spring-boot-starter</artifactId>
+                <version>${jimureport.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jeecgframework.jimureport</groupId>
+                <artifactId>jimubi-spring-boot-starter</artifactId>
+                <version>${jimubi.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.github.jsqlparser</groupId>
+                        <artifactId>jsqlparser</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>cn.hutool</groupId>
+                        <artifactId>hutool-core</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>
@@ -944,11 +810,13 @@
                 <artifactId>bcprov-jdk18on</artifactId>
                 <version>${bouncycastle.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bcutil-jdk18on</artifactId>
                 <version>${bouncycastle.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bcpkix-jdk18on</artifactId>
@@ -960,15 +828,340 @@
                 <artifactId>weixin-java-pay</artifactId>
                 <version>${weixin-java.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>com.github.binarywang</groupId>
                 <artifactId>wx-java-mp-spring-boot-starter</artifactId>
                 <version>${weixin-java.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>com.github.binarywang</groupId>
                 <artifactId>wx-java-miniapp-spring-boot-starter</artifactId>
                 <version>${weixin-java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sdk</groupId>
+                <artifactId>alipay-sdk-java</artifactId>
+                <version>${alipay-sdk-java.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- 三方云服务相关_end -->
+
+            <!-- 工具类相关_start -->
+            <!-- 工作流相关 -->
+            <!-- 不要升级 6.8.1：退回有 bug https://github.com/flowable/flowable-engine/issues/3944 -->
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring-boot-starter-process</artifactId>
+                <version>${flowable.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring-boot-starter-actuator</artifactId>
+                <version>${flowable.version}</version>
+            </dependency>
+            <!-- 工作流相关结束 -->
+
+            <dependency>
+                <groupId>com.anji-plus</groupId>
+                <artifactId>captcha-spring-boot-starter</artifactId> <!-- 验证码,一般用于登录使用 -->
+                <version>${anji-plus-captcha.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>${jsoup.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.houbb</groupId>
+                <artifactId>sensitive-word</artifactId> <!-- 敏感词检测：trie 树高效匹配 -->
+                <version>${sensitive-word.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.belerweb</groupId>
+                <artifactId>pinyin4j</artifactId> <!-- 汉字转拼音：作为 hutool PinyinUtil 的底层引擎 -->
+                <version>${pinyin4j.version}</version>
+            </dependency>
+
+            <!-- use mapstruct-jdk8 for Java 8 or higher -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-5.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.idev.excel</groupId>
+                <artifactId>fastexcel</artifactId>
+                <version>${fastexcel.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>poi-ooxml</artifactId>
+                        <groupId>org.apache.poi</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>poi</artifactId>
+                        <groupId>org.apache.poi</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.typesafe</groupId>
+                <artifactId>config</artifactId>
+                <version>${typesafe.config.version}</version>
+            </dependency>
+
+            <!-- JSON_start -->
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>${codehaus.jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codeartisans</groupId>
+                <artifactId>org.json</artifactId>
+                <version>${org.json.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson2.version}</version>
+            </dependency>
+            <!-- JSON_end -->
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jdom</groupId>
+                <artifactId>jdom</artifactId>
+                <version>${jdom.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.univocity</groupId>
+                <artifactId>univocity-parsers</artifactId>
+                <version>${univocity-parsers.vresion}</version>
+            </dependency>
+
+            <!-- ssh remote connection-->
+            <dependency>
+                <groupId>ch.ethz.ganymed</groupId>
+                <artifactId>ganymed-ssh2</artifactId>
+                <version>${ssh.vresion}</version>
+            </dependency>
+
+            <!--ftp-->
+            <dependency>
+                <groupId>com.jcraft</groupId>
+                <artifactId>jsch</artifactId>
+                <version>${jsch.vresion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.mwiede</groupId>
+                <artifactId>jsch</artifactId> <!-- 解决 sftp 连接 -->
+                <version>${jsch.version}</version>
+            </dependency>
+
+            <!--bazaarvoice-->
+            <dependency>
+                <groupId>com.bazaarvoice.jolt</groupId>
+                <artifactId>jolt-core</artifactId>
+                <version>${jolt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.bazaarvoice.jolt</groupId>
+                <artifactId>json-utils</artifactId>
+                <version>${jolt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.lionsoul</groupId>
+                <artifactId>ip2region</artifactId>
+                <version>${ip2region.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId> <!-- 解决 ThreadLocal 父子线程的传值问题 -->
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+
+            <!-- 排除掉springboot依赖使用项目的 -->
+            <dependency>
+                <groupId>io.github.mouzt</groupId>
+                <artifactId>bizlog-sdk</artifactId>
+                <version>${bizlog-sdk.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- MQTT -->
+            <dependency>
+                <groupId>org.eclipse.paho</groupId>
+                <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+                <version>${mqtt.version}</version>
+            </dependency>
+
+            <!-- Vert.x -->
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-core</artifactId>
+                <version>${vertx.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-web</artifactId>
+                <version>${vertx.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-mqtt</artifactId>
+                <version>${vertx.version}</version>
+            </dependency>
+
+            <!-- OkHttp -->
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>mockwebserver</artifactId>
+                <version>${okhttp.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- CoAP - Eclipse Californium -->
+            <dependency>
+                <groupId>org.eclipse.californium</groupId>
+                <artifactId>californium-core</artifactId>
+                <version>${californium.version}</version>
+            </dependency>
+
+            <!-- Modbus 相关 -->
+            <dependency>
+                <groupId>com.ghgande</groupId>
+                <artifactId>j2mod</artifactId>
+                <version>${j2mod.version}</version>
+            </dependency>
+
+            <!-- WxJava 4.8.x 需要 HttpClient5 5.4+,覆盖 Spring Boot 2.7 默认的 5.1.4；JDK8 兼容不能升级到 5.5.2+ -->
+            <dependency>
+                <groupId>org.apache.httpcomponents.client5</groupId>
+                <artifactId>httpclient5</artifactId>
+                <version>${httpclient5.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents.core5</groupId>
+                <artifactId>httpcore5</artifactId>
+                <version>${httpcore5.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents.core5</groupId>
+                <artifactId>httpcore5-h2</artifactId>
+                <version>${httpcore5.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.cverges</groupId>
+                <artifactId>expect4j</artifactId>
+                <version>${expect4j.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>findbugs</artifactId>
+                <version>${findbugs.version}</version>
+            </dependency>
+
+            <!-- junit -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- 工具类相关_end -->
+
+            <!-- 插件相关_start -->
+            <!--bitmap依赖-->
+            <dependency>
+                <groupId>org.roaringbitmap</groupId>
+                <artifactId>RoaringBitmap</artifactId>
+                <version>${bitmap.vresion}</version>
             </dependency>
 
             <dependency>
@@ -2104,7 +2297,6 @@
                         <groupId>org.apache.hadoop</groupId>
                     </exclusion>
                 </exclusions>
-
             </dependency>
 
             <!--<dependency>
@@ -2146,21 +2338,7 @@
                 </exclusions>
             </dependency>
             <!--linkis.end-->
-
-            <dependency>
-                <groupId>com.google.code.findbugs</groupId>
-                <artifactId>findbugs</artifactId>
-                <version>${findbugs.version}</version>
-            </dependency>
-
-            <!-- junit -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-                <scope>test</scope>
-            </dependency>
-
+            <!-- 插件相关_end -->
         </dependencies>
     </dependencyManagement>
 
