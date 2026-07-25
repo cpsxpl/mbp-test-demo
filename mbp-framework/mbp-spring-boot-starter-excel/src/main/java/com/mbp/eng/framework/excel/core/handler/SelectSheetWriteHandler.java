@@ -38,7 +38,6 @@ public class SelectSheetWriteHandler implements SheetWriteHandler {
 
     /**
      * 数据起始行从 0 开始
-     * <p>
      * 约定：本项目第一行有标题所以从 1 开始如果您的 Excel 有多行标题请自行更改
      */
     public static final int FIRST_ROW = 1;
@@ -181,5 +180,4 @@ public class SelectSheetWriteHandler implements SheetWriteHandler {
         // 2.3 添加下拉框约束
         writeSheetHolder.getSheet().addValidationData(validation);
     }
-
 }

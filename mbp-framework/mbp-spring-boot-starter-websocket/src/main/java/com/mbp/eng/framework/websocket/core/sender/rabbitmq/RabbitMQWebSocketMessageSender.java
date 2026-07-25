@@ -51,12 +51,9 @@ public class RabbitMQWebSocketMessageSender extends AbstractWebSocketMessageSend
      */
     private void sendRabbitMQMessage(String sessionId, Long userId, Integer userType,
                                      String messageType, String messageContent) {
-        RabbitMQWebSocketMessage mqMessage = new RabbitMQWebSocketMessage();
-        mqMessage.setSessionId(sessionId);
-        mqMessage.setUserId(userId);
-        mqMessage.setUserType(userType);
-        mqMessage.setMessageType(messageType);
-        mqMessage.setMessageContent(messageContent);
+        RabbitMQWebSocketMessage mqMessage = new RabbitMQWebSocketMessage()
+                .setSessionId(sessionId).setUserId(userId).setUserType(userType)
+                .setMessageType(messageType).setMessageContent(messageContent);
         rabbitTemplate.convertAndSend(topicExchange.getName(), null, mqMessage);
     }
 

@@ -42,5 +42,4 @@ public class MbpRedisAutoConfiguration {
         objectMapper.registerModules(new JavaTimeModule());
         return json;
     }
-
 }

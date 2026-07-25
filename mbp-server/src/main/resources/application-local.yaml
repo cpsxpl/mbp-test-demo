@@ -48,13 +48,11 @@ spring:
       primary: master
       datasource:
         master:
-          #driver-class-name: com.mysql.cj.jdbc.Driver
           url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true # MySQL Connector/J 8.X 连接的示例
           username: root
           password: root123ABC
         slave: # 模拟从库,可根据自己需要修改
           lazy: true # 开启懒加载,保证启动速度
-          #driver-class-name: com.mysql.cj.jdbc.Driver
           url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true&nullCatalogMeansCurrent=true
           username: root
           password: root123ABC
@@ -153,6 +151,7 @@ logging:
     name: ${user.home}/logs/${spring.application.name}.log # 日志文件名,全路径
   level:
     # 配置自己写的 MyBatis Mapper 打印日志
+    com.mbp.eng.module.bpm.dal.mysql: debug
     com.mbp.eng.module.infra.dal.mysql: debug
     com.mbp.eng.module.infra.dal.mysql.logger.ApiErrorLogMapper: INFO # 配置 ApiErrorLogMapper 的日志级别为 info,避免和 GlobalExceptionHandler 重复打印
     com.mbp.eng.module.infra.dal.mysql.job.JobLogMapper: INFO # 配置 JobLogMapper 的日志级别为 info
@@ -161,8 +160,21 @@ logging:
     com.mbp.eng.module.pay.dal.mysql.notify.PayNotifyTaskMapper: INFO # 配置 PayNotifyTaskMapper 的日志级别为 info
     com.mbp.eng.module.system.dal.mysql: debug
     com.mbp.eng.module.system.dal.mysql.sms.SmsChannelMapper: INFO # 配置 SmsChannelMapper 的日志级别为 info
+    com.mbp.eng.module.tool.dal.mysql: debug
+    com.mbp.eng.module.member.dal.mysql: debug
+    com.mbp.eng.module.trade.dal.mysql: debug
+    com.mbp.eng.module.promotion.dal.mysql: debug
+    com.mbp.eng.module.statistics.dal.mysql: debug
+    com.mbp.eng.module.crm.dal.mysql: debug
+    com.mbp.eng.module.erp.dal.mysql: debug
+    com.mbp.eng.module.mes.dal.mysql: debug
+    com.mbp.eng.module.wms.dal.mysql: debug
+    com.mbp.eng.module.iot.dal.mysql: debug
+    com.mbp.eng.module.iot.dal.tdengine: DEBUG
+    com.mbp.eng.module.iot.service.rule: debug
+    com.mbp.eng.module.ai.dal.mysql: debug
+    com.mbp.eng.module.im.dal.mysql: debug
     org.springframework.context.support.PostProcessorRegistrationDelegate: ERROR # TODO 先禁用,Spring Boot 3.X 存在部分错误的 WARN 提示
-    org.springframework.jdbc.datasource: DEBUG # 数据源相关日志级别
 
 debug: false
 
