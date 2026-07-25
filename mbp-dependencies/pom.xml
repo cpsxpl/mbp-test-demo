@@ -16,45 +16,21 @@
         <revision>1.0.0-SNAPSHOT</revision>
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
         <!--统一依赖管理_start-->
-        <netty.version>4.1.79.Final</netty.version>
-        <!--<netty.version>4.2.15.Final</netty.version>-->
+        <!--<netty.version>4.1.79.Final</netty.version>-->
+        <netty.version>4.2.15.Final</netty.version>
         <spring.framework.version>5.3.22</spring.framework.version>
+        <!--<spring.framework.version>5.3.39</spring.framework.version>-->
         <spring.security.version>5.8.16</spring.security.version>
         <spring.boot.version>2.7.3</spring.boot.version>
-        <!--统一依赖管理_end-->
+        <!--<spring.boot.version>2.7.18</spring.boot.version>-->
+        <!-- 统一依赖管理 -->
         <!--spring相关_start -->
         <springdoc.version>1.8.0</springdoc.version>
-        <swagger.version>2.9.2</swagger.version>
-        <!--spring相关_end -->
-        <bizlog-sdk.version>3.0.6</bizlog-sdk.version>
-        <!-- org.apache.*_start -->
-        <tika.version>1.18</tika.version>
-        <!-- org.apache.*_end -->
-        <!-- commons-*_start -->
-        <commons-dbcp.version>1.4</commons-dbcp.version>
-        <commons.version>1.9.3</commons.version>
-        <commons-net.version>3.13.0</commons-net.version>
-        <!-- commons-*_end -->
-        <typesafe.config.version>1.2.1</typesafe.config.version>
-        <fastexcel.version>1.3.0</fastexcel.version>
-        <!-- JSON_start -->
-        <codehaus.jackson.version>1.9.2</codehaus.jackson.version>
-        <org.json.version>20130603</org.json.version>
-        <fastjson.version>1.2.79</fastjson.version>
-        <!-- JSON_end -->
-        <guava.version>20.0</guava.version>
-        <jdom.version>1.1.3</jdom.version>
-        <joda-time.version>2.9.2</joda-time.version>
-        <univocity-parsers.vresion>2.8.1</univocity-parsers.vresion>
-        <bitmap.vresion>0.9.10</bitmap.vresion>
-        <ssh.vresion>build210</ssh.vresion>
-        <jsch.vresion>0.1.55</jsch.vresion>
-        <jolt.version>0.1.1</jolt.version>
         <knife4j.version>4.5.0</knife4j.version>
-        <ip2region.version>2.7.0</ip2region.version>
-        <jsoup.version>1.22.2</jsoup.version>
+        <swagger.version>2.9.2</swagger.version>
+        <!--<servlet.versoin>2.5</servlet.versoin>-->
+        <!--spring相关_end -->
         <!-- DB 相关_start -->
-        <redisson.version>4.6.1</redisson.version>
         <!--<mysql.version>5.1.32</mysql.version>-->
         <!--<mysql.version>8.0.11</mysql.version>-->
         <mysql.version>8.0.21</mysql.version>
@@ -65,19 +41,26 @@
         <mybatis-plus.version>3.5.16</mybatis-plus.version>
         <mybatis-plus-join.version>1.5.7</mybatis-plus-join.version>
         <dynamic-datasource.version>4.5.0</dynamic-datasource.version>
+        <redisson.version>4.6.1</redisson.version>
         <dm8.jdbc.version>8.1.3.140</dm8.jdbc.version>
         <kingbase.jdbc.version>9.0.1.jre7</kingbase.jdbc.version>
         <opengauss.jdbc.version>7.0.0-RC3-og</opengauss.jdbc.version>
         <taos.version>3.8.4</taos.version>
         <easy-trans.version>3.1.5</easy-trans.version>
-        <!-- DB 相关_end -->
-        <mapstruct.version>1.6.3</mapstruct.version>
-        <hutool-5.version>5.8.46</hutool-5.version>
         <tk.mybatis.version>3.4.6</tk.mybatis.version>
+        <!-- DB 相关_end -->
         <!-- easy poi_start -->
         <easypoi.version>3.2.0</easypoi.version>
         <!-- easy poi_end -->
-        <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
+        <!-- org.apache.*_start -->
+        <tika.version>1.18</tika.version>
+        <!-- org.apache.*_end -->
+        <!-- commons-*_start -->
+        <commons-dbcp.version>1.4</commons-dbcp.version>
+        <commons.version>1.9.3</commons.version>
+        <commons-net.version>3.13.0</commons-net.version>
+        <commons-lang3.version>3.20.0</commons-lang3.version>
+        <!-- commons-*_end -->
         <!-- 消息队列 -->
         <rocketmq-spring.version>2.3.6</rocketmq-spring.version>
         <!-- 服务保障相关 -->
@@ -100,6 +83,51 @@
         <weixin-java.version>4.8.4-20260623.211820</weixin-java.version>
         <bouncycastle.version>1.80</bouncycastle.version>
         <alipay-sdk-java.version>4.40.865.ALL</alipay-sdk-java.version>
+        <!-- 专属于 JDK8 安全漏洞升级 -->
+        <logback.version>1.2.13</logback.version> <!-- 无法使用 1.3.X 版本,启动会报错 -->
+        <!-- 工具类相关_start -->
+        <flowable.version>6.8.0</flowable.version> <!-- 不要升级 6.8.1：退回有 bug https://github.com/flowable/flowable-engine/issues/3944 -->
+        <anji-plus-captcha.version>1.4.0</anji-plus-captcha.version>
+        <jsoup.version>1.22.2</jsoup.version>
+        <sensitive-word.version>0.29.5</sensitive-word.version>
+        <pinyin4j.version>2.5.1</pinyin4j.version>
+        <lombok.version>1.18.46</lombok.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
+        <hutool-5.version>5.8.46</hutool-5.version>
+        <fastexcel.version>1.3.0</fastexcel.version>
+        <typesafe.config.version>1.2.1</typesafe.config.version>
+        <!-- JSON_start -->
+        <codehaus.jackson.version>1.9.2</codehaus.jackson.version>
+        <org.json.version>20130603</org.json.version>
+        <!--<fastjson.version>1.2.79</fastjson.version>-->
+        <fastjson.version>1.2.83</fastjson.version>
+        <fastjson2.version>2.0.62</fastjson2.version>
+        <!-- JSON_end -->
+        <velocity.version>2.4</velocity.version> <!-- JDK8 不能从 2.4 升级到 2.4.1,会报包不存在！！！！ -->
+        <!--<guava.version>20.0</guava.version>-->
+        <guava.version>33.6.0-jre</guava.version>
+        <jdom.version>1.1.3</jdom.version>
+        <joda-time.version>2.9.2</joda-time.version>
+        <univocity-parsers.vresion>2.8.1</univocity-parsers.vresion>
+        <bitmap.vresion>0.9.10</bitmap.vresion>
+        <ssh.vresion>build210</ssh.vresion>
+        <jsch.vresion>0.1.55</jsch.vresion>
+        <jolt.version>0.1.1</jolt.version>
+        <ip2region.version>2.7.0</ip2region.version>
+        <jsoup.version>1.22.2</jsoup.version>
+        <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
+        <tika-core.version>2.9.3</tika-core.version> <!-- JDK8 不能从 2.9.3 升级到 3.X,会报 JDK8 不支持 -->
+        <bizlog-sdk.version>3.0.6</bizlog-sdk.version>
+        <mqtt.version>1.2.5</mqtt.version>
+        <vertx.version>4.5.26</vertx.version>
+        <okhttp.version>4.12.0</okhttp.version>
+        <californium.version>3.14.0</californium.version>
+        <j2mod.version>3.3.0</j2mod.version>
+        <httpclient5.version>5.5.1</httpclient5.version> <!-- WxJava 4.8.x 需要 HttpClient5 5.4+,Spring Boot 2.7 默认 5.1.4 不兼容；JDK8 兼容不能升级到 5.5.2+ -->
+        <httpcore5.version>5.3.6</httpcore5.version> <!-- 配套 httpclient5 5.5.1,Spring Boot 2.7 默认 5.1.5 不兼容 -->
+        <findbugs.version>3.0.1</findbugs.version>
+        <junit.version>4.12</junit.version>
+        <!-- 工具类相关_end -->
         <!-- 插件相关_start -->
         <zookeeper.version>3.9.5</zookeeper.version>
         <hadoop.version>3.3.1</hadoop.version>
@@ -120,8 +148,6 @@
         <linkis.version>1.0.2</linkis.version>
         <!--<parquet-avro.version>1.12.2</parquet-avro.version>-->
         <!-- 插件相关_end -->
-        <findbugs.version>3.0.1</findbugs.version>
-        <junit.version>4.12</junit.version>
     </properties>
 
     <dependencyManagement>
