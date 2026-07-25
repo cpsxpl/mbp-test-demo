@@ -17,8 +17,8 @@
         <!-- Server 主项目 -->
         <module>mbp-server</module>
         <!-- 各种 module 拓展 -->
-        <!--<module>mbp-module-system</module>
-        <module>mbp-module-infra</module>-->
+        <module>mbp-module-system</module>
+        <module>mbp-module-infra</module>
     </modules>
 
     <properties>

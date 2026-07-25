@@ -20,6 +20,17 @@
     <url>https://github.com</url>
 
     <dependencies>
+        <dependency>
+            <groupId>com.mbp.eng.test</groupId>
+            <artifactId>mbp-module-system</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mbp.eng.test</groupId>
+            <artifactId>mbp-module-infra</artifactId>
+            <version>${revision}</version>
+        </dependency>
 
         <!-- spring boot 配置所需依赖 -->
         <dependency>
