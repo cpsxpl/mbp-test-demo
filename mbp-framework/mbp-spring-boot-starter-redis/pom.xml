@@ -49,13 +49,10 @@
             <artifactId>res</artifactId>
         </dependency>
 
-        <!-- spring_start -->
-        <!--<dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <scope>provided</scope>
-        </dependency>-->
-        <!-- spring_end -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
         <!-- DB 相关 -->
         <dependency>
