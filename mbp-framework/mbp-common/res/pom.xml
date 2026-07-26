@@ -48,41 +48,46 @@
         <!--模块-工具类相关_end-->
 
         <!-- Spring 核心 -->
+        <!-- 设置为 provided,只有工具类需要使用到 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <scope>provided</scope> <!-- 设置为 provided,只有工具类需要使用到 -->
+            <scope>provided</scope>
         </dependency>
 
+        <!-- 设置为 provided,只有工具类需要使用到 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-expression</artifactId>
-            <scope>provided</scope> <!-- 设置为 provided,只有工具类需要使用到 -->
+            <scope>provided</scope>
         </dependency>
 
+        <!-- 设置为 provided,只有工具类需要使用到 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
-            <scope>provided</scope> <!-- 设置为 provided,只有工具类需要使用到 -->
+            <scope>provided</scope>
         </dependency>
 
+        <!-- 设置为 provided,只有工具类需要使用到 -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <scope>provided</scope> <!-- 设置为 provided,只有工具类需要使用到 -->
+            <scope>provided</scope>
         </dependency>
 
+        <!-- 用于生成自定义的 Spring @ConfigurationProperties 配置类的说明文件 -->
         <dependency>
-            <!-- 用于生成自定义的 Spring @ConfigurationProperties 配置类的说明文件 -->
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
 
+        <!-- 设置为 provided,只有工具类需要使用到 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <scope>provided</scope> <!-- 设置为 provided,只有工具类需要使用到 -->
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -91,10 +96,11 @@
             <scope>provided</scope> <!-- 设置为 provided,只有工具类需要使用到 -->
         </dependency>
 
+        <!-- 设置为 provided,主要是 PageParam 使用到 -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
-            <scope>provided</scope> <!-- 设置为 provided,主要是 PageParam 使用到 -->
+            <scope>provided</scope>
         </dependency>
 
         <!-- 监控相关 -->
@@ -113,19 +119,23 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
         </dependency>
+
+        <!-- use mapstruct-jdk8 for Java 8 or higher -->
         <dependency>
             <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-jdk8</artifactId> <!-- use mapstruct-jdk8 for Java 8 or higher -->
+            <artifactId>mapstruct-jdk8</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
         </dependency>
 
+        <!-- 设置为 provided,只有工具类需要使用到 -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <scope>provided</scope> <!-- 设置为 provided,只有工具类需要使用到 -->
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -134,28 +144,32 @@
             <scope>provided</scope> <!-- 设置为 provided,只有工具类需要使用到 -->
         </dependency>
 
+        <!-- 设置为 provided,只有工具类需要使用到 -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <scope>provided</scope> <!-- 设置为 provided,只有工具类需要使用到 -->
+            <scope>provided</scope>
         </dependency>
 
+        <!-- 设置为 provided,只有工具类需要使用到 -->
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
-            <scope>provided</scope> <!-- 设置为 provided,只有工具类需要使用到 -->
+            <scope>provided</scope>
         </dependency>
 
+        <!-- 设置为 provided,只有工具类需要使用到 -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <scope>provided</scope> <!-- 设置为 provided,只有工具类需要使用到 -->
+            <scope>provided</scope>
         </dependency>
 
+        <!-- 设置为 provided,主要是 PageParam 使用到 -->
         <dependency>
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
-            <scope>provided</scope> <!-- 设置为 provided,主要是 PageParam 使用到 -->
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -168,9 +182,10 @@
             <artifactId>transmittable-thread-local</artifactId>
         </dependency>
 
+        <!-- 默认引入的原因,方便 xxx-module-api 包使用 -->
         <dependency>
             <groupId>org.dromara</groupId> <!-- VO 数据翻译 -->
-            <artifactId>easy-trans-anno</artifactId> <!-- 默认引入的原因,方便 xxx-module-api 包使用 -->
+            <artifactId>easy-trans-anno</artifactId>
         </dependency>
 
         <!-- Test 测试相关 -->
