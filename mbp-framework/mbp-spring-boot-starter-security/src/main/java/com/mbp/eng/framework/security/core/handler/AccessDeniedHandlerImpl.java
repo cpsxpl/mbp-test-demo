@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static com.mbp.eng.framework.common.exception.enums.GlobalErrorCodeConstants.FORBIDDEN;
-import static com.mbp.eng.framework.common.exception.enums.GlobalErrorCodeConstants.UNAUTHORIZED;
 
 /**
  * 访问一个需要认证的 URL 资源,已经认证（登录）但是没有权限的情况下,返回 {@link GlobalErrorCodeConstants#FORBIDDEN} 错误码。

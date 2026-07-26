@@ -73,6 +73,11 @@
         </dependency>
 
         <!-- Test 测试相关 -->
+        <dependency>
+            <groupId>com.mbp.eng.test</groupId>
+            <artifactId>mbp-spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
 
         <!-- 工具类相关 -->
         <dependency>

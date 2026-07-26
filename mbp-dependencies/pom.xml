@@ -278,6 +278,13 @@
                 <artifactId>mbp-spring-boot-starter-biz-ip</artifactId>
                 <version>${revision}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.mbp.eng.test</groupId>
+                <artifactId>mbp-spring-boot-starter-test</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
             <!--模块相关_end-->
 
             <!--插件_start-->
