@@ -78,7 +78,7 @@ public class RedisClient {
         List<JedisShardInfo> list = new LinkedList<>();
         list.add(jedisShardInfo);
 
-        shardedJedisPool = null;//new ShardedJedisPool(jedisPoolConfig, list);
+        shardedJedisPool = new ShardedJedisPool(jedisPoolConfig, list);
     }
 
     public String get(String key) {
@@ -586,7 +586,7 @@ public class RedisClient {
             shardedJedis = shardedJedisPool.getResource();
             logger.info("==========ShardInfo:{}", shardedJedis.getShardInfo(key));
             logger.info("==========redis set,key:{},value:{},nxxx:{},expx:{},time:{}", key, value, nxxx, expx, time);
-            return null;//shardedJedis.set(key, value, nxxx, expx, time);
+            return shardedJedis.set(key, value, nxxx, expx, time);
         } catch (Throwable t) {
             logger.error("redis set error,key:{},value:{},nxxx:{},expx:{},time:{},errorMsg:{}", key, value, nxxx, expx, time, t.getMessage());
             throw new RuntimeException(t);
