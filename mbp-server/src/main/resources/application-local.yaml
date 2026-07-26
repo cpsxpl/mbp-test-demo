@@ -59,11 +59,38 @@ spring:
 
   # Redis 配置。Redisson 默认的配置足够使用,一般不需要进行调优
   redis:
-    host: 127.0.0.1 # 地址
-    port: 6379 # 端口
-    database: 0 # 数据库索引
-#    password: dev # 密码,建议生产环境开启
+    url:  127.0.0.1
+    host:  127.0.0.1
+    port: 6379
+    #database:  # 数据库索引
+    #    password: dev # 密码,建议生产环境开启
+    #ssl: true
+    #timeout:
+    #jedis:
+    # pool:
+      #  max-wait: 20000
+      #  min-idle: 8000
+      #  max-idle: 50
+      #  max-active: 100
+    #sentinel:
+    #  master:
+    #  nodes:
+    #  cluster:
+    #  max-redirects:
+    #  nodes:
+  jest:
+    uris:
+    username:
+    password:
+    multi-threaded: true
+    connection-timeout: 100
+    read-timeout: 100
+    proxy:
+      host:
+      port:
 
+  # elasticsearch 配置。
+  elasticsearch:
 --- #################### 定时任务相关配置 ####################
 
 # Quartz 配置项,对应 QuartzProperties 配置类
@@ -110,7 +137,185 @@ spring:
     password: rabbit # RabbitMQ 服务的密码
   # Kafka 配置项,对应 KafkaProperties 配置类
   kafka:
-    bootstrap-servers: 127.0.0.1:9092 # 指定 Kafka Broker 地址,可以设置多个,以逗号分隔
+    listener:
+      concurrency: 1
+    consumer:
+      enable-auto-commit: true
+      auto-commit-interval: 100
+      group-id: demo-group
+      auto-offset-reset:  latest
+      bootstrap-servers:
+        localhost:  localhost:9092  # 指定 Kafka consumer 地址,可以设置多个,以逗号分隔
+      key-deserializer:
+      value-deserializer:
+    producer:
+      retries:  0
+      acks:  1
+      lingerMs:  1
+      batch-size: 16384
+      buffer-memory:  33554432
+      bootstrap-servers:
+        localhost:  localhost:9092  # 指定 Kafka producer 地址,可以设置多个,以逗号分隔
+      key-serializer:
+      value-serializer:
+    template:
+      default-topic:
+        send_topic: test
+        receiver_topic: test
+        send_topic_demo: test_demo
+        receiver_topic_demo: test_demo
+
+--- #################### 插件相关配置 ####################
+
+org:
+  apache:
+    zookeeper:
+      host: localhost
+    hadoop:
+      hdfs:
+        output:
+          path: hdfs://tx4-data-dsj-test102.bj:9000/user/flink/
+    hive:
+      version:  2.1.3
+      default:
+        database: default
+      conf:
+        dir:  /Users/cpsxpl/inke/code/qianmoQ/incubator-streaming/plugin/flink/src/main/resources/
+      datasource:
+        driver: org.apache.hive.jdbc.HiveDriver
+        host: tx4-data-dsj-test102.bj
+        port: 10000
+        databases:  ods
+        username: hdfs
+        password: inke@hdfs666
+    hbase:
+      zookeeper:
+        quorum: cdh1:2181,cdh2:2181,cdh3:2181
+      defaults:
+        for:
+          version:
+            skip: true
+    spark:
+      sparkHome:
+      appName:  mbp-test-spark
+      master: local
+      shuffle:
+        service:
+          enabled:  true
+      dynamicAllocation:
+        enabled:  true
+        minExecutors: 50
+        maxExecutors: 200
+        executorIdleTimeout:  60
+        cachedExecutorIdleTimeout:  18000
+        initialExecutors: 3
+        schedulerBacklogTimeout:  10
+      executor:
+        instances:  200
+        cores:  2
+        memory: 5g
+        uri:
+        extraJavaOptions: -XX:PermSize=5120m -XX:MaxPermSize=8192m
+      testing:
+        memory: 2147480000
+      driver:
+        host:
+        cores:  2
+        memory: 10G
+        maxResultSize:  5G
+      yarn:
+        containerLauncherMaxThreads:  200
+        executor:
+          memoryOverhead: 2048m
+        access:
+          namenodes:
+        stagingDir:
+      eventLog:
+        enabled:  true
+        dir:
+      serializer: org.apache.spark.serializer.KryoSerializer
+      hadoop:
+        yarn:
+          resourcemanager:
+            hostname:
+            address:
+        fs:
+          defaultFS:
+      history:
+        fs:
+          logDirectory:
+      cores:
+        max:  10
+      mesos:
+        coarse: true
+      sql:
+        catalogImplementation:
+          yarn: yarn
+          local:  in-memory
+        warehouse:
+          dir:  target/spark-warehouse
+        parquet:
+          cacheMetadata:  false
+        hive:
+          verifyPartitionPath:  true
+          metastore:
+            version:  2.1.0
+      scheduler:
+        mode: FAIR
+      jars: plugin-spark.jar
+      mainClass: com.mbp.test.eng.spark.job.SparkJobApp
+      deployMode: cluster
+      textFile: src/test/java/com/mbp/test/eng/example/spark/data/test.txt
+      thirdPartyJars:
+    flink:
+      host: localhost
+      port: 8081
+
+#localCache config
+local:
+  refresh:
+    second: 30
+  expire:
+    second: 60
+
+#scheduled config
+localcache:
+  cron:
+    task:
+      preheat:
+        example:  0 0/10 * * * ?
+        fourAddressMapping:  0 0/10 * * * ?
+        active:  0 0/10 * * * ?
+
+task:
+  maxNum: 5
+  killNotProcess:
+    startTime: "00:00"
+    endTime: "08:00"
+  notRun:
+    startTime: "00:00"
+    endTime: "23:59"
+
+uploadFile:
+  test:
+    max-file-size: 10485760
+    max-row-size: 100000
+    fileDir: test
+    usage: test
+
+dataAsset:
+  query:
+    database:
+      prefix: /api/rest_j/v1
+      api:  /dataAsset/listDatabases
+    table:
+      prefix: /api/rest_j/v1
+      api:  /dataAsset/listTables
+      msg:  /dataAsset/queryTableMetaInfo
+
+important:
+  properties:
+    filepath: classpath:important.properties
 
 --- #################### 服务保障相关配置 ####################
 
@@ -156,24 +361,8 @@ logging:
     com.mbp.eng.module.infra.dal.mysql.logger.ApiErrorLogMapper: INFO # 配置 ApiErrorLogMapper 的日志级别为 info,避免和 GlobalExceptionHandler 重复打印
     com.mbp.eng.module.infra.dal.mysql.job.JobLogMapper: INFO # 配置 JobLogMapper 的日志级别为 info
     com.mbp.eng.module.infra.dal.mysql.file.FileConfigMapper: INFO # 配置 FileConfigMapper 的日志级别为 info
-    com.mbp.eng.module.pay.dal.mysql: debug
-    com.mbp.eng.module.pay.dal.mysql.notify.PayNotifyTaskMapper: INFO # 配置 PayNotifyTaskMapper 的日志级别为 info
     com.mbp.eng.module.system.dal.mysql: debug
     com.mbp.eng.module.system.dal.mysql.sms.SmsChannelMapper: INFO # 配置 SmsChannelMapper 的日志级别为 info
-    com.mbp.eng.module.tool.dal.mysql: debug
-    com.mbp.eng.module.member.dal.mysql: debug
-    com.mbp.eng.module.trade.dal.mysql: debug
-    com.mbp.eng.module.promotion.dal.mysql: debug
-    com.mbp.eng.module.statistics.dal.mysql: debug
-    com.mbp.eng.module.crm.dal.mysql: debug
-    com.mbp.eng.module.erp.dal.mysql: debug
-    com.mbp.eng.module.mes.dal.mysql: debug
-    com.mbp.eng.module.wms.dal.mysql: debug
-    com.mbp.eng.module.iot.dal.mysql: debug
-    com.mbp.eng.module.iot.dal.tdengine: DEBUG
-    com.mbp.eng.module.iot.service.rule: debug
-    com.mbp.eng.module.ai.dal.mysql: debug
-    com.mbp.eng.module.im.dal.mysql: debug
     org.springframework.context.support.PostProcessorRegistrationDelegate: ERROR # TODO 先禁用,Spring Boot 3.X 存在部分错误的 WARN 提示
 
 debug: false
