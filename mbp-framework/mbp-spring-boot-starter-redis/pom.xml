@@ -49,6 +49,14 @@
             <artifactId>res</artifactId>
         </dependency>
 
+        <!-- spring_start -->
+        <!--<dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <scope>provided</scope>
+        </dependency>-->
+        <!-- spring_end -->
+
         <!-- DB 相关 -->
         <dependency>
             <groupId>org.redisson</groupId>
@@ -59,9 +67,10 @@
             <artifactId>redisson-spring-data-27</artifactId>
         </dependency>
 
+        <!-- 实现对 Caches 的自动化配置 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId> <!-- 实现对 Caches 的自动化配置 -->
+            <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
 
         <dependency>
