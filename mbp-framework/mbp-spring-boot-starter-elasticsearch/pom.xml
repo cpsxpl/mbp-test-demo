@@ -55,6 +55,7 @@
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
+            <scope>provided</scope>
         </dependency>
         <!-- spring_end -->
 
