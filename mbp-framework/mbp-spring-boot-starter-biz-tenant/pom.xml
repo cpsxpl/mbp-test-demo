@@ -21,7 +21,6 @@
             <artifactId>res</artifactId>
         </dependency>
 
-
         <dependency>
             <groupId>com.mbp.eng.test</groupId>
             <artifactId>mbp-spring-boot-starter-security</artifactId>

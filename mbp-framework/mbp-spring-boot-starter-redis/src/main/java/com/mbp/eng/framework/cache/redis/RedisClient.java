@@ -1,4 +1,3 @@
-/*
 package com.mbp.eng.framework.cache.redis;
 
 import com.google.common.collect.Lists;
@@ -78,7 +77,7 @@ public class RedisClient {
         List<JedisShardInfo> list = new LinkedList<>();
         list.add(jedisShardInfo);
 
-        shardedJedisPool = new ShardedJedisPool(jedisPoolConfig, list);
+        shardedJedisPool = null;//new ShardedJedisPool(jedisPoolConfig, list);
     }
 
     public String get(String key) {
@@ -143,15 +142,13 @@ public class RedisClient {
         }
     }
 
-    */
-/**
+    /**
      * 支持过期时间的设置
      *
      * @param key
      * @param seconds
      * @param value
-     *//*
-
+     */
     public void set(String key, String value, int seconds) {
         try {
             setex(key, seconds, value);
@@ -230,15 +227,13 @@ public class RedisClient {
         return Lists.newArrayList();
     }
 
-    */
-/**
+    /**
      * 支持过期
      *
      * @param key
      * @param secend 过期时间,置0为即时失效
      * @return
-     *//*
-
+     */
     public Long expire(String key, Integer secend) {
         ShardedJedis shardedJedis = null;
         try {
@@ -391,15 +386,13 @@ public class RedisClient {
         return false;
     }
 
-    */
-/**
+    /**
      * Set value with given expire time in seconds.
      *
      * @param key
      * @param seconds
      * @param value
-     *//*
-
+     */
     public void setex(String key, int seconds, String value) {
         ShardedJedis shardedJedis = null;
         try {
@@ -416,14 +409,12 @@ public class RedisClient {
         }
     }
 
-    */
-/**
+    /**
      * Set value with given expire time in seconds.
      *
      * @param key
      * @param value
-     *//*
-
+     */
     public boolean setnx(String key, String value) {
         ShardedJedis shardedJedis = null;
         try {
@@ -441,14 +432,12 @@ public class RedisClient {
         }
     }
 
-    */
-/**
+    /**
      * add to Set
      *
      * @param key
      * @param members
-     *//*
-
+     */
     public Long sadd(String key, String... members) {
         ShardedJedis shardedJedis = null;
         try {
@@ -524,14 +513,12 @@ public class RedisClient {
         }
     }
 
-    */
-/**
+    /**
      * 返回集合 key 中的所有成员
      *
      * @param key
      * @return
-     *//*
-
+     */
     public Set<String> smembers(String key) {
         ShardedJedis shardedJedis = null;
         try {
@@ -598,7 +585,7 @@ public class RedisClient {
             shardedJedis = shardedJedisPool.getResource();
             logger.info("==========ShardInfo:{}", shardedJedis.getShardInfo(key));
             logger.info("==========redis set,key:{},value:{},nxxx:{},expx:{},time:{}", key, value, nxxx, expx, time);
-            return shardedJedis.set(key, value, nxxx, expx, time);
+            return null;//shardedJedis.set(key, value, nxxx, expx, time);
         } catch (Throwable t) {
             logger.error("redis set error,key:{},value:{},nxxx:{},expx:{},time:{},errorMsg:{}", key, value, nxxx, expx, time, t.getMessage());
             throw new RuntimeException(t);
@@ -628,15 +615,13 @@ public class RedisClient {
         }
     }
 
-    */
-/**
+    /**
      * 获取锁
      *
      * @param lockKey
      * @param milliseconds
      * @return
-     *//*
-
+     */
     public boolean getLock(String lockKey, String value, long milliseconds) {
         try {
             String lockRes = set(lockKey, value, RedisClient.SET_IF_NOT_EXIST, RedisClient.SET_WITH_EXPIRE_TIME, milliseconds);
@@ -652,8 +637,7 @@ public class RedisClient {
         }
     }
 
-    */
-/**
+    /**
      * 重试获取锁
      *
      * @param lockKey
@@ -662,8 +646,7 @@ public class RedisClient {
      * @param times
      * @param interval
      * @return
-     *//*
-
+     */
     public boolean getLockRetry(String lockKey, String value, long milliseconds, int times, long interval) {
         times = times > 0 ? times : 1;
 
@@ -684,11 +667,9 @@ public class RedisClient {
         return false;
     }
 
-    */
-/**
+    /**
      * 释放分布式锁
-     *//*
-
+     */
     public boolean releaseLock(String lockKey, String value) {
         String script = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
         return eval(lockKey, value, script);
@@ -760,4 +741,3 @@ public class RedisClient {
         shardedJedisPool.destroy();
     }
 }
-*/

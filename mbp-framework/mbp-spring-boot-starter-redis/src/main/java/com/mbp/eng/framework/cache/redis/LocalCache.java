@@ -1,10 +1,8 @@
-/*
 package com.mbp.eng.framework.cache.redis;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import org.redisson.client.RedisClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -40,9 +38,7 @@ public class LocalCache implements InitializingBean {
                 .maximumSize(1000)// 设置缓存个数
                 .build(new CacheLoader<String, String>() {
                     @Override
-                    */
-/** 当本地缓存命没有中时,调用load方法获取结果并将结果缓存 **//*
-
+                    /** 当本地缓存命没有中时,调用load方法获取结果并将结果缓存 **/
                     public String load(String key) {
                         String value = redisClient.get(key);
                         return value;
@@ -100,4 +96,3 @@ public class LocalCache implements InitializingBean {
     }
     //****************************** demoMap_end ********************************
 }
-*/
