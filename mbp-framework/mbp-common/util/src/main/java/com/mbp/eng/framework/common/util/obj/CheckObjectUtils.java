@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
@@ -116,14 +117,14 @@ public class CheckObjectUtils {
         return flag;
     }
 
-
-    public <T> void getCurrentName(T t) {
-        Class<?> clz = t.getClass();
+    public <T> void getCurrentName(T tc, T tm) {
         long time = System.currentTimeMillis();
-        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        logger.info("=====类:{}**********方法:{} time: is {}", clz, methodName, DateUtil.getFormatTime(time));
+        try {
+            logger.info("=====类:{}**********方法:{} time: is {}", Class.forName(String.valueOf(tc)), tm, DateUtil.getFormatTime(time));
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
-
 
     public void serialize(LocalDateTime value, JsonGenerator gen) {
         String fieldName = gen.getOutputContext().getCurrentName();
