@@ -48,12 +48,12 @@ spring:
       primary: master
       datasource:
         master:
-          url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true # MySQL Connector/J 8.X 连接的示例
+          url: jdbc:mysql://127.0.0.1:3306/ruoyi-vue-pro?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true # MySQL Connector/J 8.X 连接的示例
           username: root
           password: root123ABC
         slave: # 模拟从库,可根据自己需要修改
           lazy: true # 开启懒加载,保证启动速度
-          url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true&nullCatalogMeansCurrent=true
+          url: jdbc:mysql://127.0.0.1:3306/ruoyi-vue-pro?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true&nullCatalogMeansCurrent=true
           username: root
           password: root123ABC
 
@@ -62,35 +62,35 @@ spring:
     url:  127.0.0.1
     host:  127.0.0.1
     port: 6379
-    #database:  # 数据库索引
-    #    password: dev # 密码,建议生产环境开启
+    database: 0 # 数据库索引
+    #password: dev # 密码,建议生产环境开启
     #ssl: true
-    #timeout:
-    #jedis:
-    # pool:
-      #  max-wait: 20000
-      #  min-idle: 8000
-      #  max-idle: 50
-      #  max-active: 100
+    timeout: 24h
+    jedis:
+      pool:
+        max-wait: 20000
+        min-idle: 8000
+        max-idle: 50
+        max-active: 100
     #sentinel:
-    #  master:
-    #  nodes:
-    #  cluster:
-    #  max-redirects:
-    #  nodes:
-  jest:
-    uris:
-    username:
-    password:
-    multi-threaded: true
-    connection-timeout: 100
-    read-timeout: 100
-    proxy:
-      host:
-      port:
+      #master:
+      #nodes:
+    #cluster:
+      #max-redirects:
+      #nodes:
 
   # elasticsearch 配置。
   elasticsearch:
+    jest:
+      uris:
+      username:
+      password:
+      multi-threaded: true
+      connection-timeout: 100
+      read-timeout: 100
+      proxy:
+        host:
+        port:
 --- #################### 定时任务相关配置 ####################
 
 # Quartz 配置项,对应 QuartzProperties 配置类
