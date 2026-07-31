@@ -3,7 +3,7 @@ package com.mbp.test.eng.redis.dao.service.impl;
 import com.mbp.eng.framework.common.util.json.JsonUtils;
 import com.mbp.test.eng.redis.dao.base.BaseRedisDaoImpl;
 import com.mbp.test.eng.redis.dao.service.FourAddressMappingRedisDao;
-import com.mbp.test.eng.redis.enums.FourAddressMapping;
+import com.mbp.test.eng.domain.system.FourAddressMapping;
 import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;

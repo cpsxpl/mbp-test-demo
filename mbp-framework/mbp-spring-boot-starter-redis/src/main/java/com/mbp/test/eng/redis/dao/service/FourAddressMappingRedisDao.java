@@ -1,7 +1,7 @@
 package com.mbp.test.eng.redis.dao.service;
 
 import com.mbp.test.eng.redis.dao.base.BaseRedisDao;
-import com.mbp.test.eng.redis.enums.FourAddressMapping;
+import com.mbp.test.eng.domain.system.FourAddressMapping;
 
 /**
  * ExampleDao 接口

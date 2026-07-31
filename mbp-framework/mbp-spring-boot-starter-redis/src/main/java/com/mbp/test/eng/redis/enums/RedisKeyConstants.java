@@ -1,6 +1,8 @@
 package com.mbp.test.eng.redis.enums;
 
 
+import com.mbp.test.eng.domain.system.FourAddressMapping;
+
 /**
  * System Redis Key 枚举类
  */

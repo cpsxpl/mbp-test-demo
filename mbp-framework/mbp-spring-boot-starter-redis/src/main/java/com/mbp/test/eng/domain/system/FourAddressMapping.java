@@ -1,4 +1,4 @@
-package com.mbp.test.eng.redis.enums;
+package com.mbp.test.eng.domain.system;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
