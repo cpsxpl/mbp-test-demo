@@ -2,6 +2,7 @@ package com.mbp.eng.framework.tenant.config;
 
 import com.mbp.eng.framework.common.biz.system.tenant.TenantCommonApi;
 import com.mbp.eng.framework.common.enums.WebFilterOrderEnum;
+import com.mbp.eng.framework.common.util.date.DateUtil;
 import com.mbp.eng.framework.mybatis.core.util.MyBatisUtils;
 import com.mbp.eng.framework.redis.config.MbpCacheProperties;
 import com.mbp.eng.framework.security.core.service.SecurityFrameworkService;
@@ -22,6 +23,8 @@ import com.mbp.eng.framework.web.config.WebProperties;
 import com.mbp.eng.framework.web.core.handler.GlobalExceptionHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -57,6 +60,8 @@ import static com.mbp.eng.framework.common.util.collection.CollectionUtils.conve
 @EnableConfigurationProperties(TenantProperties.class)
 public class MbpTenantAutoConfiguration {
 
+    private static Logger logger = LoggerFactory.getLogger(MbpTenantAutoConfiguration.class);
+
     @Resource
     private ApplicationContext applicationContext;
 
@@ -88,10 +93,13 @@ public class MbpTenantAutoConfiguration {
 
     @Bean
     public FilterRegistrationBean<TenantContextWebFilter> tenantContextWebFilter() {
-        FilterRegistrationBean<TenantContextWebFilter> registrationBean = new FilterRegistrationBean<>();
-        registrationBean.setFilter(new TenantContextWebFilter());
-        registrationBean.setOrder(WebFilterOrderEnum.TENANT_CONTEXT_FILTER);
-        return registrationBean;
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+        FilterRegistrationBean<TenantContextWebFilter> filterFilterRegistrationBean = new FilterRegistrationBean<>();
+        filterFilterRegistrationBean.setFilter(new TenantContextWebFilter());
+        filterFilterRegistrationBean.setOrder(WebFilterOrderEnum.TENANT_CONTEXT_FILTER);
+        return filterFilterRegistrationBean;
     }
 
     @Bean

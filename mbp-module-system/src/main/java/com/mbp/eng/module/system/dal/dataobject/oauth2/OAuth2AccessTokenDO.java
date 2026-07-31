@@ -52,7 +52,8 @@ public class OAuth2AccessTokenDO extends TenantBaseDO {
     /**
      * 用户信息
      */
-    @TableField(typeHandler = JacksonTypeHandler.class)
+    //@TableField(typeHandler = JacksonTypeHandler.class)
+    @TableField(exist=false)
     private Map<String, String> userInfo;
     /**
      * 客户端编号

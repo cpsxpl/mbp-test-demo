@@ -4,9 +4,12 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.resource.ResourceUtil;
 import cn.hutool.core.util.StrUtil;
+import com.mbp.eng.framework.common.util.date.DateUtil;
 import com.mbp.eng.framework.common.util.servlet.ServletUtils;
 import com.mbp.eng.framework.common.util.spring.SpringUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.StopWatch;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -27,12 +30,18 @@ import java.util.stream.IntStream;
 @Slf4j
 public class ApiAccessLogInterceptor implements HandlerInterceptor {
 
+    private static Logger logger = LoggerFactory.getLogger(ApiAccessLogInterceptor.class);
+
     public static final String ATTRIBUTE_HANDLER_METHOD = "HANDLER_METHOD";
 
     private static final String ATTRIBUTE_STOP_WATCH = "ApiAccessLogInterceptor.StopWatch";
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
         // 记录 HandlerMethod,提供给 ApiAccessLogFilter 使用
         HandlerMethod handlerMethod = handler instanceof HandlerMethod ? (HandlerMethod) handler : null;
         if (handlerMethod != null) {
@@ -61,6 +70,10 @@ public class ApiAccessLogInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
         // 打印 response 日志
         if (!SpringUtils.isProd()) {
             StopWatch stopWatch = (StopWatch) request.getAttribute(ATTRIBUTE_STOP_WATCH);
@@ -74,6 +87,10 @@ public class ApiAccessLogInterceptor implements HandlerInterceptor {
      * 打印 Controller 方法路径
      */
     private void printHandlerMethodPosition(HandlerMethod handlerMethod) {
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
         if (handlerMethod == null) {
             return;
         }

@@ -6,6 +6,7 @@ import com.mbp.eng.framework.common.biz.system.oauth2.OAuth2TokenCommonApi;
 import com.mbp.eng.framework.common.biz.system.oauth2.dto.OAuth2AccessTokenCheckRespDTO;
 import com.mbp.eng.framework.common.exception.ServiceException;
 import com.mbp.eng.framework.common.pojo.CommonResult;
+import com.mbp.eng.framework.common.util.date.DateUtil;
 import com.mbp.eng.framework.common.util.servlet.ServletUtils;
 import com.mbp.eng.framework.security.config.SecurityProperties;
 import com.mbp.eng.framework.security.core.LoginUser;
@@ -13,6 +14,8 @@ import com.mbp.eng.framework.security.core.util.SecurityFrameworkUtils;
 import com.mbp.eng.framework.web.core.handler.GlobalExceptionHandler;
 import com.mbp.eng.framework.web.core.util.WebFrameworkUtils;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -29,6 +32,8 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
+    private static Logger logger = LoggerFactory.getLogger(TokenAuthenticationFilter.class);
+
     private final SecurityProperties securityProperties;
 
     private final GlobalExceptionHandler globalExceptionHandler;
@@ -39,8 +44,11 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     @SuppressWarnings("NullableProblems")
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
-        String token = SecurityFrameworkUtils.obtainAuthorization(request,
-                securityProperties.getTokenHeader(), securityProperties.getTokenParameter());
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
+        String token = SecurityFrameworkUtils.obtainAuthorization(request,securityProperties.getTokenHeader(), securityProperties.getTokenParameter());
         if (StrUtil.isNotEmpty(token)) {
             Integer userType = WebFrameworkUtils.getLoginUserType(request);
             try {
@@ -67,6 +75,10 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     }
 
     private LoginUser buildLoginUserByToken(String token, Integer userType) {
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
         try {
             OAuth2AccessTokenCheckRespDTO accessToken = oauth2TokenApi.checkAccessToken(token);
             if (accessToken == null) {

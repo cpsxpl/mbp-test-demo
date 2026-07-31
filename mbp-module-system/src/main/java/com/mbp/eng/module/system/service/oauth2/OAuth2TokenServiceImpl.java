@@ -9,6 +9,7 @@ import com.mbp.eng.framework.common.enums.UserTypeEnum;
 import com.mbp.eng.framework.common.exception.ServiceException;
 import com.mbp.eng.framework.common.exception.enums.GlobalErrorCodeConstants;
 import com.mbp.eng.framework.common.pojo.PageResult;
+import com.mbp.eng.framework.common.util.date.DateUtil;
 import com.mbp.eng.framework.common.util.date.DateUtils;
 import com.mbp.eng.framework.common.util.object.BeanUtils;
 import com.mbp.eng.framework.security.core.LoginUser;
@@ -23,6 +24,8 @@ import com.mbp.eng.module.system.dal.mysql.oauth2.OAuth2AccessTokenMapper;
 import com.mbp.eng.module.system.dal.mysql.oauth2.OAuth2RefreshTokenMapper;
 import com.mbp.eng.module.system.dal.redis.oauth2.OAuth2AccessTokenRedisDAO;
 import com.mbp.eng.module.system.service.user.AdminUserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,7 +44,7 @@ import static com.mbp.eng.framework.common.util.collection.CollectionUtils.conve
  */
 @Service
 public class OAuth2TokenServiceImpl implements OAuth2TokenService {
-
+    private static Logger logger = LoggerFactory.getLogger(OAuth2TokenServiceImpl.class);
     @Resource
     private OAuth2AccessTokenMapper oauth2AccessTokenMapper;
     @Resource
@@ -100,6 +103,10 @@ public class OAuth2TokenServiceImpl implements OAuth2TokenService {
 
     @Override
     public OAuth2AccessTokenDO getAccessToken(String accessToken) {
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
         // 优先从 Redis 中获取
         OAuth2AccessTokenDO accessTokenDO = oauth2AccessTokenRedisDAO.get(accessToken);
         if (accessTokenDO != null) {
@@ -127,6 +134,10 @@ public class OAuth2TokenServiceImpl implements OAuth2TokenService {
 
     @Override
     public OAuth2AccessTokenDO checkAccessToken(String accessToken) {
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
         OAuth2AccessTokenDO accessTokenDO = getAccessToken(accessToken);
         if (accessTokenDO == null) {
             throw exception0(GlobalErrorCodeConstants.UNAUTHORIZED.getCode(), "访问令牌不存在");
@@ -243,6 +254,10 @@ public class OAuth2TokenServiceImpl implements OAuth2TokenService {
 
     @Override
     public Integer cleanRefreshToken(Integer exceedDay, Integer deleteLimit) {
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
         int count = 0;
         LocalDateTime expireDate = LocalDateTime.now().minusDays(exceedDay);
         // 循环删除,直到没有满足条件的数据
@@ -259,6 +274,10 @@ public class OAuth2TokenServiceImpl implements OAuth2TokenService {
 
     @Override
     public Integer cleanAccessToken(Integer exceedDay, Integer deleteLimit) {
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
         int count = 0;
         LocalDateTime expireDate = LocalDateTime.now().minusDays(exceedDay);
         // 循环删除,直到没有满足条件的数据

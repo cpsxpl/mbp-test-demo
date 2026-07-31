@@ -1,5 +1,6 @@
 package com.mbp.eng.framework.jackson.config;
 
+import com.mbp.eng.framework.common.util.date.DateUtil;
 import com.mbp.eng.framework.common.util.json.JsonUtils;
 import com.mbp.eng.framework.common.util.json.databind.NumberSerializer;
 import com.mbp.eng.framework.common.util.json.databind.TimestampLocalDateTimeDeserializer;
@@ -12,6 +13,8 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
@@ -24,12 +27,16 @@ import java.time.LocalTime;
 @AutoConfiguration(after = JacksonAutoConfiguration.class)
 @Slf4j
 public class MbpJacksonAutoConfiguration {
-
+    private static Logger logger = LoggerFactory.getLogger(MbpJacksonAutoConfiguration.class);
     /**
      * 从 Builder 源头定制（关键：使用 *ByType,避免 handledType 要求）
      */
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer ldtEpochMillisCustomizer() {
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
         return builder -> builder
                 // Long -> Number
                 .serializerByType(Long.class, NumberSerializer.INSTANCE)
@@ -49,6 +56,10 @@ public class MbpJacksonAutoConfiguration {
      */
     @Bean
     public Module timestampSupportModuleBean() {
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
         SimpleModule m = new SimpleModule("TimestampSupportModule");
         // Long -> Number,避免前端精度丢失
         m.addSerializer(Long.class, NumberSerializer.INSTANCE);
@@ -70,6 +81,9 @@ public class MbpJacksonAutoConfiguration {
     @Bean
     @SuppressWarnings("InstantiationOfUtilityClass")
     public JsonUtils jsonUtils(ObjectMapper objectMapper) {
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
         JsonUtils.init(objectMapper);
         log.debug("[init][初始化 JsonUtils 成功]");
         return new JsonUtils();

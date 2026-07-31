@@ -3,6 +3,7 @@ package com.mbp.eng.framework.tenant.core.security;
 import cn.hutool.core.collection.CollUtil;
 import com.mbp.eng.framework.common.exception.enums.GlobalErrorCodeConstants;
 import com.mbp.eng.framework.common.pojo.CommonResult;
+import com.mbp.eng.framework.common.util.date.DateUtil;
 import com.mbp.eng.framework.common.util.servlet.ServletUtils;
 import com.mbp.eng.framework.security.core.LoginUser;
 import com.mbp.eng.framework.security.core.util.SecurityFrameworkUtils;
@@ -13,6 +14,8 @@ import com.mbp.eng.framework.web.config.WebProperties;
 import com.mbp.eng.framework.web.core.filter.ApiRequestFilter;
 import com.mbp.eng.framework.web.core.handler.GlobalExceptionHandler;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.AntPathMatcher;
 
 import javax.servlet.FilterChain;
@@ -31,13 +34,13 @@ import java.util.Set;
  */
 @Slf4j
 public class TenantSecurityWebFilter extends ApiRequestFilter {
-
+    private static Logger logger = LoggerFactory.getLogger(TenantSecurityWebFilter.class);
     private final TenantProperties tenantProperties;
 
     /**
      * 允许忽略租户的 URL 列表
      *
-     * 目的：解决 <a href="https://gitee.com/zhijiantianya/mbp-cloud/issues/ICUQL9">修改配置会导致 @TenantIgnore Controller 接口过滤失效</>
+     * 目的：解决修改配置会导致 @TenantIgnore Controller 接口过滤失效</>
      */
     private final Set<String> ignoreUrls;
 
@@ -62,6 +65,10 @@ public class TenantSecurityWebFilter extends ApiRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
         Long tenantId = TenantContextHolder.getTenantId();
         // 1. 登陆的用户,校验是否有权限访问该租户,避免越权问题。
         LoginUser user = SecurityFrameworkUtils.getLoginUser();
@@ -109,6 +116,10 @@ public class TenantSecurityWebFilter extends ApiRequestFilter {
     }
 
     private boolean isIgnoreUrl(HttpServletRequest request) {
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
         String apiUri = request.getRequestURI().substring(request.getContextPath().length());
         // 快速匹配,保证性能
         if (CollUtil.contains(tenantProperties.getIgnoreUrls(), apiUri)

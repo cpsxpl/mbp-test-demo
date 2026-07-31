@@ -1,7 +1,10 @@
 package com.mbp.eng.framework.tenant.core.web;
 
+import com.mbp.eng.framework.common.util.date.DateUtil;
 import com.mbp.eng.framework.tenant.core.context.TenantContextHolder;
 import com.mbp.eng.framework.web.core.util.WebFrameworkUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -15,11 +18,15 @@ import java.io.IOException;
  * 将请求 Header 中的 tenant-id 解析出来,添加到 {@link TenantContextHolder} 中,这样后续的 DB 等操作,可以获得到租户编号。
  */
 public class TenantContextWebFilter extends OncePerRequestFilter {
-
+    private static Logger logger = LoggerFactory.getLogger(TenantContextWebFilter.class);
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
-        // 设置
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
+        //设置
         Long tenantId = WebFrameworkUtils.getTenantId(request);
         if (tenantId != null) {
             TenantContextHolder.setTenantId(tenantId);
