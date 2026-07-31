@@ -3,6 +3,7 @@ package com.mbp.eng.framework.common.util.json;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
+import com.mbp.eng.framework.common.util.date.DateUtil;
 import com.mbp.eng.framework.common.util.json.databind.TimestampLocalDateTimeDeserializer;
 import com.mbp.eng.framework.common.util.json.databind.TimestampLocalDateTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -18,6 +19,8 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -31,7 +34,7 @@ import java.util.Map;
  */
 @Slf4j
 public class JsonUtils {
-
+    private static Logger logger = LoggerFactory.getLogger(JsonUtils.class);
     @Getter
     private static ObjectMapper objectMapper = buildObjectMapper();
 
@@ -56,6 +59,10 @@ public class JsonUtils {
      * @param objectMapper ObjectMapper 对象
      */
     public static void init(ObjectMapper objectMapper) {
+        long time = System.currentTimeMillis();
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        logger.info("类=====:{} 方法=====:{} time: is {}", JsonUtils.class.getSimpleName(), methodName, DateUtil.getFormatTime(time));
+
         JsonUtils.objectMapper = objectMapper;
     }
 

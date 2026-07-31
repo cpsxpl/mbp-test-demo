@@ -1,4 +1,4 @@
-package com.mbp.eng.framework.cache.google;
+package com.mbp.test.eng.cache.google;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;

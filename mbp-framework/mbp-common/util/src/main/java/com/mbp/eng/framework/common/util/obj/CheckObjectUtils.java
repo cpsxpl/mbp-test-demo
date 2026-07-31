@@ -6,21 +6,17 @@ import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mbp.eng.framework.common.util.date.DateUtil;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.net.URL;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,6 +47,30 @@ public class CheckObjectUtils {
     /***********************↑↑↑↑↑↑单例(双重校验锁)↑↑↑↑↑↑↑*****************/
 
     private static final Map<Class<?>, Map<String, Field>> FIELD_CACHE = new ConcurrentHashMap<>();
+
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+
+    // 泛型方法:接收 Map 数据和目标 Class 类型
+    public static <T> T convertMap(Map<String, Object> data, Class<T> clazz) throws Exception {
+        // 1. 实例化对象
+        T instance = clazz.getDeclaredConstructor().newInstance();
+        // 2. 遍历数据并赋值给对象的属性
+        for (Map.Entry<String, Object> entry : data.entrySet()) {
+            try {
+                Field field = clazz.getDeclaredField(entry.getKey());
+                field.setAccessible(true); // 允许访问私有属性
+                field.set(instance, entry.getValue());
+            } catch (NoSuchFieldException e) {
+                // 忽略 Map 中多余的、实体类中不存在的字段
+            }
+        }
+        return instance;
+    }
+
+    // 泛型方法:接收 JSON 数据和目标 Class 类型
+    public static <T> T convertJson(String json, Class<T> clazz) throws Exception {
+        return objectMapper.readValue(json, clazz);
+    }
 
     /**
      * 判断Object对象不为空且为数字
@@ -115,15 +135,6 @@ public class CheckObjectUtils {
             }
         }
         return flag;
-    }
-
-    public <T> void getCurrentName(T tc, T tm) {
-        long time = System.currentTimeMillis();
-        try {
-            logger.info("=====类:{}**********方法:{} time: is {}", Class.forName(String.valueOf(tc)), tm, DateUtil.getFormatTime(time));
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 
     public void serialize(LocalDateTime value, JsonGenerator gen) {

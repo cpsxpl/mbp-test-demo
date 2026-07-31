@@ -13,7 +13,7 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 /**
  * Redis 配置类
  */
-@AutoConfiguration(before = RedissonAutoConfigurationV2.class) // 目的：使用自己定义的 RedisTemplate Bean
+@AutoConfiguration(before = RedissonAutoConfigurationV2.class) // 目的:使用自己定义的 RedisTemplate Bean
 public class MbpRedisAutoConfiguration {
 
     /**

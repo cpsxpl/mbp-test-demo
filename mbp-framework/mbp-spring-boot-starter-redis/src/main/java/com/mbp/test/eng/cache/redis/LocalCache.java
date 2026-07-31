@@ -1,4 +1,4 @@
-package com.mbp.eng.framework.cache.redis;
+package com.mbp.test.eng.cache.redis;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
