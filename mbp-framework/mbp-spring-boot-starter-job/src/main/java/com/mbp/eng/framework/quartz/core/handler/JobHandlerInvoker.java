@@ -14,6 +14,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
 import javax.annotation.Resource;
+
 import java.time.LocalDateTime;
 
 import static cn.hutool.core.exceptions.ExceptionUtil.getRootCauseMessage;
@@ -25,7 +26,6 @@ import static cn.hutool.core.exceptions.ExceptionUtil.getRootCauseMessage;
 @PersistJobDataAfterExecution
 @Slf4j
 public class JobHandlerInvoker extends QuartzJobBean {
-
     @Resource
     private ApplicationContext applicationContext;
 
@@ -38,7 +38,7 @@ public class JobHandlerInvoker extends QuartzJobBean {
         Long jobId = executionContext.getMergedJobDataMap().getLong(JobDataKeyEnum.JOB_ID.name());
         String jobHandlerName = executionContext.getMergedJobDataMap().getString(JobDataKeyEnum.JOB_HANDLER_NAME.name());
         String jobHandlerParam = executionContext.getMergedJobDataMap().getString(JobDataKeyEnum.JOB_HANDLER_PARAM.name());
-        int refireCount  = executionContext.getRefireCount();
+        int refireCount = executionContext.getRefireCount();
         int retryCount = (Integer) executionContext.getMergedJobDataMap().getOrDefault(JobDataKeyEnum.JOB_RETRY_COUNT.name(), 0);
         int retryInterval = (Integer) executionContext.getMergedJobDataMap().getOrDefault(JobDataKeyEnum.JOB_RETRY_INTERVAL.name(), 0);
 
@@ -107,5 +107,4 @@ public class JobHandlerInvoker extends QuartzJobBean {
         // 第二个参数,refireImmediately = true,表示立即重试
         throw new JobExecutionException(exception, true);
     }
-
 }

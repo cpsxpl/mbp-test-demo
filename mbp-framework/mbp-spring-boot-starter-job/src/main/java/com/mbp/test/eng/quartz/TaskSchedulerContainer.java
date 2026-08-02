@@ -1,10 +1,10 @@
-package com.mbp.eng.framework.quartz;
+package com.mbp.test.eng.quartz;
 
 import com.mbp.eng.framework.common.Constants;
 import com.mbp.eng.framework.common.util.date.DateUtil;
-import com.mbp.eng.framework.quartz.job.StatefulJob;
-import com.mbp.eng.framework.quartz.job.StatefulWfJob;
-import com.mbp.eng.framework.quartz.job.StatelessJob;
+import com.mbp.test.eng.quartz.job.StatefulJob;
+import com.mbp.test.eng.quartz.job.StatefulWfJob;
+import com.mbp.test.eng.quartz.job.StatelessJob;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.CronTrigger;
 import org.quartz.Job;

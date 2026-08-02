@@ -1,4 +1,4 @@
-package com.mbp.eng.framework.quartz.job;
+package com.mbp.test.eng.quartz.job;
 
 import com.mbp.eng.framework.common.Constants;
 import com.mbp.eng.framework.common.util.date.DateUtil;

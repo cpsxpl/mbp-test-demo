@@ -1,4 +1,4 @@
-package com.mbp.eng.framework.quartz.job;
+package com.mbp.test.eng.quartz.job;
 
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;

@@ -1,10 +1,10 @@
-package com.mbp.eng.framework.quartz.plan.impl;
+package com.mbp.test.eng.quartz.plan.impl;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.mbp.eng.framework.common.Constants;
 import com.mbp.eng.framework.common.util.json.JsonUtil;
-import com.mbp.eng.framework.quartz.TaskSchedulerContainer;
+import com.mbp.test.eng.quartz.TaskSchedulerContainer;
 import org.apache.commons.collections.CollectionUtils;
 import org.quartz.CronTrigger;
 import org.quartz.JobDataMap;
@@ -17,8 +17,10 @@ import org.quartz.impl.matchers.GroupMatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 
 import javax.annotation.PreDestroy;
+
 import java.util.List;
 
 /**
@@ -29,6 +31,7 @@ public class PlanTaskImpl extends SchedulerPlanImpl {
     private static Logger logger = LoggerFactory.getLogger(PlanTaskImpl.class);
 
     @Autowired
+    @Lazy
     private Scheduler scheduler;
 
     @PreDestroy

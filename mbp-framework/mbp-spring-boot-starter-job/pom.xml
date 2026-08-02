@@ -48,6 +48,11 @@
             <artifactId>res</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+        </dependency>
+
         <!--<dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>transmittable-thread-local</artifactId>

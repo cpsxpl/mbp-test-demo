@@ -2,13 +2,13 @@ package com.mbp.eng.framework.quartz.core.service;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
 import java.time.LocalDateTime;
 
 /**
  * Job 日志 Framework Service 接口
  */
 public interface JobLogFrameworkService {
-
     /**
      * 创建 Job 日志
      *

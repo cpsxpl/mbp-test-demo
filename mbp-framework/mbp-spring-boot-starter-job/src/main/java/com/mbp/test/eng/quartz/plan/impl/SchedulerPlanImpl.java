@@ -1,18 +1,20 @@
-package com.mbp.eng.framework.quartz.plan.impl;
+package com.mbp.test.eng.quartz.plan.impl;
 
-import com.mbp.eng.framework.quartz.plan.SchedulerPlan;
+import com.mbp.test.eng.quartz.plan.SchedulerPlan;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 
 import javax.annotation.PreDestroy;
 
 public abstract class SchedulerPlanImpl implements SchedulerPlan {
-    private static Logger logger = LoggerFactory.getLogger(PlanTaskImpl.class);
+    private static Logger logger = LoggerFactory.getLogger(SchedulerPlanImpl.class);
 
     @Autowired
+    @Lazy
     private Scheduler scheduler;
 
     @PreDestroy

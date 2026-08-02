@@ -1,4 +1,4 @@
-package com.mbp.eng.framework.quartz.plan;
+package com.mbp.test.eng.quartz.plan;
 
 public interface SchedulerPlan {
     /**
