@@ -22,9 +22,9 @@ public class CacheUtils {
     /**
      * 构建异步刷新的 LoadingCache 对象
      *
-     * 注意：如果你的缓存和 ThreadLocal 有关系,要么自己处理 ThreadLocal 的传递,要么使用 {@link #buildCache(Duration, CacheLoader)} 方法
+     * 注意:如果你的缓存和 ThreadLocal 有关系,要么自己处理 ThreadLocal 的传递,要么使用 {@link #buildCache(Duration, CacheLoader)} 方法
      *
-     * 或者简单理解：
+     * 或者简单理解:
      * 1、和“人”相关的,使用 {@link #buildCache(Duration, CacheLoader)} 方法
      * 2、和“全局”、“系统”相关的,使用当前缓存方法
      *

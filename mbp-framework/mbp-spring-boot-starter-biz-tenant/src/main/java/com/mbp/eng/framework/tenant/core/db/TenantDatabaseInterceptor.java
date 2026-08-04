@@ -20,8 +20,8 @@ public class TenantDatabaseInterceptor implements TenantLineHandler {
     /**
      * 忽略的表
      *
-     * KEY：表名
-     * VALUE：是否忽略
+     * KEY:表名
+     * VALUE:是否忽略
      */
     private final Map<String, Boolean> ignoreTables = new HashMap<>();
 

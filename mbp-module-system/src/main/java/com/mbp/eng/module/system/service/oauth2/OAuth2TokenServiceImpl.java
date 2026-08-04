@@ -116,7 +116,7 @@ public class OAuth2TokenServiceImpl implements OAuth2TokenService {
         // 获取不到,从 MySQL 中获取访问令牌
         accessTokenDO = oauth2AccessTokenMapper.selectByAccessToken(accessToken);
         if (accessTokenDO == null) {
-            // 特殊：从 MySQL 中获取刷新令牌。原因：解决部分场景不方便刷新访问令牌场景
+            // 特殊:从 MySQL 中获取刷新令牌。原因:解决部分场景不方便刷新访问令牌场景
             // 例如说,积木报表只允许传递 token,不允许传递 refresh_token,导致无法刷新访问令牌
             // 再例如说,前端 WebSocket 的 token 直接跟在 url 上,无法传递 refresh_token
             OAuth2RefreshTokenDO refreshTokenDO = oauth2RefreshTokenMapper.selectByRefreshToken(accessToken);
@@ -193,7 +193,7 @@ public class OAuth2TokenServiceImpl implements OAuth2TokenService {
                 .setRefreshToken(refreshTokenDO.getRefreshToken())
                 .setExpiresTime(LocalDateTime.now().plusSeconds(clientDO.getAccessTokenValiditySeconds()));
         // 优先从 refreshToken 获取租户编号,避免 ThreadLocal 被污染时导致 tenantId 为 null
-        // 可能关联的 issue：https://t.zsxq.com/JIi5G
+        // 可能关联的 issue:https://t.zsxq.com/JIi5G
         Long tenantId = refreshTokenDO.getTenantId();
         if (tenantId == null) {
             tenantId = TenantContextHolder.getTenantId();
@@ -238,10 +238,10 @@ public class OAuth2TokenServiceImpl implements OAuth2TokenService {
             return MapUtil.builder(LoginUser.INFO_KEY_NICKNAME, user.getNickname())
                     .put(LoginUser.INFO_KEY_DEPT_ID, StrUtil.toStringOrNull(user.getDeptId())).build();
         } else if (userType.equals(UserTypeEnum.MEMBER.getValue())) {
-            // 注意：目前 Member 暂时不读取,可以按需实现
+            // 注意:目前 Member 暂时不读取,可以按需实现
             return Collections.emptyMap();
         }
-        throw new IllegalArgumentException("未知用户类型：" + userType);
+        throw new IllegalArgumentException("未知用户类型:" + userType);
     }
 
     private static String generateAccessToken() {

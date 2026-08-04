@@ -38,7 +38,7 @@ public class SecurityFrameworkUtils {
      */
     public static String obtainAuthorization(HttpServletRequest request,
                                              String headerName, String parameterName) {
-        // 1. 获得 Token。优先级：Header > Parameter
+        // 1. 获得 Token。优先级:Header > Parameter
         String token = request.getHeader(headerName);
         if (StrUtil.isEmpty(token)) {
             token = request.getParameter(parameterName);
@@ -151,7 +151,7 @@ public class SecurityFrameworkUtils {
         if (loginUser.getVisitTenantId() == null) {
             return false;
         }
-        // 重点：跨租户访问时,无法进行权限校验
+        // 重点:跨租户访问时,无法进行权限校验
         return ObjUtil.notEqual(loginUser.getVisitTenantId(), loginUser.getTenantId());
     }
 

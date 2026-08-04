@@ -149,7 +149,7 @@ async function getList() {
     if (!props.${subJoinColumn.javaField}){
       return []
     }
-      ## 特殊：树表专属逻辑（树不需要分页接口）
+      ## 特殊:树表专属逻辑（树不需要分页接口）
       #if ($table.templateType == 11) ## erp
         const params = cloneDeep(queryParams) as any;
           #foreach ($column in $columns)

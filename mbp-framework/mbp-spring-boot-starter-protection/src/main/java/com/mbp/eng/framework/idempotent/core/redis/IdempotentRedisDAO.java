@@ -14,9 +14,9 @@ public class IdempotentRedisDAO {
     /**
      * 幂等操作
      *
-     * KEY 格式：idempotent:%s // 参数为 uuid
-     * VALUE 格式：String
-     * 过期时间：不固定
+     * KEY 格式:idempotent:%s // 参数为 uuid
+     * VALUE 格式:String
+     * 过期时间:不固定
      */
     private static final String IDEMPOTENT = "idempotent:%s";
 

@@ -7,7 +7,7 @@ import com.mbp.eng.framework.websocket.core.session.WebSocketSessionManager;
 /**
  * 本地的 {@link WebSocketMessageSender} 实现类
  *
- * 注意：仅仅适合单机场景！！！
+ * 注意:仅仅适合单机场景！！！
  */
 public class LocalWebSocketMessageSender extends AbstractWebSocketMessageSender {
 

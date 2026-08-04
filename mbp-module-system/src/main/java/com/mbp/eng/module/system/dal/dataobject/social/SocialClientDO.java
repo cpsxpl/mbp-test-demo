@@ -40,7 +40,7 @@ public class SocialClientDO extends TenantBaseDO {
     /**
      * 用户类型
      *
-     * 目的：不同用户类型,对应不同的小程序,需要自己的配置
+     * 目的:不同用户类型,对应不同的小程序,需要自己的配置
      *
      * 枚举 {@link UserTypeEnum}
      */
@@ -64,16 +64,16 @@ public class SocialClientDO extends TenantBaseDO {
     /**
      * 代理编号
      *
-     * 目前只有部分“社交类型”在使用：
-     * 1. 企业微信：对应授权方的网页应用 ID
+     * 目前只有部分“社交类型”在使用:
+     * 1. 企业微信:对应授权方的网页应用 ID
      */
     private String agentId;
 
     /**
      * publicKey 公钥
      *
-     * 目前只有部分“社交类型”在使用：
-     * 1. 支付宝：支付宝公钥
+     * 目前只有部分“社交类型”在使用:
+     * 1. 支付宝:支付宝公钥
      */
     private String publicKey;
 

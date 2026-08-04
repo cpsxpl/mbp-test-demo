@@ -41,7 +41,7 @@ public class NumberUtils {
      * @param lng1 纬度1
      * @param lat2 经度2
      * @param lng2 纬度2
-     * @return 距离,单位：千米
+     * @return 距离,单位:千米
      */
     public static double getDistance(double lat1, double lng1, double lat2, double lng2) {
         double radLat1 = lat1 * Math.PI / 180.0;

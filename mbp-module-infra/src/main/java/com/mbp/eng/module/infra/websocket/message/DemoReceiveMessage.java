@@ -3,7 +3,7 @@ package com.mbp.eng.module.infra.websocket.message;
 import lombok.Data;
 
 /**
- * 示例：server -> client 同步消息
+ * 示例:server -> client 同步消息
  */
 @Data
 public class DemoReceiveMessage {

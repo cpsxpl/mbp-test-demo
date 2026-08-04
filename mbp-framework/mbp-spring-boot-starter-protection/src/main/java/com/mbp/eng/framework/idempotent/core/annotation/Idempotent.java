@@ -50,11 +50,11 @@ public @interface Idempotent {
     /**
      * 删除 Key,当发生异常时候
      *
-     * 问题：为什么发生异常时,需要删除 Key 呢？
-     * 回答：发生异常时,说明业务发生错误,此时需要删除 Key,避免下次请求无法正常执行。
+     * 问题:为什么发生异常时,需要删除 Key 呢？
+     * 回答:发生异常时,说明业务发生错误,此时需要删除 Key,避免下次请求无法正常执行。
      *
-     * 问题：为什么不搞 deleteWhenSuccess 执行成功时,需要删除 Key 呢？
-     * 回答：这种情况下,本质上是分布式锁,推荐使用 @Lock4j 注解
+     * 问题:为什么不搞 deleteWhenSuccess 执行成功时,需要删除 Key 呢？
+     * 回答:这种情况下,本质上是分布式锁,推荐使用 @Lock4j 注解
      */
     boolean deleteKeyWhenException() default true;
 

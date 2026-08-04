@@ -320,7 +320,7 @@ public final class TaskSchedulerContainer {
     }
 
     /**
-     * 构建trigger,TRIGGER_NAME：jobId, TRIGGER_GROUP：planId
+     * 构建trigger,TRIGGER_NAME:jobId, TRIGGER_GROUP:planId
      *
      * @param planId
      * @param jobId

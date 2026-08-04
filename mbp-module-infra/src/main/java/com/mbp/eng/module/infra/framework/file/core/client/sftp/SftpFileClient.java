@@ -18,11 +18,11 @@ import java.io.File;
 public class SftpFileClient extends AbstractFileClient<SftpFileClientConfig> {
 
     /**
-     * 连接超时时间,单位：毫秒
+     * 连接超时时间,单位:毫秒
      */
     private static final Long CONNECTION_TIMEOUT = 3000L;
     /**
-     * 读写超时时间,单位：毫秒
+     * 读写超时时间,单位:毫秒
      */
     private static final Long SO_TIMEOUT = 10000L;
 

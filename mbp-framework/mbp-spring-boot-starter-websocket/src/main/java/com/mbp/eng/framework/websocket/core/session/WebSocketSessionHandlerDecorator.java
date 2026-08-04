@@ -7,7 +7,7 @@ import org.springframework.web.socket.handler.ConcurrentWebSocketSessionDecorato
 import org.springframework.web.socket.handler.WebSocketHandlerDecorator;
 
 /**
- * {@link WebSocketHandler} 的装饰类,实现了以下功能：
+ * {@link WebSocketHandler} 的装饰类,实现了以下功能:
  *
  * 1. {@link WebSocketSession} 连接或关闭时,使用 {@link #sessionManager} 进行管理
  * 2. 封装 {@link WebSocketSession} 支持并发操作
@@ -15,11 +15,11 @@ import org.springframework.web.socket.handler.WebSocketHandlerDecorator;
 public class WebSocketSessionHandlerDecorator extends WebSocketHandlerDecorator {
 
     /**
-     * 发送时间的限制,单位：毫秒
+     * 发送时间的限制,单位:毫秒
      */
     private static final Integer SEND_TIME_LIMIT = 1000 * 5;
     /**
-     * 发送消息缓冲上线,单位：bytes
+     * 发送消息缓冲上线,单位:bytes
      */
     private static final Integer BUFFER_SIZE_LIMIT = 1024 * 100;
 

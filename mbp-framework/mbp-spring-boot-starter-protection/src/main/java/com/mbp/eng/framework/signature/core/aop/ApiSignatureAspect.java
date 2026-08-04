@@ -67,7 +67,7 @@ public class ApiSignatureAspect {
             return false;
         }
 
-        // 3. 将 nonce 记入缓存,防止重复使用（重点二：此处需要将 ttl 设定为允许 timestamp 时间差的值 x 2 ）
+        // 3. 将 nonce 记入缓存,防止重复使用（重点二:此处需要将 ttl 设定为允许 timestamp 时间差的值 x 2 ）
         String nonce = request.getHeader(signature.nonce());
         if (BooleanUtil.isFalse(signatureRedisDAO.setNonce(appId, nonce, signature.timeout() * 2, signature.timeUnit()))) {
             String timestamp = request.getHeader(signature.timestamp());
@@ -108,7 +108,7 @@ public class ApiSignatureAspect {
             return false;
         }
 
-        // 2. 检查 timestamp 是否超出允许的范围 （重点一：此处需要取绝对值）
+        // 2. 检查 timestamp 是否超出允许的范围 （重点一:此处需要取绝对值）
         long expireTime = signature.timeUnit().toMillis(signature.timeout());
         long requestTimestamp = Long.parseLong(timestamp);
         long timestampDisparity = Math.abs(System.currentTimeMillis() - requestTimestamp);

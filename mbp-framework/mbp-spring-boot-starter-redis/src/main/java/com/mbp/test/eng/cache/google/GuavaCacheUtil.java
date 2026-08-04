@@ -32,7 +32,7 @@ public class GuavaCacheUtil {
      * 相对地,Guava Cache为了限制内存占用,通常都设定为自动回收元素。在某些场景下,尽管LoadingCache
      * 不回收元素,它也是很有用的,因为它会自动加载缓存。
      *
-     * 通常来说,Guava Cache适用于：
+     * 通常来说,Guava Cache适用于:
      *
      * 你愿意消耗一些内存空间来提升速度。
      * 你预料到某些键会被查询一次以上。
@@ -40,7 +40,7 @@ public class GuavaCacheUtil {
      * （GuavaCache是单个应用运行时的本地缓存。它不把数据存放到文件或外部服务器。如果这不符合你的需求,请尝试 Memcached 这类工具）
      * memcached是一套分布式的高速缓存系统
      * 如果你的场景符合上述的每一条,Guava Cache就适合你。
-     * 注：如果你不需要Cache中的特性,使用ConcurrentHashMap有更好的内存效率——但Cache的大多数特性都很难基于旧有的ConcurrentMap复制,甚至根本不可能做到。
+     * 注:如果你不需要Cache中的特性,使用ConcurrentHashMap有更好的内存效率——但Cache的大多数特性都很难基于旧有的ConcurrentMap复制,甚至根本不可能做到。
      *
      */
 
@@ -54,7 +54,7 @@ public class GuavaCacheUtil {
             .recordStats()// 用来开启Guava Cache的统计功能
             .expireAfterWrite(5, TimeUnit.SECONDS)// 过期清除
             /*
-             * 1.缓存值定时刷新：更新线程调用load方法更新该缓存,其他请求线程返回该缓存的旧值。这里的定时并不是真正意义上的定时。
+             * 1.缓存值定时刷新:更新线程调用load方法更新该缓存,其他请求线程返回该缓存的旧值。这里的定时并不是真正意义上的定时。
              * 2.Guava
              * cache的刷新需要依靠用户请求线程,让该线程去进行load方法的调用,所以如果一直没有用户尝试获取该缓存值,则该缓存也并不会刷新
              * 3.这样对于某个key的缓存来说,只会有一个线程被阻塞,用来生成缓存值,而其他的线程都返回旧的缓存值,不会被阻塞。
@@ -78,13 +78,13 @@ public class GuavaCacheUtil {
                     return generateValueByKey(key);
                 }
                 /*
-                 * Guava Cache异步刷新：
+                 * Guava Cache异步刷新:
                  *
                  * 如上的使用方法,解决了同一个key的缓存过期时会让多个线程阻塞的问题,只会让用来执行刷新缓存操作的一个用户线程会被阻塞。
                  * 由此可以想到另一个问题,当缓存的key很多时,高并发条件下大量线程同时获取不同key对应的缓存,此时依然会造成大量线程阻塞
                  * ,并且给数据库带来很大压力。
                  * 这个问题的解决办法就是将刷新缓存值的任务交给后台线程,所有的用户请求线程均返回旧的缓存值,这样就不会有用户线程被阻塞了。
-                 * 详细做法如下：
+                 * 详细做法如下:
                  */
 
                 // 注意此时缓存的刷新依然需要靠用户线程来驱动,只不过和上面不同之处在于该用户线程触发刷新操作之后,会立马返回旧的缓存值。
@@ -120,9 +120,9 @@ public class GuavaCacheUtil {
      * 清除
      */
     private static void del() {
-        // 个别清除：Cache.invalidate(key)
-        // 批量清除：Cache.invalidateAll(keys)
-        // 清除所有缓存项：Cache.invalidateAll()
+        // 个别清除:Cache.invalidate(key)
+        // 批量清除:Cache.invalidateAll(keys)
+        // 清除所有缓存项:Cache.invalidateAll()
         localCache.invalidate("username2");
     }
 
@@ -130,9 +130,9 @@ public class GuavaCacheUtil {
      * 清除
      */
     private static void del(String key) {
-        // 个别清除：Cache.invalidate(key)
-        // 批量清除：Cache.invalidateAll(keys)
-        // 清除所有缓存项：Cache.invalidateAll()
+        // 个别清除:Cache.invalidate(key)
+        // 批量清除:Cache.invalidateAll(keys)
+        // 清除所有缓存项:Cache.invalidateAll()
         localCache.invalidate(key);
     }
 
@@ -193,7 +193,7 @@ public class GuavaCacheUtil {
         System.out.println("2>>>>>" + localCache.getIfPresent("username"));
 
         /*
-         * 结果： 1>>>>>xushuai 2>>>>>null
+         * 结果: 1>>>>>xushuai 2>>>>>null
          */
 
         try {

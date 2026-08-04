@@ -43,12 +43,12 @@ public class DataPermissionRuleFactoryImpl implements DataPermissionRuleFactory 
         if (!dataPermission.enable()) {
             return Collections.emptyList();
         }
-        // 1.4 特殊：数据翻译时,强制忽略数据权限 https://github.com/YunaiV/ruoyi-vue-pro/issues/1007
+        // 1.4 特殊:数据翻译时,强制忽略数据权限 https://github.com/YunaiV/ruoyi-vue-pro/issues/1007
         if (isTranslateCall()) {
             return Collections.emptyList();
         }
 
-        // 2.1 情况一：已配置,只选择部分规则
+        // 2.1 情况一:已配置,只选择部分规则
         if (ArrayUtil.isNotEmpty(dataPermission.includeRules())) {
             return rules.stream().filter(rule -> ArrayUtil.contains(dataPermission.includeRules(), rule.getClass()))
                     .collect(Collectors.toList()); // 一般规则不会太多,所以不采用 HashSet 查询

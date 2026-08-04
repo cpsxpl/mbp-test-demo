@@ -91,7 +91,7 @@ public class MySQLConnPool {
             DataSource dataSource = (DataSource) subContext.lookup(dsName);
             // 上面两句可以合写成下边这句
             // ctx.lookup("java:comp/env/jdbc/oracle");// java:comp/env/
-            // 规定：加前缀指定资源
+            // 规定:加前缀指定资源
             return dataSource.getConnection();
         } catch (NamingException e) {
             e.printStackTrace();

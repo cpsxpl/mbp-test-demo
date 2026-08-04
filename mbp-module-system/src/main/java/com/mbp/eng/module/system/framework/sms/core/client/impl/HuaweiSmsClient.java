@@ -49,9 +49,9 @@ public class HuaweiSmsClient extends AbstractSmsClient {
     /**
      * 参数校验华为云的 sender 通道号
      *
-     * 原因是：验华为云发放短信的时候,需要额外的参数 sender
+     * 原因是:验华为云发放短信的时候,需要额外的参数 sender
      *
-     * 解决方案：考虑到不破坏原有的 apiKey + apiSecret 的结构,所以将 secretId 拼接到 apiKey 字段中,格式为 "secretId sdkAppId"。
+     * 解决方案:考虑到不破坏原有的 apiKey + apiSecret 的结构,所以将 secretId 拼接到 apiKey 字段中,格式为 "secretId sdkAppId"。
      *
      * @param properties 配置
      */
@@ -84,7 +84,7 @@ public class HuaweiSmsClient extends AbstractSmsClient {
         JSONObject response = request("/sms/batchSendSms/v1/", "POST", requestBody.toString());
 
         // 2. 解析请求
-        if (!response.containsKey("result")) { // 例如说：密钥不正确
+        if (!response.containsKey("result")) { // 例如说:密钥不正确
             return new SmsSendRespDTO().setSuccess(false)
                     .setApiCode(response.getStr("code"))
                     .setApiMsg(response.getStr("description"));
@@ -145,7 +145,7 @@ public class HuaweiSmsClient extends AbstractSmsClient {
     public SmsTemplateRespDTO getSmsTemplate(String apiTemplateId) throws Throwable {
         // 华为短信模板查询和发送短信,是不同的两套 key 和 secret,与阿里、腾讯的区别较大,这里模板查询校验暂不实现
         String[] strs = apiTemplateId.split(" ");
-        Assert.isTrue(strs.length == 2, "格式不正确,需要满足：apiTemplateId sender");
+        Assert.isTrue(strs.length == 2, "格式不正确,需要满足:apiTemplateId sender");
         return new SmsTemplateRespDTO().setId(apiTemplateId).setContent(null)
                 .setAuditStatus(SmsTemplateAuditStatusEnum.SUCCESS.getStatus()).setAuditReason(null);
     }

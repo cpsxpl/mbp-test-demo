@@ -24,7 +24,7 @@ import static cn.hutool.core.util.RandomUtil.randomEle;
 import static cn.hutool.core.util.RandomUtil.randomInt;
 
 /**
- * 代码生成器的 Builder,负责：
+ * 代码生成器的 Builder,负责:
  * 1. 将数据库的表 {@link TableInfo} 定义,构建成 {@link CodegenTableDO}
  * 2. 将数据库的列 {@link TableField} 构定义,建成 {@link CodegenColumnDO}
  */
@@ -130,7 +130,7 @@ public class CodegenBuilder {
             column.setTableId(tableId);
             column.setOrdinalPosition(index++);
             column.setColumnComment(sanitizeComment(column.getColumnComment()));
-            // 特殊处理：Byte => Integer
+            // 特殊处理:Byte => Integer
             if (Byte.class.getSimpleName().equals(column.getJavaType())) {
                 column.setJavaType(Integer.class.getSimpleName());
             }

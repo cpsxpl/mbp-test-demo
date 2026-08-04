@@ -5,7 +5,7 @@
 #set ($subJoinColumn = $subJoinColumns.get($subIndex))##当前 join 字段
 #set ($SubJoinColumnName = $subJoinColumn.javaField.substring(0,1).toUpperCase() + ${subJoinColumn.javaField.substring(1)})##首字母大写
 <template>
-#if ( $subTable.subJoinMany )## 情况一：一对多,table + form
+#if ( $subTable.subJoinMany )## 情况一:一对多,table + form
   <el-form
     ref="formRef"
     :model="formData"
@@ -31,7 +31,7 @@
         #elseif ($javaType == "Boolean")
             #set ($dictMethod = "getBoolDictOptions")
         #end
-        #if ( $column.id == $subJoinColumn.id) ## 特殊：忽略主子表的 join 字段,不用填写
+        #if ( $column.id == $subJoinColumn.id) ## 特殊:忽略主子表的 join 字段,不用填写
         #elseif ($column.htmlType == "input" && !$column.primaryKey)## 忽略主键,不用在表单里
       <el-table-column label="${comment}" min-width="150">
         <template #default="{ row, $index }">
@@ -156,7 +156,7 @@
   <el-row justify="center" class="mt-3">
     <el-button @click="handleAdd" round>+ 添加${subTable.classComment}</el-button>
   </el-row>
-#else## 情况二：一对一,form
+#else## 情况二:一对一,form
   <el-form
     ref="formRef"
     :model="formData"
@@ -179,7 +179,7 @@
       #elseif ($javaType == "Boolean")
           #set ($dictMethod = "getBoolDictOptions")
       #end
-      #if ( $column.id == $subJoinColumn.id) ## 特殊：忽略主子表的 join 字段,不用填写
+      #if ( $column.id == $subJoinColumn.id) ## 特殊:忽略主子表的 join 字段,不用填写
       #elseif ($column.htmlType == "input" && !$column.primaryKey)## 忽略主键,不用在表单里
     <el-form-item label="${comment}" prop="${javaField}">
       <el-input v-model="formData.${javaField}" placeholder="请输入${comment}" />

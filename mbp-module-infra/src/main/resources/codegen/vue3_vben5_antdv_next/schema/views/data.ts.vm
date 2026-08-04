@@ -23,7 +23,7 @@ export function useFormSchema(): VbenFormSchema[] {
         show: () => false,
       },
     },
-#if(${table.templateType} == 2)## 树表特有字段：上级
+#if(${table.templateType} == 2)## 树表特有字段:上级
     {
       fieldName: '${treeParentColumn.javaField}',
       label: '上级${table.classComment}',
@@ -240,7 +240,7 @@ export function useGridColumns(): VxeTableGridOptions<${apiName}.${simpleClassNa
 }
 
 ## 标准模式和内嵌模式时,主子关系一对一则生成表单schema,一对多则生成列表schema（内嵌模式时表单schema也要生成）。erp 模式时都生成
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #foreach ($subTable in $subTables)
     #set ($index = $foreach.count - 1)
     #set ($subColumns = $subColumnsList.get($index))##当前字段数组
@@ -275,7 +275,7 @@ export function use${subSimpleClassName}FormSchema(): VbenFormSchema[] {
                     #elseif ($javaType == "Boolean")
                         #set ($dictMethod = "boolean")
                     #end
-                    #if ( $column.id == $subJoinColumn.id) ## 特殊：忽略主子表的 join 字段,不用填写
+                    #if ( $column.id == $subJoinColumn.id) ## 特殊:忽略主子表的 join 字段,不用填写
                     #else
                         {
                             fieldName: '${javaField}',
@@ -442,7 +442,7 @@ export function use${subSimpleClassName}GridColumns(): VxeTableGridOptions<${api
         return [
             #foreach($column in $subColumns)
                 #if ($column.createOperation || $column.updateOperation)
-                    #if (!$column.primaryKey && $column.listOperationResult && $column.id != $subJoinColumn.id) ## 特殊：忽略主子表的 join 字段,不用填写
+                    #if (!$column.primaryKey && $column.listOperationResult && $column.id != $subJoinColumn.id) ## 特殊:忽略主子表的 join 字段,不用填写
                         #set ($dictType = $column.dictType)
                         #set ($javaField = $column.javaField)
                         #set ($comment = $column.columnComment)
@@ -508,7 +508,7 @@ export function use${subSimpleClassName}GridColumns(): VxeTableGridOptions<${api
                         #elseif ($javaType == "Boolean")
                             #set ($dictMethod = "boolean")
                         #end
-                        #if ( $column.id == $subJoinColumn.id) ## 特殊：忽略主子表的 join 字段,不用填写
+                        #if ( $column.id == $subJoinColumn.id) ## 特殊:忽略主子表的 join 字段,不用填写
                         #else
                             {
                                 fieldName: '${javaField}',

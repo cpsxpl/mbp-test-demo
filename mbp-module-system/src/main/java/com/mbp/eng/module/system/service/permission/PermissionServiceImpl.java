@@ -70,14 +70,14 @@ public class PermissionServiceImpl implements PermissionService {
             return false;
         }
 
-        // 情况一：遍历判断每个权限,如果有一满足,说明有权限
+        // 情况一:遍历判断每个权限,如果有一满足,说明有权限
         for (String permission : permissions) {
             if (hasAnyPermission(roles, permission)) {
                 return true;
             }
         }
 
-        // 情况二：如果是超管,也说明有权限
+        // 情况二:如果是超管,也说明有权限
         return roleService.hasAnySuperAdmin(convertSet(roles, RoleDO::getId));
     }
 

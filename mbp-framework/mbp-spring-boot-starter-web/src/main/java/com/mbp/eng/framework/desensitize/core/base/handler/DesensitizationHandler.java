@@ -27,7 +27,7 @@ public interface DesensitizationHandler<T extends Annotation> {
      * @return 是否禁用脱敏的 Spring EL 表达式
      */
     default String getDisable(T annotation) {
-        // 约定：默认就是 enable() 属性。如果不符合,子类重写
+        // 约定:默认就是 enable() 属性。如果不符合,子类重写
         try {
             return (String) ReflectUtil.invoke(annotation, "disable");
         } catch (Exception ex) {

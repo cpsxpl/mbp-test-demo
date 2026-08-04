@@ -14,7 +14,7 @@ import java.time.Duration;
  * 支持自定义过期时间的 {@link RedisCacheManager} 实现类
  *
  * 在 {@link Cacheable#cacheNames()} 格式为 "key#ttl" 时,# 后面的 ttl 为过期时间。
- * 单位为最后一个字母（支持的单位有：d 天,h 小时,m 分钟,s 秒）,默认单位为 s 秒
+ * 单位为最后一个字母（支持的单位有:d 天,h 小时,m 分钟,s 秒）,默认单位为 s 秒
  */
 public class TimeoutRedisCacheManager extends RedisCacheManager {
 
@@ -35,7 +35,7 @@ public class TimeoutRedisCacheManager extends RedisCacheManager {
             return super.createRedisCache(name, cacheConfig);
         }
 
-        // 核心：通过修改 cacheConfig 的过期时间,实现自定义过期时间
+        // 核心:通过修改 cacheConfig 的过期时间,实现自定义过期时间
         if (cacheConfig != null) {
             // 移除 # 后面的 : 以及后面的内容,避免影响解析
             String ttlStr = StrUtil.subBefore(names[1], StrUtil.COLON, false); // 获得 ttlStr 时间部分

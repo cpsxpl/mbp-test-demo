@@ -80,10 +80,10 @@ public class StrUtils {
     /**
      * 转小写拼音,字之间以空格分隔,便于调用方按需拼接 / 取首字母 / 拼音搜索
      *
-     * 例：「老张」→ "lao zhang"、「ZhangSan」→ "zhangsan"
+     * 例:「老张」→ "lao zhang"、「ZhangSan」→ "zhangsan"
      * 英文 / 数字 / 符号原样返回,空值返回 null
      *
-     * 注意：底层依赖 hutool-extra 的 {@link PinyinUtil},需要业务模块自行引入拼音引擎依赖
+     * 注意:底层依赖 hutool-extra 的 {@link PinyinUtil},需要业务模块自行引入拼音引擎依赖
      * （pinyin4j / TinyPinyin / Bopomofo4j 任选其一）,否则运行时会抛 NoClassDefFoundError
      *
      * @param str 字符串
@@ -99,7 +99,7 @@ public class StrUtils {
     /**
      * 拼接方法的参数
      *
-     * 特殊：排除一些无法序列化的参数,如 ServletRequest、ServletResponse、MultipartFile
+     * 特殊:排除一些无法序列化的参数,如 ServletRequest、ServletResponse、MultipartFile
      *
      * @param joinPoint 连接点
      * @return 拼接后的参数
@@ -113,7 +113,7 @@ public class StrUtils {
             if (item == null) {
                 return "";
             }
-            // 讨论可见：https://t.zsxq.com/XUJVk、https://t.zsxq.com/MnKcL
+            // 讨论可见:https://t.zsxq.com/XUJVk、https://t.zsxq.com/MnKcL
             String clazzName = item.getClass().getName();
             if (StrUtil.startWithAny(clazzName, "javax.servlet", "jakarta.servlet", "org.springframework.web")) {
                 return "";

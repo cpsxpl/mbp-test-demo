@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 /**
  * 邮箱账号 DO
  *
- * 用途：配置发送邮箱的账号
+ * 用途:配置发送邮箱的账号
  * @since 2022-03-21
  */
 @TableName(value = "system_mail_account", autoResultMap = true)

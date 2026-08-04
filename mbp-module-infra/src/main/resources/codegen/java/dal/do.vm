@@ -45,7 +45,7 @@ import cn.idev.excel.annotation.*;
 #end
 public class ${table.className}DO extends BaseDO {
 
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
     public static final Long ${treeParentColumn_javaField_underlineCase.toUpperCase()}_ROOT = 0L;
 
@@ -68,7 +68,7 @@ public class ${table.className}DO extends BaseDO {
 ## 2. 处理 Excel 导出
 #if ("$!column.dictType" != "")##处理枚举值
     @ExcelProperty(value = "${column.columnComment}", converter = DictConvert.class)
-    @DictFormat("${column.dictType}") // TODO 代码优化：建议设置到对应的 DictTypeConstants 枚举类中
+    @DictFormat("${column.dictType}") // TODO 代码优化:建议设置到对应的 DictTypeConstants 枚举类中
 #else
     @ExcelProperty("${column.columnComment}")
 #end
@@ -78,7 +78,7 @@ public class ${table.className}DO extends BaseDO {
 #end
 #end
 
-## 特殊：主子表专属逻辑（非 ERP 模式）
+## 特殊:主子表专属逻辑（非 ERP 模式）
 #if ( $voType == 20 && $subTables && $subTables.size() > 0 && $table.templateType != 11 )
     #foreach ($subTable in $subTables)
         #set ($index = $foreach.count - 1)

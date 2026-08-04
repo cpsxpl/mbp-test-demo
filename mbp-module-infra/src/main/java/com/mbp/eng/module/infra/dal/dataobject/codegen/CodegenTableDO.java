@@ -129,8 +129,8 @@ public class CodegenTableDO extends BaseDO {
     /**
      * 主表与子表是否一对多
      *
-     * true：一对多
-     * false：一对一
+     * true:一对多
+     * false:一对一
      */
     private Boolean subJoinMany;
 
@@ -145,7 +145,7 @@ public class CodegenTableDO extends BaseDO {
     /**
      * 树表的名字字段编号
      *
-     * 名字的用途：新增或修改时,select 框展示的字段
+     * 名字的用途:新增或修改时,select 框展示的字段
      *
      * 关联 {@link CodegenColumnDO#getId()}
      */

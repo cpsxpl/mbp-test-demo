@@ -34,7 +34,7 @@ public class ApiEncryptProperties {
      * 对称加密算法,用于请求/响应的加解密
      *
      * 目前支持
-     * 【对称加密】：
+     * 【对称加密】:
      *      1. {@link cn.hutool.crypto.symmetric.SymmetricAlgorithm#AES}
      *      2. {@link cn.hutool.crypto.symmetric.SM4#ALGORITHM_NAME} （需要自己二次开发,成本低）
      * 【非对称加密】
@@ -49,7 +49,7 @@ public class ApiEncryptProperties {
     /**
      * 请求的解密密钥
      *
-     * 注意：
+     * 注意:
      * 1. 如果是【对称加密】时,它「后端」对应的是“密钥”。对应的,「前端」也对应的也是“密钥”。
      * 2. 如果是【非对称加密】时,它「后端」对应的是“私钥”。对应的,「前端」对应的是“公钥”。（重要！！！）
      */
@@ -59,7 +59,7 @@ public class ApiEncryptProperties {
     /**
      * 响应的加密密钥
      *
-     * 注意：
+     * 注意:
      * 1. 如果是【对称加密】时,它「后端」对应的是“密钥”。对应的,「前端」也对应的也是“密钥”。
      * 2. 如果是【非对称加密】时,它「后端」对应的是“公钥”。对应的,「前端」对应的是“私钥”。（重要！！！）
      */

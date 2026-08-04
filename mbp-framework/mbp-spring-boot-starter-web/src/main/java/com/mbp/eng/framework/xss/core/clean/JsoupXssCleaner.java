@@ -38,7 +38,7 @@ public class JsoupXssCleaner implements XssCleaner {
         Safelist relaxedSafelist = Safelist.relaxed();
         // 富文本编辑时一些样式是使用 style 来进行实现的
         // 比如红色字体 style="color:red;", 所以需要给所有标签添加 style 属性
-        // 注意：style 属性会有注入风险 <img STYLE="background-image:url(javascript:alert('XSS'))">
+        // 注意:style 属性会有注入风险 <img STYLE="background-image:url(javascript:alert('XSS'))">
         relaxedSafelist.addAttributes(":all", "style", "class");
         // 保留 a 标签的 target 属性
         relaxedSafelist.addAttributes("a", "target");

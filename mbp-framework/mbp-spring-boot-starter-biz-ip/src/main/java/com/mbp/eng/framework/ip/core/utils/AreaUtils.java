@@ -52,7 +52,7 @@ public class AreaUtils {
                 areas.put(area.getId(), area);
             }
 
-            // 构建父子关系：因为 Area 中没有 parentId 字段,所以需要重复读取
+            // 构建父子关系:因为 Area 中没有 parentId 字段,所以需要重复读取
             for (CsvRow row : rows) {
                 Area area = areas.get(Integer.valueOf(row.get(0))); // 自己
                 Area parent = areas.get(Integer.valueOf(row.get(3))); // 父
@@ -79,7 +79,7 @@ public class AreaUtils {
     /**
      * 获得指定区域对应的编号
      *
-     * @param pathStr 区域路径,例如说：河南省/石家庄市/新华区
+     * @param pathStr 区域路径,例如说:河南省/石家庄市/新华区
      * @return 区域
      */
     public static Area parseArea(String pathStr) {
@@ -96,7 +96,7 @@ public class AreaUtils {
     }
 
     /**
-     * 获取所有节点的全路径名称如：河南省/石家庄市/新华区
+     * 获取所有节点的全路径名称如:河南省/石家庄市/新华区
      *
      * @param areas 地区树
      * @return 所有节点的全路径名称
@@ -140,11 +140,11 @@ public class AreaUtils {
     /**
      * 格式化区域
      *
-     * 例如说：
-     * 1. id = “静安区”时：上海 上海市 静安区
-     * 2. id = “上海市”时：上海 上海市
-     * 3. id = “上海”时：上海
-     * 4. id = “美国”时：美国
+     * 例如说:
+     * 1. id = “静安区”时:上海 上海市 静安区
+     * 2. id = “上海市”时:上海 上海市
+     * 3. id = “上海”时:上海
+     * 4. id = “美国”时:美国
      * 当区域在中国时,默认不显示中国
      *
      * @param id        区域编号
@@ -198,15 +198,15 @@ public class AreaUtils {
             if (area == null) {
                 return null;
             }
-            // 情况一：匹配到,返回它
+            // 情况一:匹配到,返回它
             if (type.getType().equals(area.getType())) {
                 return area.getId();
             }
-            // 情况二：找到根节点,返回空
+            // 情况二:找到根节点,返回空
             if (area.getParent() == null || area.getParent().getId() == null) {
                 return null;
             }
-            // 其它：继续向上查找
+            // 其它:继续向上查找
             id = area.getParent().getId();
         }
         return null;

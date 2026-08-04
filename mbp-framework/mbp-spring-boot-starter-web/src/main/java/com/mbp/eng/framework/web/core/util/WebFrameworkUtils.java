@@ -78,7 +78,7 @@ public class WebFrameworkUtils {
 
     /**
      * 获得当前用户的编号,从请求中
-     * 注意：该方法仅限于 framework 框架使用！！！
+     * 注意:该方法仅限于 framework 框架使用！！！
      *
      * @param request 请求
      * @return 用户编号
@@ -92,7 +92,7 @@ public class WebFrameworkUtils {
 
     /**
      * 获得当前用户的类型
-     * 注意：该方法仅限于 web 相关的 framework 组件使用！！！
+     * 注意:该方法仅限于 web 相关的 framework 组件使用！！！
      *
      * @param request 请求
      * @return 用户编号

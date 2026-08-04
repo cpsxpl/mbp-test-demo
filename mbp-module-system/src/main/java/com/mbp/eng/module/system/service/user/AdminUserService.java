@@ -165,7 +165,7 @@ public interface AdminUserService {
     List<AdminUserDO> getUserListAll();
 
     /**
-     * 校验用户们是否有效。如下情况,视为无效：
+     * 校验用户们是否有效。如下情况,视为无效:
      * 1. 用户编号不存在
      * 2. 用户被禁用
      *

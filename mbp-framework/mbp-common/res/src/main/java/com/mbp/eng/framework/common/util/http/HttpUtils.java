@@ -37,7 +37,7 @@ public class HttpUtils {
 
     /**
      * 解码 URL 参数（query parameter）
-     * 注意：此方法会将 + 解码为空格,适用于 query parameter,不适用于 URL path
+     * 注意:此方法会将 + 解码为空格,适用于 query parameter,不适用于 URL path
      *
      * @see #decodeUrlPath(String)
      * @param value 参数
@@ -254,7 +254,7 @@ public class HttpUtils {
     }
 
     /**
-     * WebSocket URL 切换成 HTTP URL：ws:// → http://；wss:// → https://；其它格式原样保留
+     * WebSocket URL 切换成 HTTP URL:ws:// → http://；wss:// → https://；其它格式原样保留
      *
      * @param url 原始 URL
      * @return 切换协议后的 URL

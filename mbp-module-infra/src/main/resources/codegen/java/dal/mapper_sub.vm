@@ -21,7 +21,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ${subTable.className}Mapper extends BaseMapperX<${subTable.className}DO> {
 
-## 情况一：MASTER_ERP 时,需要分查询页子表
+## 情况一:MASTER_ERP 时,需要分查询页子表
 #if ( $table.templateType == 11 )
     default PageResult<${subTable.className}DO> selectPage(PageParam reqVO, ${subJoinColumn.javaType} ${subJoinColumn.javaField}) {
         return selectPage(reqVO, new LambdaQueryWrapperX<${subTable.className}DO>()
@@ -36,7 +36,7 @@ public interface ${subTable.className}Mapper extends BaseMapperX<${subTable.clas
         }
     #end
 
-## 情况二：非 MASTER_ERP 时,需要列表查询子表
+## 情况二:非 MASTER_ERP 时,需要列表查询子表
 #else
     #if ( $subTable.subJoinMany)
     default List<${subTable.className}DO> selectListBy${SubJoinColumnName}(${subJoinColumn.javaType} ${subJoinColumn.javaField}) {

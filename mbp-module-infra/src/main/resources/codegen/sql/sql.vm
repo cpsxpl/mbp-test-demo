@@ -7,7 +7,7 @@
 #set ($functionOps = ['query', 'create', 'update', 'delete', 'export'])
 #end
 ##
-## 宏定义：生成按钮 SQL（通用部分）
+## 宏定义:生成按钮 SQL（通用部分）
 #macro(insertButtonSql $parentIdVar)
 #foreach ($functionName in $functionNames)
 #set ($index = $foreach.count - 1)
@@ -63,7 +63,7 @@ VALUES (
 );
 
 -- 按钮父菜单ID
--- 说明：Oracle/达梦 使用序列获取上一个插入的 ID
+-- 说明:Oracle/达梦 使用序列获取上一个插入的 ID
 DECLARE
     v_parent_id NUMBER;
 BEGIN
@@ -96,7 +96,7 @@ VALUES (
 );
 
 -- 按钮父菜单ID
--- 说明：PostgreSQL/KingbaseES 使用 lastval() 获取上一个插入的序列值
+-- 说明:PostgreSQL/KingbaseES 使用 lastval() 获取上一个插入的序列值
 DO $$
 DECLARE
     v_parent_id BIGINT;
@@ -129,7 +129,7 @@ VALUES (
 );
 
 -- 按钮父菜单ID
--- 说明：SQL Server 使用 SCOPE_IDENTITY() 获取上一个插入的自增 ID
+-- 说明:SQL Server 使用 SCOPE_IDENTITY() 获取上一个插入的自增 ID
 DECLARE @parentId BIGINT;
 SET @parentId = SCOPE_IDENTITY();
 
@@ -149,7 +149,7 @@ VALUES (
 ## ======================= 不支持的数据库类型 =======================
 #else
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
--- 注意：当前数据库类型 ${dbType.name()} 暂不支持自动生成菜单 SQL
+-- 注意:当前数据库类型 ${dbType.name()} 暂不支持自动生成菜单 SQL
 -- 请参考以下 MySQL 语法,手动修改为您的数据库对应的语法
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

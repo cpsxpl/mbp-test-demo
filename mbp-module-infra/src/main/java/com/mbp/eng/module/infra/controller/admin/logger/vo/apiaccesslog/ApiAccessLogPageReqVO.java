@@ -29,7 +29,7 @@ public class ApiAccessLogPageReqVO extends PageParam {
     @DateTimeFormat(pattern = FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND)
     private LocalDateTime[] beginTime;
 
-    @Schema(description = "执行时长,大于等于,单位：毫秒", example = "100")
+    @Schema(description = "执行时长,大于等于,单位:毫秒", example = "100")
     private Integer duration;
 
     @Schema(description = "结果码", example = "0")

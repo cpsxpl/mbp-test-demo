@@ -55,7 +55,7 @@ public class IdempotentAspect {
             return joinPoint.proceed();
         } catch (Throwable throwable) {
             // 3. 异常时,删除 Key
-            // 参考美团 GTIS 思路：https://tech.meituan.com/2016/09/29/distributed-system-mutually-exclusive-idempotence-cerberus-gtis.html
+            // 参考美团 GTIS 思路:https://tech.meituan.com/2016/09/29/distributed-system-mutually-exclusive-idempotence-cerberus-gtis.html
             if (idempotent.deleteKeyWhenException()) {
                 idempotentRedisDAO.delete(key);
             }

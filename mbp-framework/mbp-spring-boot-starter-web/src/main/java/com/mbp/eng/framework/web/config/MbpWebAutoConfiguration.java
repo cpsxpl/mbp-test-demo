@@ -104,7 +104,7 @@ public class MbpWebAutoConfiguration {
      * 创建 CorsFilter Bean,解决跨域问题
      */
     @Bean
-    @Order(value = WebFilterOrderEnum.CORS_FILTER) // 特殊：修复因执行顺序影响到跨域配置不生效问题
+    @Order(value = WebFilterOrderEnum.CORS_FILTER) // 特殊:修复因执行顺序影响到跨域配置不生效问题
     public FilterRegistrationBean<CorsFilter> corsFilterBean() {
         // 创建 CorsConfiguration 对象
         CorsConfiguration config = new CorsConfiguration();

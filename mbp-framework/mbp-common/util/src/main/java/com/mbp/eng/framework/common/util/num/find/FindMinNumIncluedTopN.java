@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * 从海量数据中查找出前k个最大值,精确时间复杂度为：K + (n - K) * lgk,空间复杂度为 O（k）,目前为所有算法中最优算法
+ * 从海量数据中查找出前k个最大值,精确时间复杂度为:K + (n - K) * lgk,空间复杂度为 O（k）,目前为所有算法中最优算法
  */
 public class FindMinNumIncluedTopN {
     /**
@@ -65,7 +65,7 @@ public class FindMinNumIncluedTopN {
 
         Long end = System.nanoTime();
         long time = end - start;
-        System.out.println("用时：" + time + "纳秒");
+        System.out.println("用时:" + time + "纳秒");
         for (int i : minHeap.heap) {
             System.out.println(i);
         }

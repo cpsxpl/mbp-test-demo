@@ -111,7 +111,7 @@
         >
           <Icon icon="ep:download" class="mr-5px" /> 导出
         </el-button>
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
         <el-button type="danger" plain @click="toggleExpandAll">
           <Icon icon="ep:sort" class="mr-5px" /> 展开/折叠
@@ -134,7 +134,7 @@
 
   <!-- 列表 -->
   <ContentWrap>
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 11 && $subTables && $subTables.size() > 0 )
     <el-table
       row-key="id"
@@ -148,7 +148,7 @@
       @selection-change="handleRowCheckboxChange"
       #end
     >
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #elseif ( $table.templateType == 2 )
     <el-table
       v-loading="loading"
@@ -174,7 +174,7 @@
 #if ($table.templateType != 2 && $deleteBatchEnable)
     <el-table-column type="selection" width="55" />
 #end
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 12 && $subTables && $subTables.size() > 0 )
       <!-- 子表的列表 -->
       <el-table-column type="expand">
@@ -253,9 +253,9 @@
   <${simpleClassName}ImportForm ref="importRef" @success="getList" />
 #end
 
-  <!-- 表单弹窗：添加/修改 -->
+  <!-- 表单弹窗:添加/修改 -->
   <${simpleClassName}Form ref="formRef" @success="getList" />
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 11 && $subTables && $subTables.size() > 0 )
   <!-- 子表的列表 -->
   <ContentWrap>
@@ -281,14 +281,14 @@ import { dateFormatter } from '@/utils/formatTime'
 #if ($importEnable)
 import ${simpleClassName}ImportForm from './${simpleClassName}ImportForm.vue'
 #end
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
 import { handleTree } from '@/utils/tree'
 #end
 import download from '@/utils/download'
 import { ${simpleClassName}Api, ${simpleClassName} } from '@/api/${table.moduleName}/${table.businessName}'
 import ${simpleClassName}Form from './${simpleClassName}Form.vue'
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType != 10 )
 #foreach ($subSimpleClassName in $subSimpleClassNames)
 import ${subSimpleClassName}List from './components/${subSimpleClassName}List.vue'
@@ -303,12 +303,12 @@ const { t } = useI18n() // 国际化
 
 const loading = ref(true) // 列表的加载中
 const list = ref<${simpleClassName}[]>([]) // 列表的数据
-## 特殊：树表专属逻辑（树不需要分页接口）
+## 特殊:树表专属逻辑（树不需要分页接口）
 #if ( $table.templateType != 2 )
 const total = ref(0) // 列表的总页数
 #end
 const queryParams = reactive({
-## 特殊：树表专属逻辑（树不需要分页接口）
+## 特殊:树表专属逻辑（树不需要分页接口）
 #if ( $table.templateType != 2 )
   pageNo: 1,
   pageSize: 10,
@@ -334,7 +334,7 @@ const importRef = ref() // ${table.classComment} 导入组件的 Ref
 const getList = async () => {
   loading.value = true
   try {
-## 特殊：树表专属逻辑（树不需要分页接口）
+## 特殊:树表专属逻辑（树不需要分页接口）
   #if ( $table.templateType == 2 )
     const data = await ${simpleClassName}Api.get${simpleClassName}List(queryParams)
     list.value = handleTree(data, 'id', '${treeParentColumn.javaField}')
@@ -422,7 +422,7 @@ const handleExport = async () => {
     exportLoading.value = false
   }
 }
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 11 )
 
 /** 选中行操作 */
@@ -431,7 +431,7 @@ const handleCurrentChange = (row) => {
   currentRow.value = row
 }
 #end
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
 
 /** 展开/折叠操作 */

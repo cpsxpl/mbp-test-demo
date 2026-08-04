@@ -18,11 +18,11 @@ import java.io.ByteArrayOutputStream;
 public class FtpFileClient extends AbstractFileClient<FtpFileClientConfig> {
 
     /**
-     * 连接超时时间,单位：毫秒
+     * 连接超时时间,单位:毫秒
      */
     private static final Long CONNECTION_TIMEOUT = 3000L;
     /**
-     * 读写超时时间,单位：毫秒
+     * 读写超时时间,单位:毫秒
      */
     private static final Long SO_TIMEOUT = 10000L;
 
@@ -34,7 +34,7 @@ public class FtpFileClient extends AbstractFileClient<FtpFileClientConfig> {
 
     @Override
     protected void doInit() {
-        // 初始化 Ftp 对象：https://gitee.com/zhijiantianya/mbp-cloud/pulls/207/
+        // 初始化 Ftp 对象:https://gitee.com/zhijiantianya/mbp-cloud/pulls/207/
         FtpConfig ftpConfig = new FtpConfig(config.getHost(), config.getPort(), config.getUsername(), config.getPassword(),
                 CharsetUtil.CHARSET_UTF_8, null, null);
         ftpConfig.setConnectionTimeout(CONNECTION_TIMEOUT);

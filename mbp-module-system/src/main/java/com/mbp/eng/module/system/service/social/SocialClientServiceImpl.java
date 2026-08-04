@@ -85,18 +85,18 @@ public class SocialClientServiceImpl implements SocialClientService {
     /**
      * 小程序码要打开的小程序版本
      *
-     * 1. release：正式版
-     * 2. trial：体验版
-     * 3. developer：开发版
+     * 1. release:正式版
+     * 2. trial:体验版
+     * 3. developer:开发版
      */
     @Value("${mbp.wxa-code.env-version:release}")
     public String envVersion;
     /**
      * 订阅消息跳转小程序类型
      *
-     * 1. developer：开发版
-     * 2. trial：体验版
-     * 3. formal：正式版
+     * 1. developer:开发版
+     * 2. trial:体验版
+     * 3. formal:正式版
      */
     @Value("${mbp.wxa-subscribe-message.miniprogram-state:formal}")
     public String miniprogramState;
@@ -106,7 +106,7 @@ public class SocialClientServiceImpl implements SocialClientService {
      */
     private static final long[] UPLOAD_SHIPPING_INFO_RETRY_BACKOFF_MILLIS = {1000, 2000, 4000};
     /**
-     * 微信错误码：支付单不存在
+     * 微信错误码:支付单不存在
      */
     private static final int WX_ERR_CODE_PAY_ORDER_NOT_EXIST = 10060001;
 
@@ -123,7 +123,7 @@ public class SocialClientServiceImpl implements SocialClientService {
     /**
      * 缓存 WxMpService 对象
      *
-     * key：使用微信公众号的 appId + secret 拼接,即 {@link SocialClientDO} 的 clientId 和 clientSecret 属性。
+     * key:使用微信公众号的 appId + secret 拼接,即 {@link SocialClientDO} 的 clientId 和 clientSecret 属性。
      * 为什么 key 使用这种格式？因为 {@link SocialClientDO} 在管理后台可以变更,通过这个 key 存储它的单例。
      *
      * 为什么要做 WxMpService 缓存？因为 WxMpService 构建成本比较大,所以尽量保证它是单例。
@@ -219,7 +219,7 @@ public class SocialClientServiceImpl implements SocialClientService {
             }
             // 2.3 设置会 request 里,进行后续使用
             if (SocialTypeEnum.ALIPAY_MINI_PROGRAM.getType().equals(socialType)) {
-                // 特殊：如果是支付宝的小程序,多了 publicKey 属性,可见 AuthConfig 里的 alipayPublicKey 字段说明
+                // 特殊:如果是支付宝的小程序,多了 publicKey 属性,可见 AuthConfig 里的 alipayPublicKey 字段说明
                 return new AuthAlipayRequest(newAuthConfig, client.getPublicKey());
             }
             ReflectUtil.setFieldValue(request, "config", newAuthConfig);
@@ -380,24 +380,24 @@ public class SocialClientServiceImpl implements SocialClientService {
                 .payer(PayerBean.builder().openid(reqDTO.getOpenid()).build())
                 .uploadTime(ZonedDateTime.now().format(UTC_MS_WITH_XXX_OFFSET_FORMATTER))
                 .build();
-        // 重试机制：解决支付回调与订单信息上传之间的时间差导致的 10060001 错误
-        // 对应 ISSUE：https://gitee.com/zhijiantianya/mbp-cloud/pulls/230
-        // 注意：wx-java 的 upload 内部对 errCode != 0 直接抛 WxErrorException,所以重试判断必须基于异常的 errorCode
+        // 重试机制:解决支付回调与订单信息上传之间的时间差导致的 10060001 错误
+        // 对应 ISSUE:https://gitee.com/zhijiantianya/mbp-cloud/pulls/230
+        // 注意:wx-java 的 upload 内部对 errCode != 0 直接抛 WxErrorException,所以重试判断必须基于异常的 errorCode
         int maxAttempts = UPLOAD_SHIPPING_INFO_RETRY_BACKOFF_MILLIS.length + 1;
         for (int attempt = 1; attempt <= maxAttempts; attempt++) {
             try {
                 WxMaOrderShippingInfoBaseResponse response = service.getWxMaOrderShippingService().upload(request);
-                log.info("[uploadWxaOrderShippingInfo][上传微信小程序发货信息成功：request({}) response({})]", request, response);
+                log.info("[uploadWxaOrderShippingInfo][上传微信小程序发货信息成功:request({}) response({})]", request, response);
                 return;
             } catch (WxErrorException ex) {
                 if (ex.getError().getErrorCode() == WX_ERR_CODE_PAY_ORDER_NOT_EXIST && attempt < maxAttempts) {
                     long delayMillis = UPLOAD_SHIPPING_INFO_RETRY_BACKOFF_MILLIS[attempt - 1];
-                    log.warn("[uploadWxaOrderShippingInfo][第 {} 次尝试失败,支付单不存在,{} ms 后重试：request({})]",
+                    log.warn("[uploadWxaOrderShippingInfo][第 {} 次尝试失败,支付单不存在,{} ms 后重试:request({})]",
                             attempt, delayMillis, request, ex);
                     ThreadUtil.sleep(delayMillis);
                     continue;
                 }
-                log.error("[uploadWxaOrderShippingInfo][上传微信小程序发货信息失败：request({})]", request, ex);
+                log.error("[uploadWxaOrderShippingInfo][上传微信小程序发货信息失败:request({})]", request, ex);
                 throw exception(SOCIAL_CLIENT_WEIXIN_MINI_APP_ORDER_UPLOAD_SHIPPING_INFO_ERROR, ex.getError().getErrorMsg());
             }
         }
@@ -413,12 +413,12 @@ public class SocialClientServiceImpl implements SocialClientService {
         try {
             WxMaOrderShippingInfoBaseResponse response = service.getWxMaOrderShippingService().notifyConfirmReceive(request);
             if (response.getErrCode() != 0) {
-                log.error("[notifyWxaOrderConfirmReceive][确认收货提醒到微信小程序失败：request({}) response({})]", request, response);
+                log.error("[notifyWxaOrderConfirmReceive][确认收货提醒到微信小程序失败:request({}) response({})]", request, response);
                 throw exception(SOCIAL_CLIENT_WEIXIN_MINI_APP_ORDER_NOTIFY_CONFIRM_RECEIVE_ERROR, response.getErrMsg());
             }
-            log.info("[notifyWxaOrderConfirmReceive][确认收货提醒到微信小程序成功：request({}) response({})]", request, response);
+            log.info("[notifyWxaOrderConfirmReceive][确认收货提醒到微信小程序成功:request({}) response({})]", request, response);
         } catch (WxErrorException ex) {
-            log.error("[notifyWxaOrderConfirmReceive][确认收货提醒到微信小程序失败：request({})]", request, ex);
+            log.error("[notifyWxaOrderConfirmReceive][确认收货提醒到微信小程序失败:request({})]", request, ex);
             throw exception(SOCIAL_CLIENT_WEIXIN_MINI_APP_ORDER_NOTIFY_CONFIRM_RECEIVE_ERROR, ex.getError().getErrorMsg());
         }
     }

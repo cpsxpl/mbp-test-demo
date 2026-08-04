@@ -97,7 +97,7 @@ public class MoneyUtils {
     /**
      * 金额相乘,默认进行四舍五入
      *
-     * 位数：{@link #PRICE_SCALE}
+     * 位数:{@link #PRICE_SCALE}
      *
      * @param price 金额
      * @param count 数量
@@ -113,7 +113,7 @@ public class MoneyUtils {
     /**
      * 金额相乘（百分比）,默认进行四舍五入
      *
-     * 位数：{@link #PRICE_SCALE}
+     * 位数:{@link #PRICE_SCALE}
      *
      * @param price  金额
      * @param percent 百分比

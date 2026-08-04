@@ -55,7 +55,7 @@ public class FileTypeUtils {
     /**
      * 根据 mineType 获得文件后缀
      *
-     * 注意：如果获取不到,或者发生异常,都返回 null
+     * 注意:如果获取不到,或者发生异常,都返回 null
      *
      * @param mineType 类型
      * @return 后缀,例如说 .pdf
@@ -80,7 +80,7 @@ public class FileTypeUtils {
         // 设置 header 和 contentType
         String mineType = getMineType(content, filename);
         response.setContentType(mineType);
-        // 设置内容显示、下载文件名：https://www.cnblogs.com/wq-9/articles/12165056.html
+        // 设置内容显示、下载文件名:https://www.cnblogs.com/wq-9/articles/12165056.html
         if (isImage(mineType)) {
             // 参见 https://github.com/YunaiV/ruoyi-vue-pro/issues/692 讨论
             response.setHeader("Content-Disposition", buildContentDisposition("inline", filename));

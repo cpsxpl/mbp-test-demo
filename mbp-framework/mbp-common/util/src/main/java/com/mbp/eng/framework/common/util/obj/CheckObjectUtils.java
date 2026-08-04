@@ -123,7 +123,7 @@ public class CheckObjectUtils {
                 fieldValue = field.get(object); //得到属性值
                 Type fieldType = field.getGenericType(); //得到属性类型
                 String fieldName = field.getName(); //得到属性名
-                System.out.println("属性类型：" + fieldType + ",属性名：" + fieldName + ",属性值：" + fieldValue);
+                System.out.println("属性类型:" + fieldType + ",属性名:" + fieldName + ",属性值:" + fieldValue);
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
@@ -183,25 +183,25 @@ public class CheckObjectUtils {
     }
 
     public void test() {
-        // 方法1：通过System.getProperty获取类路径
+        // 方法1:通过System.getProperty获取类路径
         String classpath = System.getProperty("java.class.path");
         System.out.println("方法1 - 系统类路径: " + classpath);
 
-        // 方法2：通过当前类的ClassLoader获取资源路径
+        // 方法2:通过当前类的ClassLoader获取资源路径
         URL resource = CheckObjectUtils.class.getResource("");
         System.out.println("方法2 - 当前类所在路径: " + resource.getPath());
 
-        // 方法3：通过ClassLoader获取根路径
+        // 方法3:通过ClassLoader获取根路径
         URL rootResource = CheckObjectUtils.class.getClassLoader().getResource("");
         if (rootResource != null) {
             System.out.println("方法3 - 类加载器根路径: " + rootResource.getPath());
         }
 
-        // 方法4：获取当前工作目录
+        // 方法4:获取当前工作目录
         String workingDir = System.getProperty("user.dir");
         System.out.println("方法4 - 当前工作目录: " + workingDir);
 
-        // 方法5：使用File获取规范路径
+        // 方法5:使用File获取规范路径
         try {
             File file = new File(".");
             System.out.println("方法5 - 当前目录规范路径: " + file.getCanonicalPath());

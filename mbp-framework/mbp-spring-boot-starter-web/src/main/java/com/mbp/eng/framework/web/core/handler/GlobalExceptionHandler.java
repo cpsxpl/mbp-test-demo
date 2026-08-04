@@ -220,7 +220,7 @@ public class GlobalExceptionHandler {
     /**
      * 处理 SpringMVC 请求地址不存在
      *
-     * 注意,它需要设置如下两个配置项：
+     * 注意,它需要设置如下两个配置项:
      * 1. spring.mvc.throw-exception-if-no-handler-found 为 true
      * 2. spring.mvc.static-path-pattern 为 /statics/**
      */
@@ -304,18 +304,18 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = Exception.class)
     public CommonResult<?> defaultExceptionHandler(HttpServletRequest req, Throwable ex) {
-        // 特殊：如果是 ServiceException 的异常,则直接返回
+        // 特殊:如果是 ServiceException 的异常,则直接返回
         if (ex.getCause() != null && ex.getCause() instanceof ServiceException) {
             return serviceExceptionHandler((ServiceException) ex.getCause());
         }
 
-        // 情况一：处理表不存在的异常
+        // 情况一:处理表不存在的异常
         CommonResult<?> tableNotExistsResult = handleTableNotExists(ex);
         if (tableNotExistsResult != null) {
             return tableNotExistsResult;
         }
 
-        // 情况二：处理异常
+        // 情况二:处理异常
         log.error("[defaultExceptionHandler]", ex);
         // 插入异常日志
         createExceptionLog(req, ex);

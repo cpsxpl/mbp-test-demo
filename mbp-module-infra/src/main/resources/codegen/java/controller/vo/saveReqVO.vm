@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 #break
 #end
 #end
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #foreach ($subTable in $subTables)
 import ${basePackage}.module.${subTable.moduleName}.dal.dataobject.${subTable.businessName}.${subTable.className}DO;
 #end
@@ -46,7 +46,7 @@ public class ${sceneEnum.prefixClass}${table.className}SaveReqVO {
 
 #end
 #end
-## 特殊：主子表专属逻辑（非 ERP 模式）
+## 特殊:主子表专属逻辑（非 ERP 模式）
 #if ( $subTables && $subTables.size() > 0 && $table.templateType != 11 )
 #foreach ($subTable in $subTables)
 #set ($index = $foreach.count - 1)

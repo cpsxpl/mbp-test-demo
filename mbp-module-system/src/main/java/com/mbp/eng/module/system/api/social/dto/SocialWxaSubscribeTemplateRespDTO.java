@@ -32,8 +32,8 @@ public class SocialWxaSubscribeTemplateRespDTO {
     /**
      * 模版类型
      *
-     * 2：为一次性订阅
-     * 3：为长期订阅
+     * 2:为一次性订阅
+     * 3:为长期订阅
      */
     private Integer type;
 

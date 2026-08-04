@@ -127,7 +127,7 @@ watch(
       #foreach($column in $subColumns)
           #if ($column.createOperation || $column.updateOperation)
               #set ($javaField = $column.javaField)
-              #if ( $column.id == $subJoinColumn.id) ## 特殊：忽略主子表的 join 字段,不用填写
+              #if ( $column.id == $subJoinColumn.id) ## 特殊:忽略主子表的 join 字段,不用填写
               #elseif ($column.htmlType == "input" && !$column.primaryKey)## 忽略主键,不用在表单里
                 <template #${javaField}="{ row }">
                   <Input v-model:value="row.${javaField}" />

@@ -63,7 +63,7 @@
         <el-button type="warning" plain icon="el-icon-download" size="mini" @click="handleExport" :loading="exportLoading"
                    v-hasPermi="['${permissionPrefix}:export']">导出</el-button>
       </el-col>
-    ## 特殊：树表专属逻辑
+    ## 特殊:树表专属逻辑
     #if ( $table.templateType == 2 )
       <el-col :span="1.5">
         <el-button type="danger" plain icon="el-icon-sort" size="mini" @click="toggleExpandAll">
@@ -92,7 +92,7 @@
     <input ref="importFileRef" type="file" style="display: none" accept=".xls,.xlsx" @change="handleImportFileChange" />
 #end
 
-      ## 特殊：主子表专属逻辑
+      ## 特殊:主子表专属逻辑
       #if ( $table.templateType == 11 && $subTables && $subTables.size() > 0 )
       <el-table
         row-key="id"
@@ -106,7 +106,7 @@
         @selection-change="handleRowCheckboxChange"
         #end
       >
-          ## 特殊：树表专属逻辑
+          ## 特殊:树表专属逻辑
       #elseif ( $table.templateType == 2 )
       <el-table
         v-loading="loading"
@@ -132,7 +132,7 @@
       #if ($table.templateType != 2 && $deleteBatchEnable)
         <el-table-column type="selection" width="55" />
       #end
-      ## 特殊：主子表专属逻辑
+      ## 特殊:主子表专属逻辑
       #if ( $table.templateType == 12 && $subTables && $subTables.size() > 0 )
         <!-- 子表的列表 -->
         <el-table-column type="expand">
@@ -183,7 +183,7 @@
         </template>
       </el-table-column>
     </el-table>
-## 特殊：树表专属逻辑（树不需要分页）
+## 特殊:树表专属逻辑（树不需要分页）
 #if ( $table.templateType != 2 )
     <!-- 分页组件 -->
     <pagination v-show="total > 0" :total="total" :page.sync="queryParams.pageNo" :limit.sync="queryParams.pageSize"
@@ -191,7 +191,7 @@
 #end
     <!-- 对话框(添加 / 修改) -->
     <${simpleClassName}Form ref="formRef" @success="getList" />
-  ## 特殊：主子表专属逻辑
+  ## 特殊:主子表专属逻辑
   #if ( $table.templateType == 11 && $subTables && $subTables.size() > 0 )
     <!-- 子表的列表 -->
       <el-tabs v-model="subTabsName">
@@ -221,7 +221,7 @@ import FileUpload from '@/components/FileUpload';
 #if ($hasEditorColumn)
 import Editor from '@/components/Editor';
 #end
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType != 10 )
 #if ( $subTables && $subTables.size() > 0 )
     #foreach ($subSimpleClassName in $subSimpleClassNames)
@@ -233,7 +233,7 @@ export default {
   name: "${simpleClassName}",
   components: {
           ${simpleClassName}Form,
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType != 10 )
 #if ( $subTables && $subTables.size() > 0 )
       #foreach ($subSimpleClassName in $subSimpleClassNames)
@@ -263,7 +263,7 @@ export default {
 #end
       // 显示搜索条件
       showSearch: true,
-      ## 特殊：树表专属逻辑（树不需要分页接口）
+      ## 特殊:树表专属逻辑（树不需要分页接口）
       #if ( $table.templateType != 2 )
         // 总条数
         total: 0,
@@ -279,7 +279,7 @@ export default {
       checkedIds: [],
       // 查询参数
       queryParams: {
-        ## 特殊：树表专属逻辑（树不需要分页接口）
+        ## 特殊:树表专属逻辑（树不需要分页接口）
         #if ( $table.templateType != 2 )
             pageNo: 1,
             pageSize: 10,
@@ -295,7 +295,7 @@ export default {
         #end
         #end
       },
-        ## 特殊：主子表专属逻辑-erp
+        ## 特殊:主子表专属逻辑-erp
         #if ( $table.templateType == 11)
             #if ( $subTables && $subTables.size() > 0 )
               /** 子表的列表 */
@@ -312,7 +312,7 @@ export default {
     async getList() {
       try {
       this.loading = true;
-      ## 特殊：树表专属逻辑（树不需要分页接口）
+      ## 特殊:树表专属逻辑（树不需要分页接口）
       #if ( $table.templateType == 2 )
        const res = await ${simpleClassName}Api.get${simpleClassName}List(this.queryParams);
        this.list = this.handleTree(res.data, 'id', '${treeParentColumn.javaField}');
@@ -362,7 +362,7 @@ export default {
         formData.append('file', file);
         const res = await ${simpleClassName}Api.import${simpleClassName}(formData);
         const data = res.data || res;
-        let text = '导入成功数量：' + (data.successCount || 0) + '；导入失败数量：' + (data.failureCount || 0) + '；';
+        let text = '导入成功数量:' + (data.successCount || 0) + '；导入失败数量:' + (data.failureCount || 0) + '；';
         if (data.failureRows) {
           Object.keys(data.failureRows).forEach((rowNo) => {
             text += '< 第' + rowNo + '行: ' + data.failureRows[rowNo] + ' >';
@@ -414,7 +414,7 @@ export default {
         this.exportLoading = false;
       }
     },
-      ## 特殊：主子表专属逻辑
+      ## 特殊:主子表专属逻辑
       #if ( $table.templateType == 11 )
         /** 选中行操作 */
         handleCurrentChange(row) {
@@ -425,7 +425,7 @@ export default {
         #end
         },
       #end
-      ## 特殊：树表专属逻辑
+      ## 特殊:树表专属逻辑
       #if ( $table.templateType == 2 )
         /** 展开/折叠操作 */
         toggleExpandAll() {

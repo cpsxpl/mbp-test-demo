@@ -40,7 +40,7 @@ public class MbpCacheAutoConfiguration {
         RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig();
         // 设置使用 : 单冒号,而不是双 :: 冒号,避免 Redis Desktop Manager 多余空格
         // 详细可见 https://blog.csdn.net/chuixue24/article/details/103928965 博客
-        // 再次修复单冒号,而不是双 :: 冒号问题,Issues 详情：https://gitee.com/zhijiantianya/mbp-cloud/issues/I86VY2
+        // 再次修复单冒号,而不是双 :: 冒号问题,Issues 详情:https://gitee.com/zhijiantianya/mbp-cloud/issues/I86VY2
         config = config.computePrefixWith(cacheName -> {
             String keyPrefix = cacheProperties.getRedis().getKeyPrefix();
             if (StringUtils.hasText(keyPrefix)) {
@@ -77,7 +77,7 @@ public class MbpCacheAutoConfiguration {
                 BatchStrategies.scan(mbpCacheProperties.getRedisScanBatchSize()));
         // 创建 TimeoutRedisCacheManager 对象
         TimeoutRedisCacheManager cacheManager = new TimeoutRedisCacheManager(cacheWriter, redisCacheConfiguration);
-        // 开启事务感知：@Transactional 方法内的 @CacheEvict / @CachePut 自动延迟到 afterCommit,
+        // 开启事务感知:@Transactional 方法内的 @CacheEvict / @CachePut 自动延迟到 afterCommit,
         //             避免事务未提交就清缓存被并发读穿写脏值；无事务时立即生效,行为不变
         cacheManager.setTransactionAware(true);
         return cacheManager;

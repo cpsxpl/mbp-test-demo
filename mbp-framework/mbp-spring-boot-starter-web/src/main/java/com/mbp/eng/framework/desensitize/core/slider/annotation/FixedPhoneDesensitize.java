@@ -31,7 +31,7 @@ public @interface FixedPhoneDesensitize {
     int suffixKeep() default 2;
 
     /**
-     * 替换规则,固定电话;比如：01086551122 脱敏之后为 0108*****22
+     * 替换规则,固定电话;比如:01086551122 脱敏之后为 0108*****22
      */
     String replacer() default "*";
 

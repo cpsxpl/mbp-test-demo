@@ -15,7 +15,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
  * 验证码的配置类
  */
 @Configuration(proxyBeanMethods = false)
-@ImportAutoConfiguration(AjCaptchaAutoConfiguration.class) // 目的：解决 aj-captcha 针对 SpringBoot 3.X 自动配置不生效的问题
+@ImportAutoConfiguration(AjCaptchaAutoConfiguration.class) // 目的:解决 aj-captcha 针对 SpringBoot 3.X 自动配置不生效的问题
 public class MbpCaptchaConfiguration {
 
     @Bean(name = "AjCaptchaCacheService")

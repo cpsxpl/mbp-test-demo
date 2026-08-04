@@ -150,7 +150,7 @@ public class AdminUserServiceImpl implements AdminUserService {
     @LogRecord(type = SYSTEM_USER_TYPE, subType = SYSTEM_USER_UPDATE_SUB_TYPE, bizNo = "{{#updateReqVO.id}}",
             success = SYSTEM_USER_UPDATE_SUCCESS)
     public void updateUser(UserSaveReqVO updateReqVO) {
-        updateReqVO.setPassword(null); // 特殊：此处不更新密码
+        updateReqVO.setPassword(null); // 特殊:此处不更新密码
         // 1. 校验正确性
         AdminUserDO oldUser = validateUserForCreateOrUpdate(updateReqVO.getId(), updateReqVO.getUsername(),
                 updateReqVO.getMobile(), updateReqVO.getEmail(), updateReqVO.getDeptId(), updateReqVO.getPostIds());
@@ -383,7 +383,7 @@ public class AdminUserServiceImpl implements AdminUserService {
     }
 
     /**
-     * 获得部门条件：查询指定部门的子部门编号们,包括自身
+     * 获得部门条件:查询指定部门的子部门编号们,包括自身
      *
      * @param deptId 部门编号
      * @return 部门编号集合

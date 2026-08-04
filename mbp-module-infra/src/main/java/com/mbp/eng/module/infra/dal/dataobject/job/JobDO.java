@@ -57,14 +57,14 @@ public class JobDO extends BaseDO {
      */
     private Integer retryCount;
     /**
-     * 重试间隔,单位：毫秒
+     * 重试间隔,单位:毫秒
      * 如果没有间隔,则设置为 0
      */
     private Integer retryInterval;
 
     // ========== 监控相关字段 ==========
     /**
-     * 监控超时时间,单位：毫秒
+     * 监控超时时间,单位:毫秒
      * 为空时,表示不监控
      *
      * 注意,这里的超时的目的,不是进行任务的取消,而是告警任务的执行时间过长

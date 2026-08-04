@@ -11,7 +11,7 @@ import { message#if ($table.templateType == 11), Tabs#end } from 'ant-design-vue
 import { useVbenForm } from '#/adapter/form';
 import { create${simpleClassName}, get${simpleClassName}, update${simpleClassName} } from '#/api/${table.moduleName}/${table.businessName}';
 import { $t } from '#/locales';
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 10 || $table.templateType == 12 )
   #foreach ($subSimpleClassName in $subSimpleClassNames)
   #set ($index = $foreach.count - 1)
@@ -29,7 +29,7 @@ const getTitle = computed(() => {
     ? $t('ui.actionTitle.edit', ['${table.classComment}'])
     : $t('ui.actionTitle.create', ['${table.classComment}']);
 });
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 10 || $table.templateType == 12 )
   #if ( $subTables && $subTables.size() > 0 )
 
@@ -62,7 +62,7 @@ const [Modal, modalApi] = useVbenModal({
     if (!valid) {
       return;
     }
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 10 || $table.templateType == 12 )
       #if ( $subTables && $subTables.size() > 0 )
         // 校验子表单
@@ -84,7 +84,7 @@ const [Modal, modalApi] = useVbenModal({
     modalApi.lock();
     // 提交表单
     const data = (await formApi.getValues()) as ${apiName}.${simpleClassName};
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 10 || $table.templateType == 12 )
       #if ( $subTables && $subTables.size() > 0 )
         // 拼接子表的数据
@@ -138,7 +138,7 @@ const [Modal, modalApi] = useVbenModal({
 <template>
   <Modal :title="getTitle">
     <Form class="mx-4" />
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 10 || $table.templateType == 12 )
       <!-- 子表的表单 -->
       <Tabs v-model:active-key="subTabsName">

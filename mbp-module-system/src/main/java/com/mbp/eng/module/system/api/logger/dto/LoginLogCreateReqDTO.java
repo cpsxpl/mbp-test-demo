@@ -53,7 +53,7 @@ public class LoginLogCreateReqDTO {
     /**
      * 浏览器 UserAgent
      *
-     * 允许空,原因：Job 过期登出时,是无法传递 UserAgent 的
+     * 允许空,原因:Job 过期登出时,是无法传递 UserAgent 的
      */
     private String userAgent;
 

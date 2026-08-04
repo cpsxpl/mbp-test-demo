@@ -38,7 +38,7 @@ public class SelectSheetWriteHandler implements SheetWriteHandler {
 
     /**
      * 数据起始行从 0 开始
-     * 约定：本项目第一行有标题所以从 1 开始如果您的 Excel 有多行标题请自行更改
+     * 约定:本项目第一行有标题所以从 1 开始如果您的 Excel 有多行标题请自行更改
      */
     public static final int FIRST_ROW = 1;
     /**
@@ -69,7 +69,7 @@ public class SelectSheetWriteHandler implements SheetWriteHandler {
                 continue;
             }
 
-            // 2. 核心：处理有 ExcelColumnSelect 注解的字段
+            // 2. 核心:处理有 ExcelColumnSelect 注解的字段
             if (field.isAnnotationPresent(ExcelColumnSelect.class)) {
                 ExcelProperty excelProperty = field.getAnnotation(ExcelProperty.class);
                 if (excelProperty != null && excelProperty.index() != -1) {
@@ -83,7 +83,7 @@ public class SelectSheetWriteHandler implements SheetWriteHandler {
 
     /**
      * 判断字段是否是静态的、最终的、 transient 的
-     * 原因：FastExcel 默认是忽略 static final 或 transient 的字段,所以需要判断
+     * 原因:FastExcel 默认是忽略 static final 或 transient 的字段,所以需要判断
      *
      * @param field 字段
      * @return 是否是静态的、最终的、transient 的
@@ -107,13 +107,13 @@ public class SelectSheetWriteHandler implements SheetWriteHandler {
         Assert.isTrue(ObjectUtil.isNotEmpty(dictType) || ObjectUtil.isNotEmpty(functionName),
                 "Field({}) 的 @ExcelColumnSelect 注解,dictType 和 functionName 不能同时为空", field.getName());
 
-        // 情况一：使用 dictType 获得下拉数据
-        if (StrUtil.isNotEmpty(dictType)) { // 情况一： 字典数据 （默认）
+        // 情况一:使用 dictType 获得下拉数据
+        if (StrUtil.isNotEmpty(dictType)) { // 情况一: 字典数据 （默认）
             selectMap.put(colIndex, DictFrameworkUtils.getDictDataLabelList(dictType));
             return;
         }
 
-        // 情况二：使用 functionName 获得下拉数据
+        // 情况二:使用 functionName 获得下拉数据
         Map<String, ExcelColumnSelectFunction> functionMap = SpringUtil.getApplicationContext().getBeansOfType(ExcelColumnSelectFunction.class);
         ExcelColumnSelectFunction function = CollUtil.findOne(functionMap.values(), item -> item.getName().equals(functionName));
         Assert.notNull(function, "未找到对应的 function({})", functionName);

@@ -3,7 +3,7 @@ package com.mbp.eng.module.infra.websocket.message;
 import lombok.Data;
 
 /**
- * 示例：client -> server 发送消息
+ * 示例:client -> server 发送消息
  */
 @Data
 public class DemoSendMessage {

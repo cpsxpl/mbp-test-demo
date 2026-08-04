@@ -30,7 +30,7 @@ public interface JobLogFrameworkService {
      *
      * @param logId    日志编号
      * @param endTime  结束时间。因为是异步,避免记录时间不准去
-     * @param duration 运行时长,单位：毫秒
+     * @param duration 运行时长,单位:毫秒
      * @param success  是否成功
      * @param result   成功数据
      */

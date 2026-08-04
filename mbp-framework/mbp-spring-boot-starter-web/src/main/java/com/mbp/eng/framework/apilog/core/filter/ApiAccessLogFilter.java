@@ -42,7 +42,7 @@ import static com.mbp.eng.framework.common.util.json.JsonUtils.toJsonString;
 /**
  * API 访问日志 Filter
  *
- * 目的：记录 API 访问日志到数据库中
+ * 目的:记录 API 访问日志到数据库中
  */
 @Slf4j
 public class ApiAccessLogFilter extends ApiRequestFilter {
@@ -97,7 +97,7 @@ public class ApiAccessLogFilter extends ApiRequestFilter {
 
     private boolean buildApiAccessLog(ApiAccessLogCreateReqDTO accessLog, HttpServletRequest request, LocalDateTime beginTime,
                                       Map<String, String> queryString, String requestBody, Exception ex) {
-        // 判断：是否要记录操作日志
+        // 判断:是否要记录操作日志
         HandlerMethod handlerMethod = (HandlerMethod) request.getAttribute(ATTRIBUTE_HANDLER_METHOD);
         ApiAccessLog accessLogAnnotation = null;
         if (handlerMethod != null) {
@@ -224,18 +224,18 @@ public class ApiAccessLogFilter extends ApiRequestFilter {
     }
 
     private static void sanitizeJson(JsonNode node, String[] sanitizeKeys) {
-        // 情况一：数组,遍历处理
+        // 情况一:数组,遍历处理
         if (node.isArray()) {
             for (JsonNode childNode : node) {
                 sanitizeJson(childNode, sanitizeKeys);
             }
             return;
         }
-        // 情况二：非 Object,只是某个值,直接返回
+        // 情况二:非 Object,只是某个值,直接返回
         if (!node.isObject()) {
             return;
         }
-        //  情况三：Object,遍历处理
+        //  情况三:Object,遍历处理
         Iterator<Map.Entry<String, JsonNode>> iterator = node.fields();
         while (iterator.hasNext()) {
             Map.Entry<String, JsonNode> entry = iterator.next();

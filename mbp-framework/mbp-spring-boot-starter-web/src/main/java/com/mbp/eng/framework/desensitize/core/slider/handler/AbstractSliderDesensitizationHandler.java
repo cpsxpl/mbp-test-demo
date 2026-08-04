@@ -27,12 +27,12 @@ public abstract class AbstractSliderDesensitizationHandler<T extends Annotation>
         int length = origin.length();
         int interval = length - prefixKeep - suffixKeep;
 
-        // 情况一：原始字符串长度小于等于前后缀保留字符串长度,则原始字符串全部替换
+        // 情况一:原始字符串长度小于等于前后缀保留字符串长度,则原始字符串全部替换
         if (interval <= 0) {
             return buildReplacerByLength(replacer, length);
         }
 
-        // 情况二：原始字符串长度大于前后缀保留字符串长度,则替换中间字符串
+        // 情况二:原始字符串长度大于前后缀保留字符串长度,则替换中间字符串
         return origin.substring(0, prefixKeep) +
                 buildReplacerByLength(replacer, interval) +
                 origin.substring(prefixKeep + interval);

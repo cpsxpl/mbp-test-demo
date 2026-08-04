@@ -49,7 +49,7 @@ public class DatabaseTableServiceImpl implements DatabaseTableService {
         // 使用 MyBatis Plus Generator 解析表结构
         DataSourceConfig.Builder dataSourceConfigBuilder = new DataSourceConfig.Builder(config.getUrl(), config.getUsername(),
                 config.getPassword());
-        if (JdbcUtils.isSQLServer(config.getUrl())) { // 特殊：SQLServer jdbc 非标准,参见 https://github.com/baomidou/mybatis-plus/issues/5419
+        if (JdbcUtils.isSQLServer(config.getUrl())) { // 特殊:SQLServer jdbc 非标准,参见 https://github.com/baomidou/mybatis-plus/issues/5419
             dataSourceConfigBuilder.databaseQueryClass(SQLQuery.class);
         }
         StrategyConfig.Builder strategyConfig = new StrategyConfig.Builder().enableSkipView(); // 忽略视图,业务上一般用不到

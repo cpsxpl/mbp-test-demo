@@ -15,7 +15,7 @@ import { DictTag } from '#/components/dict-tag';
 import { VxeColumn, VxeTable } from '#/adapter/vxe-table';
 import { getRangePickerDefaultProps } from '#/utils/rangePickerProps';
 
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 11 || $table.templateType == 12 )
     #foreach ($subSimpleClassName in $subSimpleClassNames)
     #set ($index = $foreach.count - 1)
@@ -53,12 +53,12 @@ const list = ref<any[]>([]) // 树列表的数据
 const list = ref<${simpleClassName}Api.${simpleClassName}[]>([]) // 列表的数据
 #end
 
-## 特殊：树表专属逻辑（树不需要分页接口）
+## 特殊:树表专属逻辑（树不需要分页接口）
 #if ( $table.templateType != 2 )
 const total = ref(0) // 列表的总页数
 #end
 const queryParams = reactive({
-## 特殊：树表专属逻辑（树不需要分页接口）
+## 特殊:树表专属逻辑（树不需要分页接口）
 #if ( $table.templateType != 2 )
   pageNo: 1,
   pageSize: 10,
@@ -91,7 +91,7 @@ async function getList() {
               #end
           #end
       #end
-      ## 特殊：树表专属逻辑（树不需要分页接口）
+      ## 特殊:树表专属逻辑（树不需要分页接口）
       #if ( $table.templateType == 2 )
         list.value = await get${simpleClassName}List(params);
       #else
@@ -144,7 +144,7 @@ function handleEdit(row: ${simpleClassName}Api.${simpleClassName}) {
   formModalApi.setData(row).open();
 }
 
-#if (${table.templateType} == 2)## 树表特有：新增下级
+#if (${table.templateType} == 2)## 树表特有:新增下级
 /** 新增下级${table.classComment} */
 function handleAppend(row: ${simpleClassName}Api.${simpleClassName}) {
   formModalApi.setData({ ${treeParentColumn.javaField}: row.id }).open();
@@ -397,7 +397,7 @@ onMounted(() => {
 #if ($table.templateType != 2 && $deleteBatchEnable)
         <VxeColumn type="checkbox" width="40" />
 #end
-          ## 特殊：主子表专属逻辑
+          ## 特殊:主子表专属逻辑
           #if ( $table.templateType == 12 && $subTables && $subTables.size() > 0 )
             <!-- 子表的列表 -->
             <VxeColumn type="expand" width="60">

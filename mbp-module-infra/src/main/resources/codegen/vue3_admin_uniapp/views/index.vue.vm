@@ -63,17 +63,17 @@
     #set ($javaType = $column.javaType)
     #if ($dictType && "" != $dictType)
             <view class="mb-12rpx flex items-center text-28rpx text-[#666]">
-              <text class="mr-8rpx text-[#999]">${comment}：</text>
+              <text class="mr-8rpx text-[#999]">${comment}:</text>
               <dict-tag :type="DICT_TYPE.${dictType.toUpperCase()}" :value="item.${javaField}" />
             </view>
     #elseif ($javaType == "LocalDateTime")
             <view class="mb-12rpx flex items-center text-28rpx text-[#666]">
-              <text class="mr-8rpx text-[#999]">${comment}：</text>
+              <text class="mr-8rpx text-[#999]">${comment}:</text>
               <text class="line-clamp-1">{{ formatDateTime(item.${javaField}) || '-' }}</text>
             </view>
     #else
             <view class="mb-12rpx flex items-center text-28rpx text-[#666]">
-              <text class="mr-8rpx text-[#999]">${comment}：</text>
+              <text class="mr-8rpx text-[#999]">${comment}:</text>
               <text class="line-clamp-1">{{ item.${javaField} }}</text>
             </view>
     #end

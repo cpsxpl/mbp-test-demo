@@ -83,7 +83,7 @@
               #end
           #end
       </el-form>
-        ## 特殊：主子表专属逻辑
+        ## 特殊:主子表专属逻辑
         #if ( $table.templateType == 10 || $table.templateType == 12 )
           <!-- 子表的表单 -->
           <el-tabs v-model="subTabsName">
@@ -117,12 +117,12 @@
   #if ($hasEditorColumn)
   import Editor from '@/components/Editor';
   #end
-  ## 特殊：树表专属逻辑
+  ## 特殊:树表专属逻辑
   #if ( $table.templateType == 2 )
   import TreeSelect from "@riophae/vue-treeselect";
   import "@riophae/vue-treeselect/dist/vue-treeselect.css";
   #end
-  ## 特殊：主子表专属逻辑
+  ## 特殊:主子表专属逻辑
   #if ( $table.templateType == 10 || $table.templateType == 12 )
       #foreach ($subSimpleClassName in $subSimpleClassNames)
       import ${subSimpleClassName}Form from './components/${subSimpleClassName}Form.vue'
@@ -140,11 +140,11 @@
         #if ($hasEditorColumn)
           Editor,
         #end
-        ## 特殊：树表专属逻辑
+        ## 特殊:树表专属逻辑
         #if ( $table.templateType == 2 )
           TreeSelect,
         #end
-        ## 特殊：主子表专属逻辑
+        ## 特殊:主子表专属逻辑
         #if ( $table.templateType == 10 || $table.templateType == 12 )
             #foreach ($subSimpleClassName in $subSimpleClassNames)
                ${subSimpleClassName}Form,
@@ -157,7 +157,7 @@
         dialogTitle: "",
         // 是否显示弹出层
         dialogVisible: false,
-        // 表单的加载中：1）修改时的数据加载；2）提交的按钮禁用
+        // 表单的加载中:1）修改时的数据加载；2）提交的按钮禁用
         formLoading: false,
         // 表单参数
         formData: {
@@ -180,11 +180,11 @@
                 #end
             #end
         },
-          ## 特殊：树表专属逻辑
+          ## 特殊:树表专属逻辑
           #if ( $table.templateType == 2 )
              ${classNameVar}Tree: [], // 树形结构
           #end
-        ## 特殊：主子表专属逻辑
+        ## 特殊:主子表专属逻辑
         #if ( $table.templateType == 10 || $table.templateType == 12 )
         #if ( $subTables && $subTables.size() > 0 )
             /** 子表的表单 */
@@ -210,7 +210,7 @@
           }
         }
         this.title = "新增${table.classComment}";
-        ## 特殊：树表专属逻辑
+        ## 特殊:树表专属逻辑
         #if ( $table.templateType == 2 )
         await this.get${simpleClassName}Tree();
         #end
@@ -219,7 +219,7 @@
       async submitForm() {
         // 校验主表
         await this.$refs["formRef"].validate();
-          ## 特殊：主子表专属逻辑
+          ## 特殊:主子表专属逻辑
           #if ( $table.templateType == 10 || $table.templateType == 12 )
               #if ( $subTables && $subTables.size() > 0 )
                 // 校验子表
@@ -239,7 +239,7 @@
         this.formLoading = true;
         try {
           const data = this.formData;
-        ## 特殊：主子表专属逻辑
+        ## 特殊:主子表专属逻辑
         #if ( $table.templateType == 10 || $table.templateType == 12 )
         #if ( $subTables && $subTables.size() > 0 )
             // 拼接子表的数据
@@ -267,7 +267,7 @@
           this.formLoading = false;
         }
       },
-        ## 特殊：树表专属逻辑
+        ## 特殊:树表专属逻辑
         #if ( $table.templateType == 2 )
           /** 获得${table.classComment}树 */
          async get${simpleClassName}Tree() {
@@ -278,7 +278,7 @@
             this.${classNameVar}Tree.push(root)
           },
         #end
-        ## 特殊：树表专属逻辑
+        ## 特殊:树表专属逻辑
         #if ( $table.templateType == 2 )
           /** 转换${table.classComment}数据结构 */
           normalizer(node) {

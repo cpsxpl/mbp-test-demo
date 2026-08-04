@@ -33,7 +33,7 @@ import { $t } from '#/locales';
 
 import { useGridColumns, useGridFormSchema } from './data';
 import Form from './modules/form.vue';
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 11 || $table.templateType == 12 )
     #foreach ($subSimpleClassName in $subSimpleClassNames)
     #set ($index = $foreach.count - 1)
@@ -64,7 +64,7 @@ function handleImport() {
   importFormModalApi.open();
 }
 #end
-#if (${table.templateType} == 2)## 树表特有：控制表格展开收缩
+#if (${table.templateType} == 2)## 树表特有:控制表格展开收缩
 
 /** 切换树形展开/收缩状态 */
 const isExpanded = ref(true);
@@ -87,7 +87,7 @@ function handleRefresh() {
 function handleCreate() {
   formModalApi.setData(null).open();
 }
-#if (${table.templateType} == 2)## 树表特有：新增下级
+#if (${table.templateType} == 2)## 树表特有:新增下级
 
 /** 添加下级${table.classComment} */
 function handleAppend(row: ${apiName}.${simpleClassName}) {
@@ -258,7 +258,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
               auth: ['${table.moduleName}:${simpleClassName_strikeCase}:create'],
               onClick: handleCreate,
             },
-            #if (${table.templateType} == 2)## 树表特有：展开/收缩按钮
+            #if (${table.templateType} == 2)## 树表特有:展开/收缩按钮
             {
               label: isExpanded ? '收缩' : '展开',
               type: 'primary',
@@ -297,7 +297,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
       <template #actions="{ row }">
         <TableAction
           :actions="[
-            #if (${table.templateType} == 2)## 树表特有：新增下级
+            #if (${table.templateType} == 2)## 树表特有:新增下级
             {
               label: '新增下级',
               type: 'link',

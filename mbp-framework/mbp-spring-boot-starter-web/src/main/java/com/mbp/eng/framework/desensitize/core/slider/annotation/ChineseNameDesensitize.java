@@ -31,7 +31,7 @@ public @interface ChineseNameDesensitize {
     int suffixKeep() default 0;
 
     /**
-     * 替换规则,中文名;比如：刘子豪脱敏之后为刘**
+     * 替换规则,中文名;比如:刘子豪脱敏之后为刘**
      */
     String replacer() default "*";
 

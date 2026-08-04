@@ -764,7 +764,7 @@ public class DateUtil {
      *
      * @param startDate
      * @param endDate
-     * @return boolean 在结束日期前:ture;否则：false
+     * @return boolean 在结束日期前:ture;否则:false
      */
     public static boolean isStartDateBeforeEndDate(Date startDate, Date endDate) throws ParseException {
         long startTime = getMillisOfDate(startDate);
@@ -840,7 +840,7 @@ public class DateUtil {
      * @param startDate 给定的日期
      * @param count     时间的数量
      * @param field     添加的域
-     * @param format    时间转化格式,例如：yyyy-MM-dd hh:mm:ss 或者yyyy-mm-dd等
+     * @param format    时间转化格式,例如:yyyy-MM-dd hh:mm:ss 或者yyyy-mm-dd等
      * @return 添加后格式化的时间
      */
     public static String addDate(Date startDate, int count, int field, String format) throws ParseException {
@@ -1602,7 +1602,7 @@ public class DateUtil {
 
     /**
      * 方法名: 功能描述: 两个参数格式必须为20050827,而且不能为空。
-     * 参数说明： 第一个参数小于第二个参数返回true 返回值:
+     * 参数说明: 第一个参数小于第二个参数返回true 返回值:
      * 函数返回值的说明
      */
     public static boolean lessThan(String preDate, String date) {
@@ -1627,7 +1627,7 @@ public class DateUtil {
 
     /**
      * 方法名: 功能描述: 两个参数格式必须为20050827,而且不能为空。
-     * 参数说明： 第一个参数大于第二个参数返回true 返回值:
+     * 参数说明: 第一个参数大于第二个参数返回true 返回值:
      * 函数返回值的说明 其他: // 其它说明
      */
     public static boolean greaterThan(String preDate, String date) {

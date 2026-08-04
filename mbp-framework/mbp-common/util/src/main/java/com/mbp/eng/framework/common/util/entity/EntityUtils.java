@@ -19,7 +19,7 @@ public class EntityUtils {
             e.printStackTrace();
             return false;
         } catch (SecurityException e) {
-            logger.warn("发生异常：" + e.getMessage());
+            logger.warn("发生异常:" + e.getMessage());
         }
         return true;
     }

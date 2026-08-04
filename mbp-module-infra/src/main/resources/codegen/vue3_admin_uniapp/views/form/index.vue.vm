@@ -113,7 +113,7 @@
           <wd-form-item title="${comment}" title-width="180rpx" prop="${javaField}">
             <yd-upload-file v-model="formData.${javaField}" directory="${table.moduleName}/${table.businessName}" />
           </wd-form-item>
-    ## 默认：文本输入
+    ## 默认:文本输入
     #else
           <wd-form-item title="${comment}" title-width="180rpx" prop="${javaField}">
             <wd-input

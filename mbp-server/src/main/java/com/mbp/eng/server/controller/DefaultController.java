@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 public class DefaultController {
 
     /**
-     * 测试接口：打印 query、header、body
+     * 测试接口:打印 query、header、body
      */
     @RequestMapping(value = { "/test" })
     @PermitAll

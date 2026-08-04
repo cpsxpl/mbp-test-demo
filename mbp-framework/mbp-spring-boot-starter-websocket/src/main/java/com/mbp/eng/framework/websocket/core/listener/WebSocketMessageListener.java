@@ -6,7 +6,7 @@ import org.springframework.web.socket.WebSocketSession;
 /**
  * WebSocket 消息监听器接口
  *
- * 目的：前端发送消息给后端后,处理对应 {@link #getType()} 类型的消息
+ * 目的:前端发送消息给后端后,处理对应 {@link #getType()} 类型的消息
  *
  * @param <T> 泛型,消息类型
  */

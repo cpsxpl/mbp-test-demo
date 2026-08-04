@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 #end
 import ${basePackage}.module.${table.moduleName}.controller.${sceneEnum.basePackage}.${table.businessName}.vo.*;
 import ${basePackage}.module.${table.moduleName}.dal.dataobject.${table.businessName}.${table.className}DO;
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #foreach ($subTable in $subTables)
 import ${basePackage}.module.${subTable.moduleName}.dal.dataobject.${subTable.businessName}.${subTable.className}DO;
 #end
@@ -30,7 +30,7 @@ import ${PageParamClassName};
 import ${BeanUtils};
 
 import ${basePackage}.module.${table.moduleName}.dal.mysql.${table.businessName}.${table.className}Mapper;
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #foreach ($subTable in $subTables)
 #set ($index = $foreach.count - 1)
 import ${basePackage}.module.${subTable.moduleName}.dal.mysql.${subTable.businessName}.${subTable.className}Mapper;
@@ -52,7 +52,7 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
 
     @Resource
     private ${table.className}Mapper ${classNameVar}Mapper;
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #foreach ($subTable in $subTables)
 #set ($index = $foreach.count - 1)
     @Resource
@@ -60,12 +60,12 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
 #end
 
     @Override
-## 特殊：主子表专属逻辑（非 ERP 模式）
+## 特殊:主子表专属逻辑（非 ERP 模式）
 #if ( $subTables && $subTables.size() > 0 && $table.templateType != 11 )
     @Transactional(rollbackFor = Exception.class)
 #end
     public ${primaryColumn.javaType} create${simpleClassName}(${saveReqVOClass} ${saveReqVOVar}) {
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
 #set ($TreeParentJavaField = $treeParentColumn.javaField.substring(0,1).toUpperCase() + ${treeParentColumn.javaField.substring(1)})##首字母大写
 #set ($TreeNameJavaField = $treeNameColumn.javaField.substring(0,1).toUpperCase() + ${treeNameColumn.javaField.substring(1)})##首字母大写
@@ -84,7 +84,7 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
         ${classNameVar}Mapper.insert(${saveReqVOVar});
 #end
 
-## 特殊：主子表专属逻辑（非 ERP 模式）
+## 特殊:主子表专属逻辑（非 ERP 模式）
 #if ( $subTables && $subTables.size() > 0 && $table.templateType != 11 )
 
         // 插入子表
@@ -131,14 +131,14 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
 #end
 
     @Override
-## 特殊：主子表专属逻辑（非 ERP 模式）
+## 特殊:主子表专属逻辑（非 ERP 模式）
 #if ( $subTables && $subTables.size() > 0 && $table.templateType != 11 )
     @Transactional(rollbackFor = Exception.class)
 #end
     public void update${simpleClassName}(${updateReqVOClass} ${updateReqVOVar}) {
         // 校验存在
         validate${simpleClassName}Exists(${updateReqVOVar}.getId());
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
 #set ($TreeParentJavaField = $treeParentColumn.javaField.substring(0,1).toUpperCase() + ${treeParentColumn.javaField.substring(1)})##首字母大写
 #set ($TreeNameJavaField = $treeNameColumn.javaField.substring(0,1).toUpperCase() + ${treeNameColumn.javaField.substring(1)})##首字母大写
@@ -156,7 +156,7 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
         ${updateReqVOVar}.clean() // 清理掉创建、更新时间等相关属性值
         ${classNameVar}Mapper.updateById(${updateReqVOVar});
 #end
-## 特殊：主子表专属逻辑（非 ERP 模式）
+## 特殊:主子表专属逻辑（非 ERP 模式）
 #if ( $subTables && $subTables.size() > 0 && $table.templateType != 11)
 
         // 更新子表
@@ -175,14 +175,14 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
     }
 
     @Override
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $subTables && $subTables.size() > 0)
     @Transactional(rollbackFor = Exception.class)
 #end
     public void delete${simpleClassName}(${primaryColumn.javaType} id) {
         // 校验存在
         validate${simpleClassName}Exists(id);
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
 #set ($ParentJavaField = $treeParentColumn.javaField.substring(0,1).toUpperCase() + ${treeParentColumn.javaField.substring(1)})##首字母大写
         // 校验是否有子${table.classComment}
@@ -192,7 +192,7 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
 #end
         // 删除
         ${classNameVar}Mapper.deleteById(id);
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $subTables && $subTables.size() > 0)
 
         // 删除子表
@@ -208,14 +208,14 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
 
 #if ( $table.templateType != 2 && $deleteBatchEnable)
     @Override
-    ## 特殊：主子表专属逻辑
+    ## 特殊:主子表专属逻辑
     #if ( $subTables && $subTables.size() > 0)
     @Transactional(rollbackFor = Exception.class)
     #end
     public void delete${simpleClassName}ListByIds(List<${primaryColumn.javaType}> ids) {
         // 删除
         ${classNameVar}Mapper.deleteByIds(ids);
-    ## 特殊：主子表专属逻辑
+    ## 特殊:主子表专属逻辑
     #if ( $subTables && $subTables.size() > 0)
 
     // 删除子表
@@ -237,7 +237,7 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
         }
     }
 
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
 #set ($TreeParentJavaField = $treeParentColumn.javaField.substring(0,1).toUpperCase() + ${treeParentColumn.javaField.substring(1)})##首字母大写
 #set ($TreeNameJavaField = $treeNameColumn.javaField.substring(0,1).toUpperCase() + ${treeNameColumn.javaField.substring(1)})##首字母大写
@@ -295,7 +295,7 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
         return ${classNameVar}Mapper.selectById(id);
     }
 
-## 特殊：树表专属逻辑（树不需要分页接口）
+## 特殊:树表专属逻辑（树不需要分页接口）
 #if ( $table.templateType != 2 )
     @Override
     public PageResult<${table.className}DO> get${simpleClassName}Page(${sceneEnum.prefixClass}${table.className}PageReqVO pageReqVO) {
@@ -308,7 +308,7 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
     }
 #end
 
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #foreach ($subTable in $subTables)
 #set ($index = $foreach.count - 1)
 #set ($subSimpleClassName = $subSimpleClassNames.get($index))
@@ -319,14 +319,14 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
 #set ($subClassNameVar = $subClassNameVars.get($index))
     // ==================== 子表（$subTable.classComment） ====================
 
-## 情况一：MASTER_ERP 时,需要分查询页子表
+## 情况一:MASTER_ERP 时,需要分查询页子表
 #if ( $table.templateType == 11 )
     @Override
     public PageResult<${subTable.className}DO> get${subSimpleClassName}Page(PageParam pageReqVO, ${subJoinColumn.javaType} ${subJoinColumn.javaField}) {
         return ${subClassNameVars.get($index)}Mapper.selectPage(pageReqVO, ${subJoinColumn.javaField});
     }
 
-## 情况二：非 MASTER_ERP 时,需要列表查询子表
+## 情况二:非 MASTER_ERP 时,需要列表查询子表
 #else
     #if ( $subTable.subJoinMany )
     @Override
@@ -342,11 +342,11 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
 
     #end
 #end
-## 情况一：MASTER_ERP 时,支持单个的新增、修改、删除操作
+## 情况一:MASTER_ERP 时,支持单个的新增、修改、删除操作
 #if ( $table.templateType == 11 )
     @Override
     public ${subPrimaryColumn.javaType} create${subSimpleClassName}(${subTable.className}DO ${subClassNameVar}) {
-## 特殊：一对一时,需要保证只有一条,不能重复插入
+## 特殊:一对一时,需要保证只有一条,不能重复插入
 #if ( !$subTable.subJoinMany)
         // 校验是否已经存在
         if (${subClassNameVars.get($index)}Mapper.selectBy${SubJoinColumnName}(${subClassNameVar}.get${SubJoinColumnName}()) != null) {
@@ -364,7 +364,7 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
         // 校验存在
         validate${subSimpleClassName}Exists(${subClassNameVar}.getId());
         // 更新
-        ${subClassNameVar}.clean(); // 解决更新情况下：updateTime 不更新
+        ${subClassNameVar}.clean(); // 解决更新情况下:updateTime 不更新
         ${subClassNameVars.get($index)}Mapper.updateById(${subClassNameVar});
     }
 
@@ -393,7 +393,7 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
         }
     }
 
-## 情况二：非 MASTER_ERP 时,支持批量的新增、修改操作
+## 情况二:非 MASTER_ERP 时,支持批量的新增、修改操作
 #else
     #if ( $subTable.subJoinMany)
     private void create${subSimpleClassName}List(${primaryColumn.javaType} ${subJoinColumn.javaField}, List<${subTable.className}DO> list) {
@@ -410,7 +410,7 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
 	    List<List<${subTable.className}DO>> diffList = diffList(oldList, list, (oldVal, newVal) -> {
             boolean same = ObjectUtil.equal(oldVal.getId(), newVal.getId());
             if (same) {
-                newVal.setId(oldVal.getId()).clean(); // 解决更新情况下：updateTime 不更新
+                newVal.setId(oldVal.getId()).clean(); // 解决更新情况下:updateTime 不更新
             }
             return same;
 	    });
@@ -440,7 +440,7 @@ public class ${table.className}ServiceImpl implements ${table.className}Service 
         if (${subClassNameVar} == null) {
 			return;
         }
-        ${subClassNameVar}.set$SubJoinColumnName(${subJoinColumn.javaField}).clean();// 解决更新情况下：updateTime 不更新
+        ${subClassNameVar}.set$SubJoinColumnName(${subJoinColumn.javaField}).clean();// 解决更新情况下:updateTime 不更新
         ${subClassNameVars.get($index)}Mapper.insertOrUpdate(${subClassNameVar});
     }
 

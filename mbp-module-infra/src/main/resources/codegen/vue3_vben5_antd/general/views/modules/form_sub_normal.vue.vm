@@ -129,7 +129,7 @@ watch(
               #elseif ($javaType == "Boolean")
                   #set ($dictMethod = "boolean")
               #end
-              #if ( $column.id == $subJoinColumn.id) ## 特殊：忽略主子表的 join 字段,不用填写
+              #if ( $column.id == $subJoinColumn.id) ## 特殊:忽略主子表的 join 字段,不用填写
               #elseif ($column.htmlType == "input" && !$column.primaryKey)## 忽略主键,不用在表单里
                 <VxeColumn field="${javaField}" title="${comment}" align="center">
                   <template #default="{ row }">

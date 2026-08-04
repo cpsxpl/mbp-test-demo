@@ -69,14 +69,14 @@ public class SocialClientApiImpl implements SocialClientApi {
         // 1.1 获得订阅模版列表
         List<TemplateInfo> templateList = socialClientService.getSubscribeTemplateList(reqDTO.getUserType());
         if (CollUtil.isEmpty(templateList)) {
-            log.warn("[sendSubscribeMessage][reqDTO({}) 发送订阅消息失败,原因：没有找到订阅模板]", reqDTO);
+            log.warn("[sendSubscribeMessage][reqDTO({}) 发送订阅消息失败,原因:没有找到订阅模板]", reqDTO);
             return;
         }
         // 1.2 获得需要使用的模版
         TemplateInfo template = findOne(templateList, item ->
                 ObjUtil.equal(item.getTitle(), reqDTO.getTemplateTitle()));
         if (template == null) {
-            log.warn("[sendWxaSubscribeMessage][reqDTO({}) 发送订阅消息失败,原因：没有找到订阅模板]", reqDTO);
+            log.warn("[sendWxaSubscribeMessage][reqDTO({}) 发送订阅消息失败,原因:没有找到订阅模板]", reqDTO);
             return;
         }
 
@@ -84,7 +84,7 @@ public class SocialClientApiImpl implements SocialClientApi {
         SocialUserRespDTO socialUser = socialUserService.getSocialUserByUserId(reqDTO.getUserType(), reqDTO.getUserId(),
                 SocialTypeEnum.WECHAT_MINI_PROGRAM.getType());
         if (ObjUtil.isNull(socialUser) || StrUtil.isBlankIfStr(socialUser.getOpenid())) {
-            log.warn("[sendWxaSubscribeMessage][reqDTO({}) 发送订阅消息失败,原因：会员 openid 缺失]", reqDTO);
+            log.warn("[sendWxaSubscribeMessage][reqDTO({}) 发送订阅消息失败,原因:会员 openid 缺失]", reqDTO);
             return;
         }
 

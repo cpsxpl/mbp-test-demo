@@ -14,7 +14,7 @@ public class JsonWebSocketMessage implements Serializable {
     /**
      * 消息类型
      *
-     * 目的：用于分发到对应的 {@link WebSocketMessageListener} 实现类
+     * 目的:用于分发到对应的 {@link WebSocketMessageListener} 实现类
      */
     private String type;
     /**

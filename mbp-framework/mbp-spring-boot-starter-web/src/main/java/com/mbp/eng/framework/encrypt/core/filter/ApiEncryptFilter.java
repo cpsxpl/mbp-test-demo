@@ -35,8 +35,8 @@ import static com.mbp.eng.framework.common.exception.util.ServiceExceptionUtil.i
  * 1. 解密请求参数
  * 2. 加密响应结果
  *
- * 疑问：为什么不使用 SpringMVC 的 RequestBodyAdvice 或 ResponseBodyAdvice 机制呢？
- * 回答：考虑到项目中会记录访问日志、异常日志,以及 HTTP API 签名等场景,最好是全局级、且提前做解析！！！
+ * 疑问:为什么不使用 SpringMVC 的 RequestBodyAdvice 或 ResponseBodyAdvice 机制呢？
+ * 回答:考虑到项目中会记录访问日志、异常日志,以及 HTTP API 签名等场景,最好是全局级、且提前做解析！！！
  */
 @Slf4j
 public class ApiEncryptFilter extends ApiRequestFilter {
@@ -72,8 +72,8 @@ public class ApiEncryptFilter extends ApiRequestFilter {
             this.responseSymmetricEncryptor = null;
             this.responseAsymmetricEncryptor = SecureUtil.rsa(null, apiEncryptProperties.getResponseKey());
         } else {
-            // 补充说明：如果要支持 SM2、SM4 等算法,可在此处增加对应实例的创建,并添加相应的 Maven 依赖即可。
-            throw new IllegalArgumentException("不支持的加密算法：" + apiEncryptProperties.getAlgorithm());
+            // 补充说明:如果要支持 SM2、SM4 等算法,可在此处增加对应实例的创建,并添加相应的 Maven 依赖即可。
+            throw new IllegalArgumentException("不支持的加密算法:" + apiEncryptProperties.getAlgorithm());
         }
     }
 
@@ -110,7 +110,7 @@ public class ApiEncryptFilter extends ApiRequestFilter {
 
         // 2. 执行过滤器链
         if (responseEnable) {
-            // 特殊：仅包装,最后执行。目的：Response 内容可以被重复读取！！！
+            // 特殊:仅包装,最后执行。目的:Response 内容可以被重复读取！！！
             response = new ApiEncryptResponseWrapper(response);
         }
         chain.doFilter(request, response);
@@ -130,7 +130,7 @@ public class ApiEncryptFilter extends ApiRequestFilter {
     @SuppressWarnings("PatternVariableCanBeUsed")
     private ApiEncrypt getApiEncrypt(HttpServletRequest request) {
         try {
-            // 特殊：兼容 SpringBoot 2.X 版本会报错的问题 https://t.zsxq.com/kqyiB
+            // 特殊:兼容 SpringBoot 2.X 版本会报错的问题 https://t.zsxq.com/kqyiB
             if (!ServletRequestPathUtils.hasParsedRequestPath(request)) {
                 ServletRequestPathUtils.parseAndCache(request);
             }

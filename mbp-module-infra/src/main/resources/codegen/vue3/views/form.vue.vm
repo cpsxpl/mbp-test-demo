@@ -116,7 +116,7 @@
     #end
 #end
     </el-form>
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 10 || $table.templateType == 12 )
     <!-- 子表的表单 -->
     <el-tabs v-model="subTabsName">
@@ -140,11 +140,11 @@
 <script setup lang="ts">
 import { getIntDictOptions, getStrDictOptions, getBoolDictOptions, DICT_TYPE } from '@/utils/dict'
 import { ${simpleClassName}Api, ${simpleClassName} } from '@/api/${table.moduleName}/${table.businessName}'
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
 import { defaultProps, handleTree } from '@/utils/tree'
 #end
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 10 || $table.templateType == 12 )
 #foreach ($subSimpleClassName in $subSimpleClassNames)
 import ${subSimpleClassName}Form from './components/${subSimpleClassName}Form.vue'
@@ -159,8 +159,8 @@ const message = useMessage() // 消息弹窗
 
 const dialogVisible = ref(false) // 弹窗的是否展示
 const dialogTitle = ref('') // 弹窗的标题
-const formLoading = ref(false) // 表单的加载中：1）修改时的数据加载；2）提交的按钮禁用
-const formType = ref('') // 表单的类型：create - 新增；update - 修改
+const formLoading = ref(false) // 表单的加载中:1）修改时的数据加载；2）提交的按钮禁用
+const formType = ref('') // 表单的类型:create - 新增；update - 修改
 const formData = ref({
 #foreach ($column in $columns)
     #if ($column.createOperation || $column.updateOperation)
@@ -181,11 +181,11 @@ const formRules = reactive({
 #end
 })
 const formRef = ref() // 表单 Ref
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
 const ${classNameVar}Tree = ref() // 树形结构
 #end
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 10 || $table.templateType == 12 )
 #if ( $subTables && $subTables.size() > 0 )
 
@@ -212,7 +212,7 @@ const open = async (type: string, id?: number) => {
       formLoading.value = false
     }
   }
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
   await get${simpleClassName}Tree()
 #end
@@ -224,7 +224,7 @@ const emit = defineEmits(['success']) // 定义 success 事件,用于操作成�
 const submitForm = async () => {
   // 校验表单
   await formRef.value.validate()
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 10 || $table.templateType == 12 )
 #if ( $subTables && $subTables.size() > 0 )
   // 校验子表单
@@ -244,7 +244,7 @@ const submitForm = async () => {
   formLoading.value = true
   try {
     const data = formData.value as unknown as ${simpleClassName}
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 10 || $table.templateType == 12 )
 #if ( $subTables && $subTables.size() > 0 )
     // 拼接子表的数据
@@ -285,7 +285,7 @@ const resetForm = () => {
   }
   formRef.value?.resetFields()
 }
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
 
 /** 获得${table.classComment}树 */

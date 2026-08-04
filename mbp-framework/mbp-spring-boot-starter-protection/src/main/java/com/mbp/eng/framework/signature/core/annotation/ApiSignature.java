@@ -35,17 +35,17 @@ public @interface ApiSignature {
     String message() default "签名不正确"; // 为空时,使用 BAD_REQUEST 错误提示
 
     /**
-     * 签名字段：appId 应用ID
+     * 签名字段:appId 应用ID
      */
     String appId() default "appId";
 
     /**
-     * 签名字段：timestamp 时间戳
+     * 签名字段:timestamp 时间戳
      */
     String timestamp() default "timestamp";
 
     /**
-     * 签名字段：nonce 随机数,10 位以上
+     * 签名字段:nonce 随机数,10 位以上
      */
     String nonce() default "nonce";
 

@@ -35,8 +35,8 @@ import static com.mbp.eng.framework.web.core.util.WebFrameworkUtils.HEADER_TENAN
 /**
  * Swagger 自动配置类,基于 OpenAPI + Springdoc 实现。
  *
- * 友情提示：
- * 1. Springdoc 文档地址：<a href="https://github.com/springdoc/springdoc-openapi">仓库</a>
+ * 友情提示:
+ * 1. Springdoc 文档地址:<a href="https://github.com/springdoc/springdoc-openapi">仓库</a>
  * 2. Swagger 规范,于 2015 更名为 OpenAPI 规范,本质是一个东西
  */
 @AutoConfiguration(before = Knife4jAutoConfiguration.class) // before 原因,保证覆写的 Knife4jOpenApiCustomizer 先生效！相关 https://github.com/YunaiV/ruoyi-vue-pro/issues/954 讨论
@@ -90,7 +90,7 @@ public class MbpSwaggerAutoConfiguration {
      * 自定义 OpenAPI 处理器
      */
     @Bean
-    @Primary // 目的：以我们创建的 OpenAPIService Bean 为主,避免一键改包后,启动报错！
+    @Primary // 目的:以我们创建的 OpenAPIService Bean 为主,避免一键改包后,启动报错！
     public OpenAPIService openApiBuilder(Optional<OpenAPI> openAPI,
                                          SecurityService securityParser,
                                          SpringDocConfigProperties springDocConfigProperties,
@@ -137,7 +137,7 @@ public class MbpSwaggerAutoConfiguration {
                 .name(HEADER_TENANT_ID) // header 名
                 .description("租户编号") // 描述
                 .in(String.valueOf(SecurityScheme.In.HEADER)) // 请求 header
-                .schema(new IntegerSchema()._default(1L).name(HEADER_TENANT_ID).description("租户编号")); // 默认：使用租户编号为 1
+                .schema(new IntegerSchema()._default(1L).name(HEADER_TENANT_ID).description("租户编号")); // 默认:使用租户编号为 1
     }
 
     /**
@@ -152,11 +152,11 @@ public class MbpSwaggerAutoConfiguration {
                 .name(HttpHeaders.AUTHORIZATION) // header 名
                 .description("认证 Token") // 描述
                 .in(String.valueOf(SecurityScheme.In.HEADER)) // 请求 header
-                .schema(new StringSchema()._default("Bearer test1").name(HEADER_TENANT_ID).description("认证 Token")); // 默认：使用用户编号为 1
+                .schema(new StringSchema()._default("Bearer test1").name(HEADER_TENANT_ID).description("认证 Token")); // 默认:使用用户编号为 1
     }
 
     /**
-     * 核心：自定义OperationId生成规则,组合「类名前缀 + 方法名」
+     * 核心:自定义OperationId生成规则,组合「类名前缀 + 方法名」
      *
      * @see <a href="https://github.com/YunaiV/ruoyi-vue-pro/issues/957">app-api 前缀不生效,都是使用 admin-api</a>
      */

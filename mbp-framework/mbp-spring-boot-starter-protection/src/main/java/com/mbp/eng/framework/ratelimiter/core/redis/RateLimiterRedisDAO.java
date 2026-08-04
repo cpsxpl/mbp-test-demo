@@ -16,9 +16,9 @@ public class RateLimiterRedisDAO {
     /**
      * 限流操作
      *
-     * KEY 格式：rate_limiter:%s // 参数为 uuid
-     * VALUE 格式：String
-     * 过期时间：不固定
+     * KEY 格式:rate_limiter:%s // 参数为 uuid
+     * VALUE 格式:String
+     * 过期时间:不固定
      */
     private static final String RATE_LIMITER = "rate_limiter:%s";
 

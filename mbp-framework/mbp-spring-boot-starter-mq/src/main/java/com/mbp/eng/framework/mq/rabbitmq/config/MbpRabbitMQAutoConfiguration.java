@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Bean;
 public class MbpRabbitMQAutoConfiguration {
 
     /**
-     * Jackson2JsonMessageConverter Bean：使用 jackson 序列化消息
+     * Jackson2JsonMessageConverter Bean:使用 jackson 序列化消息
      */
     @Bean
     public MessageConverter createMessageConverter() {

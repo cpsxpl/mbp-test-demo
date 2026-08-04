@@ -174,7 +174,7 @@ public class LocalDateTimeUtils {
      * @param endTime1   结束 time1
      * @param startTime2 开始 time2
      * @param endTime2   结束 time2
-     * @return 重叠：true 不重叠：false
+     * @return 重叠:true 不重叠:false
      */
     public static boolean isOverlap(LocalTime startTime1, LocalTime endTime1, LocalTime startTime2, LocalTime endTime2) {
         LocalDate nowDate = LocalDate.now();
@@ -184,7 +184,7 @@ public class LocalDateTimeUtils {
 
     /**
      * 获取指定日期所在的月份的开始时间
-     * 例如：2023-09-30 00:00:00,000
+     * 例如:2023-09-30 00:00:00,000
      *
      * @param date 日期
      * @return 月份的开始时间
@@ -195,7 +195,7 @@ public class LocalDateTimeUtils {
 
     /**
      * 获取指定日期所在的月份的最后时间
-     * 例如：2023-09-30 23:59:59,999
+     * 例如:2023-09-30 23:59:59,999
      *
      * @param date 日期
      * @return 月份的结束时间
@@ -263,7 +263,7 @@ public class LocalDateTimeUtils {
     /**
      * 获取最近 N 天的 0 点时刻序列（升序,含今天）
      * <p>
-     * 例：getLatestDays(3) 返回 [前天 00:00, 昨天 00:00, 今天 00:00]
+     * 例:getLatestDays(3) 返回 [前天 00:00, 昨天 00:00, 今天 00:00]
      *
      * @param days 天数（含今天）
      * @return 升序的 LocalDateTime 列表

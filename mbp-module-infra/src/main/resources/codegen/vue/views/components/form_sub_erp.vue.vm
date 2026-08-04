@@ -14,7 +14,7 @@
                   #set ($javaType = $column.javaType)
                   #set ($AttrName = $column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
                   #set ($comment = $column.columnComment)
-                  #if ( $column.id == $subJoinColumn.id) ## 特殊：忽略主子表的 join 字段,不用填写
+                  #if ( $column.id == $subJoinColumn.id) ## 特殊:忽略主子表的 join 字段,不用填写
                   #elseif ($column.htmlType == "input" && !$column.primaryKey)## 忽略主键,不用在表单里
                     <el-form-item label="${comment}" prop="${javaField}">
                       <el-input v-model="formData.${javaField}" placeholder="请输入${comment}" />
@@ -118,7 +118,7 @@
         dialogTitle: "",
         // 是否显示弹出层
         dialogVisible: false,
-        // 表单的加载中：1）修改时的数据加载；2）提交的按钮禁用
+        // 表单的加载中:1）修改时的数据加载；2）提交的按钮禁用
         formLoading: false,
         // 表单参数
         formData: {

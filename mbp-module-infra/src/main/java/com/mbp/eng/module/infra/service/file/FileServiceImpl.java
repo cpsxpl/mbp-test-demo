@@ -37,21 +37,21 @@ public class FileServiceImpl implements FileService {
     /**
      * 上传文件的前缀,是否包含日期（yyyyMMdd）
      *
-     * 目的：按照日期,进行分目录
+     * 目的:按照日期,进行分目录
      */
     static boolean PATH_PREFIX_DATE_ENABLE = true;
     /**
      * 上传文件的后缀,是否启用
      *
-     * 算法：当前时间戳（毫秒）+ 5 位随机数；目的是保证文件的唯一性,避免覆盖
-     * 定制：可按需调整成 UUID、或者其他方式
+     * 算法:当前时间戳（毫秒）+ 5 位随机数；目的是保证文件的唯一性,避免覆盖
+     * 定制:可按需调整成 UUID、或者其他方式
      */
     static boolean PATH_SUFFIX_TIMESTAMP_ENABLE = false;
     /**
      * 后缀是否作为上级目录
      *
-     * true：{@code yyyyMMdd/<后缀>/原文件名.ext}；保留原文件名
-     * false：{@code yyyyMMdd/原文件名_<后缀>.ext}；后缀拼到文件名
+     * true:{@code yyyyMMdd/<后缀>/原文件名.ext}；保留原文件名
+     * false:{@code yyyyMMdd/原文件名_<后缀>.ext}；后缀拼到文件名
      */
     static boolean PATH_SUFFIX_AS_DIRECTORY = true;
 
@@ -169,7 +169,7 @@ public class FileServiceImpl implements FileService {
         FilePathUtils.validatePath(createReqVO.getPath());
         createReqVO.setName(FilePathUtils.validateFileName(createReqVO.getName()));
         // 1.2 处理 URL 的合法性,移除 URL 中的查询参数（例如签名参数）,保证 URL 的唯一性
-        createReqVO.setUrl(HttpUtils.removeUrlQuery(createReqVO.getUrl())); // 目的：移除私有桶情况下,URL 的签名参数
+        createReqVO.setUrl(HttpUtils.removeUrlQuery(createReqVO.getUrl())); // 目的:移除私有桶情况下,URL 的签名参数
 
         // 2. 保存到数据库
         FileDO file = BeanUtils.toBean(createReqVO, FileDO.class);

@@ -15,7 +15,7 @@ public interface OAuth2TokenService {
 
     /**
      * 创建访问令牌
-     * 注意：该流程中,会包含创建刷新令牌的创建
+     * 注意:该流程中,会包含创建刷新令牌的创建
      *
      * 参考 DefaultTokenServices 的 createAccessToken 方法
      *
@@ -58,7 +58,7 @@ public interface OAuth2TokenService {
 
     /**
      * 移除访问令牌
-     * 注意：该流程中,会移除相关的刷新令牌
+     * 注意:该流程中,会移除相关的刷新令牌
      *
      * 参考 DefaultTokenServices 的 revokeToken 方法
      *
@@ -69,7 +69,7 @@ public interface OAuth2TokenService {
 
     /**
      * 移除访问令牌
-     * 注意：该流程中,会移除相关的刷新令牌
+     * 注意:该流程中,会移除相关的刷新令牌
      *
      * 参考 DefaultTokenServices 的 revokeToken 方法
      *

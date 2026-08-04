@@ -38,7 +38,7 @@ public class HiveJdbcPool implements DataSource {
             String dbURL = urlStringBuilder.toString();
             for (int i = 0; i < jdbcPoolInitSize; i++) {
                 Connection connection = DriverManager.getConnection(dbURL, HiveJdbcPer.dbUsername, HiveJdbcPer.dbPassword);
-                logger.debug("获取到了链接：{}", connection);
+                logger.debug("获取到了链接:{}", connection);
                 //将获取到的数据库连接加入到Connections集合中,Connections此时就是一个存放了数据库连接的连接池
                 vector.addElement(connection);
             }

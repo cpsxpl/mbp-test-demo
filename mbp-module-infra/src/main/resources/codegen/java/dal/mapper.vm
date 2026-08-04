@@ -49,7 +49,7 @@ import ${basePackage}.module.${table.moduleName}.controller.${sceneEnum.basePack
 @Mapper
 public interface ${table.className}Mapper extends BaseMapperX<${table.className}DO> {
 
-## 特殊：树表专属逻辑（树不需要分页接口）
+## 特殊:树表专属逻辑（树不需要分页接口）
 #if ( $table.templateType != 2 )
     default PageResult<${table.className}DO> selectPage(${sceneEnum.prefixClass}${table.className}PageReqVO reqVO) {
         return selectPage(reqVO, new LambdaQueryWrapperX<${table.className}DO>()
@@ -66,7 +66,7 @@ public interface ${table.className}Mapper extends BaseMapperX<${table.className}
     }
 #end
 
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
 #set ($TreeParentJavaField = $treeParentColumn.javaField.substring(0,1).toUpperCase() + ${treeParentColumn.javaField.substring(1)})##首字母大写
 #set ($TreeNameJavaField = $treeNameColumn.javaField.substring(0,1).toUpperCase() + ${treeNameColumn.javaField.substring(1)})##首字母大写

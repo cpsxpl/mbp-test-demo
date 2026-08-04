@@ -25,9 +25,9 @@ public class FtpUtil {
      * @param ftpPort     SFTP端口
      * @param ftpUserName SFTP 用户名
      * @param ftpPassword SFTP用户名密码
-     * @param ftpPath     SFTP服务器中文件所在路径 格式： ftptest/aa
+     * @param ftpPath     SFTP服务器中文件所在路径 格式: ftptest/aa
      * @param fileName    文件名称
-     * @param localPath   下载到本地的位置 格式：H:/download
+     * @param localPath   下载到本地的位置 格式:H:/download
      * @preserve 从SFTP服务器下载文件
      */
     public static void downloadSftpFile(String ftpHost, int ftpPort, String ftpUserName, String ftpPassword, String ftpPath, String fileName, String localPath) throws JSchException {

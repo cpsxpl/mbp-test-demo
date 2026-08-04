@@ -31,7 +31,7 @@ public @interface CarLicenseDesensitize {
     int suffixKeep() default 1;
 
     /**
-     * 替换规则,车牌号;比如：粤A66666 脱敏之后为粤A6***6
+     * 替换规则,车牌号;比如:粤A66666 脱敏之后为粤A6***6
      */
     String replacer() default "*";
 

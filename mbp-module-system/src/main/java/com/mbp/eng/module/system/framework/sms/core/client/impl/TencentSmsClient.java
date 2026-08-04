@@ -42,10 +42,10 @@ public class TencentSmsClient extends AbstractSmsClient {
     public static final String API_CODE_SUCCESS = "Ok";
 
     /**
-     * 是否国际/港澳台短信：
+     * 是否国际/港澳台短信:
      *
-     * 0：表示国内短信。
-     * 1：表示国际/港澳台短信。
+     * 0:表示国内短信。
+     * 1:表示国际/港澳台短信。
      */
     private static final long INTERNATIONAL_CHINA = 0L;
 
@@ -58,9 +58,9 @@ public class TencentSmsClient extends AbstractSmsClient {
     /**
      * 参数校验腾讯云的 SDK AppId
      *
-     * 原因是：腾讯云发放短信的时候,需要额外的参数 sdkAppId
+     * 原因是:腾讯云发放短信的时候,需要额外的参数 sdkAppId
      *
-     * 解决方案：考虑到不破坏原有的 apiKey + apiSecret 的结构,所以将 secretId 拼接到 apiKey 字段中,格式为 "secretId sdkAppId"。
+     * 解决方案:考虑到不破坏原有的 apiKey + apiSecret 的结构,所以将 secretId 拼接到 apiKey 字段中,格式为 "secretId sdkAppId"。
      *
      * @param properties 配置
      */

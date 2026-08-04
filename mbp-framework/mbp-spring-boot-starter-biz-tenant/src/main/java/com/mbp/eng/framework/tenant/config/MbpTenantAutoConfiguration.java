@@ -301,7 +301,7 @@ public class MbpTenantAutoConfiguration {
     // ========== Redis ==========
 
     /**
-     * 提供了核心的缓存管理功能：包括 RedisCacheManager API 以及 Redis 缓存指南。该组件负责处理对单个实例的创建、读取和写入操作，这些操作都基于 Redis 数据存储进行支持
+     * 提供了核心的缓存管理功能:包括 RedisCacheManager API 以及 Redis 缓存指南。该组件负责处理对单个实例的创建、读取和写入操作，这些操作都基于 Redis 数据存储进行支持
      *
      * @param redisTemplate
      * @param redisCacheConfiguration
@@ -327,7 +327,7 @@ public class MbpTenantAutoConfiguration {
         // 创建 TenantRedisCacheManager 对象
         TenantRedisCacheManager cacheManager = new TenantRedisCacheManager(cacheWriter, redisCacheConfiguration,
                 tenantProperties.getIgnoreCaches());
-        // 开启事务感知：@Transactional 方法内的 @CacheEvict / @CachePut 自动延迟到 afterCommit,
+        // 开启事务感知:@Transactional 方法内的 @CacheEvict / @CachePut 自动延迟到 afterCommit,
         //             避免事务未提交就清缓存被并发读穿写脏值；无事务时立即生效,行为不变
         cacheManager.setTransactionAware(true);
         return cacheManager;

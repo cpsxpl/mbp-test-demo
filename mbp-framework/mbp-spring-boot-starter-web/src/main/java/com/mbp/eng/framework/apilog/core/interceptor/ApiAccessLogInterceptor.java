@@ -25,7 +25,7 @@ import java.util.stream.IntStream;
 /**
  * API 访问日志 Interceptor
  *
- * 目的：在非 prod 环境时,打印 request 和 response 两条日志到日志文件（控制台）中。
+ * 目的:在非 prod 环境时,打印 request 和 response 两条日志到日志文件（控制台）中。
  */
 @Slf4j
 public class ApiAccessLogInterceptor implements HandlerInterceptor {
@@ -109,9 +109,9 @@ public class ApiAccessLogInterceptor implements HandlerInterceptor {
                 return;
             }
             // 打印结果
-            System.out.printf("\tController 方法路径：%s(%s.java:%d)\n", clazz.getName(), clazz.getSimpleName(), lineNumber.get());
+            System.out.printf("\tController 方法路径:%s(%s.java:%d)\n", clazz.getName(), clazz.getSimpleName(), lineNumber.get());
         } catch (Exception ignore) {
-            // 忽略异常。原因：仅仅打印,非重要逻辑
+            // 忽略异常。原因:仅仅打印,非重要逻辑
         }
     }
 

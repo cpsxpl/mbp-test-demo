@@ -16,7 +16,7 @@ public class FileClientFactoryImpl implements FileClientFactory {
 
     /**
      * 文件客户端 Map
-     * key：配置编号
+     * key:配置编号
      */
     private final ConcurrentMap<Long, AbstractFileClient<?>> clients = new ConcurrentHashMap<>();
 

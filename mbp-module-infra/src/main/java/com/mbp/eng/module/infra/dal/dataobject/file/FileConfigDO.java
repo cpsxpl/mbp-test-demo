@@ -98,7 +98,7 @@ public class FileConfigDO extends BaseDO {
                 case "S3FileClientConfig":
                     return JsonUtils.parseObject2(json, S3FileClientConfig.class);
                 default:
-                    throw new IllegalArgumentException("未知的 FileClientConfig 类型：" + json);
+                    throw new IllegalArgumentException("未知的 FileClientConfig 类型:" + json);
             }
         }
 

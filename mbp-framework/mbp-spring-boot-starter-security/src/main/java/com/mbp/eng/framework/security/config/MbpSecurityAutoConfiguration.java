@@ -28,7 +28,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
  * 参见 https://stackoverflow.com/questions/53847050/spring-boot-delegatebuilder-cannot-be-null-on-autowiring-authenticationmanager 文档。
  */
 @AutoConfiguration
-@AutoConfigureOrder(-1) // 目的：先于 Spring Security 自动配置,避免一键改包后,org.* 基础包无法生效
+@AutoConfigureOrder(-1) // 目的:先于 Spring Security 自动配置,避免一键改包后,org.* 基础包无法生效
 @EnableConfigurationProperties(SecurityProperties.class)
 public class MbpSecurityAutoConfiguration {
 

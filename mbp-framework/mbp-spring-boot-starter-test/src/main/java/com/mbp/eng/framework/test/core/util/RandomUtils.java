@@ -54,7 +54,7 @@ public class RandomUtils {
             }
             return RandomUtil.randomInt();
         });
-        // BigDecimal：限制精度在 DECIMAL(10,2) 范围内，避免 H2 等数据库溢出
+        // BigDecimal:限制精度在 DECIMAL(10,2) 范围内，避免 H2 等数据库溢出
         PODAM_FACTORY.getStrategy().addOrReplaceTypeManufacturer(BigDecimal.class,
                 (dataProviderStrategy, attributeMetadata, map) ->
                         BigDecimal.valueOf(RandomUtil.randomInt(0, 10000000), 2));

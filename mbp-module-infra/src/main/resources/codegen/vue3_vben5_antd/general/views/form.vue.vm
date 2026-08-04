@@ -14,7 +14,7 @@ import { message, Tabs, Form, Input, Textarea, Select, RadioGroup, Radio, Checkb
 import { get${simpleClassName}List } from '#/api/${table.moduleName}/${table.businessName}';
 import { handleTree } from '@vben/utils'
 #end
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 10 || $table.templateType == 12 )
   #foreach ($subSimpleClassName in $subSimpleClassNames)
   #set ($index = $foreach.count - 1)
@@ -48,7 +48,7 @@ const rules: Record<string, Rule[]> = {
     #end
   #end
 };
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
 const ${classNameVar}Tree = ref<any[]>([]) // 树形结构
 #end
@@ -58,7 +58,7 @@ const getTitle = computed(() => {
     : $t('ui.actionTitle.create', ['${table.classComment}']);
 });
 
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #if ( $table.templateType == 10 || $table.templateType == 12 )
   #if ( $subTables && $subTables.size() > 0 )
   /** 子表的表单 */
@@ -87,7 +87,7 @@ function resetForm() {
   formRef.value?.resetFields();
 }
 
-## 特殊：树表专属逻辑
+## 特殊:树表专属逻辑
 #if ( $table.templateType == 2 )
 /** 获得${table.classComment}树 */
 async function get${simpleClassName}Tree() {
@@ -104,7 +104,7 @@ async function get${simpleClassName}Tree() {
 const [Modal, modalApi] = useVbenModal({
   async onConfirm() {
     await formRef.value?.validate();
-    ## 特殊：主子表专属逻辑
+    ## 特殊:主子表专属逻辑
     #if ( $table.templateType == 10 || $table.templateType == 12 )
       #if ( $subTables && $subTables.size() > 0 )
         // 校验子表单
@@ -127,7 +127,7 @@ const [Modal, modalApi] = useVbenModal({
     modalApi.lock();
     // 提交表单
     const data = formData.value as ${simpleClassName}Api.${simpleClassName};
-    ## 特殊：主子表专属逻辑
+    ## 特殊:主子表专属逻辑
     #if ( $table.templateType == 10 || $table.templateType == 12 )
       #if ( $subTables && $subTables.size() > 0 )
         // 拼接子表的数据
@@ -306,7 +306,7 @@ const [Modal, modalApi] = useVbenModal({
         #end
       #end
     </Form>
-    ## 特殊：主子表专属逻辑
+    ## 特殊:主子表专属逻辑
     #if ( $table.templateType == 10 || $table.templateType == 12 )
       <!-- 子表的表单 -->
       <Tabs v-model:active-key="subTabsName">

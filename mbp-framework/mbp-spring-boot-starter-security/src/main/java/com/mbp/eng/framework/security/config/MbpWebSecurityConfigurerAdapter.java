@@ -42,7 +42,7 @@ import static com.mbp.eng.framework.common.util.collection.CollectionUtils.conve
  * 自定义的 Spring Security 配置适配器实现
  */
 @AutoConfiguration
-@AutoConfigureOrder(-1) // 目的：先于 Spring Security 自动配置,避免一键改包后,org.* 基础包无法生效
+@AutoConfigureOrder(-1) // 目的:先于 Spring Security 自动配置,避免一键改包后,org.* 基础包无法生效
 @EnableMethodSecurity(securedEnabled = true)
 public class MbpWebSecurityConfigurerAdapter {
 
@@ -124,7 +124,7 @@ public class MbpWebSecurityConfigurerAdapter {
         Multimap<HttpMethod, String> permitAllUrls = getPermitAllUrlsFromAnnotations();
         // 设置每个请求的权限
         httpSecurity
-                // ①：全局共享规则
+                // ①:全局共享规则
                 .authorizeHttpRequests(c -> c
                     // 1.1 静态资源,可匿名访问
                     .requestMatchers(HttpMethod.GET, "/*.html", "/*.css", "/*.js").permitAll()
@@ -138,11 +138,11 @@ public class MbpWebSecurityConfigurerAdapter {
                     // 1.3 基于 mbp.security.permit-all-urls 无需认证
                     .requestMatchers(securityProperties.getPermitAllUrls().toArray(new String[0])).permitAll()
                 )
-                // ②：每个项目的自定义规则
+                // ②:每个项目的自定义规则
                 .authorizeHttpRequests(c -> authorizeRequestsCustomizers.forEach(customizer -> customizer.customize(c)))
-                // ③：兜底规则,必须认证
+                // ③:兜底规则,必须认证
                 .authorizeHttpRequests(c -> c
-                        .dispatcherTypeMatchers(DispatcherType.ASYNC).permitAll() // WebFlux 异步请求,无需认证,目的：SSE 场景
+                        .dispatcherTypeMatchers(DispatcherType.ASYNC).permitAll() // WebFlux 异步请求,无需认证,目的:SSE 场景
                         .anyRequest().authenticated());
 
         // 添加 Token Filter
@@ -178,7 +178,7 @@ public class MbpWebSecurityConfigurerAdapter {
                 continue;
             }
 
-            // 特殊：使用 @RequestMapping 注解,并且未写 method 属性,此时认为都需要免登录
+            // 特殊:使用 @RequestMapping 注解,并且未写 method 属性,此时认为都需要免登录
             Set<RequestMethod> methods = entry.getKey().getMethodsCondition().getMethods();
             if (CollUtil.isEmpty(methods)) {
                 result.putAll(HttpMethod.GET, urls);

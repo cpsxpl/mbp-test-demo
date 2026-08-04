@@ -6,7 +6,7 @@
 #set ($SubJoinColumnName = $subJoinColumn.javaField.substring(0,1).toUpperCase() + ${subJoinColumn.javaField.substring(1)})##首字母大写
 <template>
   <div class="app-container">
-    #if ( $subTable.subJoinMany )## 情况一：一对多,table + form
+    #if ( $subTable.subJoinMany )## 情况一:一对多,table + form
       <el-form
         ref="formRef"
         :model="formData"
@@ -24,7 +24,7 @@
                     #set ($javaType = $column.javaType)
                     #set ($AttrName = $column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
                     #set ($comment = $column.columnComment)
-                    #if ( $column.id == $subJoinColumn.id) ## 特殊：忽略主子表的 join 字段,不用填写
+                    #if ( $column.id == $subJoinColumn.id) ## 特殊:忽略主子表的 join 字段,不用填写
                     #elseif ($column.htmlType == "input" && !$column.primaryKey)## 忽略主键,不用在表单里
                       <el-table-column label="${comment}" min-width="150">
                         <template v-slot="{ row, $index }">
@@ -135,7 +135,7 @@
       <el-row justify="center" class="mt-3">
         <el-button @click="handleAdd" round>+ 添加${subTable.classComment}</el-button>
       </el-row>
-    #else## 情况二：一对一,form
+    #else## 情况二:一对一,form
       <el-form
         ref="formRef"
         :model="formData"
@@ -150,7 +150,7 @@
                   #set ($javaType = $column.javaType)
                   #set ($AttrName = $column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
                   #set ($comment = $column.columnComment)
-                  #if ( $column.id == $subJoinColumn.id) ## 特殊：忽略主子表的 join 字段,不用填写
+                  #if ( $column.id == $subJoinColumn.id) ## 特殊:忽略主子表的 join 字段,不用填写
                   #elseif ($column.htmlType == "input" && !$column.primaryKey)
                     <el-form-item label="${comment}" prop="${javaField}">
                       <el-input v-model="formData.${javaField}" placeholder="请输入${comment}" />
@@ -249,7 +249,7 @@
     ],// ${subJoinColumn.columnComment}（主表的关联字段）
     data() {
       return {
-        // 表单的加载中：1）修改时的数据加载；2）提交的按钮禁用
+        // 表单的加载中:1）修改时的数据加载；2）提交的按钮禁用
         formLoading: false,
         // 表单参数
         formData: [],

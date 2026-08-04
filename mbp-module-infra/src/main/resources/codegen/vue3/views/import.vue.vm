@@ -44,7 +44,7 @@ defineOptions({ name: '${simpleClassName}ImportForm' })
 const message = useMessage() // 消息弹窗
 
 const dialogVisible = ref(false) // 弹窗的是否展示
-const formLoading = ref(false) // 表单的加载中：上传、下载模板
+const formLoading = ref(false) // 表单的加载中:上传、下载模板
 const uploadRef = ref()
 const fileList = ref<UploadUserFile[]>([])
 
@@ -68,7 +68,7 @@ const submitForm = async () => {
     formData.append('file', fileList.value[0].raw as Blob)
     const res = await ${simpleClassName}Api.import${simpleClassName}(formData)
     const data = res.data
-    let text = '导入成功数量：' + data.successCount + '；导入失败数量：' + data.failureCount + '；'
+    let text = '导入成功数量:' + data.successCount + '；导入失败数量:' + data.failureCount + '；'
     if (data.failureCount > 0) {
       for (const rowNo in data.failureRows) {
         text += '< 第' + rowNo + '行: ' + data.failureRows[rowNo] + ' >'

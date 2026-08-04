@@ -24,7 +24,7 @@ public class OAuth2OpenAccessTokenRespVO {
     @JsonProperty("token_type")
     private String tokenType;
 
-    @Schema(description = "过期时间,单位：秒", requiredMode = Schema.RequiredMode.REQUIRED, example = "42430")
+    @Schema(description = "过期时间,单位:秒", requiredMode = Schema.RequiredMode.REQUIRED, example = "42430")
     @JsonProperty("expires_in")
     private Long expiresIn;
 

@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * MyBaits 配置类
  */
-@AutoConfiguration(before = MybatisPlusAutoConfiguration.class) // 目的：先于 MyBatis Plus 自动配置,避免 @MapperScan 可能扫描不到 Mapper 打印 warn 日志
+@AutoConfiguration(before = MybatisPlusAutoConfiguration.class) // 目的:先于 MyBatis Plus 自动配置,避免 @MapperScan 可能扫描不到 Mapper 打印 warn 日志
 @MapperScan(value = "${mbp.info.base-package}", annotationClass = Mapper.class,
         lazyInitialization = "${mybatis.lazy-initialization:false}") // Mapper 懒加载,目前仅用于单元测试
 public class MbpMybatisAutoConfiguration {
@@ -46,7 +46,7 @@ public class MbpMybatisAutoConfiguration {
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
         mybatisPlusInterceptor.addInnerInterceptor(new PaginationInnerInterceptor()); // 分页插件
-        // ↓↓↓ 按需开启,可能会影响到 updateBatch 的地方：例如说文件配置管理 ↓↓↓
+        // ↓↓↓ 按需开启,可能会影响到 updateBatch 的地方:例如说文件配置管理 ↓↓↓
         // mybatisPlusInterceptor.addInnerInterceptor(new BlockAttackInnerInterceptor()); // 拦截没有指定条件的 update 和 delete 语句
         return mybatisPlusInterceptor;
     }
@@ -79,9 +79,9 @@ public class MbpMybatisAutoConfiguration {
         throw new IllegalArgumentException(StrUtil.format("DbType{} 找不到合适的 IKeyGenerator 实现类", dbType));
     }
 
-    @Bean // 特殊：返回结果使用 Object 而不用 JacksonTypeHandler 的原因,避免因为 JacksonTypeHandler 被 mybatis 全局使用！
+    @Bean // 特殊:返回结果使用 Object 而不用 JacksonTypeHandler 的原因,避免因为 JacksonTypeHandler 被 mybatis 全局使用！
     public Object jacksonTypeHandler(List<ObjectMapper> objectMappers) {
-        // 特殊：设置 JacksonTypeHandler 的 ObjectMapper！
+        // 特殊:设置 JacksonTypeHandler 的 ObjectMapper！
         ObjectMapper objectMapper = CollUtil.getFirst(objectMappers);
         if (objectMapper == null) {
             objectMapper = JsonUtils.getObjectMapper();

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.socket.WebSocketSession;
 
 /**
- * WebSocket 示例：单发消息
+ * WebSocket 示例:单发消息
  */
 @Component
 public class DemoWebSocketMessageListener implements WebSocketMessageListener<DemoSendMessage> {
@@ -23,7 +23,7 @@ public class DemoWebSocketMessageListener implements WebSocketMessageListener<De
     @Override
     public void onMessage(WebSocketSession session, DemoSendMessage message) {
         Long fromUserId = WebSocketFrameworkUtils.getLoginUserId(session);
-        // 情况一：单发
+        // 情况一:单发
         if (message.getToUserId() != null) {
             DemoReceiveMessage toMessage = new DemoReceiveMessage().setFromUserId(fromUserId)
                     .setText(message.getText()).setSingle(true);
@@ -31,7 +31,7 @@ public class DemoWebSocketMessageListener implements WebSocketMessageListener<De
                     "demo-message-receive", toMessage);
             return;
         }
-        // 情况二：群发
+        // 情况二:群发
         DemoReceiveMessage toMessage = new DemoReceiveMessage().setFromUserId(fromUserId)
                 .setText(message.getText()).setSingle(false);
         webSocketMessageSender.sendObject(UserTypeEnum.ADMIN.getValue(), // 给所有用户

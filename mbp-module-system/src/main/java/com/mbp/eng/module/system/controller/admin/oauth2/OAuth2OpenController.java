@@ -71,11 +71,11 @@ public class OAuth2OpenController {
     /**
      * 对应 Spring Security OAuth 的 TokenEndpoint 类的 postAccessToken 方法
      *
-     * 授权码 authorization_code 模式时：code + redirectUri + state 参数
-     * 密码 password 模式时：username + password + scope 参数
-     * 刷新 refresh_token 模式时：refreshToken 参数
-     * 客户端 client_credentials 模式：scope 参数
-     * 简化 implicit 模式时：不支持
+     * 授权码 authorization_code 模式时:code + redirectUri + state 参数
+     * 密码 password 模式时:username + password + scope 参数
+     * 刷新 refresh_token 模式时:refreshToken 参数
+     * 客户端 client_credentials 模式:scope 参数
+     * 简化 implicit 模式时:不支持
      *
      * 注意,默认需要传递 client_id + client_secret 参数
      */
@@ -133,7 +133,7 @@ public class OAuth2OpenController {
                 accessTokenDO = oauth2GrantService.grantRefreshToken(refreshToken, client.getClientId());
                 break;
             default:
-                throw new IllegalArgumentException("未知授权类型：" + grantType);
+                throw new IllegalArgumentException("未知授权类型:" + grantType);
         }
         Assert.notNull(accessTokenDO, "访问令牌不能为空"); // 防御性检查
         return success(OAuth2OpenConvert.INSTANCE.convert(accessTokenDO));
@@ -194,9 +194,9 @@ public class OAuth2OpenController {
     /**
      * 对应 Spring Security OAuth 的 AuthorizationEndpoint 类的 approveOrDeny 方法
      *
-     * 场景一：【自动授权 autoApprove = true】
+     * 场景一:【自动授权 autoApprove = true】
      *      刚进入 sso.vue 界面,调用该接口,用户历史已经给该应用做过对应的授权,或者 OAuth2Client 支持该 scope 的自动授权
-     * 场景二：【手动授权 autoApprove = false】
+     * 场景二:【手动授权 autoApprove = false】
      *      在 sso.vue 界面,用户选择好 scope 授权范围,调用该接口,进行授权。此时,approved 为 true 或者 false
      *
      * 因为前后端分离,Axios 无法很好的处理 302 重定向,所以和 Spring Security OAuth 略有不同,返回结果是重定向的 URL,剩余交给前端处理

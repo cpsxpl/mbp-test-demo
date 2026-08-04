@@ -93,7 +93,7 @@ export function import${simpleClassName}(data) {
   })
 }
 #end
-## 特殊：主子表专属逻辑
+## 特殊:主子表专属逻辑
 #foreach ($subTable in $subTables)
   #set ($index = $foreach.count - 1)
   #set ($subSimpleClassName = $subSimpleClassNames.get($index))
@@ -105,7 +105,7 @@ export function import${simpleClassName}(data) {
   #set ($subClassNameVar = $subClassNameVars.get($index))
 
 // ==================== 子表（$subTable.classComment） ====================
-  ## 情况一：MASTER_ERP 时,需要分查询页子表
+  ## 情况一:MASTER_ERP 时,需要分查询页子表
   #if ($table.templateType == 11)
   // 获得${subTable.classComment}分页
   export function get${subSimpleClassName}Page(params) {
@@ -115,7 +115,7 @@ export function import${simpleClassName}(data) {
       params
     })
   }
-    ## 情况二：非 MASTER_ERP 时,需要列表查询子表
+    ## 情况二:非 MASTER_ERP 时,需要列表查询子表
   #else
     #if ($subTable.subJoinMany)
     // 获得${subTable.classComment}列表
@@ -135,7 +135,7 @@ export function import${simpleClassName}(data) {
     }
     #end
   #end
-  ## 特殊：MASTER_ERP 时,支持单个的新增、修改、删除操作
+  ## 特殊:MASTER_ERP 时,支持单个的新增、修改、删除操作
   #if ($table.templateType == 11)
   // 新增${subTable.classComment}
   export function create${subSimpleClassName}(data) {

@@ -6,9 +6,9 @@ public class ArrayText {
     public static void main(String[] args) throws Exception {
         int[] arrays = {2, 5, -2, 6, -3, 8, 0, -7, -9, 4};
         Arrays.sort(arrays);
-        printArray("数组排序结果为：", arrays);
+        printArray("数组排序结果为:", arrays);
         int index = Arrays.binarySearch(arrays, 1);
-        System.out.println("元素1所在的位置(负数为不存在)：" + index);
+        System.out.println("元素1所在的位置(负数为不存在):" + index);
         int newIndex = -index - 1;
         arrays = insertElement(arrays, 1, newIndex);
         printArray("数组添加元素1", arrays);

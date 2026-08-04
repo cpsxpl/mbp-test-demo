@@ -29,7 +29,7 @@ import java.time.LocalTime;
 public class MbpJacksonAutoConfiguration {
     private static Logger logger = LoggerFactory.getLogger(MbpJacksonAutoConfiguration.class);
     /**
-     * 从 Builder 源头定制（关键：使用 *ByType,避免 handledType 要求）
+     * 从 Builder 源头定制（关键:使用 *ByType,避免 handledType 要求）
      */
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer ldtEpochMillisCustomizer() {

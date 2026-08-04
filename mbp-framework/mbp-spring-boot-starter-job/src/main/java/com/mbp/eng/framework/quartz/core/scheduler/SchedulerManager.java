@@ -19,7 +19,7 @@ import static com.mbp.eng.framework.common.exception.util.ServiceExceptionUtil.e
 /**
  * {@link org.quartz.Scheduler} 的管理器,负责创建任务
  * <p>
- * 考虑到实现的简洁性,我们使用 jobHandlerName 作为唯一标识,即：
+ * 考虑到实现的简洁性,我们使用 jobHandlerName 作为唯一标识,即:
  * 1. Job 的 {@link JobDetail#getKey()}
  * 2. Trigger 的 {@link Trigger#getKey()}
  * <p>

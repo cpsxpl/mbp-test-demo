@@ -26,7 +26,7 @@ public class SHAUtil {
 
     public static void main(String[] args) throws Exception {
         String str = new String("天下 2009-08-06");
-        System.out.println("原始：" + str);
-        System.out.println("SHA后：" + shaEncode(str));
+        System.out.println("原始:" + str);
+        System.out.println("SHA后:" + shaEncode(str));
     }
 }

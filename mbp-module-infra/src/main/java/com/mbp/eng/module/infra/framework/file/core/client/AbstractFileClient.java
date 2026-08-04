@@ -21,7 +21,7 @@ public abstract class AbstractFileClient<Config extends FileClientConfig> implem
     /**
      * 原始的文件配置
      *
-     * 原因：{@link #config} 可能被子类所修改,无法用于判断配置是否变更
+     * 原因:{@link #config} 可能被子类所修改,无法用于判断配置是否变更
      * @link <a href="https://t.zsxq.com/29wkW">相关案例</a>
      */
     private Config originalConfig;
@@ -64,7 +64,7 @@ public abstract class AbstractFileClient<Config extends FileClientConfig> implem
 
     /**
      * 格式化文件的 URL 访问地址
-     * 使用场景：local、ftp、db,通过 FileController 的 getFile 来获取文件内容
+     * 使用场景:local、ftp、db,通过 FileController 的 getFile 来获取文件内容
      *
      * @param domain 自定义域名
      * @param path 文件路径

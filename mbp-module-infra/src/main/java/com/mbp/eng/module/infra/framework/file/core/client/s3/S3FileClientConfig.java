@@ -22,23 +22,23 @@ public class S3FileClientConfig implements FileClientConfig {
 
     /**
      * 节点地址
-     * 1. MinIO：https://www.google.com/Spring-Boot/MinIO 。例如说,http://127.0.0.1:9000
-     * 2. 阿里云：https://help.aliyun.com/document_detail/31837.html
-     * 3. 腾讯云：https://cloud.tencent.com/document/product/436/6224
-     * 4. 七牛云：https://developer.qiniu.com/kodo/4088/s3-access-domainname
-     * 5. 华为云：https://console.huaweicloud.com/apiexplorer/#/endpoint/OBS
-     * 6. 火山云：https://www.volcengine.com/docs/6349/107356
+     * 1. MinIO:https://www.google.com/Spring-Boot/MinIO 。例如说,http://127.0.0.1:9000
+     * 2. 阿里云:https://help.aliyun.com/document_detail/31837.html
+     * 3. 腾讯云:https://cloud.tencent.com/document/product/436/6224
+     * 4. 七牛云:https://developer.qiniu.com/kodo/4088/s3-access-domainname
+     * 5. 华为云:https://console.huaweicloud.com/apiexplorer/#/endpoint/OBS
+     * 6. 火山云:https://www.volcengine.com/docs/6349/107356
      */
     @NotNull(message = "endpoint 不能为空")
     private String endpoint;
     /**
      * 自定义域名
-     * 1. MinIO：通过 Nginx 配置
-     * 2. 阿里云：https://help.aliyun.com/document_detail/31836.html
-     * 3. 腾讯云：https://cloud.tencent.com/document/product/436/11142
-     * 4. 七牛云：https://developer.qiniu.com/kodo/8556/set-the-custom-source-domain-name
-     * 5. 华为云：https://support.huaweicloud.com/usermanual-obs/obs_03_0032.html
-     * 6. 火山云：https://www.volcengine.com/docs/6349/128983
+     * 1. MinIO:通过 Nginx 配置
+     * 2. 阿里云:https://help.aliyun.com/document_detail/31836.html
+     * 3. 腾讯云:https://cloud.tencent.com/document/product/436/11142
+     * 4. 七牛云:https://developer.qiniu.com/kodo/8556/set-the-custom-source-domain-name
+     * 5. 华为云:https://support.huaweicloud.com/usermanual-obs/obs_03_0032.html
+     * 6. 火山云:https://www.volcengine.com/docs/6349/128983
      */
     @URL(message = "domain 必须是 URL 格式")
     private String domain;
@@ -50,12 +50,12 @@ public class S3FileClientConfig implements FileClientConfig {
 
     /**
      * 访问 Key
-     * 1. MinIO：https://www.google.com/Spring-Boot/MinIO
-     * 2. 阿里云：https://ram.console.aliyun.com/manage/ak
-     * 3. 腾讯云：https://console.cloud.tencent.com/cam/capi
-     * 4. 七牛云：https://portal.qiniu.com/user/key
-     * 5. 华为云：https://support.huaweicloud.com/qs-obs/obs_qs_0005.html
-     * 6. 火山云：https://console.volcengine.com/iam/keymanage/
+     * 1. MinIO:https://www.google.com/Spring-Boot/MinIO
+     * 2. 阿里云:https://ram.console.aliyun.com/manage/ak
+     * 3. 腾讯云:https://console.cloud.tencent.com/cam/capi
+     * 4. 七牛云:https://portal.qiniu.com/user/key
+     * 5. 华为云:https://support.huaweicloud.com/qs-obs/obs_qs_0005.html
+     * 6. 火山云:https://console.volcengine.com/iam/keymanage/
      */
     @NotNull(message = "accessKey 不能为空")
     private String accessKey;
@@ -74,21 +74,21 @@ public class S3FileClientConfig implements FileClientConfig {
     /**
      * 是否公开访问
      *
-     * true：公开访问,所有人都可以访问
-     * false：私有访问,只有配置的 accessKey 才可以访问
+     * true:公开访问,所有人都可以访问
+     * false:私有访问,只有配置的 accessKey 才可以访问
      */
     @NotNull(message = "是否公开访问不能为空")
     private Boolean enablePublicAccess;
 
     /**
      * 区域
-     * 1. AWS S3：https://docs.aws.amazon.com/general/latest/gr/s3.html 例如说,us-east-1、us-west-2
-     * 2. MinIO：可以填任意值,通常使用 us-east-1
-     * 3. 阿里云：不需要填写,会自动识别
-     * 4. 腾讯云：不需要填写,会自动识别
-     * 5. 七牛云：不需要填写,会自动识别
-     * 6. 华为云：不需要填写,会自动识别
-     * 7. 火山云：不需要填写,会自动识别
+     * 1. AWS S3:https://docs.aws.amazon.com/general/latest/gr/s3.html 例如说,us-east-1、us-west-2
+     * 2. MinIO:可以填任意值,通常使用 us-east-1
+     * 3. 阿里云:不需要填写,会自动识别
+     * 4. 腾讯云:不需要填写,会自动识别
+     * 5. 七牛云:不需要填写,会自动识别
+     * 6. 华为云:不需要填写,会自动识别
+     * 7. 火山云:不需要填写,会自动识别
      */
     private String region;
 

@@ -31,7 +31,7 @@ public class TenantProperties {
 
     /**
      * 需要忽略跨（切换）租户访问的请求
-     * 原因是：某些接口,访问的是个人信息,在跨租户是获取不到的！
+     * 原因是:某些接口,访问的是个人信息,在跨租户是获取不到的！
      */
     private Set<String> ignoreVisitUrls = Collections.emptySet();
 

@@ -45,7 +45,7 @@ public class S3FileClient extends AbstractFileClient<S3FileClientConfig> {
             config.setDomain(buildDomain());
         }
         // 初始化 S3 客户端
-        // 优先级：配置的 region > 从 endpoint 解析的 region > 默认值 us-east-1
+        // 优先级:配置的 region > 从 endpoint 解析的 region > 默认值 us-east-1
         String regionStr = resolveRegion();
         Region region = Region.of(regionStr);
         AwsCredentialsProvider credentialsProvider = StaticCredentialsProvider.create(
@@ -122,13 +122,13 @@ public class S3FileClient extends AbstractFileClient<S3FileClientConfig> {
             path = HttpUtils.decodeUrlPath(path);
         }
 
-        // 2.1 情况一：公开访问：无需签名
+        // 2.1 情况一:公开访问:无需签名
         // 考虑到老版本的兼容,所以必须是 config.getEnablePublicAccess() 为 false 时,才进行签名
         if (!BooleanUtil.isFalse(config.getEnablePublicAccess())) {
             return config.getDomain() + "/" + HttpUtils.encodeUrlPath(path);
         }
 
-        // 2.2 情况二：私有访问：生成 GET 预签名 URL
+        // 2.2 情况二:私有访问:生成 GET 预签名 URL
         String finalPath = path;
         Duration expiration = expirationSeconds != null ? Duration.ofSeconds(expirationSeconds) : EXPIRATION_DEFAULT;
         URL signedUrl = presigner.presignGetObject(GetObjectPresignRequest.builder()
@@ -184,7 +184,7 @@ public class S3FileClient extends AbstractFileClient<S3FileClientConfig> {
 
     /**
      * 解析 AWS 区域
-     * 优先级：配置的 region > 从 endpoint 解析的 region > 默认值 us-east-1
+     * 优先级:配置的 region > 从 endpoint 解析的 region > 默认值 us-east-1
      *
      * @return 区域字符串
      */
@@ -214,7 +214,7 @@ public class S3FileClient extends AbstractFileClient<S3FileClientConfig> {
             return "us-east-1";
         }
 
-        // 3.1 AWS S3 格式：s3.us-west-2.amazonaws.com 或 s3.amazonaws.com
+        // 3.1 AWS S3 格式:s3.us-west-2.amazonaws.com 或 s3.amazonaws.com
         if (host.contains("amazonaws.com")) {
             // 匹配 s3.{region}.amazonaws.com 格式
             if (host.startsWith("s3.") && host.contains(".amazonaws.com")) {
@@ -226,7 +226,7 @@ public class S3FileClient extends AbstractFileClient<S3FileClientConfig> {
             // s3.amazonaws.com 或 s3-accelerate.amazonaws.com 使用默认值
             return "us-east-1";
         }
-        // 3.2 阿里云 OSS 格式：oss-cn-beijing.aliyuncs.com
+        // 3.2 阿里云 OSS 格式:oss-cn-beijing.aliyuncs.com
         if (host.contains(S3FileClientConfig.ENDPOINT_ALIYUN)) {
             // 匹配 oss-{region}.aliyuncs.com 格式
             if (host.startsWith("oss-") && host.contains("." + S3FileClientConfig.ENDPOINT_ALIYUN)) {
@@ -236,7 +236,7 @@ public class S3FileClient extends AbstractFileClient<S3FileClientConfig> {
                 }
             }
         }
-        // 3.3 腾讯云 COS 格式：cos.ap-shanghai.myqcloud.com
+        // 3.3 腾讯云 COS 格式:cos.ap-shanghai.myqcloud.com
         if (host.contains(S3FileClientConfig.ENDPOINT_TENCENT)) {
             // 匹配 cos.{region}.myqcloud.com 格式
             if (host.startsWith("cos.") && host.contains("." + S3FileClientConfig.ENDPOINT_TENCENT)) {

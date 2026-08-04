@@ -28,7 +28,7 @@ import javax.servlet.DispatcherType;
  */
 @Configuration(proxyBeanMethods = false)
 @EnableAdminServer
-@ConditionalOnClass(name = "de.codecentric.boot.admin.server.config.AdminServerProperties") // 目的：按需启动 spring boot admin 监控服务
+@ConditionalOnClass(name = "de.codecentric.boot.admin.server.config.AdminServerProperties") // 目的:按需启动 spring boot admin 监控服务
 public class AdminServerConfiguration {
 
     @Value("${spring.boot.admin.context-path:''}")
@@ -105,7 +105,7 @@ public class AdminServerConfiguration {
                         )
                 )
                 .headers(headers -> headers
-                        // 特殊：Spring Boot Admin 前端基于 Vue,需 unsafe-inline ／ unsafe-eval 支持内联脚本与表达式
+                        // 特殊:Spring Boot Admin 前端基于 Vue,需 unsafe-inline ／ unsafe-eval 支持内联脚本与表达式
                         .contentSecurityPolicy(csp -> csp.policyDirectives(
                                 "default-src 'self'; "
                                         + "script-src 'self' 'unsafe-inline' 'unsafe-eval'; "

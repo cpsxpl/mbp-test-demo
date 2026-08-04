@@ -22,15 +22,15 @@ public class WebSocketSessionManagerImpl implements WebSocketSessionManager {
     /**
      * id 与 WebSocketSession 映射
      *
-     * key：Session 编号
+     * key:Session 编号
      */
     private final ConcurrentMap<String, WebSocketSession> idSessions = new ConcurrentHashMap<>();
 
     /**
      * user 与 WebSocketSession 映射
      *
-     * key1：用户类型
-     * key2：用户编号
+     * key1:用户类型
+     * key2:用户编号
      */
     private final ConcurrentMap<Integer, ConcurrentMap<Long, CopyOnWriteArrayList<WebSocketSession>>> userSessions
             = new ConcurrentHashMap<>();
@@ -98,7 +98,7 @@ public class WebSocketSessionManagerImpl implements WebSocketSessionManager {
             if (CollUtil.isEmpty(sessions)) {
                 continue;
             }
-            // 特殊：如果租户不匹配,则直接排除
+            // 特殊:如果租户不匹配,则直接排除
             if (contextTenantId != null) {
                 Long userTenantId = WebSocketFrameworkUtils.getTenantId(sessions.get(0));
                 if (!contextTenantId.equals(userTenantId)) {

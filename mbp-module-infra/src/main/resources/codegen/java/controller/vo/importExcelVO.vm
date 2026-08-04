@@ -27,7 +27,7 @@ public class ${sceneEnum.prefixClass}${table.className}ImportExcelVO {
 #if (${column.createOperation})
 #if ("$!column.dictType" != "")
     @ExcelProperty(value = "${column.columnComment}", converter = DictConvert.class)
-    @DictFormat("${column.dictType}") // TODO 代码优化：建议设置到对应的 DictTypeConstants 枚举类中
+    @DictFormat("${column.dictType}") // TODO 代码优化:建议设置到对应的 DictTypeConstants 枚举类中
 #else
     @ExcelProperty("${column.columnComment}")
 #end

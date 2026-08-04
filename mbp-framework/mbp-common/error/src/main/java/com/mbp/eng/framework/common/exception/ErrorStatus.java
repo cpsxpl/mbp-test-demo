@@ -2,11 +2,11 @@ package com.mbp.eng.framework.common.exception;
 
 /**
  * {系统（1位）} + {应用(2位)} + {status(3位)}
- * 数据安全系统： 1
- * 入驻系统： 2
- * 通用： 00
- * 业务： 01
- * 服务： 02
+ * 数据安全系统: 1
+ * 入驻系统: 2
+ * 通用: 00
+ * 业务: 01
+ * 服务: 02
  */
 public class ErrorStatus {
     private ErrorStatus() {
@@ -46,7 +46,7 @@ public class ErrorStatus {
     public static final Integer APP_PIPELINE_SCHEDULER_ARGUMENT_ERROR = 102202;
 
     /**
-     * 数据安全业务应用异常：001~999, 其中：
+     * 数据安全业务应用异常:001~999, 其中:
      * 001～100是schema相关异常
      * 101～200是aaa相关异常
      * 201～300是bbb相关异常
@@ -137,11 +137,11 @@ public class ErrorStatus {
 
     /**
      * {系统（1位）} + {应用(2位)} + {status(3位)}
-     * 数据安全系统： 1
-     * 入驻系统： 2
-     * 通用： 00
-     * 业务： 01
-     * 服务： 02
+     * 数据安全系统: 1
+     * 入驻系统: 2
+     * 通用: 00
+     * 业务: 01
+     * 服务: 02
      */
     //系统内部错误
     public static final Integer REG_VENDOR_NOT_FOUND = 200001;

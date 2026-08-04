@@ -62,7 +62,7 @@ public class JobLogDO extends BaseDO {
      */
     private LocalDateTime endTime;
     /**
-     * 执行时长,单位：毫秒
+     * 执行时长,单位:毫秒
      */
     private Integer duration;
     /**

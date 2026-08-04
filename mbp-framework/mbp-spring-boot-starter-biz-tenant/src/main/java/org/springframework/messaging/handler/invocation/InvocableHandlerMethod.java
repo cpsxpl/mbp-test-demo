@@ -114,13 +114,13 @@ public class InvocableHandlerMethod extends HandlerMethod {
         if (logger.isTraceEnabled()) {
             logger.trace("Arguments: " + Arrays.toString(args));
         }
-        // 注意：如下是本类的改动点！！！
-        // 情况一：无租户编号的情况
+        // 注意:如下是本类的改动点！！！
+        // 情况一:无租户编号的情况
         Long tenantId = parseTenantId(message);
         if (tenantId == null) {
             return doInvoke(args);
         }
-        // 情况二：有租户的情况下
+        // 情况二:有租户的情况下
         return TenantUtils.execute(tenantId, () -> doInvoke(args));
     }
 
@@ -141,7 +141,7 @@ public class InvocableHandlerMethod extends HandlerMethod {
         if (tenantId instanceof byte[]) {
             return Long.parseLong(new String((byte[]) tenantId));
         }
-        throw new IllegalArgumentException("未知的数据类型：" + tenantId);
+        throw new IllegalArgumentException("未知的数据类型:" + tenantId);
     }
 
     /**

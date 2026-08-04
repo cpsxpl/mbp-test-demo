@@ -61,7 +61,7 @@ flowable:
   database-schema-update: true # 设置为 false,可通过 https://github.com/flowable/flowable-sql 初始化
   db-history-used: true # flowable6 默认 true 生成信息表,无需手动设置
   check-process-definitions: false # 设置为 false,禁用 /resources/processes 自动部署 BPMN XML 流程
-  history-level: audit # full：保存历史数据的最高级别,可保存全部流程相关细节,包括流程流转各节点参数
+  history-level: audit # full:保存历史数据的最高级别,可保存全部流程相关细节,包括流程流转各节点参数
 
 # MyBatis Plus 的配置项
 mybatis-plus:
@@ -150,17 +150,17 @@ spring:
     vectorstore: # 向量存储
       redis:
         initialize-schema: true
-        index-name: knowledge_index # Redis 中向量索引的名称：用于存储和检索向量数据的索引标识符,所有相关的向量搜索操作都会基于这个索引进行
-        prefix: "knowledge_segment:" # Redis 中存储向量数据的键名前缀：这个前缀会添加到每个存储在 Redis 中的向量数据键名前,每个 document 都是一个 hash 结构
+        index-name: knowledge_index # Redis 中向量索引的名称:用于存储和检索向量数据的索引标识符,所有相关的向量搜索操作都会基于这个索引进行
+        prefix: "knowledge_segment:" # Redis 中存储向量数据的键名前缀:这个前缀会添加到每个存储在 Redis 中的向量数据键名前,每个 document 都是一个 hash 结构
       qdrant:
         initialize-schema: true
-        collection-name: knowledge_segment # Qdrant 中向量集合的名称：用于存储向量数据的集合标识符,所有相关的向量操作都会在这个集合中进行
+        collection-name: knowledge_segment # Qdrant 中向量集合的名称:用于存储向量数据的集合标识符,所有相关的向量操作都会在这个集合中进行
         host: 127.0.0.1
         port: 6334
       milvus:
         initialize-schema: true
         database-name: default # Milvus 中数据库的名称
-        collection-name: knowledge_segment # Milvus 中集合的名称：用于存储向量数据的集合标识符,所有相关的向量操作都会在这个集合中进行
+        collection-name: knowledge_segment # Milvus 中集合的名称:用于存储向量数据的集合标识符,所有相关的向量操作都会在这个集合中进行
         client:
           host: 127.0.0.1
           port: 19530
@@ -185,7 +185,7 @@ spring:
       api-key: sk-e53UqbboF8QJCscYvzJscJxJXoFcFg4iJjl1oqgE7baJETmx
     dashscope: # 通义千问
       api-key: sk-47aa124781be4bfb95244cc62f6xxxx
-    minimax: # Minimax：https://www.minimaxi.com/
+    minimax: # Minimax:https://www.minimaxi.com/
       api-key: xxxx
     moonshot: # 月之暗面（KIMI）
       api-key: sk-abc
@@ -315,6 +315,7 @@ mbp:
     ignore-visit-urls:
       - /admin-api/system/user/profile/**
       - /admin-api/system/auth/**
+      - /admin-api/system/user/**
     ignore-tables:
     ignore-caches:
       - user_role_ids

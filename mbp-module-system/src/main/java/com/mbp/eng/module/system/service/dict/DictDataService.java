@@ -77,7 +77,7 @@ public interface DictDataService {
     long getDictDataCountByDictType(String dictType);
 
     /**
-     * 校验字典数据们是否有效。如下情况,视为无效：
+     * 校验字典数据们是否有效。如下情况,视为无效:
      * 1. 字典数据不存在
      * 2. 字典数据被禁用
      *

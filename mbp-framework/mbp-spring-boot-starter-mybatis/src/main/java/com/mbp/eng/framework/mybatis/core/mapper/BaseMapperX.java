@@ -40,7 +40,7 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     }
 
     default PageResult<T> selectPage(PageParam pageParam, Collection<SortingField> sortingFields, @Param("ew") Wrapper<T> queryWrapper) {
-        // 特殊：不分页,直接查询全部
+        // 特殊:不分页,直接查询全部
         if (PageParam.PAGE_SIZE_NONE.equals(pageParam.getPageSize())) {
             MyBatisUtils.addOrder(queryWrapper, sortingFields);
             List<T> list = selectList(queryWrapper);
@@ -55,7 +55,7 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     }
 
     default <D> PageResult<D> selectJoinPage(PageParam pageParam, Class<D> clazz, MPJLambdaWrapper<T> lambdaWrapper) {
-        // 特殊：不分页,直接查询全部
+        // 特殊:不分页,直接查询全部
         if (PageParam.PAGE_SIZE_NONE.equals(pageParam.getPageSize())) {
             List<D> list = selectJoinList(clazz, lambdaWrapper);
             return new PageResult<>(list, (long) list.size());
@@ -78,7 +78,7 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
      * @return 返回分页查询的结果,包括总记录数和当前页的数据列表
      */
     default <D> PageResult<D> selectJoinPage(SortablePageParam pageParam, Class<D> clazz, MPJLambdaWrapper<T> lambdaWrapper) {
-        // 特殊：不分页,直接查询全部
+        // 特殊:不分页,直接查询全部
         if (PageParam.PAGE_SIZE_NONE.equals(pageParam.getPageSize())) {
             List<D> list = selectJoinList(clazz, lambdaWrapper);
             return new PageResult<>(list, (long) list.size());
@@ -122,7 +122,7 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     /**
      * 获得满足条件的一条记录,并使用 FOR UPDATE 锁定。
      *
-     * 注意：需要在事务中调用,否则锁会立即释放。
+     * 注意:需要在事务中调用,否则锁会立即释放。
      *
      * @param queryWrapper 查询条件
      * @return 实体
@@ -147,7 +147,7 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     /**
      * 获取满足条件的第 1 条记录
      *
-     * 目的：解决并发场景下,插入多条记录后,使用 selectOne 会报错的问题
+     * 目的:解决并发场景下,插入多条记录后,使用 selectOne 会报错的问题
      *
      * @param field 字段名
      * @param value 字段值
@@ -173,7 +173,7 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     /**
      * 获取满足条件的最新一条记录
      * <p>
-     * 目的：解决并发场景下,插入多条记录后,使用 selectOne 会报错的问题
+     * 目的:解决并发场景下,插入多条记录后,使用 selectOne 会报错的问题
      *
      * @param queryWrapper 查询条件
      * @return 最新一条；不存在返回 null
@@ -230,7 +230,7 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
      * @param entities 实体们
      */
     default Boolean insertBatch(Collection<T> entities) {
-        // 特殊：SQL Server 批量插入后,获取 id 会报错,因此通过循环处理
+        // 特殊:SQL Server 批量插入后,获取 id 会报错,因此通过循环处理
         DbType dbType = JdbcUtils.getDbType();
         if (JdbcUtils.isSQLServer(dbType)) {
             entities.forEach(this::insert);
@@ -246,7 +246,7 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
      * @param size     插入数量 Db.saveBatch 默认为 1000
      */
     default Boolean insertBatch(Collection<T> entities, int size) {
-        // 特殊：SQL Server 批量插入后,获取 id 会报错,因此通过循环处理
+        // 特殊:SQL Server 批量插入后,获取 id 会报错,因此通过循环处理
         DbType dbType = JdbcUtils.getDbType();
         if (JdbcUtils.isSQLServer(dbType)) {
             entities.forEach(this::insert);

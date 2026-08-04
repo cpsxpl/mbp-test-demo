@@ -54,7 +54,7 @@ public class LoadController {
     */
 /**
      * 添加数据源
-     * dataSourceProperty数据类型：{"pollName": "dataSource_1","username": "ssodata","password": "ssodata","driverClassName":"oracle.jdbc.OracleDriver","url": "jdbc:oracle:thin:@192.168.2.166:1521/orcl"}
+     * dataSourceProperty数据类型:{"pollName": "dataSource_1","username": "ssodata","password": "ssodata","driverClassName":"oracle.jdbc.OracleDriver","url": "jdbc:oracle:thin:@192.168.2.166:1521/orcl"}
      *
      * @return
      *//*
