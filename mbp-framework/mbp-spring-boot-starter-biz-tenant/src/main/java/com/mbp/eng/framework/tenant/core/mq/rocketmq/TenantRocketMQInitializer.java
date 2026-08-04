@@ -13,7 +13,6 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
  * 多租户的 RocketMQ 初始化器
  */
 public class TenantRocketMQInitializer implements BeanPostProcessor {
-
     @Override
     @SuppressWarnings("PatternVariableCanBeUsed")
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
@@ -48,5 +47,4 @@ public class TenantRocketMQInitializer implements BeanPostProcessor {
         }
         consumerImpl.registerConsumeMessageHook(new TenantRocketMQConsumeMessageHook());
     }
-
 }

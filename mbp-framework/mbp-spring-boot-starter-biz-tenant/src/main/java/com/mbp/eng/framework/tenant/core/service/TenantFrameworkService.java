@@ -6,7 +6,6 @@ import java.util.List;
  * Tenant 框架 Service 接口,定义获取租户信息
  */
 public interface TenantFrameworkService {
-
     /**
      * 获得所有租户
      *
@@ -20,5 +19,4 @@ public interface TenantFrameworkService {
      * @param id 租户编号
      */
     void validTenant(Long id);
-
 }

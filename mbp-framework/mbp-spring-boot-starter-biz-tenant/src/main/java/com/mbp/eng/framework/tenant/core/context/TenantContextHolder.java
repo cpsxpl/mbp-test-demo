@@ -7,7 +7,6 @@ import com.mbp.eng.framework.common.enums.DocumentEnum;
  * 多租户上下文 Holder
  */
 public class TenantContextHolder {
-
     /**
      * 当前租户编号
      */
@@ -62,5 +61,4 @@ public class TenantContextHolder {
         TENANT_ID.remove();
         IGNORE.remove();
     }
-
 }

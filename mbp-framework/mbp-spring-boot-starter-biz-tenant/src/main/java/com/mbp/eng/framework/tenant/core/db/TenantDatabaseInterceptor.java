@@ -1,12 +1,12 @@
 package com.mbp.eng.framework.tenant.core.db;
 
-import com.mbp.eng.framework.tenant.config.TenantProperties;
-import com.mbp.eng.framework.tenant.core.aop.TenantIgnore;
-import com.mbp.eng.framework.tenant.core.context.TenantContextHolder;
 import com.baomidou.mybatisplus.core.metadata.TableInfo;
 import com.baomidou.mybatisplus.core.metadata.TableInfoHelper;
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
 import com.baomidou.mybatisplus.extension.toolkit.SqlParserUtils;
+import com.mbp.eng.framework.tenant.config.TenantProperties;
+import com.mbp.eng.framework.tenant.core.aop.TenantIgnore;
+import com.mbp.eng.framework.tenant.core.context.TenantContextHolder;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.LongValue;
 
@@ -17,7 +17,6 @@ import java.util.Map;
  * 基于 MyBatis Plus 多租户的功能,实现 DB 层面的多租户的功能
  */
 public class TenantDatabaseInterceptor implements TenantLineHandler {
-
     /**
      * 忽略的表
      *
@@ -77,5 +76,4 @@ public class TenantDatabaseInterceptor implements TenantLineHandler {
         TenantIgnore tenantIgnore = tableInfo.getEntityType().getAnnotation(TenantIgnore.class);
         return tenantIgnore != null;
     }
-
 }

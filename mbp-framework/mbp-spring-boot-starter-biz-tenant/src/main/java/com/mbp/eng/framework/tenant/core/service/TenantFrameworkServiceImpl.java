@@ -1,10 +1,10 @@
 package com.mbp.eng.framework.tenant.core.service;
 
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.mbp.eng.framework.common.biz.system.tenant.TenantCommonApi;
 import com.mbp.eng.framework.common.exception.ServiceException;
 import com.mbp.eng.framework.common.util.cache.CacheUtils;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 
@@ -16,7 +16,6 @@ import java.util.List;
  */
 @RequiredArgsConstructor
 public class TenantFrameworkServiceImpl implements TenantFrameworkService {
-
     private static final ServiceException SERVICE_EXCEPTION_NULL = new ServiceException();
 
     private final TenantCommonApi tenantApi;
@@ -27,12 +26,10 @@ public class TenantFrameworkServiceImpl implements TenantFrameworkService {
     private final LoadingCache<Object, List<Long>> getTenantIdsCache = CacheUtils.buildAsyncReloadingCache(
             Duration.ofMinutes(1L), // 过期时间 1 分钟
             new CacheLoader<Object, List<Long>>() {
-
                 @Override
                 public List<Long> load(Object key) {
                     return tenantApi.getTenantIdList();
                 }
-
             });
 
     /**
@@ -41,7 +38,6 @@ public class TenantFrameworkServiceImpl implements TenantFrameworkService {
     private final LoadingCache<Long, ServiceException> validTenantCache = CacheUtils.buildAsyncReloadingCache(
             Duration.ofMinutes(1L), // 过期时间 1 分钟
             new CacheLoader<Long, ServiceException>() {
-
                 @Override
                 public ServiceException load(Long id) {
                     try {
@@ -51,7 +47,6 @@ public class TenantFrameworkServiceImpl implements TenantFrameworkService {
                         return ex;
                     }
                 }
-
             });
 
     @Override
@@ -67,5 +62,4 @@ public class TenantFrameworkServiceImpl implements TenantFrameworkService {
             throw serviceException;
         }
     }
-
 }

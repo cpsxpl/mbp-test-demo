@@ -19,14 +19,12 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * 多租户 JobHandler AOP
  * 任务执行时,会按照租户逐个执行 Job 的逻辑
- *
  * 注意,需要保证 JobHandler 的幂等性。因为 Job 因为某个租户执行失败重试时,之前执行成功的租户也会再次执行。
  */
 @Aspect
 @RequiredArgsConstructor
 @Slf4j
 public class TenantJobAspect {
-
     private final TenantFrameworkService tenantFrameworkService;
 
     @Around("@annotation(tenantJob)")
@@ -53,5 +51,4 @@ public class TenantJobAspect {
         });
         return JsonUtils.toJsonString(results);
     }
-
 }

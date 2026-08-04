@@ -12,7 +12,6 @@ import static com.mbp.eng.framework.web.core.util.WebFrameworkUtils.HEADER_TENAN
  * Producer 发送消息时,将 {@link TenantContextHolder} 租户编号,添加到消息的 Header 中
  */
 public class TenantRocketMQSendMessageHook implements SendMessageHook {
-
     @Override
     public String hookName() {
         return getClass().getSimpleName();
@@ -30,5 +29,4 @@ public class TenantRocketMQSendMessageHook implements SendMessageHook {
     @Override
     public void sendMessageAfter(SendMessageContext sendMessageContext) {
     }
-
 }

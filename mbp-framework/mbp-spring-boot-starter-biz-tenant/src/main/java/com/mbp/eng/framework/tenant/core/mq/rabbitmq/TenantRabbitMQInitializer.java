@@ -8,7 +8,6 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
  * 多租户的 RabbitMQ 初始化器
  */
 public class TenantRabbitMQInitializer implements BeanPostProcessor {
-
     @Override
     @SuppressWarnings("PatternVariableCanBeUsed")
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
@@ -18,5 +17,4 @@ public class TenantRabbitMQInitializer implements BeanPostProcessor {
         }
         return bean;
     }
-
 }

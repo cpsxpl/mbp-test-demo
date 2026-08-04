@@ -22,6 +22,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Set;
@@ -36,11 +37,9 @@ import java.util.Set;
 public class TenantSecurityWebFilter extends ApiRequestFilter {
     private static Logger logger = LoggerFactory.getLogger(TenantSecurityWebFilter.class);
     private final TenantProperties tenantProperties;
-
     /**
      * 允许忽略租户的 URL 列表
-     *
-     * 目的：解决修改配置会导致 @TenantIgnore Controller 接口过滤失效</>
+     * 目的:解决修改配置会导致 @TenantIgnore Controller 接口过滤失效</>
      */
     private final Set<String> ignoreUrls;
 
@@ -77,7 +76,7 @@ public class TenantSecurityWebFilter extends ApiRequestFilter {
             if (tenantId == null) {
                 tenantId = user.getTenantId();
                 TenantContextHolder.setTenantId(tenantId);
-            // 如果传递了租户编号,则进行比对租户编号,避免越权问题
+                // 如果传递了租户编号,则进行比对租户编号,避免越权问题
             } else if (!Objects.equals(user.getTenantId(), TenantContextHolder.getTenantId())) {
                 log.error("[doFilterInternal][租户({}) User({}/{}) 越权访问租户({}) URL({}/{})]",
                         user.getTenantId(), user.getId(), user.getUserType(),
@@ -115,6 +114,12 @@ public class TenantSecurityWebFilter extends ApiRequestFilter {
         chain.doFilter(request, response);
     }
 
+    /**
+     * 判断忽略的url请求
+     *
+     * @param request
+     * @return
+     */
     private boolean isIgnoreUrl(HttpServletRequest request) {
         long time = System.currentTimeMillis();
         String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
@@ -123,7 +128,7 @@ public class TenantSecurityWebFilter extends ApiRequestFilter {
         String apiUri = request.getRequestURI().substring(request.getContextPath().length());
         // 快速匹配,保证性能
         if (CollUtil.contains(tenantProperties.getIgnoreUrls(), apiUri)
-            || CollUtil.contains(ignoreUrls, apiUri)) {
+                || CollUtil.contains(ignoreUrls, apiUri)) {
             return true;
         }
         // 逐个 Ant 路径匹配
@@ -139,5 +144,4 @@ public class TenantSecurityWebFilter extends ApiRequestFilter {
         }
         return false;
     }
-
 }

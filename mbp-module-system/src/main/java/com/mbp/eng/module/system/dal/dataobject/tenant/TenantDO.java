@@ -1,13 +1,19 @@
 package com.mbp.eng.module.system.dal.dataobject.tenant;
 
-import com.mbp.eng.framework.mybatis.core.dataobject.BaseDO;
-import com.mbp.eng.framework.mybatis.core.type.StringListTypeHandler;
-import com.mbp.eng.framework.tenant.core.aop.TenantIgnore;
-import com.mbp.eng.module.system.dal.dataobject.user.AdminUserDO;
 import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mbp.eng.framework.common.enums.CommonStatusEnum;
+import com.mbp.eng.framework.mybatis.core.dataobject.BaseDO;
+import com.mbp.eng.framework.tenant.core.aop.TenantIgnore;
+import com.mbp.eng.module.system.dal.dataobject.user.AdminUserDO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -65,7 +71,9 @@ public class TenantDO extends BaseDO {
      * 1. 考虑到对微信小程序的兼容,也允许传递 appid
      * 2. 为什么是数组,考虑到管理后台、会员前台都有独立的域名,又或者多个管理后台
      */
-    @TableField(typeHandler = StringListTypeHandler.class)
+    @JsonIgnore
+    //@TableField(typeHandler = StringListTypeHandler.class)
+    @TableField(exist = false)
     private List<String> websites;
     /**
      * 租户套餐编号

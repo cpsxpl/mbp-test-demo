@@ -20,7 +20,6 @@ import static com.mbp.eng.framework.common.exception.util.ServiceExceptionUtil.e
 @RequiredArgsConstructor
 @Slf4j
 public class TenantVisitContextInterceptor implements HandlerInterceptor {
-
     private static final String PERMISSION = "system:tenant:visit";
 
     private final TenantProperties tenantProperties;
@@ -62,5 +61,4 @@ public class TenantVisitContextInterceptor implements HandlerInterceptor {
             TenantContextHolder.setTenantId(loginUser.getTenantId());
         }
     }
-
 }

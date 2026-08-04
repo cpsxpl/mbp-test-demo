@@ -14,7 +14,6 @@ import static com.mbp.eng.framework.web.core.util.WebFrameworkUtils.HEADER_TENAN
  * 2. Consumer 消费消息时,将消息的 Header 的租户编号,添加到 {@link TenantContextHolder} 中
  */
 public class TenantRedisMessageInterceptor implements RedisMessageInterceptor {
-
     @Override
     public void sendMessageBefore(AbstractRedisMessage message) {
         Long tenantId = TenantContextHolder.getTenantId();
@@ -36,5 +35,4 @@ public class TenantRedisMessageInterceptor implements RedisMessageInterceptor {
         // 注意,Consumer 是一个逻辑的入口,所以不考虑原本上下文就存在租户编号的情况
         TenantContextHolder.clear();
     }
-
 }

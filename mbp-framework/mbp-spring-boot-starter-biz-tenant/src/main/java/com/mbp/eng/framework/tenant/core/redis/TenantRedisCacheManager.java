@@ -19,7 +19,6 @@ import java.util.Set;
  */
 @Slf4j
 public class TenantRedisCacheManager extends TimeoutRedisCacheManager {
-
     private static final String SPLIT = "#";
 
     private final Set<String> ignoreCaches;
@@ -44,5 +43,4 @@ public class TenantRedisCacheManager extends TimeoutRedisCacheManager {
         // 继续基于父方法
         return super.getCache(name);
     }
-
 }

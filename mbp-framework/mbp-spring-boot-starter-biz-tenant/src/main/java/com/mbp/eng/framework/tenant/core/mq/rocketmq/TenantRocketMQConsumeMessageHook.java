@@ -14,11 +14,9 @@ import static com.mbp.eng.framework.web.core.util.WebFrameworkUtils.HEADER_TENAN
 
 /**
  * RocketMQ 消息队列的多租户 {@link ConsumeMessageHook} 实现类
- *
  * Consumer 消费消息时,将消息的 Header 的租户编号,添加到 {@link TenantContextHolder} 中,通过 {@link InvocableHandlerMethod} 实现
  */
 public class TenantRocketMQConsumeMessageHook implements ConsumeMessageHook {
-
     @Override
     public String hookName() {
         return getClass().getSimpleName();
@@ -40,5 +38,4 @@ public class TenantRocketMQConsumeMessageHook implements ConsumeMessageHook {
     public void consumeMessageAfter(ConsumeMessageContext context) {
         TenantContextHolder.clear();
     }
-
 }

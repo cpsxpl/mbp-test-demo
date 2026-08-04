@@ -14,12 +14,10 @@ import static com.mbp.eng.framework.web.core.util.WebFrameworkUtils.HEADER_TENAN
 
 /**
  * Kafka 消息队列的多租户 {@link ProducerInterceptor} 实现类
- *
  * 1. Producer 发送消息时,将 {@link TenantContextHolder} 租户编号,添加到消息的 Header 中
  * 2. Consumer 消费消息时,将消息的 Header 的租户编号,添加到 {@link TenantContextHolder} 中,通过 {@link InvocableHandlerMethod} 实现
  */
 public class TenantKafkaProducerInterceptor implements ProducerInterceptor<Object, Object> {
-
     @Override
     public ProducerRecord<Object, Object> onSend(ProducerRecord<Object, Object> record) {
         Long tenantId = TenantContextHolder.getTenantId();
@@ -41,5 +39,4 @@ public class TenantKafkaProducerInterceptor implements ProducerInterceptor<Objec
     @Override
     public void configure(Map<String, ?> configs) {
     }
-
 }

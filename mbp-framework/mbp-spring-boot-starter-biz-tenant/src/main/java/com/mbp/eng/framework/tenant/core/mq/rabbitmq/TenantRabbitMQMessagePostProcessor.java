@@ -16,7 +16,6 @@ import static com.mbp.eng.framework.web.core.util.WebFrameworkUtils.HEADER_TENAN
  * 2. Consumer 消费消息时,将消息的 Header 的租户编号,添加到 {@link TenantContextHolder} 中,通过 {@link InvocableHandlerMethod} 实现
  */
 public class TenantRabbitMQMessagePostProcessor implements MessagePostProcessor {
-
     @Override
     public Message postProcessMessage(Message message) throws AmqpException {
         Long tenantId = TenantContextHolder.getTenantId();
@@ -25,5 +24,4 @@ public class TenantRabbitMQMessagePostProcessor implements MessagePostProcessor 
         }
         return message;
     }
-
 }
