@@ -29,8 +29,8 @@
     </appender>
     <!-- 异步写入日志,提升性能 -->
     <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
-        <discardingThreshold>0</discardingThreshold> <!-- 不丢失日志。默认的,如果队列的 80% 已满,则会丢弃 TRACT、DEBUG、INFO 级别的日志 -->
-        <queueSize>512</queueSize> <!-- 更改默认的队列的深度,该值会影响性能。默认值为 256 -->
+        <discardingThreshold>0</discardingThreshold> <!-- 不丢失日志.默认的,如果队列的 80% 已满,则会丢弃 TRACT、DEBUG、INFO 级别的日志 -->
+        <queueSize>512</queueSize> <!-- 更改默认的队列的深度,该值会影响性能.默认值为 256 -->
         <appender-ref ref="FILE"/>
     </appender>
 

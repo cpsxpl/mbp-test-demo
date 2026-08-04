@@ -100,7 +100,7 @@ public class JobHandlerInvoker extends QuartzJobBean {
         }
 
         // 情况二:如果未到达重试上限,则 sleep 一定间隔时间,然后重试
-        // 这里使用 sleep 来实现,主要还是希望实现比较简单。因为,同一时间,不会存在大量失败的 Job。
+        // 这里使用 sleep 来实现,主要还是希望实现比较简单.因为,同一时间,不会存在大量失败的 Job.
         if (retryInterval > 0) {
             ThreadUtil.sleep(retryInterval);
         }

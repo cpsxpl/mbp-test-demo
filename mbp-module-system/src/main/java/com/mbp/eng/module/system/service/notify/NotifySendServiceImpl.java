@@ -57,7 +57,7 @@ public class NotifySendServiceImpl implements NotifySendService {
 
     @VisibleForTesting
     public NotifyTemplateDO validateNotifyTemplate(String templateCode) {
-        // 获得站内信模板。考虑到效率,从缓存中获取
+        // 获得站内信模板.考虑到效率,从缓存中获取
         NotifyTemplateDO template = notifyTemplateService.getNotifyTemplateByCodeFromCache(templateCode);
         // 站内信模板不存在
         if (template == null) {

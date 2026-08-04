@@ -13,7 +13,7 @@ public class DBConnectionManagerTest {
 
 	public static void main(String[] args) throws SQLException, JSONException {
 		// 3. 连接池的使用
-		// 1。Connection的获得和释放
+		// 1.Connection的获得和释放
 		// 得到唯一实例
 		DBConnectionManager dbConnectionManager = DBConnectionManager.getInstance();
 		// 得到连接
@@ -65,10 +65,10 @@ public class DBConnectionManagerTest {
 		// 使用完毕
 		// 释放,但并未断开连接
 		dbConnectionManager.freeConnection(name, connection);
-		// 2。数据库连接的动态增加和连接池的动态增加
-		// 1。调用xml操作增加类
+		// 2.数据库连接的动态增加和连接池的动态增加
+		// 1.调用xml操作增加类
 
-		// 2。重新实例化连接池管理池类
+		// 2.重新实例化连接池管理池类
 	}
 
 }

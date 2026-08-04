@@ -85,7 +85,7 @@ public class MailSendServiceImpl implements MailSendService {
             throw exception(MAIL_SEND_MAIL_NOT_EXISTS);
         }
 
-        // 创建发送日志。如果模板被禁用,则不发送短信,只记录日志
+        // 创建发送日志.如果模板被禁用,则不发送短信,只记录日志
         Boolean isSend = CommonStatusEnum.ENABLE.getStatus().equals(template.getStatus());
         String title = mailTemplateService.formatMailTemplateContent(template.getTitle(), templateParams);
         String content = mailTemplateService.formatMailTemplateContent(template.getContent(), templateParams);
@@ -142,7 +142,7 @@ public class MailSendServiceImpl implements MailSendService {
 
     @VisibleForTesting
     MailTemplateDO validateMailTemplate(String templateCode) {
-        // 获得邮件模板。考虑到效率,从缓存中获取
+        // 获得邮件模板.考虑到效率,从缓存中获取
         MailTemplateDO template = mailTemplateService.getMailTemplateByCodeFromCache(templateCode);
         // 邮件模板不存在
         if (template == null) {
@@ -153,7 +153,7 @@ public class MailSendServiceImpl implements MailSendService {
 
     @VisibleForTesting
     MailAccountDO validateMailAccount(Long accountId) {
-        // 获得邮箱账号。考虑到效率,从缓存中获取
+        // 获得邮箱账号.考虑到效率,从缓存中获取
         MailAccountDO account = mailAccountService.getMailAccountFromCache(accountId);
         // 邮箱账号不存在
         if (account == null) {

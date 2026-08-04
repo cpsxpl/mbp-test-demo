@@ -139,7 +139,7 @@ public class HttpUtils {
      *
      * @param base 基础 URL
      * @param query 查询参数
-     * @param keys query 的 key,对应的原本的 key 的映射。例如说 query 里有个 key 是 xx,实际它的 key 是 extra_xx,则通过 keys 里添加这个映射
+     * @param keys query 的 key,对应的原本的 key 的映射.例如说 query 里有个 key 是 xx,实际它的 key 是 extra_xx,则通过 keys 里添加这个映射
      * @param fragment URL 的 fragment,即拼接到 # 中
      * @return 拼接后的 URL
      */

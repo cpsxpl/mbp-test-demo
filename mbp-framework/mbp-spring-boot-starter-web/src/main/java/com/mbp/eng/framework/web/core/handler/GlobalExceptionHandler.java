@@ -66,7 +66,7 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理所有异常,主要是提供给 Filter 使用
-     * 因为 Filter 不走 SpringMVC 的流程,但是我们又需要兜底处理异常,所以这里提供一个全量的异常处理过程,保持逻辑统一。
+     * 因为 Filter 不走 SpringMVC 的流程,但是我们又需要兜底处理异常,所以这里提供一个全量的异常处理过程,保持逻辑统一.
      *
      * @param request 请求
      * @param ex 异常
@@ -277,7 +277,7 @@ public class GlobalExceptionHandler {
     /**
      * 处理业务异常 ServiceException
      *
-     * 例如说,商品库存不足,用户手机号已存在。
+     * 例如说,商品库存不足,用户手机号已存在.
      */
     @ExceptionHandler(value = ServiceException.class)
     public CommonResult<?> serviceExceptionHandler(ServiceException ex) {

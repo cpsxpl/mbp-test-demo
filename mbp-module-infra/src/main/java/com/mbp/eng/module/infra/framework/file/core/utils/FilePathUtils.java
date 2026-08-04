@@ -18,7 +18,7 @@ public class FilePathUtils {
     }
 
     /**
-     * 校验文件名是否合法,禁止携带目录路径。
+     * 校验文件名是否合法,禁止携带目录路径.
      *
      * @param name 文件名
      * @return 文件名
@@ -34,7 +34,7 @@ public class FilePathUtils {
     }
 
     /**
-     * 校验文件目录是否合法。
+     * 校验文件目录是否合法.
      *
      * @param directory 文件目录,允许为空
      * @return 是否合法
@@ -44,7 +44,7 @@ public class FilePathUtils {
     }
 
     /**
-     * 校验文件目录是否合法,不合法时抛出业务异常。
+     * 校验文件目录是否合法,不合法时抛出业务异常.
      *
      * @param directory 文件目录,允许为空
      */
@@ -55,7 +55,7 @@ public class FilePathUtils {
     }
 
     /**
-     * 校验文件相对路径是否合法,不合法时抛出业务异常。
+     * 校验文件相对路径是否合法,不合法时抛出业务异常.
      *
      * @param path 文件相对路径
      */
@@ -66,7 +66,7 @@ public class FilePathUtils {
     }
 
     /**
-     * 校验路径是否为安全的相对路径,禁止绝对路径、Windows 盘符、反斜杠、空路径段和目录穿越。
+     * 校验路径是否为安全的相对路径,禁止绝对路径、Windows 盘符、反斜杠、空路径段和目录穿越.
      *
      * @param path 路径
      * @return 是否合法

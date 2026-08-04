@@ -23,7 +23,7 @@ public class RedisTestConfiguration {
     @Bean
     public RedisServer redisServer(RedisProperties properties) throws IOException {
         RedisServer redisServer = new RedisServer(properties.getPort());
-        // 一次执行多个单元测试时,貌似创建多个 spring 容器,导致不进行 stop。这样,就导致端口被占用,无法启动。。。
+        // 一次执行多个单元测试时,貌似创建多个 spring 容器,导致不进行 stop.这样,就导致端口被占用,无法启动。。。
         try {
             redisServer.start();
         } catch (Exception ignore) {

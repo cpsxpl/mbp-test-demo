@@ -46,7 +46,7 @@ public class LogRecordServiceImpl implements ILogRecordService {
     }
 
     private static void fillUserFields(OperateLogCreateReqDTO reqDTO) {
-        // 使用 SecurityFrameworkUtils。因为要考虑,rpc、mq、job,它其实不是 web；
+        // 使用 SecurityFrameworkUtils.因为要考虑,rpc、mq、job,它其实不是 web；
         LoginUser loginUser = SecurityFrameworkUtils.getLoginUser();
         if (loginUser == null) {
             return;
@@ -59,7 +59,7 @@ public class LogRecordServiceImpl implements ILogRecordService {
         reqDTO.setType(logRecord.getType()); // 大模块类型,例如:CRM 客户
         reqDTO.setSubType(logRecord.getSubType());// 操作名称,例如:转移客户
         reqDTO.setBizId(Long.parseLong(logRecord.getBizNo())); // 业务编号,例如:客户编号
-        reqDTO.setAction(logRecord.getAction());// 操作内容,例如:修改编号为 1 的用户信息,将性别从男改成女,将姓名从MBP改成源码。
+        reqDTO.setAction(logRecord.getAction());// 操作内容,例如:修改编号为 1 的用户信息,将性别从男改成女,将姓名从MBP改成源码.
         reqDTO.setExtra(logRecord.getExtra()); // 拓展字段,有些复杂的业务,需要记录一些字段 ( JSON 格式 ),例如说,记录订单编号,{ orderId: "1"}
     }
 

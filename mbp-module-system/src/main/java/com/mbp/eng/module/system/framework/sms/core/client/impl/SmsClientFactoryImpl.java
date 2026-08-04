@@ -29,7 +29,7 @@ public class SmsClientFactoryImpl implements SmsClientFactory {
      * 短信客户端 Map
      * key:渠道编码,使用 {@link SmsChannelProperties#getCode()} ()}
      *
-     * 注意,一些场景下,需要获得某个渠道类型的客户端,所以需要使用它。
+     * 注意,一些场景下,需要获得某个渠道类型的客户端,所以需要使用它.
      * 例如说,解析短信接收结果,是相对通用的,不需要使用某个渠道编号的 {@link #channelIdClients}
      */
     private final ConcurrentMap<String, AbstractSmsClient> channelCodeClients = new ConcurrentHashMap<>();

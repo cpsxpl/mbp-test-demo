@@ -23,7 +23,7 @@ import java.util.function.Consumer;
 /**
  * JSON 格式 {@link WebSocketHandler} 实现类
  *
- * 基于 {@link JsonWebSocketMessage#getType()} 消息类型,调度到对应的 {@link WebSocketMessageListener} 监听器。
+ * 基于 {@link JsonWebSocketMessage#getType()} 消息类型,调度到对应的 {@link WebSocketMessageListener} 监听器.
  */
 @Slf4j
 public class JsonWebSocketMessageHandler extends TextWebSocketHandler {
@@ -45,7 +45,7 @@ public class JsonWebSocketMessageHandler extends TextWebSocketHandler {
         if (message.getPayloadLength() == 0) {
             return;
         }
-        // 1.2 ping 心跳消息,直接返回 pong 消息。
+        // 1.2 ping 心跳消息,直接返回 pong 消息.
         if (message.getPayloadLength() == 4 && Objects.equals(message.getPayload(), "ping")) {
             session.sendMessage(new TextMessage("pong"));
             return;

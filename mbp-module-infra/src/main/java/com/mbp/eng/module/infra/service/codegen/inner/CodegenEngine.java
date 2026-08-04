@@ -422,7 +422,7 @@ public class CodegenEngine {
         if (CollUtil.isEmpty(subTables)) {
             return;
         }
-        // 主子表的模式匹配。目的:过滤掉个性化的模版
+        // 主子表的模式匹配.目的:过滤掉个性化的模版
         if (vmPath.contains("_normal")
                 && ObjectUtil.notEqual(table.getTemplateType(), CodegenTemplateTypeEnum.MASTER_NORMAL.getType())) {
             return;
@@ -447,7 +447,7 @@ public class CodegenEngine {
     /**
      * 格式化生成后的代码
      *
-     * 因为尽量让 vm 模版简单,所以统一的处理都在这个方法。
+     * 因为尽量让 vm 模版简单,所以统一的处理都在这个方法.
      * 如果不处理,Vue 的 Pretty 格式校验可能会报错
      *
      * @param content 格式化前的代码

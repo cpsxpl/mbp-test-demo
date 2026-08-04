@@ -57,7 +57,7 @@ public class SmsCodeServiceImpl implements SmsCodeService {
                 throw exception(SMS_CODE_SEND_TOO_FAST);
             }
             if (isToday(lastSmsCode.getCreateTime()) && // 必须是今天,才能计算超过当天的上限
-                    lastSmsCode.getTodayIndex() >= smsCodeProperties.getSendMaximumQuantityPerDay()) { // 超过当天发送的上限。
+                    lastSmsCode.getTodayIndex() >= smsCodeProperties.getSendMaximumQuantityPerDay()) { // 超过当天发送的上限.
                 throw exception(SMS_CODE_EXCEED_SEND_MAXIMUM_QUANTITY_PER_DAY);
             }
             // TODO 提升,每个 IP 每天可发送数量

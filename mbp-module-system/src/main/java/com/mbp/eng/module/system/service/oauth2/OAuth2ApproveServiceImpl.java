@@ -50,7 +50,7 @@ public class OAuth2ApproveServiceImpl implements OAuth2ApproveService {
             return true;
         }
 
-        // 第二步,算上用户已经批准的授权。如果 scopes 都包含,则返回 true
+        // 第二步,算上用户已经批准的授权.如果 scopes 都包含,则返回 true
         List<OAuth2ApproveDO> approveDOs = getApproveList(userId, userType, clientId);
         Set<String> scopes = convertSet(approveDOs, OAuth2ApproveDO::getScope,
                 OAuth2ApproveDO::getApproved); // 只保留未过期的 + 同意的

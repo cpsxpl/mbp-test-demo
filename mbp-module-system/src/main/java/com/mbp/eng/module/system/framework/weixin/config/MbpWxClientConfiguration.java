@@ -27,10 +27,10 @@ import org.springframework.data.redis.core.StringRedisTemplate;
  * weixin-java 4.8.x 的 {@code AbstractWxMpConfigStorageConfiguration} / {@code AbstractWxMaConfigStorageConfiguration}
  * 在初始化 config storage 时,会无条件调用 {@code DefaultApacheHttpClientBuilder.get()},后者在类加载时引用
  * Apache HttpClient 4.x 的 {@code org.apache.http.ssl.TrustStrategy} 等类,导致启动报
- * {@code NoClassDefFoundError}（Spring Boot 4.x / 新版 Spring Cloud Alibaba 不再传递 HttpClient 4.x）。
+ * {@code NoClassDefFoundError}（Spring Boot 4.x / 新版 Spring Cloud Alibaba 不再传递 HttpClient 4.x）.
  *
  * 本配置类自行创建 {@link WxMpConfigStorage} / {@link WxMaConfig} bean,绕过官方的初始化逻辑,
- * 配合 {@code http-client-type: HttpComponents} 配置,只依赖 Apache HttpClient 5.x。
+ * 配合 {@code http-client-type: HttpComponents} 配置,只依赖 Apache HttpClient 5.x.
  */
 @Configuration(proxyBeanMethods = false)
 @Slf4j

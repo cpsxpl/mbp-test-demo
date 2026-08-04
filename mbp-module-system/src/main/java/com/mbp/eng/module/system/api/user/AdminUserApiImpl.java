@@ -32,7 +32,7 @@ public class AdminUserApiImpl implements AdminUserApi {
     private DeptService deptService;
 
     @Override
-    @DataPermission(enable = false) // 忽略数据权限,避免因为过滤,导致无法查询用户。类似:https://github.com/YunaiV/ruoyi-vue-pro/issues/1051
+    @DataPermission(enable = false) // 忽略数据权限,避免因为过滤,导致无法查询用户.类似:https://github.com/YunaiV/ruoyi-vue-pro/issues/1051
     public AdminUserRespDTO getUser(Long id) {
         AdminUserDO user = userService.getUser(id);
         return BeanUtils.toBean(user, AdminUserRespDTO.class);
@@ -60,7 +60,7 @@ public class AdminUserApiImpl implements AdminUserApi {
 
     @Override
     public List<AdminUserRespDTO> getUserList(Collection<Long> ids) {
-        return DataPermissionUtils.executeIgnore(() -> { // 禁用数据权限。原因是,一般基于指定 id 的 API 查询,都是数据拼接为主
+        return DataPermissionUtils.executeIgnore(() -> { // 禁用数据权限.原因是,一般基于指定 id 的 API 查询,都是数据拼接为主
             List<AdminUserDO> users = userService.getUserList(ids);
             return BeanUtils.toBean(users, AdminUserRespDTO.class);
         });

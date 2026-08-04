@@ -71,7 +71,7 @@ public class LoadController {
     }
 
     @PostMapping("/addBasic")
-    //@ApiOperation(value = "添加基础数据源", notes = "调用Springboot内置方法创建数据源，兼容1,2")
+    //@ApiOperation(value = "添加基础数据源", notes = "调用Springboot内置方法创建数据源,兼容1,2")
     public Set<String> addBasic(@Validated @RequestBody DataSourceDTO dto) {
         DataSourceProperty dataSourceProperty = new DataSourceProperty();
         BeanUtils.copyProperties(dto, dataSourceProperty);

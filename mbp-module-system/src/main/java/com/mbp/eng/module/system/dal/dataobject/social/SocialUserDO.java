@@ -11,7 +11,7 @@ import lombok.*;
  * 社交（三方）用户
  */
 @TableName(value = "system_social_user", autoResultMap = true)
-@KeySequence("system_social_user_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库,可不写。
+@KeySequence("system_social_user_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增.如果是 MySQL 等数据库,可不写.
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Builder

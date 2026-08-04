@@ -47,7 +47,7 @@ public class MbpRedisMQConsumerAutoConfiguration {
             RedisMQTemplate redisMQTemplate, List<AbstractRedisChannelMessageListener<?>> listeners) {
         // 创建 RedisMessageListenerContainer 对象
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
-        // 设置 RedisConnection 工厂。
+        // 设置 RedisConnection 工厂.
         container.setConnectionFactory(redisMQTemplate.getRedisTemplate().getRequiredConnectionFactory());
         // 添加监听器
         listeners.forEach(listener -> {
@@ -99,7 +99,7 @@ public class MbpRedisMQConsumerAutoConfiguration {
         StreamMessageListenerContainer.StreamMessageListenerContainerOptions<String, ObjectRecord<String, String>> containerOptions =
                 StreamMessageListenerContainer.StreamMessageListenerContainerOptions.builder()
                         .batchSize(10) // 一次性最多拉取多少条消息
-                        .targetType(String.class) // 目标类型。统一使用 String,通过自己封装的 AbstractStreamMessageListener 去反序列化
+                        .targetType(String.class) // 目标类型.统一使用 String,通过自己封装的 AbstractStreamMessageListener 去反序列化
                         .build();
         // 创建 container 对象
         StreamMessageListenerContainer<String, ObjectRecord<String, String>> container =
@@ -134,7 +134,7 @@ public class MbpRedisMQConsumerAutoConfiguration {
     }
 
     /**
-     * 构建消费者名字,使用本地 IP + 进程编号的方式。
+     * 构建消费者名字,使用本地 IP + 进程编号的方式.
      * 参考自 RocketMQ clientId 的实现
      *
      * @return 消费者名字
@@ -154,7 +154,7 @@ public class MbpRedisMQConsumerAutoConfiguration {
         int majorVersion = Integer.parseInt(StrUtil.subBefore(version, '.', false));
         if (majorVersion < 5) {
             throw new IllegalStateException(StrUtil.format("您当前的 Redis 版本为 {},小于最低要求的 5.0.0 版本！" +
-                    "请参考 {} 文档进行安装。", version, DocumentEnum.REDIS_INSTALL.getUrl()));
+                    "请参考 {} 文档进行安装.", version, DocumentEnum.REDIS_INSTALL.getUrl()));
         }
     }
 

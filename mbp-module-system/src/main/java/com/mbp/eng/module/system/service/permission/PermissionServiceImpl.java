@@ -64,7 +64,7 @@ public class PermissionServiceImpl implements PermissionService {
             return true;
         }
 
-        // 获得当前登录的角色。如果为空,说明没有权限
+        // 获得当前登录的角色.如果为空,说明没有权限
         List<RoleDO> roles = getEnableUserRoleListByUserIdFromCache(userId);
         if (CollUtil.isEmpty(roles)) {
             return false;
@@ -115,7 +115,7 @@ public class PermissionServiceImpl implements PermissionService {
             return true;
         }
 
-        // 获得当前登录的角色。如果为空,说明没有权限
+        // 获得当前登录的角色.如果为空,说明没有权限
         List<RoleDO> roleList = getEnableUserRoleListByUserIdFromCache(userId);
         if (CollUtil.isEmpty(roleList)) {
             return false;
@@ -143,7 +143,7 @@ public class PermissionServiceImpl implements PermissionService {
         Set<Long> menuIdList = CollUtil.emptyIfNull(menuIds);
         Collection<Long> createMenuIds = CollUtil.subtract(menuIdList, dbMenuIds);
         Collection<Long> deleteMenuIds = CollUtil.subtract(dbMenuIds, menuIdList);
-        // 执行新增和删除。对于已经授权的菜单,不用做任何处理
+        // 执行新增和删除.对于已经授权的菜单,不用做任何处理
         if (CollUtil.isNotEmpty(createMenuIds)) {
             roleMenuMapper.insertBatch(CollectionUtils.convertList(createMenuIds, menuId -> {
                 RoleMenuDO entity = new RoleMenuDO();
@@ -211,7 +211,7 @@ public class PermissionServiceImpl implements PermissionService {
         Set<Long> roleIdList = CollUtil.emptyIfNull(roleIds);
         Collection<Long> createRoleIds = CollUtil.subtract(roleIdList, dbRoleIds);
         Collection<Long> deleteMenuIds = CollUtil.subtract(dbRoleIds, roleIdList);
-        // 执行新增和删除。对于已经授权的角色,不用做任何处理
+        // 执行新增和删除.对于已经授权的角色,不用做任何处理
         if (!CollectionUtil.isEmpty(createRoleIds)) {
             userRoleMapper.insertBatch(CollectionUtils.convertList(createRoleIds, roleId -> {
                 UserRoleDO entity = new UserRoleDO();
@@ -299,7 +299,7 @@ public class PermissionServiceImpl implements PermissionService {
             // 情况二,DEPT_CUSTOM
             if (Objects.equals(role.getDataScope(), DataScopeEnum.DEPT_CUSTOM.getScope())) {
                 CollUtil.addAll(result.getDeptIds(), role.getDataScopeDeptIds());
-                // 自定义可见部门时,保证可以看到自己所在的部门。否则,一些场景下可能会有问题。
+                // 自定义可见部门时,保证可以看到自己所在的部门.否则,一些场景下可能会有问题.
                 // 例如说,登录时,基于 t_user 的 username 查询会可能被 dept_id 过滤掉
                 CollectionUtils.addIfNotNull(result.getDeptIds(), userDeptId.get());
                 continue;

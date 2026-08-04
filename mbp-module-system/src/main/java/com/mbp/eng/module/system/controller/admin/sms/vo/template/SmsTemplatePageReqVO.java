@@ -26,7 +26,7 @@ public class SmsTemplatePageReqVO extends PageParam {
     @Schema(description = "模板编码,模糊匹配", example = "test_01")
     private String code;
 
-    @Schema(description = "模板内容,模糊匹配", example = "你好,{name}。你长的太{like}啦！")
+    @Schema(description = "模板内容,模糊匹配", example = "你好,{name}.你长的太{like}啦！")
     private String content;
 
     @Schema(description = "短信 API 的模板编号,模糊匹配", example = "4383920")

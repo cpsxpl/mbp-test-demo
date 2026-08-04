@@ -33,7 +33,7 @@ import java.util.Optional;
 import static com.mbp.eng.framework.web.core.util.WebFrameworkUtils.HEADER_TENANT_ID;
 
 /**
- * Swagger 自动配置类,基于 OpenAPI + Springdoc 实现。
+ * Swagger 自动配置类,基于 OpenAPI + Springdoc 实现.
  *
  * 友情提示:
  * 1. Springdoc 文档地址:<a href="https://github.com/springdoc/springdoc-openapi">仓库</a>

@@ -239,7 +239,7 @@ export function useGridColumns(): VxeTableGridOptions<${apiName}.${simpleClassNa
   ];
 }
 
-## 标准模式和内嵌模式时,主子关系一对一则生成表单schema,一对多则生成列表schema（内嵌模式时表单schema也要生成）。erp 模式时都生成
+## 标准模式和内嵌模式时,主子关系一对一则生成表单schema,一对多则生成列表schema（内嵌模式时表单schema也要生成）.erp 模式时都生成
 ## 特殊:主子表专属逻辑
 #foreach ($subTable in $subTables)
     #set ($index = $foreach.count - 1)

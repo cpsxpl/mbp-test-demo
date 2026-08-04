@@ -56,7 +56,7 @@ public interface AuthConvert {
         menuList.sort(Comparator.comparing(MenuDO::getSort));
 
         // 构建菜单树
-        // 使用 LinkedHashMap 的原因,是为了排序 。实际也可以用 Stream API ,就是太丑了。
+        // 使用 LinkedHashMap 的原因,是为了排序 .实际也可以用 Stream API ,就是太丑了.
         Map<Long, AuthPermissionInfoRespVO.MenuVO> treeNodeMap = new LinkedHashMap<>();
         menuList.forEach(menu -> treeNodeMap.put(menu.getId(),
                 BeanUtils.toBean(menu, AuthPermissionInfoRespVO.MenuVO.class)));

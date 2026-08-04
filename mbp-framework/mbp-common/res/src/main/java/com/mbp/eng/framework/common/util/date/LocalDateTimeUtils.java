@@ -413,7 +413,7 @@ public class LocalDateTimeUtils {
     }
 
     /**
-     * 将给定的 {@link LocalDateTime} 转换为自 Unix 纪元时间（1970-01-01T00:00:00Z）以来的秒数。
+     * 将给定的 {@link LocalDateTime} 转换为自 Unix 纪元时间（1970-01-01T00:00:00Z）以来的秒数.
      *
      * @param sourceDateTime 需要转换的本地日期时间,不能为空
      * @return 自 1970-01-01T00:00:00Z 起的秒数（epoch second）
@@ -425,7 +425,7 @@ public class LocalDateTimeUtils {
     }
 
     /**
-     * 将给定的 {@link LocalDateTime} 按指定时区转换为自 Unix 纪元时间（1970-01-01T00:00:00Z）以来的秒数。
+     * 将给定的 {@link LocalDateTime} 按指定时区转换为自 Unix 纪元时间（1970-01-01T00:00:00Z）以来的秒数.
      *
      * @param sourceDateTime 需要转换的本地日期时间,不能为空
      * @param zoneId 时区编号

@@ -38,7 +38,7 @@ public class SocialWxaSubscribeMessageSendReqDTO {
     /**
      * 点击模板卡片后的跳转页面,仅限本小程序内的页面
      *
-     * 支持带参数,（示例 index?foo=bar ）。该字段不填则模板无跳转。
+     * 支持带参数,（示例 index?foo=bar ）.该字段不填则模板无跳转.
      */
     private String page;
 

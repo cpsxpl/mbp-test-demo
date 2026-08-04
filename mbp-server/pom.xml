@@ -14,7 +14,7 @@
     <name>${project.artifactId}</name>
     <description>
         后端 Server 的主项目,通过引入需要 mbp-module-xxx 的依赖,
-        从而实现提供 RESTful API 给 mbp-ui-admin、mbp-ui-user 等前端项目。
+        从而实现提供 RESTful API 给 mbp-ui-admin、mbp-ui-user 等前端项目.
         本质上来说,它就是个空壳（容器）！
     </description>
     <url>https://github.com</url>

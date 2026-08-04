@@ -89,7 +89,7 @@ public interface CodegenService {
      * 执行指定表的代码生成
      *
      * @param tableId 表编号
-     * @return 生成结果。key 为文件路径,value 为对应的代码内容
+     * @return 生成结果.key 为文件路径,value 为对应的代码内容
      */
     Map<String, String> generationCodes(Long tableId);
 

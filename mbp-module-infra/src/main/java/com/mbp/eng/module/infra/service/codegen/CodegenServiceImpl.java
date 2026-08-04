@@ -67,7 +67,7 @@ public class CodegenServiceImpl implements CodegenService {
     @Transactional(rollbackFor = Exception.class)
     public List<Long> createCodegenList(String author, CodegenCreateListReqVO reqVO) {
         List<Long> ids = new ArrayList<>(reqVO.getTableNames().size());
-        // 遍历添加。虽然效率会低一点,但是没必要做成完全批量,因为不会这么大量
+        // 遍历添加.虽然效率会低一点,但是没必要做成完全批量,因为不会这么大量
         reqVO.getTableNames().forEach(tableName -> ids.add(createCodegen(author, reqVO.getDataSourceConfigId(), tableName)));
         return ids;
     }

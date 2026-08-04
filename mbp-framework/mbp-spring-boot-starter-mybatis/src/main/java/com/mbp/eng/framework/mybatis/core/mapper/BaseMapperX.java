@@ -69,9 +69,9 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     }
 
     /**
-     * 执行分页查询并返回结果。
+     * 执行分页查询并返回结果.
      *
-     * @param pageParam 分页参数,包含页码、每页条数和排序字段信息。如果 pageSize 为 {@link PageParam#PAGE_SIZE_NONE},则不分页,直接查询所有数据。
+     * @param pageParam 分页参数,包含页码、每页条数和排序字段信息.如果 pageSize 为 {@link PageParam#PAGE_SIZE_NONE},则不分页,直接查询所有数据.
      * @param clazz     结果集的类类型
      * @param lambdaWrapper MyBatis Plus Join 查询条件包装器
      * @param <D>       结果集的泛型类型
@@ -120,9 +120,9 @@ public interface BaseMapperX<T> extends MPJBaseMapper<T> {
     }
 
     /**
-     * 获得满足条件的一条记录,并使用 FOR UPDATE 锁定。
+     * 获得满足条件的一条记录,并使用 FOR UPDATE 锁定.
      *
-     * 注意:需要在事务中调用,否则锁会立即释放。
+     * 注意:需要在事务中调用,否则锁会立即释放.
      *
      * @param queryWrapper 查询条件
      * @return 实体

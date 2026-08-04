@@ -12,7 +12,7 @@ public class JsoupXssCleaner implements XssCleaner {
     private final Safelist safelist;
 
     /**
-     * 用于在 src 属性使用相对路径时,强制转换为绝对路径。 为空时不处理,值应为绝对路径的前缀（包含协议部分）
+     * 用于在 src 属性使用相对路径时,强制转换为绝对路径. 为空时不处理,值应为绝对路径的前缀（包含协议部分）
      */
     private final String baseUri;
 
@@ -25,7 +25,7 @@ public class JsoupXssCleaner implements XssCleaner {
     }
 
     /**
-     * 构建一个 Xss 清理的 Safelist 规则。
+     * 构建一个 Xss 清理的 Safelist 规则.
      * 基于 Safelist#relaxed() 的基础上:
      * 1. 扩展支持了 style 和 class 属性
      * 2. a 标签额外支持了 target 属性

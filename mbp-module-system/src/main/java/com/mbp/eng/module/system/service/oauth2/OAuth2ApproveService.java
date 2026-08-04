@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * OAuth2 批准 Service 接口
  *
- * 从功能上,和 Spring Security OAuth 的 ApprovalStoreUserApprovalHandler 的功能,记录用户针对指定客户端的授权,减少手动确定。
+ * 从功能上,和 Spring Security OAuth 的 ApprovalStoreUserApprovalHandler 的功能,记录用户针对指定客户端的授权,减少手动确定.
  */
 public interface OAuth2ApproveService {
 

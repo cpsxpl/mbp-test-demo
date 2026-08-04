@@ -14,7 +14,7 @@ public class OperateLogCreateReqDTO {
     /**
      * 链路追踪编号
      *
-     * 一般来说,通过链路追踪编号,可以将访问日志,错误日志,链路追踪日志,logger 打印日志等,结合在一起,从而进行排错。
+     * 一般来说,通过链路追踪编号,可以将访问日志,错误日志,链路追踪日志,logger 打印日志等,结合在一起,从而进行排错.
      */
     private String traceId;
     /**
@@ -48,7 +48,7 @@ public class OperateLogCreateReqDTO {
     private Long bizId;
     /**
      * 操作内容,记录整个操作的明细
-     * 例如说,修改编号为 1 的用户信息,将性别从男改成女,将姓名从MBP改成源码。
+     * 例如说,修改编号为 1 的用户信息,将性别从男改成女,将姓名从MBP改成源码.
      */
     @NotEmpty(message = "操作内容不能为空")
     private String action;

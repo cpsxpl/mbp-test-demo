@@ -13,7 +13,7 @@ import javax.validation.Valid;
 public interface AdminAuthService {
 
     /**
-     * 验证账号 + 密码。如果通过,则返回用户
+     * 验证账号 + 密码.如果通过,则返回用户
      *
      * @param username 账号
      * @param password 密码

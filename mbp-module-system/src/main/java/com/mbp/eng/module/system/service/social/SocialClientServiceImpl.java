@@ -123,10 +123,10 @@ public class SocialClientServiceImpl implements SocialClientService {
     /**
      * 缓存 WxMpService 对象
      *
-     * key:使用微信公众号的 appId + secret 拼接,即 {@link SocialClientDO} 的 clientId 和 clientSecret 属性。
-     * 为什么 key 使用这种格式？因为 {@link SocialClientDO} 在管理后台可以变更,通过这个 key 存储它的单例。
+     * key:使用微信公众号的 appId + secret 拼接,即 {@link SocialClientDO} 的 clientId 和 clientSecret 属性.
+     * 为什么 key 使用这种格式？因为 {@link SocialClientDO} 在管理后台可以变更,通过这个 key 存储它的单例.
      *
-     * 为什么要做 WxMpService 缓存？因为 WxMpService 构建成本比较大,所以尽量保证它是单例。
+     * 为什么要做 WxMpService 缓存？因为 WxMpService 构建成本比较大,所以尽量保证它是单例.
      */
     private final LoadingCache<String, WxMpService> wxMpServiceCache = CacheUtils.buildAsyncReloadingCache(
             Duration.ofSeconds(10L),

@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
  * 定时任务的执行日志
  */
 @TableName("infra_job_log")
-@KeySequence("infra_job_log_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库,可不写。
+@KeySequence("infra_job_log_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增.如果是 MySQL 等数据库,可不写.
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
@@ -49,7 +49,7 @@ public class JobLogDO extends BaseDO {
     /**
      * 第几次执行
      *
-     * 用于区分是不是重试执行。如果是重试执行,则 index 大于 1
+     * 用于区分是不是重试执行.如果是重试执行,则 index 大于 1
      */
     private Integer executeIndex;
 

@@ -134,7 +134,7 @@ public class JsonUtils {
     /**
      * 将字符串解析成指定类型的对象
      * 使用 {@link #parseObject(String, Class)} 时,在@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS) 的场景下,
-     * 如果 text 没有 class 属性,则会报错。此时,使用这个方法,可以解决。
+     * 如果 text 没有 class 属性,则会报错.此时,使用这个方法,可以解决.
      *
      * @param text 字符串
      * @param clazz 类型

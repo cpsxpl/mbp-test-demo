@@ -101,7 +101,7 @@ public class MbpTenantAutoConfiguration {
     // ========== DB ==========
 
     /**
-     * MyBatis-Plus 内置的多租户数据隔离插件，它能够自动将租户 ID 过滤条件嵌入到 SQL 语句中
+     * MyBatis-Plus 内置的多租户数据隔离插件,它能够自动将租户 ID 过滤条件嵌入到 SQL 语句中
      *
      * @param tenantProperties (多租户配置 mbp.tenant) {@link TenantProperties}
      * @param mybatisPlusInterceptor
@@ -117,7 +117,7 @@ public class MbpTenantAutoConfiguration {
 
         TenantLineInnerInterceptor inner = new TenantLineInnerInterceptor(new TenantDatabaseInterceptor(tenantProperties));
         // 添加到 interceptor 中
-        // 需要加在首个,主要是为了在分页插件前面。这个是 MyBatis Plus 的规定
+        // 需要加在首个,主要是为了在分页插件前面.这个是 MyBatis Plus 的规定
         MyBatisUtils.addInterceptor(mybatisPlusInterceptor, inner, 0);
         return inner;
     }
@@ -126,7 +126,7 @@ public class MbpTenantAutoConfiguration {
 
     /**
      * FilterRegistrationBean 是 Spring Boot 中用来手动注册和管理过滤器的配置类
-     * Spring Boot API 工具，用于注册自定义的 Servlet 过滤器、设置特定的 URL 模式，以及定义过滤器的执行顺序。与简单的组件扫描方式相比，它提供了对过滤器如何以及何时运行的精细控制
+     * Spring Boot API 工具,用于注册自定义的 Servlet 过滤器、设置特定的 URL 模式,以及定义过滤器的执行顺序.与简单的组件扫描方式相比,它提供了对过滤器如何以及何时运行的精细控制
      * {@link TenantContextWebFilter}
      * {@link WebFilterOrderEnum}
      *
@@ -167,7 +167,7 @@ public class MbpTenantAutoConfiguration {
     }
 
     /**
-     * Spring 框架中的一个 Java 配置接口，用于自定义 Spring MVC 的设置。通过在该接口上进行实现，可以添加 CORS 映射、拦截器以及资源处理器等组件
+     * Spring 框架中的一个 Java 配置接口,用于自定义 Spring MVC 的设置.通过在该接口上进行实现,可以添加 CORS 映射、拦截器以及资源处理器等组件
      *
      * @param tenantProperties              (多租户配置 mbp.tenant) {@link TenantProperties}
      * @param tenantVisitContextInterceptor (实现HandlerInterceptor判断用户和编号) {@link TenantVisitContextInterceptor}
@@ -194,7 +194,7 @@ public class MbpTenantAutoConfiguration {
 
     /**
      * FilterRegistrationBean 是 Spring Boot 中用来手动注册和管理过滤器的配置类
-     * Spring Boot API 工具，用于注册自定义的 Servlet 过滤器、设置特定的 URL 模式，以及定义过滤器的执行顺序。与简单的组件扫描方式相比，它提供了对过滤器如何以及何时运行的精细控制
+     * Spring Boot API 工具,用于注册自定义的 Servlet 过滤器、设置特定的 URL 模式,以及定义过滤器的执行顺序.与简单的组件扫描方式相比,它提供了对过滤器如何以及何时运行的精细控制
      *
      * @param tenantProperties       (多租户配置 mbp.tenant) {@link TenantProperties}
      * @param webProperties          (mbp.web-Api属性) {@link WebProperties}
@@ -301,7 +301,7 @@ public class MbpTenantAutoConfiguration {
     // ========== Redis ==========
 
     /**
-     * 提供了核心的缓存管理功能:包括 RedisCacheManager API 以及 Redis 缓存指南。该组件负责处理对单个实例的创建、读取和写入操作，这些操作都基于 Redis 数据存储进行支持
+     * 提供了核心的缓存管理功能:包括 RedisCacheManager API 以及 Redis 缓存指南.该组件负责处理对单个实例的创建、读取和写入操作,这些操作都基于 Redis 数据存储进行支持
      *
      * @param redisTemplate
      * @param redisCacheConfiguration

@@ -85,10 +85,10 @@ public class SmsSendServiceImpl implements SmsSendService {
 
         // 校验手机号码是否存在
         mobile = validateMobile(mobile);
-        // 构建有序的模板参数。为什么放在这个位置,是提前保证模板参数的正确性,而不是到了插入发送日志
+        // 构建有序的模板参数.为什么放在这个位置,是提前保证模板参数的正确性,而不是到了插入发送日志
         List<KeyValue<String, Object>> newTemplateParams = buildTemplateParams(template, templateParams);
 
-        // 创建发送日志。如果模板被禁用,则不发送短信,只记录日志
+        // 创建发送日志.如果模板被禁用,则不发送短信,只记录日志
         Boolean isSend = CommonStatusEnum.ENABLE.getStatus().equals(template.getStatus())
                 && CommonStatusEnum.ENABLE.getStatus().equals(smsChannel.getStatus());
         String content = smsTemplateService.formatSmsTemplateContent(template.getContent(), templateParams);
@@ -104,7 +104,7 @@ public class SmsSendServiceImpl implements SmsSendService {
 
     @VisibleForTesting
     SmsChannelDO validateSmsChannel(Long channelId) {
-        // 获得短信模板。考虑到效率,从缓存中获取
+        // 获得短信模板.考虑到效率,从缓存中获取
         SmsChannelDO channelDO = smsChannelService.getSmsChannel(channelId);
         // 短信模板不存在
         if (channelDO == null) {
@@ -115,7 +115,7 @@ public class SmsSendServiceImpl implements SmsSendService {
 
     @VisibleForTesting
     SmsTemplateDO validateSmsTemplate(String templateCode) {
-        // 获得短信模板。考虑到效率,从缓存中获取
+        // 获得短信模板.考虑到效率,从缓存中获取
         SmsTemplateDO template = smsTemplateService.getSmsTemplateByCodeFromCache(templateCode);
         // 短信模板不存在
         if (template == null) {

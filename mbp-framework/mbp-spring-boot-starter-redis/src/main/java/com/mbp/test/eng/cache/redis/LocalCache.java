@@ -33,7 +33,7 @@ public class LocalCache implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        loadingCache = CacheBuilder.newBuilder().refreshAfterWrite(refresh, TimeUnit.SECONDS)// 给定时间内没有被读/写访问,则回收。
+        loadingCache = CacheBuilder.newBuilder().refreshAfterWrite(refresh, TimeUnit.SECONDS)// 给定时间内没有被读/写访问,则回收.
                 .expireAfterAccess(expire, TimeUnit.SECONDS)// 缓存过期时间和redis缓存时长一样
                 .maximumSize(1000)// 设置缓存个数
                 .build(new CacheLoader<String, String>() {

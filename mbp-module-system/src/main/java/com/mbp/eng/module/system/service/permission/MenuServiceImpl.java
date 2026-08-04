@@ -65,7 +65,7 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     @CacheEvict(value = RedisKeyConstants.PERMISSION_MENU_ID_LIST,
-            allEntries = true) // allEntries 清空所有缓存,因为 permission 如果变更,涉及到新老两个 permission。直接清理,简单有效
+            allEntries = true) // allEntries 清空所有缓存,因为 permission 如果变更,涉及到新老两个 permission.直接清理,简单有效
     public void updateMenu(MenuSaveVO updateReqVO) {
         // 校验更新的菜单是否存在
         if (menuMapper.selectById(updateReqVO.getId()) == null) {
@@ -86,7 +86,7 @@ public class MenuServiceImpl implements MenuService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(value = RedisKeyConstants.PERMISSION_MENU_ID_LIST,
-            allEntries = true) // allEntries 清空所有缓存,因为此时不知道 id 对应的 permission 是多少。直接清理,简单有效
+            allEntries = true) // allEntries 清空所有缓存,因为此时不知道 id 对应的 permission 是多少.直接清理,简单有效
     public void deleteMenu(Long id) {
         // 校验是否还有子菜单
         if (menuMapper.selectCountByParentId(id) > 0) {
@@ -286,7 +286,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     /**
-     * 初始化菜单的通用属性。
+     * 初始化菜单的通用属性.
      * <p>
      * 例如说,只有目录或者菜单类型的菜单,才设置 icon
      *

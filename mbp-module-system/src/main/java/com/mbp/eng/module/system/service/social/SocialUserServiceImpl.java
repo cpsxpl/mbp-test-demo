@@ -129,7 +129,7 @@ public class SocialUserServiceImpl implements SocialUserService {
      */
     @NotNull
     public SocialUserDO authSocialUser(Integer socialType, Integer userType, String code, String state) {
-        // 优先从 DB 中获取,因为 code 有且可以使用一次。
+        // 优先从 DB 中获取,因为 code 有且可以使用一次.
         // 在社交登录时,当未绑定 User 时,需要绑定登录,此时需要 code 使用两次
         SocialUserDO socialUser = socialUserMapper.selectByTypeAndCodeAnState(socialType, code, state);
         if (socialUser != null) {

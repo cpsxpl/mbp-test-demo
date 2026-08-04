@@ -9,10 +9,10 @@ import java.util.List;
  *
  * 从功能上,和 Spring Security OAuth 的 TokenGranter 的功能,提供访问令牌、刷新令牌的操作
  *
- * 将自身的 AdminUser 用户,授权给第三方应用,采用 OAuth2.0 的协议。
+ * 将自身的 AdminUser 用户,授权给第三方应用,采用 OAuth2.0 的协议.
  *
  * 问题:为什么自身也作为一个第三方应用,也走这套流程呢？
- * 回复:当然可以这么做,采用 password 模式。考虑到大多数开发者使用不到这个特性,OAuth2.0 毕竟有一定学习成本,所以暂时没有采取这种方式。
+ * 回复:当然可以这么做,采用 password 模式.考虑到大多数开发者使用不到这个特性,OAuth2.0 毕竟有一定学习成本,所以暂时没有采取这种方式.
  */
 public interface OAuth2GrantService {
 

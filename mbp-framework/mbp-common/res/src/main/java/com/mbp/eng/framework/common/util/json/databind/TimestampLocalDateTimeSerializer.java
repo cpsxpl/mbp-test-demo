@@ -31,7 +31,7 @@ public class TimestampLocalDateTimeSerializer extends JsonSerializer<LocalDateTi
 
     @Override
     public void serialize(LocalDateTime value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
-        // 情况一:有 JsonFormat 自定义注解,则使用它。https://github.com/YunaiV/ruoyi-vue-pro/pull/1019
+        // 情况一:有 JsonFormat 自定义注解,则使用它.https://github.com/YunaiV/ruoyi-vue-pro/pull/1019
         String fieldName = gen.getOutputContext().getCurrentName();
         if (fieldName != null) {
             Object currentValue = gen.getOutputContext().getCurrentValue();

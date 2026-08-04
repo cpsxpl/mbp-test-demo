@@ -825,7 +825,7 @@ public class DateUtil {
      * 判断给定日期是不是润年
      *
      * @param date 给定日期
-     * @return boolean 如果给定的年份为闰年,则返回 true；否则返回 false。
+     * @return boolean 如果给定的年份为闰年,则返回 true；否则返回 false.
      */
     public static boolean isLeapYear(Date date) {
         int year = getYearOfDate(date);
@@ -1574,7 +1574,7 @@ public class DateUtil {
     }
 
     /**
-     * 方法名: 功能描述: 两个参数格式必须为20050827,而且不能为空。
+     * 方法名: 功能描述: 两个参数格式必须为20050827,而且不能为空.
      *
      * @param preDate
      * @param date
@@ -1601,7 +1601,7 @@ public class DateUtil {
     }
 
     /**
-     * 方法名: 功能描述: 两个参数格式必须为20050827,而且不能为空。
+     * 方法名: 功能描述: 两个参数格式必须为20050827,而且不能为空.
      * 参数说明: 第一个参数小于第二个参数返回true 返回值:
      * 函数返回值的说明
      */
@@ -1626,7 +1626,7 @@ public class DateUtil {
     }
 
     /**
-     * 方法名: 功能描述: 两个参数格式必须为20050827,而且不能为空。
+     * 方法名: 功能描述: 两个参数格式必须为20050827,而且不能为空.
      * 参数说明: 第一个参数大于第二个参数返回true 返回值:
      * 函数返回值的说明 其他: // 其它说明
      */

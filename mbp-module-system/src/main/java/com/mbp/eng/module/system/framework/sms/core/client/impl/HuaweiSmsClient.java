@@ -51,7 +51,7 @@ public class HuaweiSmsClient extends AbstractSmsClient {
      *
      * 原因是:验华为云发放短信的时候,需要额外的参数 sender
      *
-     * 解决方案:考虑到不破坏原有的 apiKey + apiSecret 的结构,所以将 secretId 拼接到 apiKey 字段中,格式为 "secretId sdkAppId"。
+     * 解决方案:考虑到不破坏原有的 apiKey + apiSecret 的结构,所以将 secretId 拼接到 apiKey 字段中,格式为 "secretId sdkAppId".
      *
      * @param properties 配置
      */

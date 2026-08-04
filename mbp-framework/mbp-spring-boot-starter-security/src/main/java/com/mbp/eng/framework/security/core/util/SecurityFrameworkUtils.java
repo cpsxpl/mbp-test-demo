@@ -38,7 +38,7 @@ public class SecurityFrameworkUtils {
      */
     public static String obtainAuthorization(HttpServletRequest request,
                                              String headerName, String parameterName) {
-        // 1. 获得 Token。优先级:Header > Parameter
+        // 1. 获得 Token.优先级:Header > Parameter
         String token = request.getHeader(headerName);
         if (StrUtil.isEmpty(token)) {
             token = request.getParameter(parameterName);

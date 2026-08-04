@@ -29,8 +29,8 @@ import java.util.Set;
 
 /**
  * 多租户 Security Web 过滤器
- * 1. 如果是登陆的用户,校验是否有权限访问该租户,避免越权问题。
- * 2. 如果请求未带租户的编号,检查是否是忽略的 URL,否则也不允许访问。
+ * 1. 如果是登陆的用户,校验是否有权限访问该租户,避免越权问题.
+ * 2. 如果请求未带租户的编号,检查是否是忽略的 URL,否则也不允许访问.
  * 3. 校验租户是合法,例如说被禁用、到期
  */
 @Slf4j
@@ -69,7 +69,7 @@ public class TenantSecurityWebFilter extends ApiRequestFilter {
         logger.info("类=====:{} 方法=====:{} time: is {}", this.getClass().getSimpleName(), methodName, DateUtil.getFormatTime(time));
 
         Long tenantId = TenantContextHolder.getTenantId();
-        // 1. 登陆的用户,校验是否有权限访问该租户,避免越权问题。
+        // 1. 登陆的用户,校验是否有权限访问该租户,避免越权问题.
         LoginUser user = SecurityFrameworkUtils.getLoginUser();
         if (user != null) {
             // 如果获取不到租户编号,则尝试使用登陆用户的租户编号
@@ -89,7 +89,7 @@ public class TenantSecurityWebFilter extends ApiRequestFilter {
 
         // 如果非允许忽略租户的 URL,则校验租户是否合法
         if (!isIgnoreUrl(request)) {
-            // 2. 如果请求未带租户的编号,不允许访问。
+            // 2. 如果请求未带租户的编号,不允许访问.
             if (tenantId == null) {
                 log.error("[doFilterInternal][URL({}/{}) 未传递租户编号]", request.getRequestURI(), request.getMethod());
                 ServletUtils.writeJSON(response, CommonResult.error(GlobalErrorCodeConstants.BAD_REQUEST.getCode(),

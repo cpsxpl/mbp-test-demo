@@ -16,7 +16,7 @@ import java.util.List;
  * @since 2022-03-21
  */
 @TableName(value = "system_mail_template", autoResultMap = true)
-@KeySequence("system_mail_template_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库,可不写。
+@KeySequence("system_mail_template_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增.如果是 MySQL 等数据库,可不写.
 @Data
 @EqualsAndHashCode(callSuper = true)
 @TenantIgnore

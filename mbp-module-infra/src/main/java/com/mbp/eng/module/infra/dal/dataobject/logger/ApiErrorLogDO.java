@@ -39,7 +39,7 @@ public class ApiErrorLogDO extends BaseDO {
     /**
      * 链路追踪编号
      *
-     * 一般来说,通过链路追踪编号,可以将访问日志,错误日志,链路追踪日志,logger 打印日志等,结合在一起,从而进行排错。
+     * 一般来说,通过链路追踪编号,可以将访问日志,错误日志,链路追踪日志,logger 打印日志等,结合在一起,从而进行排错.
      */
     private String traceId;
     /**

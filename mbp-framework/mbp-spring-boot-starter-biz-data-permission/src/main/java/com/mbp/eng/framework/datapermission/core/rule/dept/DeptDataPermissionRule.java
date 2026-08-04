@@ -33,10 +33,10 @@ import java.util.Set;
 /**
  * 基于部门的 {@link DataPermissionRule} 数据权限规则实现
  *
- * 注意,使用 DeptDataPermissionRule 时,需要保证表中有 dept_id 部门编号的字段,可自定义。
+ * 注意,使用 DeptDataPermissionRule 时,需要保证表中有 dept_id 部门编号的字段,可自定义.
  *
  * 实际业务场景下,会存在一个经典的问题？当用户修改部门时,冗余的 dept_id 是否需要修改？
- * 1. 一般情况下,dept_id 不进行修改,则会导致用户看不到之前的数据。【mbp-server 采用该方案】
+ * 1. 一般情况下,dept_id 不进行修改,则会导致用户看不到之前的数据.【mbp-server 采用该方案】
  * 2. 部分情况下,希望该用户还是能看到之前的数据,则有两种方式解决:【需要你改造该 DeptDataPermissionRule 的实现代码】
  *  1）编写洗数据的脚本,将 dept_id 修改成新部门的编号；【建议】
  *      最终过滤条件是 WHERE dept_id = ?
@@ -61,7 +61,7 @@ public class DeptDataPermissionRule implements DataPermissionRule {
 
     /**
      * 基于部门的表字段配置
-     * 一般情况下,每个表的部门编号字段是 dept_id,通过该配置自定义。
+     * 一般情况下,每个表的部门编号字段是 dept_id,通过该配置自定义.
      *
      * key:表名
      * value:字段名
@@ -69,7 +69,7 @@ public class DeptDataPermissionRule implements DataPermissionRule {
     private final Map<String, String> deptColumns = new HashMap<>();
     /**
      * 基于用户的表字段配置
-     * 一般情况下,每个表的部门编号字段是 dept_id,通过该配置自定义。
+     * 一般情况下,每个表的部门编号字段是 dept_id,通过该配置自定义.
      *
      * key:表名
      * value:字段名
@@ -139,7 +139,7 @@ public class DeptDataPermissionRule implements DataPermissionRule {
         if (userExpression == null) {
             return deptExpression;
         }
-        // 目前,如果有指定部门 + 可查看自己,采用 OR 条件。即,WHERE (dept_id IN ? OR user_id = ?)
+        // 目前,如果有指定部门 + 可查看自己,采用 OR 条件.即,WHERE (dept_id IN ? OR user_id = ?)
         return new ParenthesedExpressionList(new OrExpression(deptExpression, userExpression));
     }
 

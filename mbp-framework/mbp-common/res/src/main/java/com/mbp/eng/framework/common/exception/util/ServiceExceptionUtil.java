@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * {@link ServiceException} 工具类
  *
- * 目的在于,格式化异常信息提示。
+ * 目的在于,格式化异常信息提示.
  * 考虑到 String.format 在参数不正确时会报错,因此使用 {} 作为占位符,并使用 {@link #doFormat(int, String, Object...)} 方法来格式化
  *
  */
@@ -38,7 +38,7 @@ public class ServiceExceptionUtil {
     // ========== 格式化方法 ==========
 
     /**
-     * 将错误编号对应的消息使用 params 进行格式化。
+     * 将错误编号对应的消息使用 params 进行格式化.
      *
      * @param code           错误编号
      * @param messagePattern 消息模版

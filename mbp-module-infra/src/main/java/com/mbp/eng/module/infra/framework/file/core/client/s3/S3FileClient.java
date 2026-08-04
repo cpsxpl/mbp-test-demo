@@ -148,7 +148,7 @@ public class S3FileClient extends AbstractFileClient<S3FileClientConfig> {
         if (HttpUtil.isHttp(config.getEndpoint()) || HttpUtil.isHttps(config.getEndpoint())) {
             return StrUtil.format("{}/{}", config.getEndpoint(), config.getBucket());
         }
-        // 阿里云、腾讯云、华为云都适合。七牛云比较特殊,必须有自定义域名
+        // 阿里云、腾讯云、华为云都适合.七牛云比较特殊,必须有自定义域名
         return StrUtil.format("https://{}.{}", config.getBucket(), config.getEndpoint());
     }
 

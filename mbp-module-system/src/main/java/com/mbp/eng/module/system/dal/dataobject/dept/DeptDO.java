@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  * 部门表
  */
 @TableName("system_dept")
-@KeySequence("system_dept_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库,可不写。
+@KeySequence("system_dept_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增.如果是 MySQL 等数据库,可不写.
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class DeptDO extends TenantBaseDO {

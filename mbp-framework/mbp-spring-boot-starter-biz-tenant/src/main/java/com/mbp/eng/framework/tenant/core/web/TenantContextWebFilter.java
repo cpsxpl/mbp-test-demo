@@ -16,7 +16,7 @@ import java.io.IOException;
 
 /**
  * 多租户 Context Web 过滤器
- * 将请求 Header 中的 tenant-id 解析出来,添加到 {@link TenantContextHolder} 中,这样后续的 DB 等操作,可以获得到租户编号。
+ * 将请求 Header 中的 tenant-id 解析出来,添加到 {@link TenantContextHolder} 中,这样后续的 DB 等操作,可以获得到租户编号.
  */
 public class TenantContextWebFilter extends OncePerRequestFilter {
     private static Logger logger = LoggerFactory.getLogger(TenantContextWebFilter.class);
