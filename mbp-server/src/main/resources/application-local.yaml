@@ -35,10 +35,10 @@ spring:
         initial-size: 1 # 初始连接数
         min-idle: 1 # 最小连接池数量
         max-active: 20 # 最大连接池数量
-        max-wait: 60000 # 配置获取连接等待超时的时间,单位：毫秒（1 分钟）
-        time-between-eviction-runs-millis: 60000 # 配置间隔多久才进行一次检测,检测需要关闭的空闲连接,单位：毫秒（1 分钟）
-        min-evictable-idle-time-millis: 600000 # 配置一个连接在池中最小生存的时间,单位：毫秒（10 分钟）
-        max-evictable-idle-time-millis: 1800000 # 配置一个连接在池中最大生存的时间,单位：毫秒（30 分钟）
+        max-wait: 60000 # 配置获取连接等待超时的时间,单位:毫秒（1 分钟）
+        time-between-eviction-runs-millis: 60000 # 配置间隔多久才进行一次检测,检测需要关闭的空闲连接,单位:毫秒（1 分钟）
+        min-evictable-idle-time-millis: 600000 # 配置一个连接在池中最小生存的时间,单位:毫秒（10 分钟）
+        max-evictable-idle-time-millis: 1800000 # 配置一个连接在池中最大生存的时间,单位:毫秒（30 分钟）
         validation-query: SELECT 1 FROM DUAL # 配置检测连接是否有效
         test-while-idle: true
         test-on-borrow: false
@@ -106,11 +106,11 @@ spring:
             instanceId: AUTO # 自动生成 instance ID
           # JobStore 相关配置
           jobStore:
-            # JobStore 实现类。可见博客：https://blog.csdn.net/weixin_42458219/article/details/122247162
+            # JobStore 实现类。可见博客:https://blog.csdn.net/weixin_42458219/article/details/122247162
             class: org.springframework.scheduling.quartz.LocalDataSourceJobStore
             isClustered: true # 是集群模式
-            clusterCheckinInterval: 15000 # 集群检查频率,单位：毫秒。默认为 15000,即 15 秒
-            misfireThreshold: 60000 # misfire 阀值,单位：毫秒。
+            clusterCheckinInterval: 15000 # 集群检查频率,单位:毫秒。默认为 15000,即 15 秒
+            misfireThreshold: 60000 # misfire 阀值,单位:毫秒。
           # 线程池相关配置
           threadPool:
             threadCount: 25 # 线程池大小。默认为 10 。
@@ -411,7 +411,7 @@ mbp:
   wxa-code:
     env-version: develop # 小程序版本: 正式版为 "release"；体验版为 "trial"；开发版为 "develop"
   wxa-subscribe-message:
-    miniprogram-state: developer # 跳转小程序类型：开发版为 “developer”；体验版为 “trial”为；正式版为 “formal”
+    miniprogram-state: developer # 跳转小程序类型:开发版为 “developer”；体验版为 “trial”为；正式版为 “formal”
   tencent-lbs-key: TVDBZ-TDILD-4ON4B-PFDZA-RNLKH-VVF6E # QQ 地图的密钥 https://lbs.qq.com/service/staticV2/staticGuide/staticDoc
 
 justauth:
